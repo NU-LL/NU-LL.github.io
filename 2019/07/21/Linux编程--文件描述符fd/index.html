@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Hello World | 无名氏</title>
-  <meta name="keywords" content>
-  <meta name="description" content="Hello World | 无名氏">
+  <title>Linux编程--文件描述符fd | 无名氏</title>
+  <meta name="keywords" content=" 文件描述符 ">
+  <meta name="description" content="Linux编程--文件描述符fd | 无名氏">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="关于">
 <meta property="og:type" content="website">
@@ -307,24 +307,36 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Linux编程--文件描述符fd" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Hello World</h1>
+        <h1 class="article-title">Linux编程--文件描述符fd</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Linux">Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color1">文件描述符</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-07-21 23:16:56'>2019-07-21 23:16</time>
+        创建时间:<time class="date" title='更新时间: 2019-07-21 23:44:12'>2019-07-21 10:13</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:75</span>
+        <span>字数:423</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -343,7 +355,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux编程–文件描述符fd"><span class="toc-text">Linux编程–文件描述符fd</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -358,15 +370,20 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="Linux编程–文件描述符fd"><a href="#Linux编程–文件描述符fd" class="headerlink" title="Linux编程–文件描述符fd"></a>Linux编程–文件描述符fd</h1><p> linux中， 每一个进程在内核中，都对应有一个“打开文件”数组，存放指向文件对象的指针，而 <strong>fd 是这个数组的下标</strong>。</p>
+<p>​    我们对文件进行操作时，系统调用，将fd传入内核，内核通过fd找到文件，对文件进行操作。</p>
+<p>​    既然是数组下标，<strong>fd的类型为int， &lt; 0 为非法值， &gt;=0 为合法值</strong>。在linux中，一个进程默认可以打开的文件数为1024个，fd的范围为0~1023。可以通过设置，改变最大值。</p>
+<p>​    <strong>在linux中，值为0、1、2的fd，分别代表标准输入、标准输出、标准错误输出</strong>。在上一篇文章中，使用重定向 2&gt;/dev/null 就是把标准错误输出重定向到位桶中去，不显示出来。因为 0 1 2已经被linux使用了，通常在程序中打开的fd，是从3开始的。但我们在判断一个fd是否合法时，<strong>依然要使用&gt;=0的判断标准</strong>。</p>
+<p>​    <strong>fd的分配原则，是从小到大，找到第一个不用的进行分配</strong>。</p>
+<p>​    除了open之外， socket编程的socket()/accept()等函数，也会返回一个fd值。</p>
+<p>​    1）Linux系统下，所有进程允许打开的最大fd数量。查询语句：</p>
+<pre><code class="bash">cat /proc/sys/fs/file-max</code></pre>
+<p>​    2）Linux系统下，所有进程已经打开的fd数量及允许的最大数量。查询语句：</p>
+<pre><code class="bash">cat /proc/sys/fs/file-nr</code></pre>
+<p>​    3）单个进程允许打开的最大fd数量.查询语句：</p>
+<pre><code class="bash">ulimit -n</code></pre>
+<p>​    4)单个进程（例如进程id为5454）已经打开的fd.查询语句：</p>
+<pre><code class="bash">ls -l /proc/5454/fd/</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1125934312@qq.com </span>
@@ -376,12 +393,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Hello World</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">75</span></p>
+    <p><span class="copy-title">文章标题:</span>Linux编程--文件描述符fd</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">423</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-21, 23:16:56</p>
-    <p><span class="copy-title">最后更新:</span>2019-07-21, 23:16:56</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/21/hello-world/" title="Hello World">http://yoursite.com/2019/07/21/hello-world/</a>
+    <p><span class="copy-title">发布时间:</span>2019-07-21, 10:13:47</p>
+    <p><span class="copy-title">最后更新:</span>2019-07-21, 23:44:12</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/21/Linux编程--文件描述符fd/" title="Linux编程--文件描述符fd">http://yoursite.com/2019/07/21/Linux编程--文件描述符fd/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

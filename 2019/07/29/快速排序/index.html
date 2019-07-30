@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>about | 无名氏</title>
-  <meta name="keywords" content>
-  <meta name="description" content="about | 无名氏">
+  <title>快速排序 | 无名氏</title>
+  <meta name="keywords" content=" 快速排序 ">
+  <meta name="description" content="快速排序 | 无名氏">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="关于">
 <meta property="og:type" content="website">
@@ -335,24 +335,36 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-快速排序" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">about</h1>
+        <h1 class="article-title">快速排序</h1>
     
     <div class="article-meta">
         
         
         
+        <span class="book">
+            
+                <a href="javascript:" data-rel="算法">算法</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">快速排序</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-07-21 22:30:10'>2019-07-21 22:29</time>
+        创建时间:<time class="date" title='更新时间: 2019-07-29 22:32:15'>2019-07-29 22:27</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:2</span>
+        <span>字数:974</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -371,7 +383,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于"><span class="toc-text">关于</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -386,13 +398,144 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h1>
+        <p><strong>描述:</strong></p>
+<p>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以<a href="https://baike.baidu.com/item/递归" target="_blank" rel="noopener">递归</a>进行，以此达到整个数据变成有序<a href="https://baike.baidu.com/item/序列/1302588" target="_blank" rel="noopener">序列</a>。</p>
+<p>快速排序 的平均时间复杂度为O(NlogN),是冒泡排序的一种改进版。</p>
+<p><strong>方法:快速排序主要采用“二分”的思想,步骤如下:</strong></p>
+<p>1)  设置两个变量i、j，<a href="https://baike.baidu.com/item/排序" target="_blank" rel="noopener">排序</a>开始的时候：i=0，j=n-1；</p>
+<p>2）待排序数组的第一个数组值s[0]作为比较值，首先保存到temp中，即temp=s[0]；</p>
+<p>3）然后j– ,向前搜索,找到小于temp后,因为s[i]的值保存在temp中,所以直接赋值,s[i]=s[j]</p>
+<p>4）然后i++,向后搜索,找到大于temp后,因为s[j]的值保存在第2步的s[i]中,所以直接赋值,s[j]=s[i],然后j–,避免死循环</p>
+<p>5）重复第3、4步，直到i=j,最后将temp值返回s[i]中</p>
+<p>6)  然后采用“二分”的思想,以i为分界线,拆分成两个数组 s[0,i-1]、s[i+1,n-1]又开始排序</p>
+<p><strong>如下图,以数组 6 4 7 1 2为例:</strong></p>
+<p><img src="//NU-LL.github.io/2019/07/29/快速排序/1182576-20170926154540323-363735898.png" alt="快速排序"></p>
+<p><strong>代码如下:</strong></p>
+<pre><code class="c">#include &quot;stdio.h&quot;
+void find_frst(int *s,int left,int right)
+{
+    int i=left,j=right,temp;  //(1)初始化i、j    
+    if(left&gt;=right) 
+     return ;
+    temp=s[i];                //(2)以第一个数组为比较值,保存到temp中 
+    while(i&lt;j)
+    {    
+      while(j&gt;i&amp;&amp;s[j]&gt;=temp)  //(3)j--,找小值 
+      j--;
+      s[i]= s[j];             //保存小值,到s[i]上 
+
+      while(i&lt;j&amp;&amp;s[i]&lt;=temp)  //(4)i++,找大值 
+      i++;
+      s[j--]=s[i];            //保存大值 到s[j]上 
+    }
+    s[i]=temp;             //(5)将比较值放在s[i]上 
+
+  /*(6)拆分成两个数组 s[0,i-1]、s[i+1,n-1]又开始排序 */
+  find_frst(s,left,i-1);         //左
+  find_frst(s,i+1,right);        //右     
+}
+int main()
+{
+    int i=0,s[100],n;
+    scanf(&quot;%d&quot;,&amp;n);   　　　　　//输入数组长度
+    for(i=0;i&lt;n;i++)
+    scanf(&quot;%d&quot;,&amp;s[i]);    
+    find_frst(s,0,n-1);  
+    for(i=0;i&lt;n;i++)
+    printf(&quot;%d &quot;,s[i]);      //打印
+    printf(&quot;\n&quot;);
+}</code></pre>
+<p>既然有了排序,那么还有可能用到查找,在有序条件下,当然用二分查找快咯,即简单又速度快</p>
+<p><strong>代码如下:</strong></p>
+<pre><code class="c">#include &quot;stdio.h&quot;
+
+/*快速排序  */
+void find_frst(int *s,int left,int right)
+{
+    int i=left,j=right,temp;  //(1)初始化i、j    
+    if(left&gt;=right) 
+     return ;
+    temp=s[i];                //(2)以第一个数组为比较值,保存到temp中 
+    while(i&lt;j)
+    {    
+      while(j&gt;i&amp;&amp;s[j]&gt;=temp)  //(3)j--,找小值 
+      j--;
+      s[i]= s[j];             //保存小值,到s[i]上 
+
+      while(i&lt;j&amp;&amp;s[i]&lt;=temp)  //(4)i++,找大值 
+      i++;
+      s[j--]=s[i];            //保存大值 到s[j]上 
+    }
+    s[i]=temp;             //(5)将比较值放在s[i]上 
+
+  /*(6)拆分成两个数组 s[0,i-1]、s[i+1,n-1]又开始排序 */
+  find_frst(s,left,i-1);         //左
+  find_frst(s,i+1,right);        //右     
+}
+
+
+/*二分查找 
+ *s[]:数组        size:数组个数   cmp:需要比较的数字     
+ *返回值:表示数组的第几个,返回-1表示没有找到 
+ */
+int binary_query(const int* s, int size, int cmp)  
+{  
+    int low = 0;  
+    int high = size-1;
+    int mid;              //中间值 
+    while(low&lt;=high)  
+    {  
+        mid = (low+high)/2;  
+        if(s[mid] == cmp)  
+            return mid;  
+        else if(s[mid] &gt; cmp)  
+            high = mid-1;  
+        else  
+            low = mid+1;  
+    }  
+    return -1;  
+}  
+
+int main()
+{
+    int i=0,s[100],n,tmp,index;    
+    scanf(&quot;%d&quot;,&amp;n);             //输入：数组长度 
+    for(i=0;i&lt;n;i++)
+    scanf(&quot;%d&quot;,&amp;s[i]);        //输入：数组数据 
+    find_frst(s,0,n-1);
+
+    printf(&quot;find_frst:\n&quot;,s[i]);       
+    for(i=0;i&lt;n;i++)    
+    printf(&quot;%d &quot;,s[i]);      //打印：有序数组 
+    printf(&quot;\n&quot;);
+
+    scanf(&quot;%d&quot;,&amp;tmp);             //输入：要查找的数据
+    index=binary_query(s,n,tmp);
+    if(index&lt;0)    
+    printf(&quot;ERR,The value is not querying\n&quot;);    
+    else
+    printf(&quot;index=%d\n&quot;,index);
+
+}</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1125934312@qq.com </span>
     </div>
 </article>
 
 
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>快速排序</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">974</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-07-29, 22:27:34</p>
+    <p><span class="copy-title">最后更新:</span>2019-07-29, 22:32:15</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/29/快速排序/" title="快速排序">http://NU-LL.github.io/2019/07/29/快速排序/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
 

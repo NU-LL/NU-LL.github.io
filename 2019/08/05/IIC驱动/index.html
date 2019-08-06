@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>IIC驱动 | 无名氏</title>
+  <meta name="keywords" content=" IIC驱动 ">
+  <meta name="description" content="IIC驱动 | 无名氏">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://NU-LL.github.io/about/index.html">
+<meta property="og:site_name" content="无名氏">
+<meta property="og:description" content="关于">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-21T14:30:10.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="关于">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1" rel="stylesheet">
+
+<link href="/css/hl_theme/github.css?v=1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>NU-LL</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/NU-LL" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/CSDN_JZ_" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:1125934312@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=1125934312&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=323374922" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(11)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(8)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="感悟与总结">感悟与总结<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="11">
+<input type="hidden" id="yelog_site_word_count" value="31.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://github.com/NU-LL">NU-LL</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">DM9000C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网卡移植</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">IIC驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">文件描述符</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">二维数组</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">指针</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">等待队列</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_head_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">快速排序</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">按键驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">poll机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">异步通知机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">网卡驱动框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">虚拟网卡</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">输入子系统</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Linux "
+           href="/2019/08/04/DM9000C网卡移植/"
+           data-tag="DM9000C,网卡移植"
+           data-author="" >
+            <span class="post-title" title="DM9000C网卡移植">DM9000C网卡移植</span>
+            <span class="post-date" title="2019-08-04 23:07:22">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/05/IIC驱动/"
+           data-tag="IIC驱动"
+           data-author="" >
+            <span class="post-title" title="IIC驱动">IIC驱动</span>
+            <span class="post-date" title="2019-08-05 14:39:10">2019/08/05</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/07/12/Markdown 语法整理/"
+           data-tag="Markdown"
+           data-author="" >
+            <span class="post-title" title="Markdown 语法整理">Markdown 语法整理</span>
+            <span class="post-date" title="2019-07-12 13:57:24">2019/07/12</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/Linux编程--文件描述符fd/"
+           data-tag="文件描述符"
+           data-author="" >
+            <span class="post-title" title="Linux编程--文件描述符fd">Linux编程--文件描述符fd</span>
+            <span class="post-date" title="2019-07-21 10:13:47">2019/07/21</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/06/二维数组与指针的一些问题/"
+           data-tag="二维数组,指针"
+           data-author="" >
+            <span class="post-title" title="二维数组与指针的一些问题">二维数组与指针的一些问题</span>
+            <span class="post-date" title="2019-08-06 13:11:26">2019/08/06</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/linux等待队列wait_queue_head_t和wait_queue_t/"
+           data-tag="等待队列,wait_queue_head_t,wait_queue_t"
+           data-author="" >
+            <span class="post-title" title="linux等待队列wait_queue_head_t和wait_queue_t">linux等待队列wait_queue_head_t和wait_queue_t</span>
+            <span class="post-date" title="2019-07-21 18:18:54">2019/07/21</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2019/07/29/快速排序/"
+           data-tag="快速排序"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-07-29 22:27:34">2019/07/29</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/按键驱动——poll机制/"
+           data-tag="按键驱动,poll机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动——poll机制">按键驱动——poll机制</span>
+            <span class="post-date" title="2019-07-21 20:30:38">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/22/按键驱动：异步通知机制/"
+           data-tag="按键驱动,异步通知机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动：异步通知机制">按键驱动：异步通知机制</span>
+            <span class="post-date" title="2019-07-22 19:04:24">2019/07/22</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/04/网卡驱动程序/"
+           data-tag="网卡驱动框架,虚拟网卡"
+           data-author="" >
+            <span class="post-title" title="网卡驱动程序">网卡驱动程序</span>
+            <span class="post-date" title="2019-08-04 21:24:07">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/25/输入子系统/"
+           data-tag="按键驱动,输入子系统"
+           data-author="" >
+            <span class="post-title" title="输入子系统">输入子系统</span>
+            <span class="post-date" title="2019-07-25 00:05:15">2019/07/25</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-IIC驱动" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">IIC驱动</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Linux">Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color1">IIC驱动</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-06 23:52:00'>2019-08-05 14:39</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:8.1k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux之IIC驱动"><span class="toc-text">Linux之IIC驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、IIC接口下的24C02-驱动分析"><span class="toc-text">一、IIC接口下的24C02 驱动分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、I2C通信介绍"><span class="toc-text">1、I2C通信介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、I2C总线系统结构-如下所示"><span class="toc-text">2、I2C总线系统结构,如下所示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、I2C时序介绍"><span class="toc-text">3、I2C时序介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-空闲状态"><span class="toc-text">1)空闲状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-起始信号"><span class="toc-text">2)起始信号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-停止信号"><span class="toc-text">3)停止信号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-传输数据格式"><span class="toc-text">4)传输数据格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-应答信号ACK"><span class="toc-text">5)应答信号ACK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-完整的数据传输"><span class="toc-text">6)完整的数据传输</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、AT24C02介绍"><span class="toc-text">4、AT24C02介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1、原理图"><span class="toc-text">4.1、原理图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2、AT24C02的数据格式"><span class="toc-text">4.2、AT24C02的数据格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3、AT24C02的设备地址"><span class="toc-text">4.3、AT24C02的设备地址</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-1、为什么需要page页地址？"><span class="toc-text">4.3.1、为什么需要page页地址？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-3-2、对于AT24C02"><span class="toc-text">4.3.2、对于AT24C02</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、AT24C02时序图介绍"><span class="toc-text">5、AT24C02时序图介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1、写时序介绍"><span class="toc-text">5.1、写时序介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2、读时序介绍"><span class="toc-text">5.2、读时序介绍</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Linux下IIC驱动分析"><span class="toc-text">二、Linux下IIC驱动分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、I2C体系结构分析"><span class="toc-text">1、I2C体系结构分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1、driver-i2c目录"><span class="toc-text">1.1、driver/i2c目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2、I2C驱动架构"><span class="toc-text">1.2、I2C驱动架构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、分析I2C总线驱动i2c-s3c2410-c"><span class="toc-text">2、分析I2C总线驱动i2c-s3c2410.c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、s3c24xx-i2c-probe-分析"><span class="toc-text">3、s3c24xx_i2c_probe()分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、i2c-add-adapter-函数分析"><span class="toc-text">4、i2c_add_adapter()函数分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、s3c24xx-i2c的结构体成员分析"><span class="toc-text">5、s3c24xx_i2c的结构体成员分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、分析I2C设备驱动eeprom-c"><span class="toc-text">6、分析I2C设备驱动eeprom.c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7、i2c-add-driver-函数分析"><span class="toc-text">7、i2c_add_driver()函数分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8、i2c-driver-gt-attach-adapter-函数分析"><span class="toc-text">8、i2c_driver -&gt;attach_adapter()函数分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-1、i2c-probe-函数分析"><span class="toc-text">8.1、i2c_probe()函数分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2、i2c-probe-address-函数分析"><span class="toc-text">8.2、i2c_probe_address()函数分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3、i2c-smbus-xfer-函数分析"><span class="toc-text">8.3、i2c_smbus_xfer()函数分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4、i2c-smbus-xfer-emulated-函数分析"><span class="toc-text">8.4、i2c_smbus_xfer_emulated()函数分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-5、总结"><span class="toc-text">8.5、总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9、注册i2c-client从设备"><span class="toc-text">9、注册i2c_client从设备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1、回调函数eeprom-detect-分析"><span class="toc-text">9.1、回调函数eeprom_detect()分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10、24C02驱动及测试程序的编写"><span class="toc-text">10、24C02驱动及测试程序的编写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11、测试运行"><span class="toc-text">11、测试运行</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux之IIC驱动"><a href="#Linux之IIC驱动" class="headerlink" title="Linux之IIC驱动"></a>Linux之IIC驱动</h1><h2 id="一、IIC接口下的24C02-驱动分析"><a href="#一、IIC接口下的24C02-驱动分析" class="headerlink" title="一、IIC接口下的24C02 驱动分析"></a>一、IIC接口下的24C02 驱动分析</h2><h3 id="1、I2C通信介绍"><a href="#1、I2C通信介绍" class="headerlink" title="1、I2C通信介绍"></a>1、I2C通信介绍</h3><p>它是由数据线SDA和时钟SCL构成的串行总线，可发送和接收数据，是一个多主机的半双工通信方式</p>
+<p>每个挂接在总线上的器件都有个唯一的地址</p>
+<p>位速在标准模式下可达 100kbit/s，在快速模式下可达400kbit/s，在高速模式下可待3.4Mbit/s。</p>
+<h3 id="2、I2C总线系统结构-如下所示"><a href="#2、I2C总线系统结构-如下所示" class="headerlink" title="2、I2C总线系统结构,如下所示"></a>2、I2C总线系统结构,如下所示</h3><p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160056575-1544374794.png" alt="I2C总线系统结构"> </p>
+<p>其中SCL时钟线的频率由主机提供,且从机不能主动来引起数据传输,必须等待主机先发信号才行</p>
+<p>两个或多个主机同时发起数据传输时，可以通过冲突检测和仲裁来防止数据被破坏。</p>
+<h3 id="3、I2C时序介绍"><a href="#3、I2C时序介绍" class="headerlink" title="3、I2C时序介绍"></a>3、I2C时序介绍</h3><h4 id="1-空闲状态"><a href="#1-空闲状态" class="headerlink" title="1)空闲状态"></a>1)空闲状态</h4><p>当总线上的SDA和SCL两条信号线同时处于高电平,便是空闲状态,如上面的硬件图所示,当我们不传输数据时, SDA和SCL被上拉电阻拉高,即进入空闲状态</p>
+<h4 id="2-起始信号"><a href="#2-起始信号" class="headerlink" title="2)起始信号"></a>2)起始信号</h4><p>当SCL为高期间，SDA由高到低的跳变；便是总线的启动信号,只能由主机发起,且在空闲状态下才能启动该信号,如下图所示：</p>
+<p> <img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160104794-1546406489.png" alt="起始信号"></p>
+<h4 id="3-停止信号"><a href="#3-停止信号" class="headerlink" title="3)停止信号"></a>3)停止信号</h4><p>当SCL为高期间，SDA由低到高的跳变；便是总线的停止信号,表示数据已传输完成,如下图所示：</p>
+<p> <img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160108247-2041083640.png" alt="停止信号"></p>
+<h4 id="4-传输数据格式"><a href="#4-传输数据格式" class="headerlink" title="4)传输数据格式"></a>4)传输数据格式</h4><p>当发了起始信号后,就开始传输数据,传输的数据格式如下图所示:</p>
+<p>当SCL为高电平时,便会获取SDA数据值,其中SDA数据必须是稳定的(若SDA不稳定就会变成起始/停止信号)</p>
+<p>当SCL为低电平时,便是SDA的电平变化状态</p>
+<p>若主从机在传输数据期间,需要完成其它功能(例如一个中断),可以主动拉低SCL,使I2C进入等待状态,直到处理结束再释放SCL,数据传输会继续</p>
+<p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160112700-1908810180.png" alt="传输数据格式"></p>
+<h4 id="5-应答信号ACK"><a href="#5-应答信号ACK" class="headerlink" title="5)应答信号ACK"></a>5)应答信号ACK</h4><p>I2C总线上的数据都是以8位数据(字节)进行的,当发送了8个数据后,发送方会在第9个时钟脉冲期间释放SDA数据,当接收方接收该字节成功,便会输出一个ACK应答信号,当SDA为高电平,表示为非应答信号NACK,当SDA为低电平,表示为有效应答信号ACK</p>
+<blockquote>
+<p>当<strong>主机为接收方</strong>时,收到最后一个字节后,主机可以不发送ACK,直接发送停止信号来结束传输。</p>
+</blockquote>
+<blockquote>
+<p>当<strong>从机为接收方</strong>时,没有发送ACK,则表示从机可能在忙其它事、或者不匹配地址信号和不支持多主机发送,主机可以发送停止信号再次发送起始信号启动新的传输</p>
+</blockquote>
+<p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160125278-134312409.png" alt="应答信号"></p>
+<blockquote>
+<p>并非每传输8位数据之后，都会有ACK信号，有以下3种例外。</p>
+<ul>
+<li>当从机不能响应从机地址时（例如它正忙于其他事而无法响应I2C总线的操作，或者这个地址没有对应的从机），在第9个SCL周期内SDA线没有被拉低，即没有ACK信号。<br>  这时，主机发出一个P信号终止传输或者重新发出一个S信号开始新的传输。</li>
+<li>如果从机接收器在传输过程中不能接收更多的数据时，它也不会发出ACK信号。这样，主机就可以意识到这点，从而发出一个P信号终止传输或者重新发出一个S信号开始新的传输。</li>
+<li>主机接收器在接收到最后一个字节后，也不会发出ACK信号。于是，从机发送器释放SDA线，以允许主机发出P信号结束传输。</li>
+</ul>
+</blockquote>
+<h4 id="6-完整的数据传输"><a href="#6-完整的数据传输" class="headerlink" title="6)完整的数据传输"></a>6)完整的数据传输</h4><p>如下图所示, 发送起始信号后,便发送一个8位的设备地址,其中第8位是对设备的读写标志,后面紧跟着的就是数据了,直到发送停止信号终止</p>
+<blockquote>
+<p>当我们第一次是读操作,然后想换成写操作时,可以再次发送一个起始信号,然后发送读的设备地址,不需要停止信号便能实现不同的地址转换</p>
+</blockquote>
+<p> <img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160141888-898822484.png" alt="完整的数据传输"></p>
+<h3 id="4、AT24C02介绍"><a href="#4、AT24C02介绍" class="headerlink" title="4、AT24C02介绍"></a>4、AT24C02介绍</h3><p>AT24C02是通过I2C实现通讯的,是一个存储芯片,能够存储2Kb(256KB*8)数据</p>
+<h4 id="4-1、原理图"><a href="#4-1、原理图" class="headerlink" title="4.1、原理图"></a>4.1、原理图</h4><p> <img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160159731-872248298.png" alt="原理图"></p>
+<p>其中A2~A0,是这个24C02设备的硬件地址,接GND表示硬件地址都为0</p>
+<h4 id="4-2、AT24C02的数据格式"><a href="#4-2、AT24C02的数据格式" class="headerlink" title="4.2、AT24C02的数据格式"></a>4.2、AT24C02的数据格式</h4><p>如下所示:</p>
+<p> <img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160208825-938746051.png" alt="数据格式"></p>
+<h4 id="4-3、AT24C02的设备地址"><a href="#4-3、AT24C02的设备地址" class="headerlink" title="4.3、AT24C02的设备地址"></a>4.3、AT24C02的设备地址</h4><p> 打开AT24C02数据手册,它的设备地址如下图所示：<br><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160235434-519181103.png" alt="设备地址"></p>
+<p>其中A2~A1表示硬件地址，P2~P0表示page页地址</p>
+<p>bit[0]地址:表示读/写状态,1:读,0:写 </p>
+<blockquote>
+<p>所有I2C器件都是这样,最低位表示方向位</p>
+</blockquote>
+<h5 id="4-3-1、为什么需要page页地址？"><a href="#4-3-1、为什么需要page页地址？" class="headerlink" title="4.3.1、为什么需要page页地址？"></a>4.3.1、为什么需要page页地址？</h5><p>因为I2C的数据位是8位,而AT24CXX的读写地址值最大可以为2048(2^11^),超过了I2C的数据位</p>
+<p>而page页地址就是用来解决这个问题的</p>
+<p><strong>比如AT24C16:</strong></p>
+<blockquote>
+<p>当发送:0XA2(设备地址P[2:0]=0x01) ,0x00(读地址)时:</p>
+<p>表示要读的真正地址=0x01(页地址)*256+0(读地址)=0x100,转化为二进制= 1 0000 0000</p>
+</blockquote>
+<blockquote>
+<p>当发送:0XA0(设备地址), 0x00(读地址)时:</p>
+<p>表示要读的真正地址=0x00*256+0xFF=0xFF，转化为二进制= 0 1111 1111</p>
+</blockquote>
+<h5 id="4-3-2、对于AT24C02"><a href="#4-3-2、对于AT24C02" class="headerlink" title="4.3.2、对于AT24C02"></a>4.3.2、对于AT24C02</h5><ul>
+<li>芯片的容量小于等于2^8(256)字节,那么读写地址就用8bit来表示,所以设备地址里没有P2~P0</li>
+<li>读操作时,发送的设备地址等于0XA1</li>
+<li>写操作时,发送的设备地址等于0XA0</li>
+</ul>
+<h3 id="5、AT24C02时序图介绍"><a href="#5、AT24C02时序图介绍" class="headerlink" title="5、AT24C02时序图介绍"></a>5、AT24C02时序图介绍</h3><h4 id="5-1、写时序介绍"><a href="#5-1、写时序介绍" class="headerlink" title="5.1、写时序介绍"></a>5.1、写时序介绍</h4><p> <img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160251747-176931382.png" alt="写时序"></p>
+<p>当随机写一个字节时,只需要先发送一个起始信号,然后跟上0XA0设备地址,以及要写的起始地址值,后面便是要写入地址的data,如果需要连续写数据,只需要连续写入data,地址会自动加1,直到发送停止信号结束</p>
+<h4 id="5-2、读时序介绍"><a href="#5-2、读时序介绍" class="headerlink" title="5.2、读时序介绍"></a>5.2、读时序介绍</h4><p> <img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171106160301450-1538334264.png" alt="读时序"></p>
+<p>当随机读一个字节时,先发送第一个起始信号,然后写入0XA0设备地址和要读的地址值,</p>
+<p>接着发送第二个起始信号,然后写入0XA1设备地址,接着就是要读的data,如果需要连续读数据,只需要连续读出data,地址会自动加1,直到发送停止信号结束</p>
+<h2 id="二、Linux下IIC驱动分析"><a href="#二、Linux下IIC驱动分析" class="headerlink" title="二、Linux下IIC驱动分析"></a>二、Linux下IIC驱动分析</h2><h3 id="1、I2C体系结构分析"><a href="#1、I2C体系结构分析" class="headerlink" title="1、I2C体系结构分析"></a>1、I2C体系结构分析</h3><h4 id="1-1、driver-i2c目录"><a href="#1-1、driver-i2c目录" class="headerlink" title="1.1、driver/i2c目录"></a>1.1、driver/i2c目录</h4><p>进入linux内核的driver/i2c目录下，其中重要的文件介绍如下:</p>
+<ul>
+<li><p><strong>1)algos文件夹(algorithms)</strong></p>
+<p>  里面保存I2C的通信方面的算法</p>
+</li>
+<li><p><strong>2)busses文件夹</strong></p>
+<p>  里面保存I2C总线驱动相关的文件,比如i2c-omap.c、 i2c-versatile.c、 i2c-s3c2410.c等。</p>
+</li>
+<li><p><strong>3) chips文件夹</strong></p>
+<p>  里面保存I2C设备驱动相关的文件,比如m41t00.c就是RTC实时钟</p>
+</li>
+<li><p><strong>4) i2c-core.c</strong><br>  这个文件实现了I2C核心的功能(I2C总线的初始化、注册和适配器添加和注销等相关工作)以及/proc/bus/i2c*接口。</p>
+</li>
+<li><p><strong>5) i2c-dev.c</strong><br>  提供了通用的read() 、write()和ioctl()等接口，实现了I2C适配器设备文件的功能，其中I2C设备的主设备号都为89， 次设备号为0~255。<br>  应用层可以借用这些接口访问挂接在适配器上的I2C设备的存储空间或寄存器， 并控制I2C设备的工作方式</p>
+</li>
+</ul>
+<p>显然,它和前几次驱动类似， I2C也分为总线驱动和设备驱动,总线就是协议相关的，它知道如何收发数据，但不知道数据含义，设备驱动却知道数据含义</p>
+<h4 id="1-2、I2C驱动架构"><a href="#1-2、I2C驱动架构" class="headerlink" title="1.2、I2C驱动架构"></a>1.2、I2C驱动架构</h4><p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171110194431294-567878229.png" alt="I2C驱动架构"></p>
+<p>如上图所示，每一条I2C对应一个adapter适配器（可以理解为插槽，就是利用之前的dev-bus-drv模型改的，属于之前的dev设备模型），在kernel中，adapter适配器是通过struct adapter结构体定义，主要是通过i2c core层将i2c设备与i2c adapter关联起来。</p>
+<p>在kernel中提供了两个adapter注册接口，分别为<strong>i2c_add_adapter()</strong>和<strong>i2c_add_numbered_adapter()</strong>。由于在系统中可能存在多个adapter，因为将每一条I2C总线对应一个编号，下文中称为<strong>I2C总线号</strong>。这个总线号和PCI中的总线号不同。它<u>和硬件无关</u>，只是软件上便于区分而已。</p>
+<p>对于i2c_add_adapter()而言，它使用的是动态总线号，即由系统给其分析一个总线号，而i2c_add_numbered_adapter()则是自己指定总线号，如果这个总线号非法或者是被占用，就会注册失败。</p>
+<h3 id="2、分析I2C总线驱动i2c-s3c2410-c"><a href="#2、分析I2C总线驱动i2c-s3c2410-c" class="headerlink" title="2、分析I2C总线驱动i2c-s3c2410.c"></a>2、分析I2C总线驱动<code>i2c-s3c2410.c</code></h3><blockquote>
+<p>参考drivers/i2c/busses/i2c-s3c2410.c</p>
+</blockquote>
+<p>先进入init入口函数,如下所示：</p>
+<pre><code class="c">static struct platform_driver s3c2440_i2c_driver = {
+    .probe        = s3c24xx_i2c_probe,
+    .remove        = s3c24xx_i2c_remove,
+    .resume        = s3c24xx_i2c_resume,
+    .driver        = {
+        .owner    = THIS_MODULE,
+        .name    = &quot;s3c2440-i2c&quot;,//driver名字
+    },
+};
+
+static int __init i2c_adap_s3c_init(void)
+{
+    int ret;
+
+    ret = platform_driver_register(&amp;s3c2410_i2c_driver);
+    if (ret == 0) {
+        ret = platform_driver_register(&amp;s3c2440_i2c_driver);//注册平台驱动s3c2440_i2c_driver
+        if (ret)
+            platform_driver_unregister(&amp;s3c2410_i2c_driver);
+    }
+
+    return ret;
+}</code></pre>
+<p>在init函数中，注册了一个 “s3c2440-i2c”的platform_driver平台驱动，当内核中有同名的平台设备时会调用platform_driver结构体的.probe成员函数，我们来看看probe函数做了些什么</p>
+<h3 id="3、s3c24xx-i2c-probe-分析"><a href="#3、s3c24xx-i2c-probe-分析" class="headerlink" title="3、s3c24xx_i2c_probe()分析"></a>3、s3c24xx_i2c_probe()分析</h3><pre><code class="c">struct i2c_adapter  adap;
+
+static int s3c24xx_i2c_probe(struct platform_device *pdev)
+{
+    struct s3c24xx_i2c *i2c = &amp;s3c24xx_i2c;
+    ... ...
+
+    /*获取,使能I2C时钟*/
+    i2c-&gt;clk = clk_get(&amp;pdev-&gt;dev, &quot;i2c&quot;);//获取i2c时钟
+    clk_enable(i2c-&gt;clk);                 //使能i2c时钟
+
+    ... ....
+    /*获取资源*/
+    res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+    i2c-&gt;regs = ioremap(res-&gt;start, (res-&gt;end-res-&gt;start)+1);
+
+    ... ....
+
+    /*设置i2c_adapter适配器结构体, 将i2c结构体设为adap的私有数据成员*/
+    i2c-&gt;adap.algo_data = i2c;          //i2c_adapter适配器指向s3c24xx_i2c;
+    i2c-&gt;adap.dev.parent = &amp;pdev-&gt;dev;
+
+
+    /* initialise the i2c controller */
+    /*初始化2440的I2C相关的寄存器*/
+    ret = s3c24xx_i2c_init(i2c);
+    if (ret != 0)
+        goto err_iomap;
+
+    ... ...
+    /*注册中断服务函数*/
+    ret = request_irq(res-&gt;start, s3c24xx_i2c_irq, IRQF_DISABLED,pdev-&gt;name, i2c);
+    ... ...
+
+    /*注册i2c_adapter适配器结构体*/
+    ret = i2c_add_adapter(&amp;i2c-&gt;adap);
+    ... ...
+}</code></pre>
+<p>其中i2c_adapter结构体是放在s3c24xx_i2c-&gt;adap下,如下所示:</p>
+<pre><code class="c">struct s3c24xx_i2c {
+    spinlock_t        lock;
+    wait_queue_head_t    wait;
+
+    struct i2c_msg        *msg;
+    unsigned int        msg_num;
+    unsigned int        msg_idx;
+    unsigned int        msg_ptr;
+
+    unsigned int        tx_setup;
+
+    enum s3c24xx_i2c_state    state;
+
+    void __iomem        *regs;
+    struct clk        *clk;
+    struct device        *dev;
+    struct resource        *irq;
+    struct resource        *ioarea;
+    struct i2c_adapter    adap;//i2c_adapter适配器结构体
+};</code></pre>
+<h3 id="4、i2c-add-adapter-函数分析"><a href="#4、i2c-add-adapter-函数分析" class="headerlink" title="4、i2c_add_adapter()函数分析"></a>4、i2c_add_adapter()函数分析</h3><p>该函数是注册i2c_adapter适配器结构体，这里我们来分析下他是如何进行注册的</p>
+<pre><code class="c">int i2c_add_adapter(struct i2c_adapter *adapter)
+{
+    int   id, res = 0;
+
+    retry:
+    if (idr_pre_get(&amp;i2c_adapter_idr, GFP_KERNEL) == 0) //调用idr_pre_get()为i2c_adapter预留内存空间
+        return -ENOMEM;
+
+    mutex_lock(&amp;core_lists);
+
+    /* &quot;above&quot; here means &quot;above or equal to&quot;, sigh */
+    res = idr_get_new_above(&amp;i2c_adapter_idr, adapter,__i2c_first_dynamic_bus_num, &amp;id);
+    //调用idr_get_new_above()将结构插入i2c_adapter_idr中,并将插入的位置赋给id,以后可以通过id在i2c_adapter_idr中找到相应的i2c_adapter结构体
+
+    mutex_unlock(&amp;core_lists);
+
+    if (res &lt; 0) {
+        if (res == -EAGAIN)
+            goto retry;
+        return res;
+    }
+    adapter-&gt;nr = id;
+    return i2c_register_adapter(adapter);  //调用i2c_register_adapter()函数进一步来注册.
+}</code></pre>
+<p>接着分析<strong>i2c_register_adapter()</strong>函数，其代码如下所示:</p>
+<pre><code class="c">static int i2c_register_adapter(struct i2c_adapter *adap)
+{
+    struct list_head  *item;               //链表头,用来存放i2c_driver结构体的表头
+    struct i2c_driver *driver;             //i2c_driver,用来描述一个IIC设备驱动
+    list_add_tail(&amp;adap-&gt;list, &amp;adapters); //添加到内核的adapter链表中
+    ... ...
+    if (adap-&gt;dev.parent == NULL) {
+        adap-&gt;dev.parent = &amp;platform_bus;//平台总线（虚拟总线）
+        pr_debug(&quot;I2C adapter driver [%s] forgot to specify &quot;
+             &quot;physical device\n&quot;, adap-&gt;name);
+    }
+    sprintf(adap-&gt;dev.bus_id, &quot;i2c-%d&quot;, adap-&gt;nr);
+    adap-&gt;dev.release = &amp;i2c_adapter_dev_release;
+    adap-&gt;dev.class = &amp;i2c_adapter_class;
+    res = device_register(&amp;adap-&gt;dev);
+    ... ...
+    list_for_each(item,&amp;drivers) {         //for循环,从drivers链表里找到i2c_driver结构体的表头
+        driver = list_entry(item, struct i2c_driver, list);//通过list_head表头,找到i2c_driver结构体
+        if (driver-&gt;attach_adapter)  
+            /* We ignore the return code; if it fails, too bad */
+            driver-&gt;attach_adapter(adap);//调用i2c_driver的attach_adapter函数来看看,这个新注册的设配器是否支持i2c_driver
+    }
+}</code></pre>
+<p>在<strong>i2c_register_adapter()</strong>函数里主要执行以下几步:</p>
+<ul>
+<li><p>①将adapter放入i2c_bus_type的adapter链表</p>
+</li>
+<li><p>②将所有的i2c设备调出来,执行i2c_driver设备的attach_adapter函数来匹配</p>
+</li>
+</ul>
+<p>其中, i2c_driver结构体会在后面讲述到</p>
+<p>而<strong>i2c_adapter适配器结构体</strong>的成员结构,如下所示:</p>
+<pre><code class="c">struct i2c_adapter {
+    struct module *owner;　　　　　　　　//所属模块  
+    unsigned int id;　　　　　　　　　　　//algorithm的类型，定义于i2c-id.h,  
+    unsigned int class;      
+    const struct i2c_algorithm *algo; //总线通信方法结构体指针  
+    void *algo_data;   　　　　　　　　　//algorithm数据  
+    struct rt_mutex bus_lock;　　　　　//控制并发访问的自旋锁  
+    int timeout;     
+    int retries;　　　　　　　　　　　　 //重试次数  
+    struct device dev; 　　　　　　　　 //适配器设备   
+    int nr;                  　　　　　//存放在i2c_adapter_idr里的位置号
+    char name[48];　　　　　　　　　　　 //适配器名称  
+    struct completion dev_released;　 //用于同步  
+    struct list_head userspace_clients;//client链表头  
+};</code></pre>
+<p>i2c_adapter表示物理上的一个i2C设备(适配器), 在i2c-s3c2410.c中,是存放在s3c24xx_i2c结构体下的(struct  i2c_adapter  adap)成员中</p>
+<h3 id="5、s3c24xx-i2c的结构体成员分析"><a href="#5、s3c24xx-i2c的结构体成员分析" class="headerlink" title="5、s3c24xx_i2c的结构体成员分析"></a>5、s3c24xx_i2c的结构体成员分析</h3><pre><code class="c">static const struct i2c_algorithm s3c24xx_i2c_algorithm = {            
+    .master_xfer   = s3c24xx_i2c_xfer,  //主机传输
+    .functionality = s3c24xx_i2c_func,                    
+};
+
+static struct s3c24xx_i2c s3c24xx_i2c = {
+    .lock          = __SPIN_LOCK_UNLOCKED(s3c24xx_i2c.lock),
+    .wait          = __WAIT_QUEUE_HEAD_INITIALIZER(s3c24xx_i2c.wait),
+    .tx_setup      = 50,                //用来延时,等待SCL被释放
+    .adap          = {                  // i2c_adapter适配器结构体
+        .name          = &quot;s3c2410-i2c&quot;,
+        .owner         = THIS_MODULE,
+        .algo          = &amp;s3c24xx_i2c_algorithm,//存放i2c_algorithm算法结构体
+        .retries       = 2,             //重试次数
+        .class         = I2C_CLASS_HWMON,
+    },
+};</code></pre>
+<p>显然这里是直接设置了i2c_adapter结构体,所以在s3c24xx_i2c_probe ()函数中没有分配i2c_adapter适配器结构体,</p>
+<p>其中, i2c_adapter结构体的名称等于”s3c2410-i2c”,它的通信方式等于s3c24xx_i2c_algorithm,重试次数等于2</p>
+<blockquote>
+<p>如果缺少i2c_algorithm的i2c_adapter什么也做不了，就只是个I2C设备,而没有通信方式</p>
+</blockquote>
+<p>s3c24xx_i2c_algorithm中的关键函数<strong>master_xfer()</strong>就是用于产生i2c通信所需要的start、stop、ack等信号</p>
+<p>比如,在s3c24xx_i2c_algorithm中的关键函数master_xfer()里,调用了:</p>
+<p>s3c24xx_i2c_xfer -&gt; s3c24xx_i2c_doxfer()-&gt;s3c24xx_i2c_message_start()</p>
+<p>来启动传输message信息, 其中s3c24xx_i2c_message_start()函数代码如下:</p>
+<pre><code class="c">static void s3c24xx_i2c_message_start(struct s3c24xx_i2c *i2c, struct i2c_msg *msg)
+{
+    unsigned int addr = (msg-&gt;addr &amp; 0x7f) &lt;&lt; 1;//IIC从设备地址的最低位为读写标志位
+    ... ...
+
+    stat = 0;
+    stat |=  S3C2410_IICSTAT_TXRXEN;     //设置标志位启动IIC收发使能
+
+    if (msg-&gt;flags &amp; I2C_M_RD) {         //判断是读,还是写
+        stat |= S3C2410_IICSTAT_MASTER_RX;       
+        addr |= 1;                       //设置从IIC设备地址为读标志
+    } else
+        stat |= S3C2410_IICSTAT_MASTER_TX;
+
+    s3c24xx_i2c_enable_ack(i2c);        //使能ACK信号
+
+    iiccon = readl(i2c-&gt;regs + S3C2410_IICCON);//读出IICCON寄存器
+
+    writel(stat, i2c-&gt;regs + S3C2410_IICSTAT); //写入IICSTAT寄存器,使能IIC的读或写标志
+
+    dev_dbg(i2c-&gt;dev, &quot;START: %08lx to IICSTAT, %02x to DS\n&quot;, stat, addr);
+
+    writeb(addr, i2c-&gt;regs + S3C2410_IICDS);  //将IIC从设备地址写入IICDS寄存器
+
+    /* delay here to ensure the data byte has gotten onto the bus
+        * before the transaction is started */
+
+    ndelay(i2c-&gt;tx_setup);         //延时,等待SCL被释放,下面便可以发送起始信号+IIC设备地址值
+
+
+    dev_dbg(i2c-&gt;dev, &quot;iiccon, %08lx\n&quot;, iiccon);
+    writel(iiccon, i2c-&gt;regs + S3C2410_IICCON);            
+
+    stat |=  S3C2410_IICSTAT_START;
+    writel(stat, i2c-&gt;regs + S3C2410_IICSTAT);//设置IICSTAT寄存器的bit5=1,开始发送起始信号+IIC从设备地址值,并回应ACK
+}</code></pre>
+<p>通过上面的代码和注释，发现主要是写入IIC从设备地址，然后发送起始信号+IIC从设备地址值，并回应ACK</p>
+<p>显然IIC总线驱动i2c-s3c2410.c中主要是设置适配器adapter。里面帮我们做好了IIC通信的架构，就是不知道发什么内容</p>
+<h3 id="6、分析I2C设备驱动eeprom-c"><a href="#6、分析I2C设备驱动eeprom-c" class="headerlink" title="6、分析I2C设备驱动eeprom.c"></a>6、分析I2C设备驱动<code>eeprom.c</code></h3><p>进入driver/i2c/chips中,看看eeprom设备驱动是如何写的</p>
+<blockquote>
+<p>参考: driver/i2c/chips/eeprom.c</p>
+</blockquote>
+<p>首先来看它的init入口函数:</p>
+<pre><code class="c">static int __init eeprom_init(void)
+{
+    return i2c_add_driver(&amp;eeprom_driver);
+}
+
+static void __exit eeprom_exit(void)
+{
+    i2c_del_driver(&amp;eeprom_driver);
+}</code></pre>
+<p>其中struct  i2c_driver  eeprom_driver的成员如下:</p>
+<pre><code class="c">static struct i2c_driver eeprom_driver = {
+    .driver = {
+        .name    = &quot;eeprom&quot;,//名称
+    },
+    .id        = I2C_DRIVERID_EEPROM,//IIC设备标识ID
+    .attach_adapter    = eeprom_attach_adapter,//用来与总线驱动的适配器匹配,匹配成功添加到适配器adapter中
+    .detach_client    = eeprom_detach_client,//与总线驱动的适配器解绑,分离这个IIC从设备
+};</code></pre>
+<p>如下所示, eeprom_driver结构体的ID成员在i2c-id.h中,里面还定义了大部分常用I2C设备驱动的设备ID（事实证明不写也行）</p>
+<pre><code class="c">......
+/* IDs --   Use DRIVERIDs 1000-1999 for sensors.
+   These were originally in sensors.h in the lm_sensors package */
+#define I2C_DRIVERID_LM78 1002
+#define I2C_DRIVERID_LM75 1003
+#define I2C_DRIVERID_GL518 1004
+#define I2C_DRIVERID_EEPROM 1005//EEPROM的ID
+#define I2C_DRIVERID_W83781D 1006
+#define I2C_DRIVERID_LM80 1007
+#define I2C_DRIVERID_ADM1021 1008
+#define I2C_DRIVERID_ADM9240 1009
+#define I2C_DRIVERID_LTC1710 1010
+#define I2C_DRIVERID_BT869 1013
+#define I2C_DRIVERID_MAXILIFE 1014
+#define I2C_DRIVERID_MATORB 1015
+#define I2C_DRIVERID_GL520 1016
+#define I2C_DRIVERID_THMC50 1017
+#define I2C_DRIVERID_ADM1025 1020
+#define I2C_DRIVERID_LM87 1021
+#define I2C_DRIVERID_PCF8574 1022
+#define I2C_DRIVERID_MTP008 1023
+#define I2C_DRIVERID_DS1621 1024
+#define I2C_DRIVERID_ADM1024 1025
+#define I2C_DRIVERID_CH700X 1027 /* single driver for CH7003-7009 digital pc to tv encoders */
+#define I2C_DRIVERID_FSCPOS 1028
+#define I2C_DRIVERID_FSCSCY 1029
+#define I2C_DRIVERID_PCF8591 1030
+#define I2C_DRIVERID_LM92 1033
+#define I2C_DRIVERID_SMARTBATT 1035
+#define I2C_DRIVERID_BMCSENSORS 1036
+#define I2C_DRIVERID_FS451 1037
+#define I2C_DRIVERID_LM85 1039
+#define I2C_DRIVERID_LM83 1040
+#define I2C_DRIVERID_LM90 1042
+#define I2C_DRIVERID_ASB100 1043
+#define I2C_DRIVERID_FSCHER 1046
+#define I2C_DRIVERID_W83L785TS 1047
+#define I2C_DRIVERID_OV7670 1048    /* Omnivision 7670 camera */
+......</code></pre>
+<p>显然，在init函数中通过i2c_add_driver()注册i2c_driver结构体，然后通过i2c_driver -&gt;attach_adapter来匹配内核中的各个总线驱动的适配器，发送这个设备地址，若有ACK响应，表示匹配成功</p>
+<h3 id="7、i2c-add-driver-函数分析"><a href="#7、i2c-add-driver-函数分析" class="headerlink" title="7、i2c_add_driver()函数分析"></a>7、i2c_add_driver()函数分析</h3><p>接下来,我们进入i2c_add_driver()来看看是不是像刚刚分析的那样</p>
+<pre><code class="c">int i2c_add_driver(struct module *owner, struct i2c_driver *driver)
+{
+    driver-&gt;driver.owner = owner;
+    driver-&gt;driver.bus = &amp;i2c_bus_type;    //将i2c_driver放在i2c_bus_type链表中   
+
+    res = driver_register(&amp;driver-&gt;driver);//注册一个i2c_driver
+    ... ...
+
+    if (driver-&gt;attach_adapter) {
+        struct i2c_adapter *adapter;//定义一个i2c_adapter适配器
+        list_for_each_entry(adapter, &amp;adapters, list)//for循环提取出adapters链表中所有的i2c_adapter适配器,放入到adapter结构体中
+        {
+            driver-&gt;attach_adapter(adapter);//来匹配取出来的i2c_adapter适配器
+        }
+    }
+    ... ...
+    return 0;
+}</code></pre>
+<p>在i2c_add_driver()函数里主要执行以下几步:</p>
+<ul>
+<li><p>①将i2c_driver放入到i2c_bus_type链表</p>
+</li>
+<li><p>②取出adapters适配器链表中所有的i2c_adapter适配器，然后执行i2c_driver-&gt;attach_adapter()</p>
+</li>
+</ul>
+<p>所以i2c_adapter适配器和i2c_driver设备驱动注册框架如下所示:</p>
+<p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171110194549372-635602878.png" alt="i2c_adapter适配器和i2c_driver设备驱动注册框架"></p>
+<p>这里调用了i2c_driver-&gt;attach_adapter(adapter)，我们看看里面是不是通过发送IIC设备地址，等待ACK响应来匹配的</p>
+<h3 id="8、i2c-driver-gt-attach-adapter-函数分析"><a href="#8、i2c-driver-gt-attach-adapter-函数分析" class="headerlink" title="8、i2c_driver -&gt;attach_adapter()函数分析"></a>8、i2c_driver -&gt;attach_adapter()函数分析</h3><blockquote>
+<p>这里以struct i2c_driver eeprom_driver 为例</p>
+<pre><code class="c">/* This is the driver that will be inserted */
+static struct i2c_driver eeprom_driver = {
+    .driver = {
+        .name    = &quot;eeprom&quot;,
+    },
+    .id        = I2C_DRIVERID_EEPROM,
+    .attach_adapter    = eeprom_attach_adapter,//attach_adapter函数
+    .detach_client    = eeprom_detach_client,
+};</code></pre>
+<p>所以这里的i2c_driver -&gt;attach_adapter()函数即为<strong>eeprom_attach_adapter()</strong></p>
+</blockquote>
+<p>如下所示，eeprom_attach_adapter()调用了i2c_probe(adapter, &amp;addr_data, eeprom_detect)函数</p>
+<pre><code class="c">static int eeprom_attach_adapter(struct i2c_adapter *adapter)
+{
+    return i2c_probe(adapter, &amp;addr_data, eeprom_detect);
+}</code></pre>
+<p>上述代码中i2c_probe的参数如下：</p>
+<ul>
+<li><p>第1个参数是i2c_adapter适配器；</p>
+</li>
+<li><p>第2个参数addr_data变量，里面存放了IIC设备地址的信息；</p>
+</li>
+<li><p>第3个参数eeprom_detect就是具体的设备探测回调函数i2c_probe()函数，会通过adapter适配器发送IIC设备地址addr_data，如果收到ACK信号，就调用eeprom_detect()回调函数来注册i2c_client结构体，该结构体对应真实的物理从设备，而i2c_driver对应的是设备驱动，也就是说，只有当适配器支持这个设备驱动，才会注册i2c_client从设备，后面会讲这个回调函数如何注册i2c_client</p>
+</li>
+</ul>
+<pre><code>而在i2c_driver -&gt;detach_client()中，则注销i2c_client结构体</code></pre><p>其中addr_data变量是<strong>struct i2c_client_address_data结构体</strong>，它的成员如下所示：</p>
+<pre><code class="c">struct i2c_client_address_data {
+    unsigned short *normal_i2c;     //存放正常的设备高7位地址数据
+    unsigned short *probe;          //存放不受*ignore影响的高7位设备地址数据
+    unsigned short *ignore;         //存放*ignore的高7位设备地址数据
+    unsigned short **forces;        //forces表示适配器匹配不了该设备,也要将其放入适配器中
+};</code></pre>
+<p>当上面结构体的数组成员以<strong>I2C_CLIENT_END</strong>结尾，则表示地址已结束，比如<code>AT24C02设备</code>为例，看这个结构体如何定义的：</p>
+<pre><code class="c">#define  AT24C02_ADDR           (0xA0&gt;&gt;1)           //AT24C02地址
+
+static unsigned short  ignore[] = { I2C_CLIENT_END };
+static unsigned short  normal_addr[] = { AT24C02_ADDR, I2C_CLIENT_END };
+static unsigned short  force_addr[] = {ANY_I2C_BUS, AT24C02_ADDR ,2C_CLIENT_END};
+static unsigned short* forces[] = {force_addr, NULL};
+//ANY_I2C_BUS:表示支持所有适配器总线,若填指定的适配器总线ID,则表示该设备只支持指定的那个适配器
+
+static struct i2c_client_address_data  addr_data = {
+    .normal_i2c     = normal_addr,   //存放at24c02地址
+    .probe          = ignore,        //表示无地址
+    .ignore         = ignore,        //表示无地址
+    . forces        = forces,        //存放强制的at24c02地址,表示强制支持
+};</code></pre>
+<p>一般而言,都不会设置.forces成员,这里只是打个比方</p>
+<h4 id="8-1、i2c-probe-函数分析"><a href="#8-1、i2c-probe-函数分析" class="headerlink" title="8.1、i2c_probe()函数分析"></a>8.1、i2c_probe()函数分析</h4><pre><code class="c">int i2c_probe(struct i2c_adapter *adapter,struct i2c_client_address_data *address_data,int (*found_proc) (struct i2c_adapter *, int, int))
+{
+    ... ...
+    err = i2c_probe_address(adapter,forces[kind][i + 1],kind, found_proc);
+}</code></pre>
+<p>里面调用了i2c_probe_address()函数,从名称上来看,显然它就是用来发送起始信号+设备地址，来探测IIC设备地址用的</p>
+<h4 id="8-2、i2c-probe-address-函数分析"><a href="#8-2、i2c-probe-address-函数分析" class="headerlink" title="8.2、i2c_probe_address()函数分析"></a>8.2、i2c_probe_address()函数分析</h4><pre><code class="c">static int i2c_probe_address(struct i2c_adapter *adapter, int addr, int kind,int (*found_proc) (struct i2c_adapter *, int, int))
+{
+    /*判断设备地址是否有效,addr里存放的是设备地址前7位,比如AT24C02=0xA0,那么addr=0x50*/
+    if (addr &lt; 0x03 || addr &gt; 0x77) {
+        dev_warn(&amp;adapter-&gt;dev, &quot;Invalid probe address 0x%02x\n&quot;,addr);//打印地址无效,并退出
+        return -EINVAL;
+    }
+
+    /*查找链表中其它IIC设备的设备地址,若这个设备地址已经被使用,则return*/
+    if (i2c_check_addr(adapter, addr))
+        return 0; 
+
+    if (kind &lt; 0) {
+        if (i2c_smbus_xfer(adapter, addr, 0, 0, 0,I2C_SMBUS_QUICK, NULL) &lt; 0)//进入I2C传输函数
+            return 0;
+        ... ...
+    }</code></pre>
+<h4 id="8-3、i2c-smbus-xfer-函数分析"><a href="#8-3、i2c-smbus-xfer-函数分析" class="headerlink" title="8.3、i2c_smbus_xfer()函数分析"></a>8.3、i2c_smbus_xfer()函数分析</h4><pre><code class="c">s32 i2c_smbus_xfer(struct i2c_adapter * adapter, u16 addr, unsigned short flags,char read_write, u8 command, int size,union i2c_smbus_data * data)
+{
+    s32 res;
+
+    flags &amp;= I2C_M_TEN | I2C_CLIENT_PEC;
+
+    if (adapter-&gt;algo-&gt;smbus_xfer) {   //如果adapter适配器有smbus_xfer这个函数
+        mutex_lock(&amp;adapter-&gt;bus_lock);//加互斥锁
+        res = adapter-&gt;algo-&gt;smbus_xfer(adapter,addr,flags,read_write,command,size,data);//调用adapter适配器里的传输函数
+        mutex_unlock(&amp;adapter-&gt;bus_lock);//解互斥锁
+    } else                          //否则使用默认函数传输设备地址
+        res = i2c_smbus_xfer_emulated(adapter,addr,flags,read_write,command,size,data);
+    return res;
+}</code></pre>
+<p>看了上面代码后,显然我们的s3c2410-i2c适配器没有algo-&gt;smbus_xfer函数,而是使用i2c_smbus_xfer_emulated()函数,如下所示：</p>
+<pre><code class="c">static const struct i2c_algorithm s3c24xx_i2c_algorithm = {
+    .master_xfer        = s3c24xx_i2c_xfer,
+    .functionality        = s3c24xx_i2c_func,
+    //缺少smbus_xfer函数
+};
+
+static struct s3c24xx_i2c s3c24xx_i2c = {
+    .lock        = __SPIN_LOCK_UNLOCKED(s3c24xx_i2c.lock),
+    .wait        = __WAIT_QUEUE_HEAD_INITIALIZER(s3c24xx_i2c.wait),
+    .tx_setup    = 50,
+    .adap        = {//s3c2410的i2c_adapter结构体适配器
+        .name            = &quot;s3c2410-i2c&quot;,
+        .owner            = THIS_MODULE,
+        .algo            = &amp;s3c24xx_i2c_algorithm,
+        .retries        = 2,
+        .class            = I2C_CLASS_HWMON,
+    },
+};</code></pre>
+<blockquote>
+<p>通常适配器都是不支持的，都使用默认的i2c_smbus_xfer_emulated()函数</p>
+</blockquote>
+<h4 id="8-4、i2c-smbus-xfer-emulated-函数分析"><a href="#8-4、i2c-smbus-xfer-emulated-函数分析" class="headerlink" title="8.4、i2c_smbus_xfer_emulated()函数分析"></a>8.4、i2c_smbus_xfer_emulated()函数分析</h4><pre><code class="c">static s32 i2c_smbus_xfer_emulated(struct i2c_adapter * adapter, u16 addr,unsigned short flags,char read_write, u8 command, int size, union i2c_smbus_data * data)
+{
+    unsigned char msgbuf0[I2C_SMBUS_BLOCK_MAX+3];//属于msg[0]的buf成员
+    unsigned char msgbuf1[I2C_SMBUS_BLOCK_MAX+2];//属于msg[1]的buf成员
+    int num = read_write == I2C_SMBUS_READ?2:1;  //如果为读命令,就等于2,表示要执行两次数据传输
+    struct i2c_msg msg[2] = { { addr, flags, 1, msgbuf0 },
+                             { addr, flags | I2C_M_RD, 0, msgbuf1 }};//定义两个i2c_msg结构体,
+
+
+    msgbuf0[0] = command;            //IIC设备地址最低位为读写命令
+    ... ...
+
+    if (i2c_transfer(adapter, msg, num) &lt; 0)
+        return -1;
+
+    /*设置i2c_msg结构体成员*/
+    if (read_write == I2C_SMBUS_READ)
+        switch(size) {
+            ... ...
+            case I2C_SMBUS_BYTE_DATA://如果是读字节
+                if (read_write == I2C_SMBUS_READ)
+                    msg[1].len = 1;
+                else {
+                    msg[0].len = 2;
+                    msgbuf0[1] = data-&gt;byte;
+                }
+                break;
+            ... ...
+        }
+    ... ...
+
+    if (i2c_transfer(adapter, msg, num) &lt; 0)//将i2c_msg结构体的内容发送给I2C设备
+        return -1;
+    ... ...
+}</code></pre>
+<p>其中i2c_msg结构体的结构，如下所示：</p>
+<pre><code class="c">struct i2c_msg {
+    __u16 addr;  //I2C从机的设备地址
+    __u16 flags; //当flags=0表示写, flags= I2C_M_RD表示读
+    __u16 len;   //传输的数据长度,等于buf数组里的字节数
+    __u8 *buf;   //存放数据的数组
+};</code></pre>
+<p>上面代码中之所以读操作需要两个i2c_msg，写操作需要一个i2c_msg，是因为读IIC设备是两个流程，在上一节已经分析到了，具体如下所示：</p>
+<p>只要发送一个S起始信号则就是一个i2c_msg，如下图所示：</p>
+<p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171110194638622-994179422.png" alt="读一个字节"></p>
+<p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171110194645528-2046926273.png" alt="写一个字节"></p>
+<p>而在i2c_transfer()函数中,最终又是调用了之前分析的i2c_adapter-&gt;algo-&gt;master_xfer()发送函数,如下所示：</p>
+<pre><code class="c">int i2c_transfer(struct i2c_adapter * adap, struct i2c_msg *msgs, int num)
+{
+    int ret;
+
+    if (adap-&gt;algo-&gt;master_xfer) {
+#ifdef DEBUG
+        for (ret = 0; ret &lt; num; ret++) {
+            dev_dbg(&amp;adap-&gt;dev, &quot;master_xfer[%d] %c, addr=0x%02x, &quot;
+                &quot;len=%d%s\n&quot;, ret, (msgs[ret].flags &amp; I2C_M_RD)
+                ? &#39;R&#39; : &#39;W&#39;, msgs[ret].addr, msgs[ret].len,
+                (msgs[ret].flags &amp; I2C_M_RECV_LEN) ? &quot;+&quot; : &quot;&quot;);
+        }
+#endif
+
+        mutex_lock_nested(&amp;adap-&gt;bus_lock, adap-&gt;level);
+        ret = adap-&gt;algo-&gt;master_xfer(adap,msgs,num);//最终还是调用master_xfer()函数
+        mutex_unlock(&amp;adap-&gt;bus_lock);
+
+        return ret;
+    } else {
+        dev_dbg(&amp;adap-&gt;dev, &quot;I2C level transfers not supported\n&quot;);
+        return -ENOSYS;
+    }
+}</code></pre>
+<p>其中i2c_transfer()的参数<code>adap</code>表示通过哪个适配器传输出去，<code>msgs</code>表示I2C消息，<code>num</code>表示msgs的数目</p>
+<p>内核每发送一个Msg都会先发出S开始信号和设备地址，直到所有Msg传输完毕，最后发出P停止信号。</p>
+<p>当i2c_transfer()返回值为正数，表示已经传输正数个数据，当返回负数，说明I2C传输出错</p>
+<h4 id="8-5、总结"><a href="#8-5、总结" class="headerlink" title="8.5、总结"></a>8.5、总结</h4><p>综上，在i2c_driver-&gt;attach_adapter(adapter)函数里主要执行以下几步:</p>
+<ul>
+<li><p>1) 调用<strong>i2c_probe</strong>(adap适配器, i2c_client_address_data设备地址结构体, 回调函数);</p>
+</li>
+<li><p>2) 将要发的设备地址结构体打包成<strong>i2c_msg</strong></p>
+</li>
+<li><p>3) 然后执行<strong>i2c_transfer()</strong>来调用i2c_adapter-&gt;algo-&gt;<strong>master_xfer</strong>()将i2c_msg发出去</p>
+</li>
+<li><p>4) 若收到ACK回应（即发现有I2C设备），便进入回调函数，<strong>注册i2c_client</strong>从设备，使该设备与适配器联系在一起</p>
+</li>
+</ul>
+<p>所以适配器和iic设备驱动<strong>最终注册框架图</strong>如下所示：</p>
+<p><img src="//NU-LL.github.io/2019/08/05/IIC驱动/1182576-20171110194722247-1723647250.png" alt="最终注册框架图"></p>
+<h3 id="9、注册i2c-client从设备"><a href="#9、注册i2c-client从设备" class="headerlink" title="9、注册i2c_client从设备"></a>9、注册i2c_client从设备</h3><p>接下来便来分析回调函数如何注册i2c_client从设备，先来看看i2c_client结构体：</p>
+<pre><code class="c">struct i2c_client {  
+
+    unsigned short flags;//标志    
+
+    unsigned short addr;//该i2c从设备的设备地址,存放地址高7位  
+
+    char name[I2C_NAME_SIZE];//设备名字
+
+    struct i2c_adapter *adapter;//依附的i2c_adapter,表示该IIC设备支持哪个适配器  
+
+    struct i2c_driver *driver;//依附的i2c_driver,表示该IIC从设备的驱动是哪个
+
+    struct device dev;//设备结构体    
+
+    int irq;//设备所使用的结构体    
+
+    struct list_head detected;//链表头  
+
+};</code></pre>
+<p>还是以driver/i2c/chips/eeprom.c为例，如下所示：</p>
+<pre><code class="c">static int eeprom_attach_adapter(struct i2c_adapter *adapter)
+{
+    return i2c_probe(adapter, &amp;addr_data, eeprom_detect);
+}</code></pre>
+<p>这里的回调函数是eeprom_detect()函数接下来便分析该函数</p>
+<h4 id="9-1、回调函数eeprom-detect-分析"><a href="#9-1、回调函数eeprom-detect-分析" class="headerlink" title="9.1、回调函数eeprom_detect()分析"></a>9.1、回调函数eeprom_detect()分析</h4><pre><code class="c">static int eeprom_detect(struct i2c_adapter *adapter, int address, int kind)
+{
+    struct i2c_client *new_client;        //定义一个i2c_client结构体局部变量
+
+    new_client =kzalloc(sizeof(struct i2c_client), GFP_KERNEL);//分配i2c_client结构体为全局变量
+
+
+    /*设置i2c_client结构体*/
+    new_client-&gt;addr = address;           //设置设备地址
+    new_client-&gt;adapter = adapter;        //设置依附的i2c_adapter
+    new_client-&gt;driver = &amp;eeprom_driver;  //设置依附的i2c_driver
+    new_client-&gt;flags = 0;                //设置标志位为初始值
+    strlcpy(new_client-&gt;name, &quot;eeprom&quot;, I2C_NAME_SIZE);//设置名字
+
+
+    /*注册i2c_client*/
+    if ((err = i2c_attach_client(new_client)))
+        goto exit_kfree;    //注册失败,便释放i2c_client这个全局变量
+    ... ...
+
+exit_kfree:
+    kfree(new_client);
+exit:
+    return err;
+}</code></pre>
+<p>当注册了i2c_client从设备后,便可以使用i2c_transfer()来实现与设备传输数据了</p>
+<h3 id="10、24C02驱动及测试程序的编写"><a href="#10、24C02驱动及测试程序的编写" class="headerlink" title="10、24C02驱动及测试程序的编写"></a>10、24C02驱动及测试程序的编写</h3><p>参考driver/i2c/chips/eeprom.c驱动，可以得出驱动代码步骤如下：</p>
+<ol>
+<li><p>定义<strong>file_operations</strong>结构体 ，设置字符设备的读写函数(实现对24C02的读写操作)<br> //构造i2c_msg结构体，使用i2c_transfer()来实现与设备传输数据</p>
+</li>
+<li><p>定义<strong>i2c_client_address_data</strong>结构体，里面保存24C02的设备地址</p>
+</li>
+<li><p>定义一个<strong>i2c_driver</strong>驱动结构体</p>
+<p> 3.1 设置i2c_driver-&gt; <strong>attach_adapter</strong><br> 　　　　 // 里面直接调用 i2c_probe(adap适配器, i2c_client_address_data设备地址结构体, 回调函数);</p>
+</li>
+</ol>
+<p>　   3.2 设置i2c_driver-&gt; <strong>detach_client</strong><br>　           //卸载这个驱动后，如果之前发现能够支持的设备，则调用它来清理，主要负责卸载i2c_client</p>
+<pre><code>4. 写回调函数，里面**注册i2c_client**，字符设备( 字符设备用来实现读写24C02里的数据)
+
+  4.1 分配并设置i2c_client
+
+  4.2 使用i2c_attach_client()将i2c_client与适配器进行连
+
+  4.3 注册字符设备</code></pre><ol start="5">
+<li>写init入口函数，exit出口函数<br> init：使用<strong>i2c_add_driver()</strong>注册i2c_driver<br> exit：使用<strong>i2c_del_driver()</strong>卸载i2c_driver</li>
+</ol>
+<p><strong>具体驱动代码如下所示：</strong></p>
+<pre><code class="c">/*
+ *  I2C-24C02
+ */
+#include &lt;linux/kernel.h&gt;
+#include &lt;linux/init.h&gt;
+#include &lt;linux/module.h&gt;
+#include &lt;linux/slab.h&gt;
+#include &lt;linux/jiffies.h&gt;
+#include &lt;linux/i2c.h&gt;
+#include &lt;linux/mutex.h&gt;
+#include &lt;linux/fs.h&gt;
+#include &lt;asm/uaccess.h&gt;
+
+static struct i2c_client *at24c02_client;         //从设备结构体
+static struct class *at24c02_class;                //类结构体
+static unsigned int at24c02_major;                 
+
+/*1.定义file_operations结构体 ,
+  *  设置字符设备的读写函数(实现对24C02的读写操作)
+  */
+static ssize_t at24c02_read(struct file *file, char __user *buf, size_t size, loff_t * offset)
+{
+    struct i2c_msg msg[2];
+    u8 addr;
+    u8 data;
+    int ret;
+
+    if(size!=1)
+        return -EINVAL;
+
+    copy_from_user(&amp;addr,buf,1);
+
+    /* 数据传输三要素: 源,目的,长度 */
+    /* 读AT24CXX时,要先把要读的存储空间的地址发给它 */
+    msg[0].addr=at24c02_client-&gt;addr;/* 目的 */
+    msg[0].flags=0;                     /* 表示写 */
+    msg[0].len  =1;                     /* 地址=1 byte */
+    msg[0].buf  =&amp;addr;              /* 源 */
+
+    /* 然后启动读操作 */
+    msg[1].addr=at24c02_client-&gt;addr;/* 源 */
+    msg[1].flags=I2C_M_RD;           /* 表示读 */
+    msg[1].len  =1;                     /* 数据=1 byte */
+    msg[1].buf  =&amp;data;              /* 目的 */
+
+    ret=i2c_transfer(at24c02_client-&gt;adapter, msg, 2);     
+    if(ret==2)      //表示2个msg传输成功
+    {
+        copy_to_user(buf,&amp;data,1);      //上传数据       
+        return 0;
+    }
+    else
+        return -EAGAIN;
+}
+
+static ssize_t at24c02_write(struct file *file, const char __user *buf, size_t size, loff_t *offset)
+{
+    struct i2c_msg msg[1];
+    u8 val[2];      
+    int ret;
+
+    if(size!=2)//地址   数据
+        return -EINVAL;
+
+    copy_from_user(val,buf,2);
+
+    /* 数据传输三要素: 源,目的,长度 */
+    msg[0].addr=at24c02_client-&gt;addr;/* 目的 */
+    msg[0].flags=0;                   /* 表示写 */
+    msg[0].len  =2;                    /* 地址+数据=2 byte */
+    msg[0].buf  =val;                 /* 源 */
+
+    ret=i2c_transfer(at24c02_client-&gt;adapter, msg, 1);     
+    if(ret==1)      //表示1个msg传输成功
+    {           
+        return 0;
+    }
+    else
+        return -EAGAIN;
+}
+
+static struct  file_operations at24c02_fops={
+    .owner = THIS_MODULE,
+    .read  = at24c02_read,
+    .write = at24c02_write,
+};
+
+
+/*2.定义i2c_client_address_data结构体,保存24C02的设备地址*/
+static unsigned short ignore[] = { I2C_CLIENT_END };
+static unsigned short normal_addr[] = {0X50,  I2C_CLIENT_END };//这里地址值是7位，左移一位后即为0xA0
+static unsigned short   force_addr[] = {ANY_I2C_BUS, 0x60, I2C_CLIENT_END};//这地地址设为0x60，即使不存在该设备也会认为存在这个设备，并调用at24cxx_detect函数
+static unsigned short   * forces[] =     {force_addr, NULL};//指针数组
+
+static struct i2c_client_address_data   at24c02_addr={
+    .normal_i2c=normal_addr,//要发出S信号和设备地址并得到ACK信号,才能确定存在这个设备
+    .probe=ignore,
+    .ignore=ignore,
+    //  .forces=forces,                  // 强制地址，强制认为存在这个设备，一般不使用
+};
+
+/*3. 定义一个i2c_driver驱动结构体*/
+static int   at24c02_attach_adapter(struct i2c_adapter *adapter);
+static int   at24c02_detach_client(struct i2c_client *client);
+static int at24c02_detect(struct i2c_adapter *adap, int addr, int kind);
+
+/* This is the driver that will be inserted */
+static struct i2c_driver at24c02_driver = {
+    .driver = {
+        .name    = &quot;at24c02&quot;,
+    },
+
+    .attach_adapter   = at24c02_attach_adapter,//绑定回调函数
+    .detach_client    = at24c02_detach_client, //解绑回调函数
+};
+
+/*3.1 设置i2c_driver-&gt; attach_adapter*/
+static int   at24c02_attach_adapter(struct i2c_adapter *adapter)
+{
+    return i2c_probe(adapter,&amp;at24c02_addr, at24c02_detect);
+}
+
+
+/*3.2 设置i2c_driver-&gt; detach_client*/
+static int at24c02_detach_client(struct i2c_client *client)
+{
+    printk(&quot;at24c02_detach_client\n&quot;);
+    //销毁i2c_client结构体at24c02_client
+    i2c_detach_client(at24c02_client) ;   
+    kfree(at24c02_client);
+    //销毁类和对应的设备
+    class_device_destroy(at24c02_class,MKDEV(at24c02_major, 0));
+    class_destroy(at24c02_class);
+
+    return 0;
+}
+
+/*4.写回调函数,里面注册i2c_client,字符设备*/ 
+static int at24c02_detect(struct i2c_adapter *adap, int addr, int kind)
+{
+    printk(&quot;at24c02_detect\n&quot;);
+
+    /* 4.1 分配并设置i2c_client */
+    at24c02_client= kzalloc(sizeof(struct i2c_client), GFP_KERNEL);
+
+    at24c02_client-&gt;addr = addr;
+    at24c02_client-&gt;adapter = adap;
+    at24c02_client-&gt;driver = &amp;at24c02_driver;
+    at24c02_client-&gt;flags = 0;
+    strlcpy(at24c02_client-&gt;name, &quot;at24c02&quot;, I2C_NAME_SIZE);
+
+    /*4.2 使用i2c_attach_client()将i2c_client与适配器进行连接*/
+    i2c_attach_client(at24c02_client);
+
+    /*4.3 注册字符设备*/
+    at24c02_major= register_chrdev(0, &quot;at24c02&quot;, &amp;at24c02_fops);  
+    at24c02_class=class_create(THIS_MODULE, &quot;at24c02&quot;);   
+    class_device_create(at24c02_class,0, MKDEV(at24c02_major, 0),0,&quot;at24c02&quot;);
+    return 0;
+}
+
+
+/*5. 写init入口函数,exit出口函数*/
+static int at24c02_init(void)
+{
+    i2c_add_driver(&amp;at24c02_driver);
+    return 0;
+}
+static void at24c02_exit(void)
+{
+    i2c_del_driver(&amp;at24c02_driver);
+}
+
+module_init(at24c02_init);
+module_exit(at24c02_exit);
+MODULE_LICENSE(&quot;GPL&quot;);</code></pre>
+<p><strong>测试程序：</strong></p>
+<pre><code class="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+
+/* 测试方法：
+ * i2c_test r addr
+ * i2c_test w addr val
+ */
+void print_usage(char *file)
+{
+    printf(&quot;%s r addr\n&quot;, file);
+    printf(&quot;%s w addr val\n&quot;, file);
+}
+
+int main(int argc, char **argv)
+{
+    int fd;
+    unsigned char buf[2];
+
+    if ((argc != 3) &amp;&amp; (argc != 4))
+    {
+        print_usage(argv[0]);
+        return -1;
+    }
+
+    //打开设备
+    fd = open(&quot;/dev/at24cxx&quot;, O_RDWR);
+    if (fd &lt; 0)
+    {
+        printf(&quot;can&#39;t open /dev/at24cxx\n&quot;);
+        return -1;
+    }
+
+    //读操作
+    if (strcmp(argv[1], &quot;r&quot;) == 0)
+    {
+        buf[0] = strtoul(argv[2], NULL, 0);//将字符串转为数字
+        read(fd, buf, 1);
+        printf(&quot;data: %c, %d, 0x%2x\n&quot;, buf[0], buf[0], buf[0]);
+    }
+    else if (strcmp(argv[1], &quot;w&quot;) == 0)//写操作
+    {
+        buf[0] = strtoul(argv[2], NULL, 0);//将字符串转为数字
+        buf[1] = strtoul(argv[3], NULL, 0);//将字符串转为数字
+        write(fd, buf, 2);
+    }
+    else//错误使用
+    {
+        print_usage(argv[0]);
+        return -1;
+    }
+
+    return 0;
+}</code></pre>
+<p>扩展：</p>
+<blockquote>
+<p><code>strtoul</code>函数（将字符串转换成无符号长整型数）</p>
+<p><strong>头文件</strong></p>
+<pre><code class="c">#include&lt;stdlib.h&gt;</code></pre>
+<p><strong>定义函数</strong></p>
+<pre><code>unsigned long strtoul(const char *nptr,char **endptr,int base);</code></pre><p><strong>函数说明</strong></p>
+<p>strtoul()会将参数nptr字符串根据参数base来转换成无符号的长整型数。参数base范围从2至36，或0。参数base代表采用的进制方式，如base值为10则采用10进制，若base值为16则采用16进制数等。当base值为0时会根据情况选择用哪种进制：如果第一个字符是’0’，就判断第二字符如果是‘x’则用16进制，否则用8进制；第一个字符不是‘0’，则用10进制。一开始strtoul()会扫描参数nptr字符串，跳过前面的空格字符串，直到遇上数字或正负符号才开始做转换，再遇到非数字或字符串结束时(‘’)结束转换，并将结果返回。若参数endptr不为NULL，则会将遇到不合条件而终止的nptr中的字符指针由endptr返回。</p>
+<p><strong>返回值</strong></p>
+<p>返回转换后的长整型数，否则返回ERANGE并将错误代码存入errno中。</p>
+<p><strong>附加说明</strong></p>
+<p>ERANGE指定的转换字符串超出合法范围。</p>
+<p><strong>范例</strong></p>
+<p>将十六进制 0xFF，转换成 10进制，得到 255</p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+{
+   int a;
+   char pNum[]=&quot;0xFF&quot;;
+   a=strtoul(pNum,0,0);//最后的0，表示自动识别pNum是几进制
+   printf(&quot;%ul\n&quot;,a);
+   return 0;
+}</code></pre>
+<p>输出：</p>
+<pre><code class="c">255</code></pre>
+</blockquote>
+<h3 id="11、测试运行"><a href="#11、测试运行" class="headerlink" title="11、测试运行"></a>11、测试运行</h3><p>如下所示：</p>
+<pre><code class="shell"># ./19th_test R 0x10
+Read address 0x10 data is 0xff
+# ./19th_test W 0x10 0x10
+Write address 0x10 data is 0x10
+# ./19th_test R 0x10
+Read address 0x10 data is 0x10
+#</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1125934312@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>IIC驱动</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">8.1k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-05, 14:39:10</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-06, 23:52:00</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/05/IIC驱动/" title="IIC驱动">http://NU-LL.github.io/2019/08/05/IIC驱动/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 NU-LL</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#DM9000C','#网卡移植','#IIC驱动','#Markdown','#文件描述符','#二维数组','#指针','#等待队列','#wait_queue_head_t','#wait_queue_t','#快速排序','#按键驱动','#poll机制','#异步通知机制','#网卡驱动框架','#虚拟网卡','#输入子系统',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

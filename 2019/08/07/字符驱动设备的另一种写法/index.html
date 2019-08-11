@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>无名氏</title>
-  <meta name="keywords" content>
-  <meta name="description" content="无名氏">
+  <title>字符驱动设备的另一种写法 | 无名氏</title>
+  <meta name="keywords" content=" 字符驱动 ">
+  <meta name="description" content="字符驱动设备的另一种写法 | 无名氏">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="关于">
 <meta property="og:type" content="website">
@@ -52,7 +52,7 @@
 </div>
 
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar.jpg" />
@@ -425,12 +425,57 @@
         </div>
     </div>
 </aside>
-<div class="post index">
+<div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-字符驱动设备的另一种写法" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于我"><span class="toc-text">关于我</span></a></li></ol></li></ol>
+        <h1 class="article-title">字符驱动设备的另一种写法</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="Linux">Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">字符驱动</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-07 13:33:38'>2019-08-07 12:20</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1.9k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#字符驱动设备的另一种写法"><span class="toc-text">字符驱动设备的另一种写法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、register-chrdev的缺点"><span class="toc-text">一、register_chrdev的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、全新字符驱动设备的注册方法"><span class="toc-text">二、全新字符驱动设备的注册方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、alloc-chrdev-region"><span class="toc-text">1、alloc_chrdev_region</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、alloc-chrdev-region"><span class="toc-text">2、alloc_chrdev_region</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、cdev-init"><span class="toc-text">3、cdev_init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、cdev-add"><span class="toc-text">4、cdev_add</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、cdev-del"><span class="toc-text">5、cdev_del</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、unregister-chrdev-region"><span class="toc-text">6、unregister_chrdev_region</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、编写全新的字符驱动设备"><span class="toc-text">三、编写全新的字符驱动设备</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#驱动代码"><span class="toc-text">驱动代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试代码"><span class="toc-text">测试代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行测试"><span class="toc-text">运行测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -443,25 +488,240 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-</blockquote>
-<blockquote>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-</blockquote>
-<blockquote>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
-</blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像微博那样碎片化，也不像微信那样关系化，它是私人的空间。</p>
-<h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>这里是NU-LL的个人站。</p>
-<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
-<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="字符驱动设备的另一种写法"><a href="#字符驱动设备的另一种写法" class="headerlink" title="字符驱动设备的另一种写法"></a>字符驱动设备的另一种写法</h1><h2 id="一、register-chrdev的缺点"><a href="#一、register-chrdev的缺点" class="headerlink" title="一、register_chrdev的缺点"></a>一、<code>register_chrdev</code>的缺点</h2><p>之前注册字符设备用的如下函数注册字符设备驱动：</p>
+<pre><code class="c">register_chrdev(unsigned int major, const char *name,const struct file_operations *fops);</code></pre>
+<p>但其实这个函数是linux版本2.4之前的注册方式，它的原理是：</p>
+<ul>
+<li><p>（1）确定一个主设备号</p>
+</li>
+<li><p>（2）构造一个file_operations结构体, 然后放在chrdevs数组中</p>
+</li>
+<li><p>（3）注册：register_chrdev</p>
+</li>
+</ul>
+<p>然后当读写字符设备的时候，就会根据主设备号从<strong>chrdevs数组</strong>中取出相应的结构体，并调用相应的处理函数。</p>
+<p><strong>它会有个很大的缺点：</strong></p>
+<ul>
+<li><p>每注册个字符设备，还会连续注册0~255个次设备号，使它们绑定在同一个file_operations操作方法结构体上，在大多数情况下，都只用极少的次设备号，所以会浪费很多资源。</p>
+</li>
+<li><p>最多只能有255个设备</p>
+</li>
+</ul>
+<p><strong>改进后的优点：</strong></p>
+<ul>
+<li>通过一定区间长度的次设备号将file_operations操作方法结构体的数量限制住</li>
+<li>通过主设备号和次设备号来查找设备，其中次设备号20位，主设备号12位，理论上最大支持4G个驱动程序</li>
+</ul>
+<h2 id="二、全新字符驱动设备的注册方法"><a href="#二、全新字符驱动设备的注册方法" class="headerlink" title="二、全新字符驱动设备的注册方法"></a>二、全新字符驱动设备的注册方法</h2><p>在2.4版本后,内核里就加入了以下几个函数也可以来实现注册字符设备：</p>
+<h3 id="1、alloc-chrdev-region"><a href="#1、alloc-chrdev-region" class="headerlink" title="1、alloc_chrdev_region"></a>1、alloc_chrdev_region</h3><pre><code class="c">/*指定设备编号来静态注册一个字符设备*/
+int register_chrdev_region(dev_t from, unsigned count, const char *name);　　 </code></pre>
+<p><strong>from:</strong> 注册的指定起始设备编号,比如:MKDEV(100, 0),表示起始主设备号100, 起始次设备号为0</p>
+<p><strong>count:</strong>需要连续注册的次设备编号个数,比如: 起始次设备号为0,count=100,表示0~99的次设备号都要绑定在同一个file_operations操作方法结构体上</p>
+<p><strong>name:</strong>字符设备名称</p>
+<p>当返回值小于0,表示注册失败</p>
+<h3 id="2、alloc-chrdev-region"><a href="#2、alloc-chrdev-region" class="headerlink" title="2、alloc_chrdev_region"></a>2、alloc_chrdev_region</h3><pre><code class="c">/*动态分配一个字符设备,注册成功并将分配到的主次设备号放入*dev里*/
+int alloc_chrdev_region(dev_t *dev, unsigned baseminor, unsigned count,const char *name);</code></pre>
+<p><strong>dev:</strong> 存放起始设备编号的指针,当注册成功, *dev就会等于分配到的起始设备编号,可以通过MAJOR()和MINNOR()函数来提取主次设备号</p>
+<p><strong>baseminor:</strong>次设备号基地址,也就是起始次设备号</p>
+<p><strong>count:</strong>需要连续注册的次设备编号个数,比如: 起始次设备号(baseminor)为0,baseminor=2,表示0~1的此设备号都要绑定在同一个file_operations操作方法结构体上</p>
+<p><strong>name:</strong>字符设备名称</p>
+<p>当返回值小于0,表示注册失败</p>
+<h3 id="3、cdev-init"><a href="#3、cdev-init" class="headerlink" title="3、cdev_init"></a>3、cdev_init</h3><pre><code class="c"> /*初始化cdev结构体,并将file_operations结构体放入cdev-&gt; ops 里*/
+void cdev_init(struct cdev *cdev, const struct file_operations *fops);</code></pre>
+<p>其中cdev结构体的成员,如下所示:</p>
+<pre><code class="c">struct cdev {
+    struct kobject    kobj;            // 内嵌的kobject对象 
+    struct module   *owner;            //所属模块
+    const struct file_operations  *ops;//操作方法结构体
+    struct list_head  list;      　　　 //与 cdev 对应的字符设备文件的 inode-&gt;i_devices 的链表头
+    dev_t dev;      　　　　　　　　　　　 //起始设备编号,可以通过MAJOR(),MINOR()来提取主次设备号
+    unsigned int count;              　 //连续注册的次设备号个数
+};</code></pre>
+<p>其中可以通过<code>MAJOR(cdev-&gt;dev)</code>，<code>MINOR(cdev-&gt;dev)</code>来提取主次设备号，亦可以通过<code>MKDEV(major,minor)</code>来将主设备号major和次设备号minor转换成dev_t类型变量dev</p>
+<h3 id="4、cdev-add"><a href="#4、cdev-add" class="headerlink" title="4、cdev_add"></a>4、cdev_add</h3><pre><code class="c">/*将cdev结构体添加到系统中,并将dev(注册好的设备编号)放入cdev-&gt; dev里,  count(次设备编号个数)放入cdev-&gt;count里*/
+int cdev_add(struct cdev *p, dev_t dev, unsigned count);</code></pre>
+<h3 id="5、cdev-del"><a href="#5、cdev-del" class="headerlink" title="5、cdev_del"></a>5、cdev_del</h3><pre><code class="c">/*将系统中的cdev结构体删除掉*/
+void cdev_del(struct cdev *p);</code></pre>
+<h3 id="6、unregister-chrdev-region"><a href="#6、unregister-chrdev-region" class="headerlink" title="6、unregister_chrdev_region"></a>6、unregister_chrdev_region</h3><pre><code class="c"> /*注销字符设备*/
+void unregister_chrdev_region(dev_t from, unsigned count);</code></pre>
+<p><strong>from:</strong> 注销的指定起始设备编号,比如:MKDEV(100, 0),表示起始主设备号100, 起始次设备号为0</p>
+<p><strong>count:</strong>需要连续注销的次设备编号个数,比如: 起始次设备号为0,baseminor=100,表示注销掉0~99的次设备号</p>
+<h2 id="三、编写全新的字符驱动设备"><a href="#三、编写全新的字符驱动设备" class="headerlink" title="三、编写全新的字符驱动设备"></a>三、编写全新的字符驱动设备</h2><p>通过调用上面的函数,构造两个不同的file_operations操作结构体,</p>
+<p>次设备号0~1对应第一个file_operations,</p>
+<p>次设备号2~3对应第二个file_operations,</p>
+<p>然后在/dev/下,通过次设备号（0~4）创建5个设备节点, 利用应用程序打开这5个文件，看有什么现象</p>
+<h3 id="驱动代码"><a href="#驱动代码" class="headerlink" title="驱动代码"></a>驱动代码</h3><pre><code class="c">#include &lt;linux/module.h&gt;
+#include &lt;linux/kernel.h&gt;
+#include &lt;linux/fs.h&gt;
+#include &lt;linux/init.h&gt;
+#include &lt;linux/delay.h&gt;
+#include &lt;asm/irq.h&gt;
+#include &lt;asm/arch/regs-gpio.h&gt;
+#include &lt;asm/hardware.h&gt;
+#include &lt;asm/uaccess.h&gt;
+#include &lt;asm/io.h&gt;
+#include &lt;linux/list.h&gt;
+#include &lt;linux/cdev.h&gt;
 
-        </article>
-        
-        
+static int hello_fops1_open(struct inode *inode, struct file *file)
+{
+    printk(&quot;open_hello1!!!\n&quot;);
+    return 0;
+}
+
+static int hello_fops2_open (struct inode *inode, struct file *file)
+{
+    printk(&quot;open_hello2!!!\n&quot;);
+    return 0;
+}
+
+
+/*  操作结构体1   */
+static struct file_operations hello1_fops={
+    .owner=THIS_MODULE,
+    .open =hello_fops1_open,
+};
+
+/*  操作结构体2   */
+static struct file_operations hello2_fops={
+    .owner=THIS_MODULE,
+    .open =hello_fops2_open,
+};
+
+
+static int major;              //主设备
+static struct cdev hello1_cdev;//保存 hello1_fops操作结构体的字符设备 
+static struct cdev hello2_cdev;//保存 hello2_fops操作结构体的字符设备 
+static struct class *cls;
+
+static int chrdev_ragion_init(void)
+{
+    dev_t  devid;  
+
+    alloc_chrdev_region(&amp;devid, 0, 4,&quot;hello&quot;);//动态分配字符设备: (major,0)、(major,1)、(major,2)、(major,3)
+
+    major=MAJOR(devid);
+
+    cdev_init(&amp;hello1_cdev, &amp;hello1_fops);
+    cdev_add(&amp;hello1_cdev, MKDEV(major,0), 2);//(major,0) (major,1)
+
+
+    cdev_init(&amp;hello2_cdev, &amp;hello2_fops);
+    cdev_add(&amp;hello2_cdev,MKDEV(major,2), 2);//(major,2) (major,3)     
+
+    cls=class_create(THIS_MODULE, &quot;hello&quot;);
+    /*创建字符设备节点*/
+    class_device_create(cls,0, MKDEV(major,0), 0, &quot;hello0&quot;);//对应hello_fops1操作结构体
+    class_device_create(cls,0, MKDEV(major,1), 0, &quot;hello1&quot;);//对应hello_fops1操作结构体
+    class_device_create(cls,0, MKDEV(major,2), 0, &quot;hello2&quot;);//对应hello_fops2操作结构体
+    class_device_create(cls,0, MKDEV(major,3), 0, &quot;hello3&quot;);//对应hello_fops2操作结构体
+    class_device_create(cls,0, MKDEV(major,4), 0, &quot;hello4&quot;);//对应空
+    return 0;
+}
+
+void chrdev_ragion_exit(void)
+{
+    class_device_destroy(cls, MKDEV(major,4));
+    class_device_destroy(cls, MKDEV(major,3));
+    class_device_destroy(cls, MKDEV(major,2));
+    class_device_destroy(cls, MKDEV(major,1));
+    class_device_destroy(cls, MKDEV(major,0));
+
+    class_destroy(cls);
+
+
+    cdev_del(&amp;hello1_cdev);     
+    cdev_del(&amp;hello2_cdev); 
+    unregister_chrdev_region(MKDEV(major,0), 4);//注销(major,0)~(major,3)
+}
+
+module_init(chrdev_ragion_init);
+module_exit(chrdev_ragion_exit);
+MODULE_LICENSE(&quot;GPL&quot;);</code></pre>
+<h3 id="测试代码"><a href="#测试代码" class="headerlink" title="测试代码"></a>测试代码</h3><pre><code class="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/stat.h&gt;
+#include &lt;fcntl.h&gt;
+//打印使用帮助信息
+void print_useg(char arg[])
+{
+    printf(&quot;useg:  \n&quot;);
+    printf(&quot;%s   [dev]\n&quot;,arg);
+}
+
+int main(int argc,char **argv)
+{
+    int fd;
+    if(argc!=2)
+    {
+        print_useg(argv[0]);
+        return -1;
+    }
+
+    fd=open(argv[1],O_RDWR);
+    if(fd&lt;0)
+        printf(&quot;can&#39;t open %s \n&quot;,argv[1]);
+    else
+        printf(&quot;can open %s \n&quot;,argv[1]);
+    return 0;
+}</code></pre>
+<h3 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h3><p>如下所示，挂载驱动后,通过 <code>ls /dev/hello* -l</code> ,看到创建了5个字符设备节点</p>
+<pre><code class="shell"># ls /dev/hello* -l
+crw-rw----    1 0     0     252, 0 Jan 1 00: 06/dev/hello0
+crw-rw----    1 0     0     252, 1 Jan 1 00: 06/dev/hello1
+crw-rw----    1 0     0     252, 2 Jan 1 00: 06/dev/hello2
+crw-rw----    1 0     0     252, 3 Jan 1 00: 06/dev/hello3
+crw-rw----    1 0     0     252, 4 Jan 1 00: 06/dev/hello4</code></pre>
+<p>接下来开始测试驱动,如下图所示,</p>
+<p>打开/dev/hello0时,调用的是驱动代码的操作结构体hello1_fops里的.open(),</p>
+<p>打开/dev/hello2时,调用的是驱动代码的操作结构体hello2_fops里的.open(),</p>
+<p>打开/dev/hello4时,打开无效,因为在驱动代码里没有分配次设备号4的操作结构体,</p>
+<pre><code class="shell"># ./20th_chrdev_region_test /dev/hello0
+open_hello1!!!
+can open /dev/hello0
+#
+#
+# ./20th_chrdev_region_test /dev/hello2
+open_hello2!!!
+can open /dev/hello2
+#
+#
+# ./20th_chrdev_region_test /dev/hello4
+can&#39;t open /dev/hello4</code></pre>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>　　使用register_chrdev_region()等函数来注册字符设备,里面可以存放多个不同的file_oprations操作结构体,实现各种不同的功能</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1125934312@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>字符驱动设备的另一种写法</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.9k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-07, 12:20:30</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-07, 13:33:38</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/07/字符驱动设备的另一种写法/" title="字符驱动设备的另一种写法">http://NU-LL.github.io/2019/08/07/字符驱动设备的另一种写法/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">©2016-2019 NU-LL</p>

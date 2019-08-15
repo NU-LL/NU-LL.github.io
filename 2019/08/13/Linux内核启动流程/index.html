@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>Linux编程--文件描述符fd | 无名氏</title>
-  <meta name="keywords" content=" 文件描述符 ">
-  <meta name="description" content="Linux编程--文件描述符fd | 无名氏">
+  <title>Linux内核启动流程 | 无名氏</title>
+  <meta name="keywords" content=" Linux内核 ">
+  <meta name="description" content="Linux内核启动流程 | 无名氏">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="关于">
 <meta property="og:type" content="website">
@@ -471,9 +471,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Linux编程--文件描述符fd" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Linux内核启动流程" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Linux编程--文件描述符fd</h1>
+        <h1 class="article-title">Linux内核启动流程</h1>
     
     <div class="article-meta">
         
@@ -481,26 +481,26 @@
         
         <span class="book">
             
-                <a href="javascript:" data-rel="Linux">Linux</a>
+                <a href="javascript:" data-rel="linux">linux</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a href="javascript:" class="color1">文件描述符</a>
+            <a href="javascript:" class="color3">Linux内核</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-07-21 23:44:12'>2019-07-21 10:13</time>
+        创建时间:<time class="date" title='更新时间: 2019-08-14 20:24:00'>2019-08-13 16:13</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:423</span>
+        <span>字数:1.4k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -519,7 +519,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux编程–文件描述符fd"><span class="toc-text">Linux编程–文件描述符fd</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux内核启动流程"><span class="toc-text">Linux内核启动流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、配置及编译"><span class="toc-text">一、配置及编译</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分析顶层makefile"><span class="toc-text">分析顶层makefile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、第一个文件head-S"><span class="toc-text">二、第一个文件head.S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、启动内核start-kernel"><span class="toc-text">三、启动内核start_kernel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#start-kernel步骤"><span class="toc-text">start_kernel步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理uboot传进来的启动信息"><span class="toc-text">处理uboot传进来的启动信息</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -534,20 +534,172 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Linux编程–文件描述符fd"><a href="#Linux编程–文件描述符fd" class="headerlink" title="Linux编程–文件描述符fd"></a>Linux编程–文件描述符fd</h1><p> linux中， 每一个进程在内核中，都对应有一个“打开文件”数组，存放指向文件对象的指针，而 <strong>fd 是这个数组的下标</strong>。</p>
-<p>​    我们对文件进行操作时，系统调用，将fd传入内核，内核通过fd找到文件，对文件进行操作。</p>
-<p>​    既然是数组下标，<strong>fd的类型为int， &lt; 0 为非法值， &gt;=0 为合法值</strong>。在linux中，一个进程默认可以打开的文件数为1024个，fd的范围为0~1023。可以通过设置，改变最大值。</p>
-<p>​    <strong>在linux中，值为0、1、2的fd，分别代表标准输入、标准输出、标准错误输出</strong>。在上一篇文章中，使用重定向 2&gt;/dev/null 就是把标准错误输出重定向到位桶中去，不显示出来。因为 0 1 2已经被linux使用了，通常在程序中打开的fd，是从3开始的。但我们在判断一个fd是否合法时，<strong>依然要使用&gt;=0的判断标准</strong>。</p>
-<p>​    <strong>fd的分配原则，是从小到大，找到第一个不用的进行分配</strong>。</p>
-<p>​    除了open之外， socket编程的socket()/accept()等函数，也会返回一个fd值。</p>
-<p>​    1）Linux系统下，所有进程允许打开的最大fd数量。查询语句：</p>
-<pre><code class="bash">cat /proc/sys/fs/file-max</code></pre>
-<p>​    2）Linux系统下，所有进程已经打开的fd数量及允许的最大数量。查询语句：</p>
-<pre><code class="bash">cat /proc/sys/fs/file-nr</code></pre>
-<p>​    3）单个进程允许打开的最大fd数量.查询语句：</p>
-<pre><code class="bash">ulimit -n</code></pre>
-<p>​    4)单个进程（例如进程id为5454）已经打开的fd.查询语句：</p>
-<pre><code class="bash">ls -l /proc/5454/fd/</code></pre>
+        <h1 id="Linux内核启动流程"><a href="#Linux内核启动流程" class="headerlink" title="Linux内核启动流程"></a>Linux内核启动流程</h1><h2 id="一、配置及编译"><a href="#一、配置及编译" class="headerlink" title="一、配置及编译"></a>一、配置及编译</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>三种方法配置：</p>
+<ol>
+<li><p>直接输入 make menuconfig   命令,从头到尾重新配置菜单 (非常复杂)</p>
+<p> make menuconfig时修改配置项，最终的配置结果会保存在.config文件中，这主要是Kconfig的功能，</p>
+<p> 再执行make menuconfig时就可以回去读取<code>.config</code>文件。这是内核配置的过程。</p>
+</li>
+<li><p>通过make xxx_defconfig命令在默认的配置上进行修改,然后再输入make menuconfig配置菜单</p>
+<p> 可以使用,使用 <code>find –name \*defconfig</code> 命令查找所有带defconfig名字的文件.</p>
+</li>
+<li><p>使用厂家提供的配置config_ok文件</p>
+<p> 在linux-2.6.22.6目录下，使用<code>cp config_ok  .config</code>将config_ok复制覆盖新的.config隐藏文件(通过 ls -la 命令可以查看.config隐藏文件)，</p>
+<p> 最后执行make menuconfig时就可以回去读取.config文件</p>
+</li>
+</ol>
+<p>可见，最后的配置文件为<code>.config</code>文件。该配置文件通过<code>make uImage</code>或<code>make</code>命令后会影响以下几个文件：</p>
+<ul>
+<li><p>相关的源代码（包含该宏，该宏的具体定义在下一个文件<code>autoconf.h</code>中）</p>
+</li>
+<li><p>该源码所对应的头文件（include/linux/autoconf.h）</p>
+<blockquote>
+<p>该头文件会通过make命令根据<code>.config</code>文件自动生成，同时将CONFIG_XXX定义为1（不论是否为模块）</p>
+</blockquote>
+</li>
+<li><p>子目录中的makefile</p>
+<blockquote>
+<p>编译成模块或者是内核是通过该文件体现出来的：</p>
+<p>例子：</p>
+<pre><code class="makefile">obj-$(CONFIG_XXX) += xxx.o</code></pre>
+<p>这里<code>CONFIG_XXX</code>的值就是下一点中的配置文件<code>auto.conf</code>中的内容，即：</p>
+<ul>
+<li>obj-y：编译到内核</li>
+<li>obj-m：编译成模块</li>
+</ul>
+</blockquote>
+</li>
+<li><p>配置文件（include/config/auto.conf）</p>
+<blockquote>
+<p>该文件中的内容是通过make命令根据<code>.config</code>文件自动生成</p>
+<p>例子：</p>
+<p>CONFIG_XXX=y（编译到内核）</p>
+<p>或</p>
+<p>CONFIG_XXX=m（编译成模块）</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="分析顶层makefile"><a href="#分析顶层makefile" class="headerlink" title="分析顶层makefile"></a>分析顶层makefile</h3><p>分析makefile的主要目的是找到第一个文件和链接脚本，相关方法和uboot中的过程类似</p>
+<blockquote>
+<p>详细的文档可以查看<code>Documentation/kbuild/makefiles.txt</code></p>
+</blockquote>
+<blockquote>
+<p>通过上面的讲解，我们可以知道每个文件是如何被编译成模块或者是内核中去的，这里拓展下多个文件一起编译的情况：</p>
+<p>例子：a.c、b.c两个文件需要同时编译成一个模块</p>
+<pre><code class="makefile">obj-m += ab.o
+ab-objs := a.o b.o</code></pre>
+<p>此时会将a.c、b.c两个文件编译成ab.ko这个模块</p>
+</blockquote>
+<p>通过<code>make uImage</code>命令，发现目标<code>uImage</code>位于<code>arch/arm/makefile</code>：</p>
+<blockquote>
+<p>顶层的makefile包括了子目录下的makefile以及上文中讲的<code>.config</code>配置文件</p>
+</blockquote>
+<pre><code class="makefile">ZImage Image xipImage bootpImage uImage:vmlinux
+    $(Q)$(MAKE) $(build)=$(boot) MACHINE=$(MACHINE) $(boot)/$@</code></pre>
+<p>此时目标<code>vmlinux</code>又在顶层makefile中：</p>
+<pre><code class="makefile">all: vmlinux
+......
+vmlinux-init := $(head-y) $(init-y)#初始化代码，原材料
+vmlinux-main := $(core-y) $(libs-y) $(drivers-y) $(net-y)#核心代码
+vmlinux-all  := $(vmlinux-init) $(vmlinux-main)
+vmlinux-lds  := arch/$(ARCH)/kernel/vmlinux.lds#链接脚本
+......
+vmlinux: $(vmlinux-lds) $(vmlinux-init) $(vmlinux-main) $(kallsyms.o) FORCE
+ifdef CONFIG_HEADERS_CHECK#编译命令：
+    $(Q)$(MAKE) -f $(srctree)/Makefile headers_check
+endif
+    $(call if_changed_rule,vmlinux__)
+    $(Q)$(MAKE) -f $(srctree)/scripts/Makefile.modpost $@
+    $(Q)rm -f .old_version</code></pre>
+<p>同分析uboot的方法一致，这里直接执行<code>make uImage V=1</code>命令，关心最后一条命令(展开后)：</p>
+<blockquote>
+<p>V=1：打印信息更加详细的列出来</p>
+</blockquote>
+<pre><code class="bash">arm-linux-ld -EL -P --no-urde fined -X -o vmlinux -T arch/arm/kernel/vmlinux.lds
+arch/arn/kernel/head.o arch/arm/kernel/init_task.o
+initi/built-in.o
+--start-group usr/built-in.o arch/arm/kernel/built-in.o arch/arm/mm/built-in.o arch/arm/common/built-in.o arch/arm/mach-s3c2410/built-in.o arch/arm/mach-s3c2400/built-in.o arch/arm/mach-s3c2412/built-in.o arch/arm/mach-s3c2440/built-in.o arch/arm/mach-s3c2442/built-in.o arch/arm/mach-s3c2443/built-in.o arch/arm/nwfpe/built-in.o arch/arm/plat-s3c24xx/built-in.o kernel/built-in.o mm/built-in.o fs/built-in.o ipc/built-in.o security/built-in.o crypto/built-in.o block/built-in.o arch/arm/lib/lib.a 1ib/1ib.a arch/arm/lib/built-in.o lib/built-in.o drivers/built-in.o sound/built-in.o
+net/built-in.o --end-group .tmp_kallsyms2.o</code></pre>
+<p>可见：</p>
+<ul>
+<li>第一个文件为：<code>arch/arn/kernel/head.S</code></li>
+<li>链接脚本为：<code>arch/arm/kernel/vmlinux.lds</code>（根据make命令由同级目录下的vmlinux.lds.S文件生成）</li>
+</ul>
+<pre><code>SECTIONS
+{
+. = (0xc0000000) + 0x00008000;          //设置内核运行地址
+
+.text.head : {                           
+    _stext = .;
+    _sinittext = .;
+    *(.text.head)                     //存放.text.head段
+}
+
+.init : {
+*(.init.text)                    //存放.init.text段   
+
+...   ...</code></pre><h2 id="二、第一个文件head-S"><a href="#二、第一个文件head-S" class="headerlink" title="二、第一个文件head.S"></a>二、第一个文件head.S</h2><p>head.S步骤：</p>
+<ol>
+<li><p>检查是否支持该处理器<code>__lookup_processor_type</code></p>
+</li>
+<li><p>检查单板ID（就是uboot传进来的机器ID）</p>
+<blockquote>
+<p>这里会通过<code>__lookup_machine_type</code>函数，将链接脚本中定义的<code>.arch.info.init</code>段中存放的架构相关的初始化信息和uboot传进来的机器ID进行对比，如果不匹配就进入死循环</p>
+<p>注：通过MACHINE_START宏可以定义架构相关的初始化信息在<code>.arch.info.init</code>段中</p>
+</blockquote>
+</li>
+<li><p>创建页表<code>__create_page_tables</code></p>
+</li>
+<li><p>使能MMU<code>__enable_mmu</code></p>
+</li>
+<li><p>跳转到<code>start_kernel</code>函数（内核的第一个C函数）</p>
+</li>
+</ol>
+<h2 id="三、启动内核start-kernel"><a href="#三、启动内核start-kernel" class="headerlink" title="三、启动内核start_kernel"></a>三、启动内核start_kernel</h2><h3 id="start-kernel步骤"><a href="#start-kernel步骤" class="headerlink" title="start_kernel步骤"></a>start_kernel步骤</h3><ol>
+<li><p>中断初始化、时钟初始化、打印内核版本信息</p>
+</li>
+<li><p>处理uboot传进来的启动信息<code>setup_arch(&amp;command_line);</code></p>
+<ol>
+<li>提取信息，处理</li>
+<li>解析命令行信息<code>parse_cmdline</code></li>
+</ol>
+</li>
+<li><p>处理命令行信息<code>setup_command_line(command_line);</code></p>
+</li>
+<li><p>调度初始化等各种初始化</p>
+</li>
+<li><p>挂接根文件系统<code>rest_init</code></p>
+<ol>
+<li><p>创建<code>kernel_init</code>线程</p>
+<ol>
+<li><p>早期的用户空间初始化<code>prepare_namespace</code></p>
+<ol>
+<li>挂载根文件系统<code>mount_root</code></li>
+</ol>
+</li>
+<li><p>初始化某些设备<code>init_post</code></p>
+<ol>
+<li><p>打开/dev/console设备</p>
+</li>
+<li><p>执行应用程序</p>
+<pre><code class="c"> run_init_process(&quot;/sbin/init&quot;);
+ run_init_process(&quot;/etc/init&quot;);
+ run_init_process(&quot;/bin/init&quot;);
+ run_init_process(&quot;/bin/sh&quot;);</code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="处理uboot传进来的启动信息"><a href="#处理uboot传进来的启动信息" class="headerlink" title="处理uboot传进来的启动信息"></a>处理uboot传进来的启动信息</h3><p>通过调用宏<code>__setup</code>来处理uboot传进来的<code>bootargs</code>命令行参数</p>
+<pre><code class="c">__setup(&quot;命令&quot;,调用的函数)</code></pre>
+<blockquote>
+<p>例子：</p>
+<p>__setup(“root=”,root_dev_setup)：当uboot传进来<code>bootargs</code>命令行参数中有root参数时，会调用函数root_dev_setup。同时用了一个专门的结构体obs_kernel_param来保存相关的一些数据并存在了<code>.init.setup</code>段中</p>
+</blockquote>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1125934312@qq.com </span>
@@ -557,12 +709,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>Linux编程--文件描述符fd</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">423</span></p>
+    <p><span class="copy-title">文章标题:</span>Linux内核启动流程</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.4k</span></p>
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-21, 10:13:47</p>
-    <p><span class="copy-title">最后更新:</span>2019-07-21, 23:44:12</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/21/Linux编程--文件描述符fd/" title="Linux编程--文件描述符fd">http://NU-LL.github.io/2019/07/21/Linux编程--文件描述符fd/</a>
+    <p><span class="copy-title">发布时间:</span>2019-08-13, 16:13:46</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-14, 20:24:00</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/13/Linux内核启动流程/" title="Linux内核启动流程">http://NU-LL.github.io/2019/08/13/Linux内核启动流程/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>

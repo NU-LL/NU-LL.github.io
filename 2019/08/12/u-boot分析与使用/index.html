@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>u-boot分析与使用 | 无名氏</title>
+  <meta name="keywords" content=" u-boot ">
+  <meta name="description" content="u-boot分析与使用 | 无名氏">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://NU-LL.github.io/about/index.html">
+<meta property="og:site_name" content="无名氏">
+<meta property="og:description" content="关于">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-21T14:30:10.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="关于">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1" rel="stylesheet">
+
+<link href="/css/hl_theme/github.css?v=1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>NU-LL</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/NU-LL" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/CSDN_JZ_" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:1125934312@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=1125934312&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=323374922" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(17)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(10)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="linux">linux<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="感悟与总结">感悟与总结<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="17">
+<input type="hidden" id="yelog_site_word_count" value="45.2k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://github.com/NU-LL">NU-LL</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">DM9000C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网卡移植</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Linux内核</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">二维数组</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">指针</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">IIC驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">文件描述符</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">等待队列</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_head_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">存储器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">字符驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">u-boot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">按键驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">poll机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">根文件系统</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">快速排序</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">异步通知机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">网卡驱动框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">虚拟网卡</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">输入子系统</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Linux "
+           href="/2019/08/04/DM9000C网卡移植/"
+           data-tag="DM9000C,网卡移植"
+           data-author="" >
+            <span class="post-title" title="DM9000C网卡移植">DM9000C网卡移植</span>
+            <span class="post-date" title="2019-08-04 23:07:22">2019/08/04</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2019/08/13/Linux内核启动流程/"
+           data-tag="Linux内核"
+           data-author="" >
+            <span class="post-title" title="Linux内核启动流程">Linux内核启动流程</span>
+            <span class="post-date" title="2019-08-13 16:13:46">2019/08/13</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/07/12/Markdown 语法整理/"
+           data-tag="Markdown"
+           data-author="" >
+            <span class="post-title" title="Markdown 语法整理">Markdown 语法整理</span>
+            <span class="post-date" title="2019-07-12 13:57:24">2019/07/12</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/06/二维数组与指针的一些问题/"
+           data-tag="二维数组,指针"
+           data-author="" >
+            <span class="post-title" title="二维数组与指针的一些问题">二维数组与指针的一些问题</span>
+            <span class="post-date" title="2019-08-06 13:11:26">2019/08/06</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/05/IIC驱动/"
+           data-tag="IIC驱动"
+           data-author="" >
+            <span class="post-title" title="IIC驱动">IIC驱动</span>
+            <span class="post-date" title="2019-08-05 14:39:10">2019/08/05</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/Linux编程--文件描述符fd/"
+           data-tag="文件描述符"
+           data-author="" >
+            <span class="post-title" title="Linux编程--文件描述符fd">Linux编程--文件描述符fd</span>
+            <span class="post-date" title="2019-07-21 10:13:47">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/linux等待队列wait_queue_head_t和wait_queue_t/"
+           data-tag="等待队列,wait_queue_head_t,wait_queue_t"
+           data-author="" >
+            <span class="post-title" title="linux等待队列wait_queue_head_t和wait_queue_t">linux等待队列wait_queue_head_t和wait_queue_t</span>
+            <span class="post-date" title="2019-07-21 18:18:54">2019/07/21</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/11/各种存储器的区别/"
+           data-tag="存储器"
+           data-author="" >
+            <span class="post-title" title="各种存储器的区别">各种存储器的区别</span>
+            <span class="post-date" title="2019-08-11 10:57:19">2019/08/11</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/字符驱动设备的另一种写法/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="字符驱动设备的另一种写法">字符驱动设备的另一种写法</span>
+            <span class="post-date" title="2019-08-07 12:20:30">2019/08/07</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2019/08/12/u-boot分析与使用/"
+           data-tag="u-boot"
+           data-author="" >
+            <span class="post-title" title="u-boot分析与使用">u-boot分析与使用</span>
+            <span class="post-date" title="2019-08-12 19:16:50">2019/08/12</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/按键驱动——poll机制/"
+           data-tag="按键驱动,poll机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动——poll机制">按键驱动——poll机制</span>
+            <span class="post-date" title="2019-07-21 20:30:38">2019/07/21</span>
+        </a>
+        
+        <a  class="linux "
+           href="/2019/08/14/构造根文件系统/"
+           data-tag="根文件系统"
+           data-author="" >
+            <span class="post-title" title="构造根文件系统">构造根文件系统</span>
+            <span class="post-date" title="2019-08-14 20:18:45">2019/08/14</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2019/07/29/快速排序/"
+           data-tag="快速排序"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-07-29 22:27:34">2019/07/29</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/22/按键驱动：异步通知机制/"
+           data-tag="按键驱动,异步通知机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动：异步通知机制">按键驱动：异步通知机制</span>
+            <span class="post-date" title="2019-07-22 19:04:24">2019/07/22</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/04/网卡驱动程序/"
+           data-tag="网卡驱动框架,虚拟网卡"
+           data-author="" >
+            <span class="post-title" title="网卡驱动程序">网卡驱动程序</span>
+            <span class="post-date" title="2019-08-04 21:24:07">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/RTC驱动分析/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="RTC驱动分析">RTC驱动分析</span>
+            <span class="post-date" title="2019-08-07 13:37:33">2019/08/07</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/25/输入子系统/"
+           data-tag="按键驱动,输入子系统"
+           data-author="" >
+            <span class="post-title" title="输入子系统">输入子系统</span>
+            <span class="post-date" title="2019-07-25 00:05:15">2019/07/25</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-u-boot分析与使用" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">u-boot分析与使用</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="linux">linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color2">u-boot</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2019-08-14 20:18:16'>2019-08-12 19:16</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.7k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u-boot分析与使用"><span class="toc-text">u-boot分析与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Makefile结构分析"><span class="toc-text">一、Makefile结构分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、make-100ask24x0-config配置芯片类型"><span class="toc-text">1、make 100ask24x0_config配置芯片类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mkconfig脚本分析"><span class="toc-text">mkconfig脚本分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mkconfig脚本总结"><span class="toc-text">mkconfig脚本总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、make-编译u-boot"><span class="toc-text">2、make 编译u-boot</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#链接脚本分析"><span class="toc-text">链接脚本分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、start-S——硬件初始化"><span class="toc-text">二、start.S——硬件初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、start-armboot"><span class="toc-text">三、start_armboot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、u-boot命令实现"><span class="toc-text">四、u-boot命令实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#核心机制"><span class="toc-text">核心机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、启动内核"><span class="toc-text">五、启动内核</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nand命令"><span class="toc-text">nand命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bootm命令"><span class="toc-text">bootm命令</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="u-boot分析与使用"><a href="#u-boot分析与使用" class="headerlink" title="u-boot分析与使用"></a>u-boot分析与使用</h1><h2 id="一、Makefile结构分析"><a href="#一、Makefile结构分析" class="headerlink" title="一、Makefile结构分析"></a>一、Makefile结构分析</h2><h3 id="1、make-100ask24x0-config配置芯片类型"><a href="#1、make-100ask24x0-config配置芯片类型" class="headerlink" title="1、make 100ask24x0_config配置芯片类型"></a>1、make 100ask24x0_config配置芯片类型</h3><p>打开u-boot-1.1.6/Makefile文件，发现：</p>
+<pre><code class="makefile">SRCTREE    := $(CURDIR) *CURDIR是make的内嵌变量， 为当前目录
+......
+MKCONFIG    := $(SRCTREE)/mkconfig
+......
+100ask24x0_config    :    unconfig
+@$(MKCONFIG) $(@:_config=) arm arm920t 100ask24x0 NULL s3c24x0</code></pre>
+<p>上述$(SRCTREE)等于​$(CURDIR)，也就是当前目录u-boot-1.1.6，所以MKCONFIG=./mkconfig<br>上述$(@:_config=)的结果就是将 “100ask24x0_config” 中的 “_config” 去掉， 结果为 “100ask24x0” 。<br><strong>实际执行:</strong></p>
+<pre><code class="makefile">mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0
+  $0         $1     $2    $3        $4      $5     $6 </code></pre>
+<h4 id="mkconfig脚本分析"><a href="#mkconfig脚本分析" class="headerlink" title="mkconfig脚本分析"></a>mkconfig脚本分析</h4><p>显然这里是调用的mkconfig，打开当前目录u-boot-1.1.6下的该文件(用的linux_shell语法，可以参考《精通linux_shell编程教程pdf完整版》以及Linux应用开发手册第264页U-Boot配置过程)，在第6行中给出了mkconfig的用法：</p>
+<pre><code class="makefile"># Parameters: Target Architecture CPU Board [VENDOR] [SOC]</code></pre>
+<p>刚好对应mkconfig(参数) 100ask24x0(目标) arm(架构) arm920t(cpu)100ask24x0(开发板选型) NULL(供应商) s3c24x0(片上系统/芯片) 。</p>
+<p>通过分析，精简后的mkconfig文件：</p>
+<pre><code class="bash">#!/bin/sh -e
+# Parameters:  Target  Architecture  CPU  Board [VENDOR] [SOC]
+# mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0
+
+APPEND=no    # Default: Create new config file
+BOARD_NAME=&quot;&quot;    # Name to print in make output
+
+while [ $# -gt 0 ] ; do
+    #不运行
+done
+
+[ &quot;${BOARD_NAME}&quot; ] || BOARD_NAME=&quot;$1&quot;#BOARD_NAME=100ask24x0
+# $#:参数的个数
+[ $# -lt 4 ] &amp;&amp; exit 1#不运行
+[ $# -gt 6 ] &amp;&amp; exit 1#不运行
+
+echo &quot;Configuring for ${BOARD_NAME} board...&quot;
+
+#
+# Create link to architecture specific headers
+#
+if [ &quot;$SRCTREE&quot; != &quot;$OBJTREE&quot; ] ; then#通过Makefile发现相等
+    #不运行
+else
+    cd ./include#进入include目录
+    rm -f asm
+    ln -s asm-$2 asm#ln -s asm-arm asm：建立链接文件asm，指向asm-arm
+fi
+
+rm -f asm-$2/arch#rm -f asm-arm/arch：删除文件
+
+if [ -z &quot;$6&quot; -o &quot;$6&quot; = &quot;NULL&quot; ] ; then#第6个参数为空或等于NULL
+    ln -s ${LNPREFIX}arch-$3 asm-$2/arch#不运行
+else
+    ln -s ${LNPREFIX}arch-$6 asm-$2/arch#ln -s arch-s3c24x0 asm-arm/arch：建立链接文件asm-arm/arch，指向arch-s3c24x0
+fi
+
+if [ &quot;$2&quot; = &quot;arm&quot; ] ; then
+    rm -f asm-$2/proc#删除文件
+    ln -s ${LNPREFIX}proc-armv asm-$2/proc#ln -s proc-armv asm-arm/proc：建立链接文件asm-arm/proc，指向proc-armv
+fi
+
+#
+# Create include file for Make
+#
+echo &quot;ARCH   = $2&quot; &gt;  config.mk#新建config.mk
+echo &quot;CPU    = $3&quot; &gt;&gt; config.mk#追加
+echo &quot;BOARD  = $4&quot; &gt;&gt; config.mk
+
+[ &quot;$5&quot; ] &amp;&amp; [ &quot;$5&quot; != &quot;NULL&quot; ] &amp;&amp; echo &quot;VENDOR = $5&quot; &gt;&gt; config.mk#不会执行
+
+[ &quot;$6&quot; ] &amp;&amp; [ &quot;$6&quot; != &quot;NULL&quot; ] &amp;&amp; echo &quot;SOC    = $6&quot; &gt;&gt; config.mk
+
+#
+# Create board specific header file
+#
+if [ &quot;$APPEND&quot; = &quot;yes&quot; ]    #第五行：APPEND=no
+then
+    echo &gt;&gt; config.h
+else
+    &gt; config.h        #新建config.h
+fi
+echo &quot;/* Automatically generated - do not edit */&quot; &gt;&gt;config.h
+echo &quot;#include &lt;configs/$1.h&gt;&quot; &gt;&gt;config.h
+
+exit 0</code></pre>
+<p>发现会创建include/config.mk文件：</p>
+<pre><code>  ARCH = arm
+  CPU = arm920t
+  BOARD = 100ask24x0
+  SOC = s3c24x0</code></pre><p>以及include/config.h</p>
+<pre><code class="c">/* Automatically generated - do not edit */
+#include &lt;configs/100ask24x0.h&gt;</code></pre>
+<h4 id="mkconfig脚本总结"><a href="#mkconfig脚本总结" class="headerlink" title="mkconfig脚本总结"></a>mkconfig脚本总结</h4><ol>
+<li><p>创建相关的头文件链接：</p>
+<pre><code class="bash"> ln -s asm-arm asm
+ ln -s arch-s3c24x0 asm-arm/arch
+ ln -s proc-armv asm-arm/proc</code></pre>
+</li>
+<li><p>创建顶层makefile包含的文件include/config.mk</p>
+<pre><code>   ARCH = arm
+   CPU = arm920t
+   BOARD = 100ask24x0
+   SOC = s3c24x0</code></pre></li>
+<li><p>创建开发板相关的头文件include/config.h</p>
+<pre><code class="c"> /* Automatically generated - do not edit */
+ #include &lt;configs/100ask24x0.h&gt;</code></pre>
+</li>
+</ol>
+<h3 id="2、make-编译u-boot"><a href="#2、make-编译u-boot" class="headerlink" title="2、make 编译u-boot"></a>2、make 编译u-boot</h3><p>u-boot-1.1.6/Makefile文件:</p>
+<pre><code class="makefile">include $(OBJTREE)/include/config.mk//调用config.mk这个文件
+...
+ifeq ($(ARCH),ppc)//判断config.mk这个文件中ARCH是否等于ppc
+CROSS_COMPILE = powerpc-linux- 
+endif
+ifeq ($(ARCH),arm)//判断config.mk这个文件中ARCH是否等于arm
+CROSS_COMPILE = arm-linux- 
+endif
+...
+include $(TOPDIR)/config.mk</code></pre>
+<p>最后的config.mk是属于顶层目录的config,主要通过arm，arm920t，100ask24x0，s3c24x0来确定编译器、编译选项等</p>
+<p>顶层的config.mk部分为：</p>
+<pre><code class="bash">...
+LDFLAGS += -Bstatic -T $(LDSCRIPT) -Ttext $(TEXT_BASE) $(PLATFORM_LDFLAGS)
+...</code></pre>
+<p>这里的<code>LDFLAGS</code>就是下文中的<code>$(LDFLAGS)</code></p>
+<ul>
+<li><code>$(LDSCRIPT)</code>：链接脚本</li>
+<li><code>$(TEXT_BASE)</code>：board/100ask24x0/config.mk中定义，为链接脚本的起始地址</li>
+</ul>
+<p>继续看，发现all目标：</p>
+<pre><code class="makefile">...
+ALL = $(obj)u-boot.srec $(obj)u-boot.bin $(obj)System.map $(U_BOOT_NAND)//all的依赖文件
+
+all:    $(ALL)//使用make命令,相当于执行make all 
+...
+$(obj)u-boot.bin:   $(obj)u-boot//生成u-boot.bin需要elf格式的u-boot，elf也就是通过ld链接文件生成的。
+$(OBJCOPY) ${OBJCFLAGS} -O binary $&lt; $@//执行:arm-linux-objcopy -O binary u-boot u-boot.bin
+...
+
+$(obj)u-boot:   depend version $(SUBDIRS) $(OBJS) $(LIBS) $(LDSCRIPT)//生成elf格式的u-boot所需要的依赖文件
+        UNDEF_SYM=`$(OBJDUMP) -x $(LIBS) |sed -n -e &#39;s/.*\(__u_boot_cmd_.*\)/-u\1/p&#39;|sort|uniq`;\
+        cd $(LNDIR) &amp;&amp; $(LD) $(LDFLAGS) $$UNDEF_SYM $(__OBJS) \                       
+            --start-group $(__LIBS) --end-group $(PLATFORM_LIBS) \
+            -Map u-boot.map -o u-boot</code></pre>
+<p>上述10行开始就是开始制作elf格式的u-boot，具体展开的命令可以看make后命令行最后输出的命令，值得注意的是这中间包含的<strong>链接脚本</strong>，他决定了各种.o文件是怎么组织的（注意<code>$(LDFLAGS)</code>）</p>
+<p>通过make后命令行输出的命令：</p>
+<pre><code class="bash">......&amp;&amp;arm-linux-ld -Bstatic -T /work/system/u-boot-1.1.6/board/100ask24x0/u-boot.lds -Ttext 0x33F80000 $UNDEF_SYM cpu/arm920t/start.o......</code></pre>
+<p>可以发现链接脚本为<code>board/100ask24x0/u-boot.lds</code>，并且通过<strong>-Ttext</strong>参数确定链接脚本的起始地址为0x33F80000</p>
+<blockquote>
+<p>开发板有64M的SDRAM，SDRAM从0x3000 0000开始，0x33F80000到SDRAM的结束地址刚好为512k</p>
+</blockquote>
+<p>同时，第一个链接的文件为cpu/arm920t/start.o，若链接脚本中没有明确指定那个文件在代码段（text段）的开头，该文件就是第一个被执行的文件</p>
+<h4 id="链接脚本分析"><a href="#链接脚本分析" class="headerlink" title="链接脚本分析"></a>链接脚本分析</h4><pre><code>OUTPUT_ARCH(arm)//设置输出文件的体系架构。
+ENTRY(_start)//将_start这个全局符号设置成入口地址,进行复位初始化
+SECTIONS//输出文件的内容布局
+{
+    . = 0x00000000;//指定地址0x00000000,最终运行地址在0x33F80000+0x00000000
+
+    . = ALIGN(4);//代码以4字节对齐
+    .text ://指定.text section段(位于0x33F80000)
+    {
+        cpu/arm920t/start.o (.text)//添加第一个目标文件cpu/arm920t/start.o里面的.text代码段
+        board/100ask24x0/boot_init.o (.text)//添加第二个目标文件board/100ask24x0/boot_init.o里面的.text代码段
+        *(.text)//*(.data) 表示添加剩下的全部文件的.text代码段
+    }
+
+    . = ALIGN(4);
+    .rodata : { *(.rodata) }//指定.rodata section段(位于0x33F80000+.text section),将所有的.rodata只读数据段合并成一个.rodata只读数据段
+
+    . = ALIGN(4);
+    .data : { *(.data) }//指定读写数据段
+
+    . = ALIGN(4);
+    .got : { *(.got) }//指定got段，got段是uboot自定义的一个段
+
+    . = .;
+    __u_boot_cmd_start = .;//把__u_boot_cmd_start赋值为当前位置, 即起始位置
+    .u_boot_cmd : { *(.u_boot_cmd) }// u_boot_cmd段，所有的u-boot命令相关的定义都放在这个位置
+    __u_boot_cmd_end = .;// *u_boot_cmd段结束位置
+
+    . = ALIGN(4);
+    __bss_start = .;//把__bss_start赋值为当前位置,即bss段的开始位置
+    .bss : { *(.bss) }//指定bss段，这里NOLOAD的意思是这段不需装载，仅在执行域中才会有这段
+    _end = .;//把_end赋值为当前位置,即bss段的结束位置
+}</code></pre><p>发现第一个文件是<code>cpu/arm920t/start.S</code></p>
+<h2 id="二、start-S——硬件初始化"><a href="#二、start-S——硬件初始化" class="headerlink" title="二、start.S——硬件初始化"></a>二、start.S——硬件初始化</h2><ol>
+<li><p>跳到reset处，执行复位函数</p>
+</li>
+<li><p>设为SVC(管理员)模式、f关闭看门狗、关闭中断、CPU的相关初始化（SDRAM初始化）</p>
+</li>
+<li><p>设置堆栈，为之后进入C函数做准备</p>
+<pre><code class="assembly"> /* Set up the stack                            */
+ stack_setup:
+     ldr    r0, _TEXT_BASE/*_TEXT_BASE，代码段起始地址，就是之前的0x33F80000*/
+     sub    r0, r0, #CFG_MALLOC_LEN    /* malloc area                      */
+     sub    r0, r0, #CFG_GBL_DATA_SIZE /* bdinfo                        */
+
+ #ifdef CONFIG_USE_IRQ
+     sub    r0, r0, #(CONFIG_STACKSIZE_IRQ+CONFIG_STACKSIZE_FIQ)
+ #endif
+     sub    sp, r0, #12        /* leave 3 words for abort-stack  最后sp指针的位置  */
+ #ifndef CONFIG_SKIP_LOWLEVEL_INIT
+     bl clock_init/*跳到C函数初始化时钟（自己写的，一般为汇编写的）*/
+ #endif
+</code></pre>
+</li>
+<li><p><strong>重定位</strong></p>
+<pre><code class="assembly"> //搬移代码，将完整的u-boot从flash（NOR、NAND）中搬移到SDRAM中的链接地址去
+ #ifndef CONFIG_SKIP_RELOCATE_UBOOT
+ relocate:                /* relocate U-Boot to RAM        */
+     adr    r0, _start        /* r0 &lt;- current position of code   */
+     ldr    r1, _TEXT_BASE        /* test if we run from flash or RAM */
+     cmp     r0, r1                  /* don&#39;t reloc during debug         */
+     beq     clear_bss
+
+     ldr    r2, _armboot_start
+     ldr    r3, _bss_start
+     sub    r2, r3, r2        /* r2 &lt;- size of armboot            */
+ #if 1
+     bl  CopyCode2Ram    /* r0: source, r1: dest, r2: size */
+ #else</code></pre>
+</li>
+<li><p>清除BSS段，全部清为0</p>
+<blockquote>
+<p>_bss_start 和 _bss_end由链接脚本决定</p>
+</blockquote>
+<pre><code class="assembly"> clear_bss:
+     ldr    r0, _bss_start        /* find start of bss segment        */
+     ldr    r1, _bss_end        /* stop here                        */
+     mov     r2, #0x00000000        /* clear                            */
+
+ clbss_l:str    r2, [r0]        /* clear loop...                    */
+     add    r0, r0, #4
+     cmp    r0, r1
+     ble    clbss_l</code></pre>
+</li>
+<li><p>调用C函数<code>start_armboot</code></p>
+<pre><code class="assembly"> ldr    pc, _start_armboot
+ _start_armboot:    .word start_armboot</code></pre>
+</li>
+</ol>
+<blockquote>
+<p>注意：</p>
+<p>ldr是<strong>位置有关码</strong>，将_start_armboot这个标号的值作为地址，<strong>取出其中的值</strong>（即start_armboot的位置，该位置是通过链接脚本指定的）赋值给pc，所以无论该代码现在运行在哪里（芯片内部SRAM、外部NOR FLASH或者外部SDRAM）都会跳转到已经拷贝到的外部SDRAM中的start_armboot中去</p>
+<p>实例：</p>
+<p>若此时该汇编代码运行在芯片内部SRAM中，前期通过搬移已经将完整的u-boot搬移至片外SDRAM中，链接脚本指定的链接地址（运行地址）为<code>33f80000</code>，设此时汇编所对应的反汇编为：</p>
+<pre><code class="assembly">#链接地址     机器码          反汇编指令
+33f80070:    e59ff04c     ldr    pc, [pc, #76]    ; 33f800c4
+......
+33f800c4:    33f805a0     mvnccs    r0, #671088640    ; 0x28000000
+......
+33f805a0 &lt;start_armboot&gt;:
+33f805a0:    e92d4030     stmdb    sp!, {r4, r5, lr}</code></pre>
+<p>此时第一行中的代码肯定是在片内SRAM中运行的，所以该行代码所处的实际物理地址应该是0x33f8 0070-0x33f8 0000=0x70，通过pc+8+76=pc+84=pc+0x54，得出pc应该赋值为地址0x70+0x54=0xc4中的值，即此时pc等于0xc4处所储存的数据33f805a0，正好对应start_armboot的链接地址。即下一刻跳转到片外的SDRAM中的start_armboot函数</p>
+<p><strong>总结</strong>：</p>
+<p>重定位前的代码应该使用<strong>位置无关码</strong>来写，以确保不同位置都可运行</p>
+<blockquote>
+<ol>
+<li>使用相对跳转指令：B、BL</li>
+<li>不可使用绝对地址，不可访问全局变量、静态变量（根本方法是看反汇编）</li>
+<li>不能访问有初始值的数组，这种数组（指局部数组，全局变量不能使用）本身会存在栈中，但是初始值会在rodata段中，访问这些数据的值会用绝对地址进行访问</li>
+</ol>
+</blockquote>
+<p>重定位后的跳转到SDRAM代码应该用<strong>位置有关码</strong>（LDR）来写，以确保可以跳到外部SDRAM中的运行地址去运行</p>
+</blockquote>
+<h2 id="三、start-armboot"><a href="#三、start-armboot" class="headerlink" title="三、start_armboot"></a>三、start_armboot</h2><p>该函数会：</p>
+<ol>
+<li><p>初始化堆栈，用于自定义的malloc和free</p>
+</li>
+<li><p>拥有<strong>读写flash的能力</strong></p>
+<blockquote>
+<p>NOR：Flash_init</p>
+<p>NAND：nand_init</p>
+</blockquote>
+</li>
+<li><p>跳到<code>main_loop</code>函数</p>
+<pre><code class="c"> /* main_loop() can return to retry autoboot, if so just run it again. */
+ for (;;) {
+     main_loop ();
+ }</code></pre>
+<p> main_loop函数可以等待用户输入相关的命令或者是通过uboot中的环境变量bootcmd中的命令启动linux内核</p>
+<p> 而main_loop函数的核心在于<code>getenv</code>函数和<code>run_command</code>函数，前者负责从uboot中的环境变量中取出对应的数据，后者负责执行相关的命令</p>
+</li>
+</ol>
+<h2 id="四、u-boot命令实现"><a href="#四、u-boot命令实现" class="headerlink" title="四、u-boot命令实现"></a>四、u-boot命令实现</h2><h3 id="核心机制"><a href="#核心机制" class="headerlink" title="核心机制"></a>核心机制</h3><ol>
+<li><p>所有命令通过一个结构体进行封装（cmd_tb1_t）</p>
+</li>
+<li><p>所有命令通过结构体中的name成员进行查找</p>
+</li>
+<li><p>这些结构体存在一个uboot自定义的段内，在之前的链接脚本中已经进行声明了段的起始和结束地址：</p>
+<pre><code>. = .;
+ __u_boot_cmd_start = .;//把__u_boot_cmd_start赋值为当前位置, 即起始位置
+ .u_boot_cmd : { *(.u_boot_cmd) }// u_boot_cmd段，所有的u-boot命令相关的定义都放在这个位置
+ __u_boot_cmd_end = .;// *u_boot_cmd段结束位置</code></pre></li>
+</ol>
+<blockquote>
+<p>通过搜索.u_boot_cmd可以找到怎样将这些结构体放入这个段中（利用__attribute__关键字）</p>
+<p>通过搜索常用命令（如：bootm）可以找到相关的定义这些结构体的方法</p>
+</blockquote>
+<ol start="4">
+<li><p>通过宏U_BOOT_CMD定义这些命令结构体</p>
+<pre><code class="c">U_BOOT_CMD(
+名字,最大参数,是否可重复,cmd函数,
+短字符串,
+长字符串
+);</code></pre>
+<blockquote>
+<p>例子：</p>
+<pre><code class="c">U_BOOT_CMD(
+     bootm,    CFG_MAXARGS,    1,    do_bootm,
+     &quot;bootm   - boot application image from memory\n&quot;,
+     &quot;[addr [arg ...]]\n    - boot application image stored in memory\n&quot;
+     &quot;\tpassing arguments &#39;arg ...&#39;; when booting a Linux kernel,\n&quot;
+     &quot;\t&#39;arg&#39; can be the address of an initrd image\n&quot;
+#ifdef CONFIG_OF_FLAT_TREE
+    &quot;\tWhen booting a Linux kernel which requires a flat device-tree\n&quot;
+    &quot;\ta third argument is required which is the address of the of the\n&quot;
+    &quot;\tdevice-tree blob. To boot that kernel without an initrd image,\n&quot;
+    &quot;\tuse a &#39;-&#39; for the second argument. If you do not pass a third\n&quot;
+    &quot;\ta bd_info struct will be passed instead\n&quot;
+#endif
+);</code></pre>
+</blockquote>
+</li>
+</ol>
+<h2 id="五、启动内核"><a href="#五、启动内核" class="headerlink" title="五、启动内核"></a>五、启动内核</h2><p>uboot启动内核是依赖以下两条命令：</p>
+<pre><code class="c">s = getenv (&quot;bootcmd&quot;);</code></pre>
+<pre><code class="c">run_command (s, 0);</code></pre>
+<p>这里的<code>s</code>为环境变量<code>bootcmd</code>中的值，即</p>
+<pre><code class="bash">nand read.jffs2 0x30007EC0 kernel;//从kernel分区读出内核放到0x30007EC0位置
+bootm 0x30007EC0//从0x30007EC0位置启动内核</code></pre>
+<p>这里的分区在源码中已经写死，位置为：<code>include/configs/a00ask24x0.h</code>中的<code>MTDPARTS_DEFAULT</code>宏：</p>
+<pre><code class="c">#define MTDPARTS_DEFAULT &quot;mtdparts=nandflash0:256k@0(bootloader),&quot; \/*0开始的256k为bootloader*/
+                            &quot;128k(params),&quot; \/*接下来的128k为环境变量*/
+                            &quot;2m(kernel),&quot; \
+                            &quot;-(root)&quot;</code></pre>
+<p>在uboot下可以通过<code>mtd</code>命令读取，kernel结果为0x0006 0000起始，大小为0x0020 0000，故原来的指令可以改写为：</p>
+<pre><code>nand read.jffs2 0x30007EC0 0x00060000 0x00200000;//从0x00060000读出0x00200000大小数据放到0x30007EC0位置
+bootm 0x30007EC0//从0x30007EC0位置启动内核</code></pre><h3 id="nand命令"><a href="#nand命令" class="headerlink" title="nand命令"></a>nand命令</h3><p>通过全局搜索<code>nand</code>可以搜索到其命令函数在<code>common/cmd_nand.c</code>下的do_nand函数，简化后：</p>
+<pre><code class="c">int do_nand(cmd_tbl_t * cmdtp, int flag, int argc, char *argv[])
+{
+    int i, dev, ret;
+    ulong addr, off, size;
+    char *cmd, *s;
+    nand_info_t *nand;
+    int quiet = 0;
+    const char *quiet_str = getenv(&quot;quiet&quot;);
+
+    /* at least two arguments please */
+    if (argc &lt; 2)
+        goto usage;
+
+    if (quiet_str)
+        quiet = simple_strtoul(quiet_str, NULL, 0) != 0;
+
+    cmd = argv[1];
+
+    ......
+    /* read write */
+    if (strncmp(cmd, &quot;read&quot;, 4) == 0 || strncmp(cmd, &quot;write&quot;, 5) == 0) {
+        int read;
+
+        if (argc &lt; 4)
+            goto usage;
+
+        addr = (ulong)simple_strtoul(argv[2], NULL, 16);
+
+        read = strncmp(cmd, &quot;read&quot;, 4) == 0; /* 1 = read, 0 = write */
+        printf(&quot;\nNAND %s: &quot;, read ? &quot;read&quot; : &quot;write&quot;);
+        if (arg_off_size(argc - 3, argv + 3, nand, &amp;off, &amp;size) != 0)
+            return 1;
+
+        s = strchr(cmd, &#39;.&#39;);
+        if (s != NULL &amp;&amp;
+            (!strcmp(s, &quot;.jffs2&quot;) || !strcmp(s, &quot;.e&quot;) || !strcmp(s, &quot;.i&quot;))) {
+            if (read) {
+                /* read */
+                nand_read_options_t opts;
+                memset(&amp;opts, 0, sizeof(opts));
+                opts.buffer = (u_char*) addr;
+                opts.length = size;
+                opts.offset = off;
+                opts.quiet      = quiet;
+                ret = nand_read_opts(nand, &amp;opts);
+            } else {
+                /* write */
+                ......
+            }
+        }
+        ......
+
+        printf(&quot; %d bytes %s: %s\n&quot;, size,
+               read ? &quot;read&quot; : &quot;written&quot;, ret ? &quot;ERROR&quot; : &quot;OK&quot;);
+
+        return ret == 0 ? 0 : 1;
+    }
+usage:
+    printf(&quot;Usage:\n%s\n&quot;, cmdtp-&gt;usage);
+    return 1;
+}</code></pre>
+<p>最后是调用的<code>nand_read_opts</code>读出的内核</p>
+<h3 id="bootm命令"><a href="#bootm命令" class="headerlink" title="bootm命令"></a>bootm命令</h3><p>Flash上储存的是uImage=头部+zImage，其中头部为：</p>
+<pre><code class="c">typedef struct image_header {
+    uint32_t    ih_magic;    /* Image Header Magic Number    */
+    uint32_t    ih_hcrc;    /* Image Header CRC Checksum    */
+    uint32_t    ih_time;    /* Image Creation Timestamp    */
+    uint32_t    ih_size;    /* Image Data Size        */
+    uint32_t    ih_load;    /* Data     Load  Address        */
+    uint32_t    ih_ep;        /* Entry Point Address        */
+    uint32_t    ih_dcrc;    /* Image Data CRC Checksum    */
+    uint8_t        ih_os;        /* Operating System        */
+    uint8_t        ih_arch;    /* CPU architecture        */
+    uint8_t        ih_type;    /* Image Type            */
+    uint8_t        ih_comp;    /* Compression Type        */
+    uint8_t        ih_name[IH_NMLEN];    /* Image Name        */
+} image_header_t;</code></pre>
+<p>这里有以下两个成员值得关注：</p>
+<ul>
+<li>ih_load：加载地址，即运行时放在那里（加载地址&lt;—&gt;存储地址）</li>
+<li>ih_ep：入口地址，运行内核是跳转的地址（运行地址&lt;—&gt;链接地址）</li>
+</ul>
+<p>bootm命令流程：</p>
+<ol>
+<li><p>读取头部信息，并根据头部信息移动内核到<code>ih_load</code>处</p>
+<blockquote>
+<p>uboot环境变量中的启动命令：</p>
+<p>nand read.jffs2 0x30007EC0 0x00060000 0x00200000;</p>
+<p>上述ih_load在本文所处的环境中为0x30008000 ，而头部信息刚好64字节，所以这里0x30007EC0=0x30008000 - 64，即提前将linux内核搬移到指定位置，避免bootm命令中重复搬移</p>
+</blockquote>
+</li>
+<li><p>通过<code>do_bootm_linux</code>启动内核</p>
+<ol>
+<li><p>设置启动参数（各种tag：开始tag、命令行tag、结束tag…..）</p>
+<blockquote>
+<p>这里的命令行tag就是uboot中的环境变量bootargs中的值</p>
+<p>本文所处的环境中：</p>
+<p>bootargs=noinitrd root=/dev/mtdblock3 init=/linuxrc console=ttySAC0</p>
+</blockquote>
+</li>
+<li><p>跳转到入口地址<code>ih_ep</code>处，并将机器id和启动参数的所在地址一并传入</p>
+<blockquote>
+<p>linux内核会根据不同的机器id来决定是否支持该板卡</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1125934312@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>u-boot分析与使用</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">3.7k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-08-12, 19:16:50</p>
+    <p><span class="copy-title">最后更新:</span>2019-08-14, 20:18:16</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/12/u-boot分析与使用/" title="u-boot分析与使用">http://NU-LL.github.io/2019/08/12/u-boot分析与使用/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 NU-LL</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#DM9000C','#网卡移植','#Linux内核','#Markdown','#二维数组','#指针','#IIC驱动','#文件描述符','#等待队列','#wait_queue_head_t','#wait_queue_t','#存储器','#字符驱动','#u-boot','#按键驱动','#poll机制','#根文件系统','#快速排序','#异步通知机制','#网卡驱动框架','#虚拟网卡','#输入子系统',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

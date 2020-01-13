@@ -1,0 +1,2822 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>Go语言 | 无名小卒</title>
+  <meta name="keywords" content=" 廖雪峰python教程 ">
+  <meta name="description" content="Go语言 | 无名小卒">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://NU-LL.github.io/about/index.html">
+<meta property="og:site_name" content="无名小卒">
+<meta property="og:description" content="关于">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-21T14:30:10.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="关于">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1" rel="stylesheet">
+
+<link href="/css/hl_theme/github.css?v=1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>NU-LL</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/NU-LL" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/CSDN_JZ_" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:1125934312@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=1125934312&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=323374922" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(29)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(18)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="感悟与总结">感悟与总结<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="STM32">STM32<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="人工智能">人工智能<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="编程语言">编程语言<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="29">
+<input type="hidden" id="yelog_site_word_count" value="129.6k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://github.com/NU-LL">NU-LL</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">DM9000C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网卡移植</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Kconfig语法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">文件描述符</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">IIC驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Latex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Ctex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Linux内核</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">字符驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">LiCheePi Zero</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">NanoPi Neo Core</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">等待队列</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_head_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">markdownlint</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Xmanager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">远程链接</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">二维数组</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">指针</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">存储器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">IAP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">BootLoader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">dual bank</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">u-boot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">按键驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">poll机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">异步通知机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">根文件系统</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">快速排序</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">网卡驱动框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">虚拟网卡</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">设备树</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">深度学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">TensorFlow2</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">输入子系统</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Go语言入门经典</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">廖雪峰python教程</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Linux "
+           href="/2019/08/04/DM9000C网卡移植/"
+           data-tag="DM9000C,网卡移植"
+           data-author="" >
+            <span class="post-title" title="DM9000C网卡移植">DM9000C网卡移植</span>
+            <span class="post-date" title="2019-08-04 23:07:22">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/15/Kconfig文件语法分析/"
+           data-tag="Kconfig语法"
+           data-author="" >
+            <span class="post-title" title="Kconfig文件语法分析">Kconfig文件语法分析</span>
+            <span class="post-date" title="2019-08-15 19:38:40">2019/08/15</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/Linux编程--文件描述符fd/"
+           data-tag="文件描述符"
+           data-author="" >
+            <span class="post-title" title="Linux编程--文件描述符fd">Linux编程--文件描述符fd</span>
+            <span class="post-date" title="2019-07-21 10:13:47">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/05/IIC驱动/"
+           data-tag="IIC驱动"
+           data-author="" >
+            <span class="post-title" title="IIC驱动">IIC驱动</span>
+            <span class="post-date" title="2019-08-05 14:39:10">2019/08/05</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/08/19/Latex排版全解/"
+           data-tag="Latex,Ctex"
+           data-author="" >
+            <span class="post-title" title="Latex排版全解">Latex排版全解</span>
+            <span class="post-date" title="2019-08-19 16:02:27">2019/08/19</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/13/Linux内核启动流程/"
+           data-tag="Linux内核"
+           data-author="" >
+            <span class="post-title" title="Linux内核启动流程">Linux内核启动流程</span>
+            <span class="post-date" title="2019-08-13 16:13:46">2019/08/13</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/RTC驱动分析/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="RTC驱动分析">RTC驱动分析</span>
+            <span class="post-date" title="2019-08-07 13:37:33">2019/08/07</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/18/LiCheePi_Zero底层开发/"
+           data-tag="LiCheePi Zero"
+           data-author="" >
+            <span class="post-title" title="LiCheePi_Zero底层开发">LiCheePi_Zero底层开发</span>
+            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/18/NanoPi_Neo_Core底层开发/"
+           data-tag="NanoPi Neo Core"
+           data-author="" >
+            <span class="post-title" title="NanoPi_Neo_Core底层开发">NanoPi_Neo_Core底层开发</span>
+            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/linux等待队列wait_queue_head_t和wait_queue_t/"
+           data-tag="等待队列,wait_queue_head_t,wait_queue_t"
+           data-author="" >
+            <span class="post-title" title="linux等待队列wait_queue_head_t和wait_queue_t">linux等待队列wait_queue_head_t和wait_queue_t</span>
+            <span class="post-date" title="2019-07-21 18:18:54">2019/07/21</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/09/17/git/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2019-09-17 09:59:56">2019/09/17</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/09/17/markdownlint规则详细介绍/"
+           data-tag="markdownlint"
+           data-author="" >
+            <span class="post-title" title="VSC插件之markdownlint规则详细介绍">VSC插件之markdownlint规则详细介绍</span>
+            <span class="post-date" title="2019-09-17 15:00:13">2019/09/17</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/07/12/Markdown 语法整理/"
+           data-tag="Markdown"
+           data-author="" >
+            <span class="post-title" title="Markdown 语法整理">Markdown 语法整理</span>
+            <span class="post-date" title="2019-07-12 13:57:24">2019/07/12</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/11/08/Xmanager远程Ubuntu系统图像化界面/"
+           data-tag="Xmanager,远程链接"
+           data-author="" >
+            <span class="post-title" title="Xmanager远程Ubuntu系统图像化界面">Xmanager远程Ubuntu系统图像化界面</span>
+            <span class="post-date" title="2019-11-08 22:58:53">2019/11/08</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/06/二维数组与指针的一些问题/"
+           data-tag="二维数组,指针"
+           data-author="" >
+            <span class="post-title" title="二维数组与指针的一些问题">二维数组与指针的一些问题</span>
+            <span class="post-date" title="2019-08-06 13:11:26">2019/08/06</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/11/各种存储器的区别/"
+           data-tag="存储器"
+           data-author="" >
+            <span class="post-title" title="各种存储器的区别">各种存储器的区别</span>
+            <span class="post-date" title="2019-08-11 10:57:19">2019/08/11</span>
+        </a>
+        
+        <a  class="STM32 "
+           href="/2019/11/12/基于STM32L476的IAP升级/"
+           data-tag="IAP,BootLoader,dual bank"
+           data-author="" >
+            <span class="post-title" title="基于STM32L476的IAP升级">基于STM32L476的IAP升级</span>
+            <span class="post-date" title="2019-11-12 22:47:40">2019/11/12</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/12/u-boot分析与使用/"
+           data-tag="u-boot"
+           data-author="" >
+            <span class="post-title" title="u-boot分析与使用">u-boot分析与使用</span>
+            <span class="post-date" title="2019-08-12 19:16:50">2019/08/12</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/按键驱动——poll机制/"
+           data-tag="按键驱动,poll机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动——poll机制">按键驱动——poll机制</span>
+            <span class="post-date" title="2019-07-21 20:30:38">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/22/按键驱动：异步通知机制/"
+           data-tag="按键驱动,异步通知机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动：异步通知机制">按键驱动：异步通知机制</span>
+            <span class="post-date" title="2019-07-22 19:04:24">2019/07/22</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/14/构造根文件系统/"
+           data-tag="根文件系统"
+           data-author="" >
+            <span class="post-title" title="构造根文件系统">构造根文件系统</span>
+            <span class="post-date" title="2019-08-14 20:18:45">2019/08/14</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2019/07/29/快速排序/"
+           data-tag="快速排序"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-07-29 22:27:34">2019/07/29</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/字符驱动设备的另一种写法/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="字符驱动设备的另一种写法">字符驱动设备的另一种写法</span>
+            <span class="post-date" title="2019-08-07 12:20:30">2019/08/07</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/04/网卡驱动程序/"
+           data-tag="网卡驱动框架,虚拟网卡"
+           data-author="" >
+            <span class="post-title" title="网卡驱动程序">网卡驱动程序</span>
+            <span class="post-date" title="2019-08-04 21:24:07">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/13/设备树/"
+           data-tag="设备树"
+           data-author="" >
+            <span class="post-title" title="设备树">设备树</span>
+            <span class="post-date" title="2019-10-13 15:53:24">2019/10/13</span>
+        </a>
+        
+        <a  class="人工智能 "
+           href="/2020/01/03/深度学习与TensorFlow2/"
+           data-tag="深度学习,TensorFlow2"
+           data-author="" >
+            <span class="post-title" title="深度学习与TensorFlow2">深度学习与TensorFlow2</span>
+            <span class="post-date" title="2020-01-03 21:04:26">2020/01/03</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/25/输入子系统/"
+           data-tag="按键驱动,输入子系统"
+           data-author="" >
+            <span class="post-title" title="输入子系统">输入子系统</span>
+            <span class="post-date" title="2019-07-25 00:05:15">2019/07/25</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2019/10/23/Go语言/"
+           data-tag="Go语言入门经典"
+           data-author="" >
+            <span class="post-title" title="Go语言">Go语言</span>
+            <span class="post-date" title="2019-10-23 21:07:25">2019/10/23</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/01/10/python/"
+           data-tag="廖雪峰python教程"
+           data-author="" >
+            <span class="post-title" title="Go语言">Go语言</span>
+            <span class="post-date" title="2020-01-10 20:18:52">2020/01/10</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-python" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Go语言</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="编程语言">编程语言</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color2">廖雪峰python教程</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-01-13 16:49:54'>2020-01-10 20:18</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:23.7k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基础"><span class="toc-text">一、基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0-前言"><span class="toc-text">0.前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据类型和变量"><span class="toc-text">1.数据类型和变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1数据类型"><span class="toc-text">1.1数据类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2变量"><span class="toc-text">1.2变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3常量"><span class="toc-text">1.3常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4除法相关"><span class="toc-text">1.4除法相关</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-字符串和编码"><span class="toc-text">2.字符串和编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-0前言-字符编码"><span class="toc-text">2.0前言 字符编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1Python的字符串"><span class="toc-text">2.1Python的字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2格式化"><span class="toc-text">2.2格式化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-使用list和tuple"><span class="toc-text">3.使用list和tuple</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1list列表"><span class="toc-text">3.1list列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2tuple元组"><span class="toc-text">3.2tuple元组</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#tuple的本质"><span class="toc-text">tuple的本质</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-条件判断"><span class="toc-text">4.条件判断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1if语句"><span class="toc-text">4.1if语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2input"><span class="toc-text">4.2input</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-循环"><span class="toc-text">5.循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-使用dict和set"><span class="toc-text">6.使用dict和set</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1dict字典"><span class="toc-text">6.1dict字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2set"><span class="toc-text">6.2set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不可变对象"><span class="toc-text">不可变对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、函数"><span class="toc-text">二、函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-调用函数"><span class="toc-text">1.调用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1数据类型转换"><span class="toc-text">1.1数据类型转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义函数"><span class="toc-text">2.定义函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1空函数"><span class="toc-text">2.1空函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2返回多个值"><span class="toc-text">2.2返回多个值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3函数的参数"><span class="toc-text">3函数的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1位置参数"><span class="toc-text">3.1位置参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2默认参数"><span class="toc-text">3.2默认参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3可变参数"><span class="toc-text">3.3可变参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-4关键字参数"><span class="toc-text">3.4关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-5命名关键字参数"><span class="toc-text">3.5命名关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-6组合参数"><span class="toc-text">3.6组合参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4递归函数"><span class="toc-text">4递归函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、高级特性"><span class="toc-text">三、高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1切片"><span class="toc-text">3.1切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2迭代"><span class="toc-text">3.2迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3列表生成式"><span class="toc-text">3.3列表生成式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4生成器"><span class="toc-text">3.4生成器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5迭代器"><span class="toc-text">3.5迭代器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、函数式编程"><span class="toc-text">四、函数式编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1高阶函数"><span class="toc-text">4.1高阶函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1map-reduce"><span class="toc-text">4.1.1map/reduce</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2filter"><span class="toc-text">4.1.2filter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-3sorted"><span class="toc-text">4.1.3sorted</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2返回函数"><span class="toc-text">4.2返回函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1闭包"><span class="toc-text">4.2.1闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2关键字global与nonlocal"><span class="toc-text">4.2.2关键字global与nonlocal</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3匿名函数"><span class="toc-text">4.3匿名函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4装饰器"><span class="toc-text">4.4装饰器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5偏函数"><span class="toc-text">4.5偏函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、模块"><span class="toc-text">五、模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-0模块和包"><span class="toc-text">5.0模块和包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1使用模块"><span class="toc-text">5.1使用模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#作用域"><span class="toc-text">作用域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2安装第三方模块"><span class="toc-text">5.2安装第三方模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-1模块搜索路径"><span class="toc-text">5.2.1模块搜索路径</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、面向对象编程"><span class="toc-text">六、面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1类和实例"><span class="toc-text">6.1类和实例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-1数据封装"><span class="toc-text">6.1.1数据封装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2访问限制"><span class="toc-text">6.2访问限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3继承和多态"><span class="toc-text">6.3继承和多态</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-1静态语言和动态语言在此处的区别"><span class="toc-text">6.3.1静态语言和动态语言在此处的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4获取对象信息"><span class="toc-text">6.4获取对象信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#type"><span class="toc-text">type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isinstance"><span class="toc-text">isinstance</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dir"><span class="toc-text">dir</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5实例属性和类属性"><span class="toc-text">6.5实例属性和类属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、面向对象高级编程"><span class="toc-text">七、面向对象高级编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-1使用-slots"><span class="toc-text">7.1使用_slots_</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-2使用-property"><span class="toc-text">7.2使用@property</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3多重继承"><span class="toc-text">7.3多重继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-1MinIn"><span class="toc-text">7.3.1MinIn</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-4定制类"><span class="toc-text">7.4定制类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-1-str-、-repr"><span class="toc-text">7.4.1__str__、_repr_</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-2-iter"><span class="toc-text">7.4.2_iter_</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-3-getitem"><span class="toc-text">7.4.3_getitem_</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-4-getattr"><span class="toc-text">7.4.4_getattr_</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-5-call"><span class="toc-text">7.4.5_call_</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-5使用枚举类"><span class="toc-text">7.5使用枚举类</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>感谢廖雪峰老师提供这么好的教程，此文档为本人学习中所做笔记</p>
+<p>以<code>#</code>开头的语句是注释。其他每一行都是一个语句，当语句以冒号<code>:</code>结尾时，缩进的语句视为代码块。</p>
+<p>Python程序是大小写敏感的，如果写错了大小写，程序会报错。</p>
+<p>按照约定俗成的惯例，应该始终坚持使用<strong><em>4个空格</em></strong>的缩进。</p>
+<h3 id="1-数据类型和变量"><a href="#1-数据类型和变量" class="headerlink" title="1.数据类型和变量"></a>1.数据类型和变量</h3><h4 id="1-1数据类型"><a href="#1-1数据类型" class="headerlink" title="1.1数据类型"></a>1.1数据类型</h4><ul>
+<li><p>整数</p>
+<ul>
+<li>Python的整数没有大小限制，而某些语言的整数根据其存储长度是有大小限制的</li>
+</ul>
+</li>
+<li><p>浮点数</p>
+<ul>
+<li>Python的浮点数也没有大小限制，但是超出一定范围就直接表示为<code>inf</code>（无限大）。</li>
+</ul>
+</li>
+<li><p>字符串</p>
+<ul>
+<li><p>字符串是以单引号<code>&#39;</code>或双引号<code>&quot;</code>括起来的任意文本，比如<code>&#39;abc&#39;</code>，<code>&quot;xyz&quot;</code>等等。</p>
+</li>
+<li><p>为了简化，Python还允许用<code>r&#39;&#39;</code>表示<code>&#39;&#39;</code>内部的字符串默认不转义</p>
+<pre><code class="python">  &gt;&gt;&gt; print(&#39;\\\t\\&#39;)
+  \       \
+  &gt;&gt;&gt; print(r&#39;\\\t\\&#39;)
+  \\\t\\</code></pre>
+</li>
+<li><p>为了简化，Python允许用<code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>的格式表示多行内容</p>
+<pre><code class="python">  &gt;&gt;&gt; print(&#39;&#39;&#39;line1
+  ... line2
+  ... line3&#39;&#39;&#39;)
+  line1
+  line2
+  line3</code></pre>
+<p>  上面是在交互式命令行内输入，注意在输入多行内容时，提示符由<code>&gt;&gt;&gt;</code>变为<code>...</code>，提示你可以接着上一行输入，注意<code>...</code>是提示符，不是代码的一部分</p>
+</li>
+<li><p>多行字符串<code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>还可以在前面加上<code>r</code>使用</p>
+<pre><code class="python">  print(r&#39;&#39;&#39;hello,\n
+  world&#39;&#39;&#39;)
+  #结果如下
+  hello,\n
+  world</code></pre>
+</li>
+</ul>
+</li>
+<li><p>布尔值</p>
+<ul>
+<li>布尔值只有<code>True</code>、<code>False</code>两种值</li>
+<li>布尔值可以用<code>and</code>、<code>or</code>和<code>not</code>运算</li>
+</ul>
+</li>
+<li><p>空值</p>
+<ul>
+<li>空值是Python里一个特殊的值，用<code>None</code>表示</li>
+<li><code>None</code>不能理解为<code>0</code>，因为<code>0</code>是有意义的，而<code>None</code>是一个特殊的空值。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2变量"><a href="#1-2变量" class="headerlink" title="1.2变量"></a>1.2变量</h4><p>可以把任意数据类型赋值给变量，同一个变量可以反复赋值，而且可以是不同类型的变量</p>
+<p>这种 变量本身类型 不固定的语言称之为<em>动态语言<em>，与之对应的是</em>静态语言</em></p>
+<p>静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错</p>
+<h4 id="1-3常量"><a href="#1-3常量" class="headerlink" title="1.3常量"></a>1.3常量</h4><p>常量就是不能变的变量。在Python中，通常用全部大写的变量名表示常量：</p>
+<pre><code class="python">PI = 3.14159265359</code></pre>
+<p>但事实上<code>PI</code>仍然是一个变量，Python根本没有任何机制保证<code>PI</code>不会被改变</p>
+<h4 id="1-4除法相关"><a href="#1-4除法相关" class="headerlink" title="1.4除法相关"></a>1.4除法相关</h4><p>在Python中，有两种除法，一种除法是<code>/</code>：</p>
+<pre><code class="python">&gt;&gt;&gt; 10 / 3
+3.3333333333333335
+&gt;&gt;&gt; 9 / 3
+3.0</code></pre>
+<p><code>/</code>除法计算结果是<strong>浮点数</strong>，即使是两个整数恰好整除，结果也是浮点数</p>
+<p>还有一种除法是<code>//</code>，称为<strong>地板除</strong>，两个整数的除法仍然是整数：</p>
+<pre><code class="python">&gt;&gt;&gt; 10 // 3
+3</code></pre>
+<p>因为<code>//</code>除法只取结果的整数部分，所以Python还提供一个<strong>余数运算</strong>，可以得到两个整数相除的余数：</p>
+<pre><code class="python">&gt;&gt;&gt; 10 % 3
+1</code></pre>
+<h3 id="2-字符串和编码"><a href="#2-字符串和编码" class="headerlink" title="2.字符串和编码"></a>2.字符串和编码</h3><h4 id="2-0前言-字符编码"><a href="#2-0前言-字符编码" class="headerlink" title="2.0前言 字符编码"></a>2.0前言 字符编码</h4><p><strong>历史关系</strong></p>
+<p>捋一捋ASCII编码和Unicode编码的区别：ASCII编码是1个字节，而Unicode编码通常是2个字节。</p>
+<p>字母<code>A</code>用ASCII编码是十进制的<code>65</code>，二进制的<code>01000001</code>；</p>
+<p>字符<code>0</code>用ASCII编码是十进制的<code>48</code>，二进制的<code>00110000</code>，注意字符<code>&#39;0&#39;</code>和整数<code>0</code>是不同的；</p>
+<p>汉字<code>中</code>已经超出了ASCII编码的范围，用Unicode编码是十进制的<code>20013</code>，二进制的<code>01001110 00101101</code>。</p>
+<p>你可以猜测，如果把ASCII编码的<code>A</code>用Unicode编码，只需要在前面补0就可以，因此，<code>A</code>的Unicode编码是<code>00000000 01000001</code>。</p>
+<p>新的问题又出现了：如果统一成Unicode编码，乱码问题从此消失了。但是，如果你写的文本基本上全部是英文的话，用Unicode编码比ASCII编码需要多一倍的存储空间，在存储和传输上就十分不划算。</p>
+<p>所以，本着节约的精神，又出现了把Unicode编码转化为“可变长编码”的<code>UTF-8</code>编码。UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>ASCII</th>
+<th>Unicode</th>
+<th>UTF-8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>01000001</td>
+<td>00000000 01000001</td>
+<td>01000001</td>
+</tr>
+<tr>
+<td>中</td>
+<td>x</td>
+<td>01001110 00101101</td>
+<td>11100100 10111000 10101101</td>
+</tr>
+</tbody></table>
+<p>从上面的表格还可以发现，UTF-8编码有一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。</p>
+<p><strong>计算机系统通用的字符编码工作方式</strong></p>
+<p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
+<p>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件：</p>
+<p><img src="//NU-LL.github.io/2020/01/10/python/0.png" alt="rw-file-utf-8"></p>
+<p>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器：</p>
+<p><img src="//NU-LL.github.io/2020/01/10/python/0-1578660589334.png" alt="web-utf-8"></p>
+<p>所以你看到很多网页的源码上会有类似<code>&lt;meta charset=&quot;UTF-8&quot; /&gt;</code>的信息，表示该网页正是用的UTF-8编码。</p>
+<h4 id="2-1Python的字符串"><a href="#2-1Python的字符串" class="headerlink" title="2.1Python的字符串"></a>2.1Python的字符串</h4><p>在最新的Python 3版本中，字符串是以Unicode编码的</p>
+<p>对于单个字符的编码，Python提供了<code>ord()</code>函数获取字符的整数表示，<code>chr()</code>函数把编码转换为对应的字符：</p>
+<pre><code class="python">&gt;&gt;&gt; ord(&#39;A&#39;)
+65
+&gt;&gt;&gt; ord(&#39;中&#39;)
+20013
+&gt;&gt;&gt; chr(66)
+&#39;B&#39;
+&gt;&gt;&gt; chr(25991)
+&#39;文&#39;</code></pre>
+<p>如果知道字符的整数编码，还可以用十六进制这么写<code>str</code>：</p>
+<pre><code class="python">&gt;&gt;&gt; &#39;\u4e2d\u6587&#39;
+&#39;中文&#39;</code></pre>
+<p>两种写法完全是等价的。</p>
+<p>由上文可知，Python的字符串在内存中以Unicode表示，如果要在网络上传输，或者保存到磁盘上，就需要把<code>str</code>变为以字节为单位的<code>bytes</code>。</p>
+<p>Python对<code>bytes</code>类型的数据用带<code>b</code>前缀的单引号或双引号表示：</p>
+<pre><code class="python">x = b&#39;ABC&#39;</code></pre>
+<p>要注意<code>&#39;ABC&#39;</code>和<code>b&#39;ABC&#39;</code>，虽然内容显示一样，但<code>bytes</code>的每个字符都只占用一个字节。</p>
+<p>以Unicode表示的<code>str</code>通过<code>encode()</code>方法可以编码为指定的<code>bytes</code>，例如：</p>
+<pre><code class="python">&gt;&gt;&gt; &#39;ABC&#39;.encode(&#39;ascii&#39;)
+b&#39;ABC&#39;
+&gt;&gt;&gt; &#39;中文&#39;.encode(&#39;utf-8&#39;)
+b&#39;\xe4\xb8\xad\xe6\x96\x87&#39;
+&gt;&gt;&gt; &#39;中文&#39;.encode(&#39;ascii&#39;)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in range(128)</code></pre>
+<p>在<code>bytes</code>中，无法显示为ASCII字符的字节，用<code>\x##</code>显示。</p>
+<p>反过来，要把<code>bytes</code>变为<code>str</code>，就需要用<code>decode()</code>方法：</p>
+<pre><code class="python">&gt;&gt;&gt; b&#39;ABC&#39;.decode(&#39;ascii&#39;)
+&#39;ABC&#39;
+&gt;&gt;&gt; b&#39;\xe4\xb8\xad\xe6\x96\x87&#39;.decode(&#39;utf-8&#39;)
+&#39;中文&#39;</code></pre>
+<p>如果<code>bytes</code>中包含无法解码的字节，<code>decode()</code>方法会报错</p>
+<p>如果<code>bytes</code>中只有一小部分无效的字节，可以传入<code>errors=&#39;ignore&#39;</code>忽略错误的字节：</p>
+<pre><code class="python">&gt;&gt;&gt; b&#39;\xe4\xb8\xad\xff&#39;.decode(&#39;utf-8&#39;, errors=&#39;ignore&#39;)
+&#39;中&#39;</code></pre>
+<p>要计算<code>str</code>包含多少个字符，可以用<code>len()</code>函数，如果将<code>str</code>换成<code>bytes</code>，<code>len()</code>函数就计算字节数</p>
+<ul>
+<li>1个中文字符经过UTF-8编码后通常会占用3个字节，而1个英文字符只占用1个字节。</li>
+</ul>
+<p>在操作字符串时，我们经常遇到<code>str</code>和<code>bytes</code>的互相转换。为了避免乱码问题，应当始终坚持使用UTF-8编码对<code>str</code>和<code>bytes</code>进行转换。</p>
+<p>当你的源代码中包含中文的时候，就需要务必指定保存为UTF-8编码。我们通常在文件开头写上这两行：</p>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-</code></pre>
+<ul>
+<li><p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；</p>
+</li>
+<li><p>第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。</p>
+</li>
+</ul>
+<h4 id="2-2格式化"><a href="#2-2格式化" class="headerlink" title="2.2格式化"></a>2.2格式化</h4><p>和C语言是一致的，用<code>%</code>实现：</p>
+<pre><code class="python">&gt;&gt;&gt; &#39;Hello, %s&#39; % &#39;world&#39;
+&#39;Hello, world&#39;
+&gt;&gt;&gt; &#39;Hi, %s, you have $%d.&#39; % (&#39;Michael&#39;, 1000000)
+&#39;Hi, Michael, you have $1000000.&#39;</code></pre>
+<p>在字符串内部，有几个<code>%?</code>占位符，后面就跟几个变量或者值，顺序要对应好。如果只有一个<code>%?</code>，括号可以省略。</p>
+<p>常见的占位符有：</p>
+<table>
+<thead>
+<tr>
+<th>占位符</th>
+<th>替换内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%d</td>
+<td>整数</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点数</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>十六进制整数</td>
+</tr>
+</tbody></table>
+<p>其中，格式化整数和浮点数还可以指定是否补0和整数与小数的位数：</p>
+<pre><code class="python">&gt;&gt;&gt; print(&#39;%2d-%02d&#39; % (3, 1))
+ 3-01
+&gt;&gt;&gt; print(&#39;%.2f&#39; % 3.1415926)
+3.14</code></pre>
+<p>如果你不太确定应该用什么，<code>%s</code>永远起作用，它会把任何数据类型转换为字符串：</p>
+<pre><code class="python">&gt;&gt;&gt; &#39;Age: %s. Gender: %s&#39; % (25, True)
+&#39;Age: 25. Gender: True&#39;</code></pre>
+<p>当需要显示<code>%</code>时，用<code>%%</code>来转义成<code>%</code></p>
+<p><strong>format()</strong></p>
+<p>另一种格式化字符串的方法是使用字符串的<code>format()</code>方法，它会用传入的参数依次替换字符串内的占位符<code>{0}</code>、<code>{1}</code>……，不过这种方式写起来比%要麻烦得多：</p>
+<pre><code class="python">&gt;&gt;&gt; &#39;Hello, {0}, 成绩提升了 {1:.1f}%&#39;.format(&#39;小明&#39;, 17.125)
+&#39;Hello, 小明, 成绩提升了 17.1%&#39;</code></pre>
+<h3 id="3-使用list和tuple"><a href="#3-使用list和tuple" class="headerlink" title="3.使用list和tuple"></a>3.使用list和tuple</h3><h4 id="3-1list列表"><a href="#3-1list列表" class="headerlink" title="3.1list列表"></a>3.1list列表</h4><p>list，列表，是一种有序的集合，可以随时添加和删除其中的元素。</p>
+<p>用<code>len()</code>函数可以获得list元素的个数</p>
+<p>基础操作类似于数组</p>
+<pre><code class="python">#创建
+&gt;&gt;&gt; classmates = [&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+#获取长度
+&gt;&gt;&gt; len(classmates)
+3
+#访问元素 0~3
+&gt;&gt;&gt; classmates[0]
+&#39;Michael&#39;
+#反向 访问元素 -1~-3
+&gt;&gt;&gt; classmates[-1]
+&#39;Tracy&#39;</code></pre>
+<p>增加，删除：</p>
+<pre><code class="python">#追加元素到末尾
+&gt;&gt;&gt; classmates.append(&#39;Adam&#39;)
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;, &#39;Adam&#39;]
+#插入到指定的位置
+&gt;&gt;&gt; classmates.insert(1, &#39;Jack&#39;)
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Jack&#39;, &#39;Bob&#39;, &#39;Tracy&#39;, &#39;Adam&#39;]
+#删除list末尾的元素
+&gt;&gt;&gt; classmates.pop()
+&#39;Adam&#39;
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Jack&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+#删除指定位置的元素
+&gt;&gt;&gt; classmates.pop(1)
+&#39;Jack&#39;
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Bob&#39;, &#39;Tracy&#39;]
+#某个元素替换成别的元素
+&gt;&gt;&gt; classmates[1] = &#39;Sarah&#39;
+&gt;&gt;&gt; classmates
+[&#39;Michael&#39;, &#39;Sarah&#39;, &#39;Tracy&#39;]</code></pre>
+<p>list里面的元素的<strong>数据类型可以不同</strong>：</p>
+<pre><code class="python">&gt;&gt;&gt; L = [&#39;Apple&#39;, 123, True]
+#list元素也可以是另一个list
+&gt;&gt;&gt; s = [&#39;python&#39;, &#39;java&#39;, [&#39;asp&#39;, &#39;php&#39;], &#39;scheme&#39;]
+&gt;&gt;&gt; len(s)
+4
+#要拿到&#39;php&#39;可以写s[2][1]，类似二维数组</code></pre>
+<p>空的list，长度为0</p>
+<p>注意：</p>
+<p>list实际上可以理解为一个指向数组的指针，也就是说list和tuple的底层实现有点类似（见后文中的 tuple的本质 章节），所以普通的list赋值是指针的赋值：</p>
+<pre><code class="python">a = [1,2,3]
+b = a#将a赋值给b之后，a和b指向同一块区域
+b = [1,2]#修改后a、b均修改
+#这里需要拷贝：
+a = [1,2,3]
+b = a[:]#将a中内容全部拷贝给b，a和b指向不同区域
+b = [1,2]#修改后 a中内容不会修改</code></pre>
+<h4 id="3-2tuple元组"><a href="#3-2tuple元组" class="headerlink" title="3.2tuple元组"></a>3.2tuple元组</h4><p>另一种有序列表叫元组：tuple。tuple和list非常类似，但是tuple一旦<strong>初始化就不能修改</strong>，所以没有append()，insert()这样的方法。其他获取元素的方法和list是一样。</p>
+<p>因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。</p>
+<p>tuple的陷阱：当你定义一个tuple时，在定义的时候，tuple的元素就<strong>必须被确定下来</strong>，比如：</p>
+<pre><code class="python">&gt;&gt;&gt; t = (1, 2)
+&gt;&gt;&gt; t
+(1, 2)
+#定义一个空的tuple（注意这里是tuple，不是数学公式中的小括号）
+&gt;&gt;&gt; t = ()
+&gt;&gt;&gt; t
+()</code></pre>
+<p>注意：只有1个元素的tuple定义时为了和数学公式中的小括号区分，必须加一个<strong>逗号</strong><code>,</code>来消除歧义：</p>
+<pre><code class="python">&gt;&gt;&gt; t = (1,)
+&gt;&gt;&gt; t
+(1,)</code></pre>
+<h5 id="tuple的本质"><a href="#tuple的本质" class="headerlink" title="tuple的本质"></a>tuple的本质</h5><p>tuple的本质有点类似C语言中的<code>const *</code>，即tuple的每个元素，指向永远不变。</p>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; t = (&#39;a&#39;, &#39;b&#39;, [&#39;A&#39;, &#39;B&#39;])
+&gt;&gt;&gt; t[2][0] = &#39;X&#39;
+&gt;&gt;&gt; t[2][1] = &#39;Y&#39;
+&gt;&gt;&gt; t
+(&#39;a&#39;, &#39;b&#39;, [&#39;X&#39;, &#39;Y&#39;])</code></pre>
+<p>这个tuple定义的时候有3个元素，分别是<code>&#39;a&#39;</code>，<code>&#39;b&#39;</code>和一个list。但是tuple最后却变了，为什么？</p>
+<p>我们先看看定义的时候tuple包含的3个元素：</p>
+<p><img src="//NU-LL.github.io/2020/01/10/python/0-1578666556949.png" alt="tuple-0"></p>
+<p>当我们把list的元素<code>&#39;A&#39;</code>和<code>&#39;B&#39;</code>修改为<code>&#39;X&#39;</code>和<code>&#39;Y&#39;</code>后，tuple变为：</p>
+<p><img src="//NU-LL.github.io/2020/01/10/python/0-1578666556950.png" alt="tuple-1"></p>
+<p>表面上看，tuple的元素确实变了，但其实变的不是tuple的元素，而是list的元素。tuple一开始指向的list并没有改成别的list，所以，tuple所谓的“不变”是说，tuple的每个元素，指向永远不变。即指向<code>&#39;a&#39;</code>，就不能改成指向<code>&#39;b&#39;</code>，指向一个list，就不能改成指向其他对象，但指向的这个list本身是可变的！</p>
+<p>要创建一个内容也不变的tuple怎么做？那就必须保证tuple的每一个元素本身也不能变。</p>
+<h3 id="4-条件判断"><a href="#4-条件判断" class="headerlink" title="4.条件判断"></a>4.条件判断</h3><h4 id="4-1if语句"><a href="#4-1if语句" class="headerlink" title="4.1if语句"></a>4.1if语句</h4><p><code>elif</code>是<code>else if</code>的缩写，可以有多个<code>elif</code>，<code>if</code>语句的完整形式是：</p>
+<pre><code class="python">if &lt;条件判断1&gt;:
+    &lt;执行1&gt;
+elif &lt;条件判断2&gt;:
+    &lt;执行2&gt;
+elif &lt;条件判断3&gt;:
+    &lt;执行3&gt;
+else:
+    &lt;执行4&gt;</code></pre>
+<p><code>if</code>判断条件还可以简写，比如写：</p>
+<pre><code class="python">if x:
+    print(&#39;True&#39;)</code></pre>
+<p>只要<code>x</code>是非零数值、非空字符串、非空list等，就判断为<code>True</code>，否则为<code>False</code>。</p>
+<h4 id="4-2input"><a href="#4-2input" class="headerlink" title="4.2input"></a>4.2input</h4><p>用<code>input()</code>读取用户的输入，这样可以自己输入，程序运行得更有意思。</p>
+<p>注意：<code>input()</code>返回的数据类型是<code>str</code>，<code>str</code>不能直接和整数比较，必须先把<code>str</code>转换成整数。Python提供了<code>int()</code>函数来完成这件事情：</p>
+<pre><code class="python">s = input(&#39;birth: &#39;)
+birth = int(s)
+if birth &lt; 2000:
+    print(&#39;00前&#39;)
+else:
+    print(&#39;00后&#39;)</code></pre>
+<h3 id="5-循环"><a href="#5-循环" class="headerlink" title="5.循环"></a>5.循环</h3><p>Python的循环有两种，一种是for…in循环，依次把list或tuple中的每个元素迭代出来，即<code>for x in ...</code>循环就是把每个元素代入变量<code>x</code>，然后执行缩进块的语句。</p>
+<p>Python提供一个<code>range()</code>函数，可以生成一个整数序列，再通过<code>list()</code>函数可以转换为list。</p>
+<pre><code class="python">&gt;&gt;&gt; list(range(5))
+[0, 1, 2, 3, 4]
+#循环
+sum = 0
+for x in range(101):
+    sum = sum + x
+print(sum)</code></pre>
+<p>第二种循环是while循环，只要条件满足，就不断循环，条件不满足时退出循环。</p>
+<pre><code class="python">sum = 0
+n = 99
+while n &gt; 0:
+    sum = sum + n
+    n = n - 2
+print(sum)</code></pre>
+<p>在循环中，<code>break</code>语句可以提前退出循环。</p>
+<p>在循环过程中，也可以通过<code>continue</code>语句，跳过当前的这次循环，直接开始下一次循环。</p>
+<h3 id="6-使用dict和set"><a href="#6-使用dict和set" class="headerlink" title="6.使用dict和set"></a>6.使用dict和set</h3><h4 id="6-1dict字典"><a href="#6-1dict字典" class="headerlink" title="6.1dict字典"></a>6.1dict字典</h4><p>Python内置了字典：dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。</p>
+<pre><code class="python">#初始化
+&gt;&gt;&gt; d = {&#39;Michael&#39;: 95, &#39;Bob&#39;: 75, &#39;Tracy&#39;: 85}
+&gt;&gt;&gt; d[&#39;Michael&#39;]
+95
+#通过key将数据放入dict
+&gt;&gt;&gt; d[&#39;Adam&#39;] = 67
+&gt;&gt;&gt; d[&#39;Adam&#39;]
+67
+#替换
+&gt;&gt;&gt; d[&#39;Jack&#39;] = 90
+&gt;&gt;&gt; d[&#39;Jack&#39;]
+90
+&gt;&gt;&gt; d[&#39;Jack&#39;] = 88
+&gt;&gt;&gt; d[&#39;Jack&#39;]
+88
+#删除，对应的value也会从dict中删除
+&gt;&gt;&gt; d.pop(&#39;Bob&#39;)
+75
+&gt;&gt;&gt; d
+{&#39;Michael&#39;: 95, &#39;Tracy&#39;: 85}</code></pre>
+<p>如果key不存在，dict就会报错</p>
+<p>要避免key不存在的错误，有两种办法，一是通过<code>in</code>判断key是否存在：</p>
+<pre><code class="python">&gt;&gt;&gt; &#39;Thomas&#39; in d
+False</code></pre>
+<p>二是通过dict提供的<code>get()</code>方法，如果key不存在，可以返回<code>None</code>，或者自己指定的value：</p>
+<pre><code class="python">&gt;&gt;&gt; d.get(&#39;Thomas&#39;)
+&gt;&gt;&gt; d.get(&#39;Thomas&#39;, -1)
+-1</code></pre>
+<p>注意：</p>
+<ul>
+<li>返回<code>None</code>的时候Python的交互环境不显示结果。</li>
+<li>dict内部存放的顺序和key放入的顺序是没有关系的。</li>
+<li>dict的key必须是<strong>不可变对象</strong>。（哈希算法，利用key计算value的位置）<ul>
+<li>字符串、整数等都是不可变的，而list是可变的，不能作为key</li>
+</ul>
+</li>
+</ul>
+<p>和list比较，dict有以下几个特点：</p>
+<ol>
+<li>查找和插入的速度极快，不会随着key的增加而变慢；</li>
+<li>需要占用大量的内存，内存浪费多。</li>
+</ol>
+<p>而list相反：</p>
+<ol>
+<li>查找和插入的时间随着元素的增加而增加；</li>
+<li>占用空间小，浪费内存很少。</li>
+</ol>
+<h4 id="6-2set"><a href="#6-2set" class="headerlink" title="6.2set"></a>6.2set</h4><p>set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。</p>
+<p>要创建一个set，需要提供一个list作为输入集合：</p>
+<pre><code class="python">&gt;&gt;&gt; s = set([1, 2, 3])
+&gt;&gt;&gt; s
+{1, 2, 3}
+#重复元素在set中自动被过滤
+&gt;&gt;&gt; s = set([1, 1, 2, 2, 3, 3])
+&gt;&gt;&gt; s
+{1, 2, 3}</code></pre>
+<p>注意，传入的参数<code>[1, 2, 3]</code>是一个list，而显示的<code>{1, 2, 3}</code>只是告诉你这个set内部有1，2，3这3个元素，显示的顺序也不表示set是有序的。。</p>
+<p>基本操作：</p>
+<pre><code class="python">#添加 可以重复添加，但不会有效果
+&gt;&gt;&gt; s.add(4)
+&gt;&gt;&gt; s
+{1, 2, 3, 4}
+&gt;&gt;&gt; s.add(4)
+&gt;&gt;&gt; s
+{1, 2, 3, 4}
+#删除
+&gt;&gt;&gt; s.remove(4)
+&gt;&gt;&gt; s
+{1, 2, 3}</code></pre>
+<p>set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的<strong>交集</strong>、<strong>并集</strong>等操作：</p>
+<pre><code class="python">&gt;&gt;&gt; s1 = set([1, 2, 3])
+&gt;&gt;&gt; s2 = set([2, 3, 4])
+&gt;&gt;&gt; s1 &amp; s2
+{2, 3}
+&gt;&gt;&gt; s1 | s2
+{1, 2, 3, 4}</code></pre>
+<p>set和dict的唯一区别仅在于没有存储对应的value，但是，set的原理和dict一样，所以，同样<strong>不可以放入可变对象</strong>，因为无法判断两个可变对象是否相等，也就无法保证set内部“不会有重复元素”。</p>
+<h4 id="不可变对象"><a href="#不可变对象" class="headerlink" title="不可变对象"></a>不可变对象</h4><p>上面我们讲了，str是不变对象，而list是可变对象。</p>
+<p>对于可变对象，比如list，对list进行操作，list内部的内容是会变化的，比如：</p>
+<pre><code class="python">&gt;&gt;&gt; a = [&#39;c&#39;, &#39;b&#39;, &#39;a&#39;]
+&gt;&gt;&gt; a.sort()
+&gt;&gt;&gt; a
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code></pre>
+<p>而对于不可变对象，比如str，对str进行操作呢：</p>
+<pre><code class="python">&gt;&gt;&gt; a = &#39;abc&#39;
+&gt;&gt;&gt; a.replace(&#39;a&#39;, &#39;A&#39;)
+&#39;Abc&#39;
+&gt;&gt;&gt; a
+&#39;abc&#39;</code></pre>
+<p>虽然字符串有个<code>replace()</code>方法，也确实变出了<code>&#39;Abc&#39;</code>，但变量<code>a</code>最后仍是<code>&#39;abc&#39;</code>，应该怎么理解呢？</p>
+<p>我们先把代码改成下面这样：</p>
+<pre><code class="python">&gt;&gt;&gt; a = &#39;abc&#39;
+&gt;&gt;&gt; b = a.replace(&#39;a&#39;, &#39;A&#39;)
+&gt;&gt;&gt; b
+&#39;Abc&#39;
+&gt;&gt;&gt; a
+&#39;abc&#39;</code></pre>
+<p>要始终牢记的是，<code>a</code>是变量，而<code>&#39;abc&#39;</code>才是字符串对象！有些时候，我们经常说，对象<code>a</code>的内容是<code>&#39;abc&#39;</code>，但其实是指，<code>a</code>本身是一个变量，它指向的对象的内容才是<code>&#39;abc&#39;</code>：</p>
+<pre><code class="ascii">┌───┐                  ┌───────┐
+│ a │─────────────────&gt;│ &#39;abc&#39; │
+└───┘                  └───────┘</code></pre>
+<p>当我们调用<code>a.replace(&#39;a&#39;, &#39;A&#39;)</code>时，实际上调用方法<code>replace</code>是作用在字符串对象<code>&#39;abc&#39;</code>上的，而这个方法虽然名字叫<code>replace</code>，但却没有改变字符串<code>&#39;abc&#39;</code>的内容。相反，<code>replace</code>方法创建了一个新字符串<code>&#39;Abc&#39;</code>并返回，如果我们用变量<code>b</code>指向该新字符串，就容易理解了，变量<code>a</code>仍指向原有的字符串<code>&#39;abc&#39;</code>，但变量<code>b</code>却指向新字符串<code>&#39;Abc&#39;</code>了：</p>
+<pre><code class="ascii">┌───┐                  ┌───────┐
+│ a │─────────────────&gt;│ &#39;abc&#39; │
+└───┘                  └───────┘
+┌───┐                  ┌───────┐
+│ b │─────────────────&gt;│ &#39;Abc&#39; │
+└───┘                  └───────┘</code></pre>
+<p>所以，对于不变对象来说，调用对象自身的任意方法，也不会改变该对象自身的内容。相反，这些方法会创建新的对象并返回，这样，就保证了不可变对象本身永远是不可变的。</p>
+<h2 id="二、函数"><a href="#二、函数" class="headerlink" title="二、函数"></a>二、函数</h2><h3 id="1-调用函数"><a href="#1-调用函数" class="headerlink" title="1.调用函数"></a>1.调用函数</h3><p>Python的官方网站查看内置函数文档：<a href="https://docs.python.org/zh-cn/3/library/functions.html" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/library/functions.html</a></p>
+<h4 id="1-1数据类型转换"><a href="#1-1数据类型转换" class="headerlink" title="1.1数据类型转换"></a>1.1数据类型转换</h4><p>Python内置的常用函数还包括数据类型转换函数，比如<code>int()</code>函数可以把其他数据类型转换为整数，<code>hex()</code>函数把一个整数转换成十六进制表示的字符串</p>
+<p>函数名其实就是指向一个函数对象的引用，完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：</p>
+<pre><code class="python">&gt;&gt;&gt; a = abs # 变量a指向abs函数
+&gt;&gt;&gt; a(-1) # 所以也可以通过a调用abs函数
+1</code></pre>
+<h3 id="2-定义函数"><a href="#2-定义函数" class="headerlink" title="2.定义函数"></a>2.定义函数</h3><p>在Python中，定义一个函数要使用<code>def</code>语句，依次写出函数名、括号、括号中的参数和冒号<code>:</code>，然后，在缩进块中编写函数体，函数的返回值用<code>return</code>语句返回。</p>
+<pre><code class="python">def my_abs(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+print(my_abs(-99))
+#增加对参数类型的检查
+def my_abs(x):
+    if not isinstance(x, (int, float)):
+        raise TypeError(&#39;bad operand type&#39;)
+    if x &gt;= 0:
+        return x
+    else:
+        return -x</code></pre>
+<p>如果没有<code>return</code>语句，函数执行完毕后也会返回结果，只是结果为<code>None</code>。<code>return None</code>可以简写为<code>return</code>。</p>
+<h4 id="2-1空函数"><a href="#2-1空函数" class="headerlink" title="2.1空函数"></a>2.1空函数</h4><p>如果想定义一个什么事也不做的空函数，可以用<code>pass</code>语句：</p>
+<pre><code class="python">def nop():
+    pass</code></pre>
+<p><code>pass</code>语句可以用来作为占位符，比如现在还没想好怎么写函数的代码，就可以先放一个<code>pass</code>，让代码能运行起来。</p>
+<h4 id="2-2返回多个值"><a href="#2-2返回多个值" class="headerlink" title="2.2返回多个值"></a>2.2返回多个值</h4><p>例如：</p>
+<pre><code class="python">import math
+def move(x, y, step, angle=0):
+    nx = x + step * math.cos(angle)
+    ny = y - step * math.sin(angle)
+    return nx, ny</code></pre>
+<p>但其实这只是一种假象，Python函数返回的仍然是单一值：</p>
+<pre><code class="python">#看起来是两个值
+&gt;&gt;&gt; x, y = move(100, 100, 60, math.pi / 6)
+&gt;&gt;&gt; print(x, y)
+151.96152422706632 70.0
+#实际上是一个tuple
+&gt;&gt;&gt; r = move(100, 100, 60, math.pi / 6)
+&gt;&gt;&gt; print(r)
+(151.96152422706632, 70.0)</code></pre>
+<p>在语法上，返回一个tuple可以省略括号，而多个变量可以同时接收一个tuple，按位置赋给对应的值，所以，Python的函数返回多值其实就是返回一个tuple，但写起来更方便。</p>
+<h3 id="3函数的参数"><a href="#3函数的参数" class="headerlink" title="3函数的参数"></a>3函数的参数</h3><h4 id="3-1位置参数"><a href="#3-1位置参数" class="headerlink" title="3.1位置参数"></a>3.1位置参数</h4><pre><code class="python">def power(x):
+    return x * x</code></pre>
+<p>对于<code>power(x)</code>函数，参数<code>x</code>就是一个位置参数。</p>
+<p>当我们调用<code>power</code>函数时，必须传入有且仅有的一个参数<code>x</code></p>
+<p>修改原函数后的<code>power(x, n)</code>函数，可以计算任意n次方：</p>
+<pre><code class="python">def power(x, n):
+    s = 1
+    while n &gt; 0:
+        n = n - 1
+        s = s * x
+    return s</code></pre>
+<p>修改后的<code>power(x, n)</code>函数有两个参数：<code>x</code>和<code>n</code>，这两个参数都是位置参数，调用函数时，传入的两个值按照位置顺序依次赋给参数<code>x</code>和<code>n</code>。</p>
+<h4 id="3-2默认参数"><a href="#3-2默认参数" class="headerlink" title="3.2默认参数"></a>3.2默认参数</h4><p>新的<code>power(x, n)</code>函数定义没有问题，但是，旧的调用代码失败了，原因是我们增加了一个参数，导致旧的代码因为缺少一个参数而无法正常调用</p>
+<p>由于我们经常计算x2，所以，完全可以把第二个参数n的默认值设定为2：</p>
+<pre><code class="python">def power(x, n=2):
+    s = 1
+    while n &gt; 0:
+        n = n - 1
+        s = s * x
+    return s</code></pre>
+<p>这样，当我们调用<code>power(5)</code>时，相当于调用<code>power(5, 2)</code></p>
+<p>默认参数可以简化函数的调用，但是需要注意：</p>
+<ul>
+<li>必选参数在前，默认参数在后，否则Python的解释器会报错</li>
+<li>当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数。</li>
+<li>默认参数在函数定义的时候就被计算出来了，且必须指向一个不变对象，见后文例子</li>
+</ul>
+<p>有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。当不按顺序提供部分默认参数时，需要把参数名写上。</p>
+<hr>
+<p>默认参数例子：</p>
+<pre><code class="python">def add_end(L=[]):
+    L.append(&#39;END&#39;)
+    return L</code></pre>
+<p>当你正常调用时，结果似乎不错：</p>
+<pre><code class="python">&gt;&gt;&gt; add_end([1, 2, 3])
+[1, 2, 3, &#39;END&#39;]
+&gt;&gt;&gt; add_end([&#39;x&#39;, &#39;y&#39;, &#39;z&#39;])
+[&#39;x&#39;, &#39;y&#39;, &#39;z&#39;, &#39;END&#39;]
+#使用默认参数调用时，再次调用add_end()，结果就不对了
+&gt;&gt;&gt; add_end()
+[&#39;END&#39;]
+&gt;&gt;&gt; add_end()
+[&#39;END&#39;, &#39;END&#39;]
+&gt;&gt;&gt; add_end()
+[&#39;END&#39;, &#39;END&#39;, &#39;END&#39;]</code></pre>
+<p>Python函数在定义的时候，默认参数<code>L</code>的值就被计算出来了，即<code>[]</code>，因为默认参数<code>L</code>也是一个变量，它指向对象<code>[]</code>，每次调用该函数，如果改变了<code>L</code>的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的<code>[]</code>了。</p>
+<p>定义默认参数要牢记一点：<strong>默认参数必须指向不变对象</strong>！</p>
+<p>要修改上面的例子，我们可以用<code>None</code>这个不变对象来实现：</p>
+<pre><code class="python">def add_end(L=None):
+    if L is None:
+        L = []
+    L.append(&#39;END&#39;)
+    return L</code></pre>
+<p>现在，无论调用多少次，都不会有问题：</p>
+<h4 id="3-3可变参数"><a href="#3-3可变参数" class="headerlink" title="3.3可变参数"></a>3.3可变参数</h4><pre><code class="python">def calc(*numbers):
+    sum = 0
+    for n in numbers:
+        sum = sum + n * n
+    return sum</code></pre>
+<p>定义可变参数和定义一个list或tuple参数相比，仅仅在参数前面加了一个<code>*</code>号。在函数内部，参数<code>numbers</code>接收到的是一个tuple，因此，函数代码完全不变。但是，调用该函数时，可以传入任意个参数，包括0个参数</p>
+<p>如果已经有一个list或者tuple，Python允许你在list或tuple前面加一个<code>*</code>号，把list或tuple的元素变成可变参数传进去：</p>
+<pre><code class="python">&gt;&gt;&gt; nums = [1, 2, 3]
+&gt;&gt;&gt; calc(*nums)
+14</code></pre>
+<p><code>*nums</code>表示把<code>nums</code>这个list的所有元素作为可变参数传进去。这种写法相当有用，而且很常见。</p>
+<h4 id="3-4关键字参数"><a href="#3-4关键字参数" class="headerlink" title="3.4关键字参数"></a>3.4关键字参数</h4><p>可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。请看示例：</p>
+<pre><code class="python">def person(name, age, **kw):
+    print(&#39;name:&#39;, name, &#39;age:&#39;, age, &#39;other:&#39;, kw)</code></pre>
+<p>函数<code>person</code>除了必选参数<code>name</code>和<code>age</code>外，还接受关键字参数<code>kw</code>。在调用该函数时，可以只传入必选参数：</p>
+<pre><code class="python">#只传入必选参数
+&gt;&gt;&gt; person(&#39;Michael&#39;, 30)
+name: Michael age: 30 other: {}
+#传入任意个数的关键字参数
+&gt;&gt;&gt; person(&#39;Bob&#39;, 35, city=&#39;Beijing&#39;)
+name: Bob age: 35 other: {&#39;city&#39;: &#39;Beijing&#39;}
+&gt;&gt;&gt; person(&#39;Adam&#39;, 45, gender=&#39;M&#39;, job=&#39;Engineer&#39;)
+name: Adam age: 45 other: {&#39;gender&#39;: &#39;M&#39;, &#39;job&#39;: &#39;Engineer&#39;}</code></pre>
+<p>和可变参数类似，已经有一个dict，Python允许你在dict前面加一个<code>**</code>号，把dict的元素变成可变参数传进去：</p>
+<pre><code class="python">&gt;&gt;&gt; extra = {&#39;city&#39;: &#39;Beijing&#39;, &#39;job&#39;: &#39;Engineer&#39;}
+&gt;&gt;&gt; person(&#39;Jack&#39;, 24, **extra)
+name: Jack age: 24 other: {&#39;city&#39;: &#39;Beijing&#39;, &#39;job&#39;: &#39;Engineer&#39;}</code></pre>
+<h4 id="3-5命名关键字参数"><a href="#3-5命名关键字参数" class="headerlink" title="3.5命名关键字参数"></a>3.5命名关键字参数</h4><p>对于<em>关键字参数</em>，函数的调用者可以传入<em>任意不受限制</em>的关键字参数。至于到底传入了哪些，就需要在函数内部通过<code>kw</code>检查。</p>
+<p>如果要限制关键字参数的名字，就可以用<strong>命名关键字参数</strong>，例如，只接收<code>city</code>和<code>job</code>作为关键字参数。这种方式定义的函数如下：</p>
+<pre><code class="python">def person(name, age, *, city, job):
+    print(name, age, city, job)</code></pre>
+<p>和关键字参数<code>**kw</code>不同，命名关键字参数需要一个特殊分隔符<code>*</code>，<code>*</code>后面的参数被视为命名关键字参数。</p>
+<p>调用方式如下：</p>
+<pre><code class="python">&gt;&gt;&gt; person(&#39;Jack&#39;, 24, city=&#39;Beijing&#39;, job=&#39;Engineer&#39;)
+Jack 24 Beijing Engineer</code></pre>
+<p>如果函数定义中已经有了一个可变参数，后面跟着的命名关键字参数就不再需要一个特殊分隔符<code>*</code>了：</p>
+<pre><code class="python">def person(name, age, *args, city, job):
+    print(name, age, args, city, job)</code></pre>
+<p>命名关键字参数<strong>必须传入参数名</strong>，这和位置参数不同。如果没有传入参数名，调用将报错</p>
+<p>命名关键字参数也可以有缺省值，从而简化调用</p>
+<p>使用命名关键字参数时，要特别注意，如果没有可变参数，就<strong>必须</strong>加一个<code>*</code>作为特殊分隔符。如果缺少<code>*</code>，Python解释器将无法识别位置参数和命名关键字参数：</p>
+<pre><code class="python">def person(name, age, city, job):
+    # 缺少 *，city和job被视为位置参数
+    pass</code></pre>
+<h4 id="3-6组合参数"><a href="#3-6组合参数" class="headerlink" title="3.6组合参数"></a>3.6组合参数</h4><p>在Python中定义函数，可以用必选参数、默认参数、可变参数、关键字参数和命名关键字参数，这5种参数都可以组合使用。但是请注意，参数定义的顺序必须是：<strong>必选参数、默认参数、可变参数、命名关键字参数和关键字参数</strong>。</p>
+<p>比如定义一个函数，包含上述若干种参数：</p>
+<pre><code class="python">def f1(a, b, c=0, *args, **kw):
+    print(&#39;a =&#39;, a, &#39;b =&#39;, b, &#39;c =&#39;, c, &#39;args =&#39;, args, &#39;kw =&#39;, kw)
+
+def f2(a, b, c=0, *, d, **kw):
+    print(&#39;a =&#39;, a, &#39;b =&#39;, b, &#39;c =&#39;, c, &#39;d =&#39;, d, &#39;kw =&#39;, kw)</code></pre>
+<p>在函数调用的时候，Python解释器自动按照参数位置和参数名把对应的参数传进去。</p>
+<pre><code class="python">&gt;&gt;&gt; f1(1, 2)
+a = 1 b = 2 c = 0 args = () kw = {}
+&gt;&gt;&gt; f1(1, 2, c=3)
+a = 1 b = 2 c = 3 args = () kw = {}
+&gt;&gt;&gt; f1(1, 2, 3, &#39;a&#39;, &#39;b&#39;)
+a = 1 b = 2 c = 3 args = (&#39;a&#39;, &#39;b&#39;) kw = {}
+&gt;&gt;&gt; f1(1, 2, 3, &#39;a&#39;, &#39;b&#39;, x=99)
+a = 1 b = 2 c = 3 args = (&#39;a&#39;, &#39;b&#39;) kw = {&#39;x&#39;: 99}
+&gt;&gt;&gt; f2(1, 2, d=99, ext=None)
+a = 1 b = 2 c = 0 d = 99 kw = {&#39;ext&#39;: None}</code></pre>
+<p>最神奇的是通过一个tuple和dict，你也可以调用上述函数：</p>
+<pre><code class="python">#调用f1
+&gt;&gt;&gt; args = (1, 2, 3, 4)
+&gt;&gt;&gt; kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;}
+&gt;&gt;&gt; f1(*args, **kw)
+a = 1 b = 2 c = 3 args = (4,) kw = {&#39;d&#39;: 99, &#39;x&#39;: &#39;#&#39;}
+#调用f2
+&gt;&gt;&gt; args = (1, 2, 3)
+&gt;&gt;&gt; kw = {&#39;d&#39;: 88, &#39;x&#39;: &#39;#&#39;}
+&gt;&gt;&gt; f2(*args, **kw)
+a = 1 b = 2 c = 3 d = 88 kw = {&#39;x&#39;: &#39;#&#39;}</code></pre>
+<p>所以，对于任意函数，都可以通过类似<code>func(*args, **kw)</code>的形式调用它，无论它的参数是如何定义的。</p>
+<p>虽然可以组合多达5种参数，但不要同时使用太多的组合，否则函数接口的可理解性很差。</p>
+<h3 id="4递归函数"><a href="#4递归函数" class="headerlink" title="4递归函数"></a>4递归函数</h3><p>在函数内部，可以调用其他函数。如果一个函数在内部调用自身本身，这个函数就是递归函数。</p>
+<p>理论上，所有的递归函数都可以写成循环的方式，但循环的逻辑不如递归清晰。</p>
+<p>使用递归函数需要注意防止栈溢出。在计算机中，函数调用是通过栈（stack）这种数据结构实现的，每当进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈就会减一层栈帧。由于栈的大小不是无限的，所以，递归调用的次数过多，会导致栈溢出。</p>
+<p>解决递归调用栈溢出的方法是通过<strong>尾递归</strong>优化，事实上尾递归和循环的效果是一样的，所以，把循环看成是一种特殊的尾递归函数也是可以的。</p>
+<p>尾递归是指，在函数返回的时候，调用自身本身，并且，<strong>return语句不能包含表达式</strong>。这样，<strong>编译器</strong>或者<strong>解释器</strong>就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一个栈帧，不会出现栈溢出的情况。</p>
+<pre><code class="python">#没有尾递归优化
+def fact(n):
+    if n==1:
+        return 1
+    return n * fact(n - 1)
+#有尾递归优化
+def fact(n):
+    return fact_iter(n, 1)
+
+def fact_iter(num, product):
+    if num == 1:
+        return product
+    return fact_iter(num - 1, num * product)</code></pre>
+<p>遗憾的是，大多数编程语言没有针对尾递归做优化，Python解释器也没有做优化，所以，即使把上面的<code>fact(n)</code>函数改成尾递归方式，也会导致栈溢出。</p>
+<h2 id="三、高级特性"><a href="#三、高级特性" class="headerlink" title="三、高级特性"></a>三、高级特性</h2><h3 id="3-1切片"><a href="#3-1切片" class="headerlink" title="3.1切片"></a>3.1切片</h3><p>对这种经常取指定索引范围的操作，用循环十分繁琐，因此，Python提供了切片（Slice）操作符，能大大简化这种操作。</p>
+<p>对应上面的问题，取前3个元素，用一行代码就可以完成切片：</p>
+<pre><code class="python">&gt;&gt;&gt; L = [&#39;Michael&#39;, &#39;Sarah&#39;, &#39;Tracy&#39;, &#39;Bob&#39;, &#39;Jack&#39;]
+&gt;&gt;&gt; L[0:3]
+[&#39;Michael&#39;, &#39;Sarah&#39;, &#39;Tracy&#39;]
+#如果第一个索引是0，还可以省略
+&gt;&gt;&gt; L[:3]
+[&#39;Michael&#39;, &#39;Sarah&#39;, &#39;Tracy&#39;]
+#支持倒数切片
+&gt;&gt;&gt; L[-2:]
+[&#39;Bob&#39;, &#39;Jack&#39;]
+&gt;&gt;&gt; L[-2:-1]
+[&#39;Bob&#39;]</code></pre>
+<p><code>L[0:3]</code>表示，从索引<code>0</code>开始取，直到索引<code>3</code>为止，但不包括索引<code>3</code>。即索引<code>0</code>，<code>1</code>，<code>2</code>，正好是3个元素。</p>
+<pre><code class="python">#创建一个更大的数列
+&gt;&gt;&gt; L = list(range(100))
+&gt;&gt;&gt; L
+[0, 1, 2, 3, ..., 99]
+#前10个数，每两个取一个
+&gt;&gt;&gt; L[:10:2]
+[0, 2, 4, 6, 8]
+#所有数，每5个取一个：
+&gt;&gt;&gt; L[::5]
+[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+#原样复制一个list
+&gt;&gt;&gt; L[:]
+[0, 1, 2, 3, ..., 99]</code></pre>
+<p>tuple也是一种list，唯一区别是tuple不可变。因此，tuple也可以用切片操作，只是操作的结果仍是tuple</p>
+<p>同样，字符串<code>&#39;xxx&#39;</code>也可以看成是一种list，每个元素就是一个字符。因此，字符串也可以用切片操作，只是操作结果仍是字符串</p>
+<h3 id="3-2迭代"><a href="#3-2迭代" class="headerlink" title="3.2迭代"></a>3.2迭代</h3><p>如果给定一个list或tuple，我们可以通过<code>for</code>循环来遍历这个list或tuple，这种遍历我们称为迭代（Iteration）。</p>
+<p>在Python中，迭代是通过<code>for ... in</code>来完成的，而很多语言比如C语言，迭代list是通过下标完成的</p>
+<p>list这种数据类型虽然有下标，但很多其他数据类型是没有下标的，但是，只要是可迭代对象，无论有无下标，都可以迭代，比如dict就可以迭代</p>
+<pre><code class="python">&gt;&gt;&gt; d = {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3}
+&gt;&gt;&gt; for key in d:
+...     print(key)
+...
+a
+c
+b</code></pre>
+<p>因为dict的存储不是按照list的方式顺序排列，所以，迭代出的结果顺序很可能不一样。</p>
+<p>默认情况下，dict迭代的是key。如果要迭代value，可以用<code>for value in d.values()</code>，如果要同时迭代key和value，可以用<code>for k, v in d.items()</code>。</p>
+<p>由于字符串也是可迭代对象，因此，也可以作用于<code>for</code>循环</p>
+<p>通过collections模块的Iterable类型可以判断一个对象是否为可迭代对象：</p>
+<pre><code class="python">&gt;&gt;&gt; from collections import Iterable
+&gt;&gt;&gt; isinstance(&#39;abc&#39;, Iterable) # str是否可迭代
+True
+&gt;&gt;&gt; isinstance([1,2,3], Iterable) # list是否可迭代
+True
+&gt;&gt;&gt; isinstance(123, Iterable) # 整数是否可迭代
+False</code></pre>
+<p>Python内置的<code>enumerate</code>函数可以把一个list变成索引-元素对，这样就可以在<code>for</code>循环中同时迭代索引和元素本身：</p>
+<pre><code class="python">&gt;&gt;&gt; for i, value in enumerate([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]):
+...     print(i, value)
+...
+0 A
+1 B
+2 C</code></pre>
+<p>上面的<code>for</code>循环里，同时引用了两个变量，在Python里是很常见的</p>
+<h3 id="3-3列表生成式"><a href="#3-3列表生成式" class="headerlink" title="3.3列表生成式"></a>3.3列表生成式</h3><p>列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。</p>
+<pre><code class="python">#普通方法
+&gt;&gt;&gt; list(range(1, 11))
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+#运用列表生成式 生成复杂的list
+&gt;&gt;&gt; [x * x for x in range(1, 11)]
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+#for循环后＋if
+&gt;&gt;&gt; [x * x for x in range(1, 11) if x % 2 == 0]
+[4, 16, 36, 64, 100]
+#两层循环
+&gt;&gt;&gt; [m + n for m in &#39;ABC&#39; for n in &#39;XYZ&#39;]
+[&#39;AX&#39;, &#39;AY&#39;, &#39;AZ&#39;, &#39;BX&#39;, &#39;BY&#39;, &#39;BZ&#39;, &#39;CX&#39;, &#39;CY&#39;, &#39;CZ&#39;]
+#for循环中同时使用两个甚至多个变量
+&gt;&gt;&gt; d = {&#39;x&#39;: &#39;A&#39;, &#39;y&#39;: &#39;B&#39;, &#39;z&#39;: &#39;C&#39; }
+&gt;&gt;&gt; [k + &#39;=&#39; + v for k, v in d.items()]
+[&#39;y=B&#39;, &#39;x=A&#39;, &#39;z=C&#39;]
+#把一个list中所有的字符串变成小写
+&gt;&gt;&gt; L = [&#39;Hello&#39;, &#39;World&#39;, &#39;IBM&#39;, &#39;Apple&#39;]
+&gt;&gt;&gt; [s.lower() for s in L]
+[&#39;hello&#39;, &#39;world&#39;, &#39;ibm&#39;, &#39;apple&#39;]</code></pre>
+<h3 id="3-4生成器"><a href="#3-4生成器" class="headerlink" title="3.4生成器"></a>3.4生成器</h3><p>如果列表元素可以按照某种算法推算出来，那我们可以在循环的过程中不断推算出后续的元素，这样就不必创建完整的list，从而节省大量的空间。在Python中，这种一边循环一边计算的机制，称为生成器：generator。</p>
+<p>要创建一个generator，有很多种方法。第一种方法很简单，只要把一个列表生成式的<code>[]</code>改成<code>()</code>，就创建了一个generator：</p>
+<pre><code class="python">&gt;&gt;&gt; L = [x * x for x in range(10)]
+&gt;&gt;&gt; L
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+&gt;&gt;&gt; g = (x * x for x in range(10))
+&gt;&gt;&gt; g
+&lt;generator object &lt;genexpr&gt; at 0x1022ef630&gt;
+#通过next()函数获得generator的下一个返回值
+&gt;&gt;&gt; next(g)
+0
+&gt;&gt;&gt; next(g)
+1
+&gt;&gt;&gt; next(g)
+4
+&gt;&gt;&gt; next(g)
+9
+&gt;&gt;&gt; next(g)
+16
+&gt;&gt;&gt; next(g)
+25
+&gt;&gt;&gt; next(g)
+36
+&gt;&gt;&gt; next(g)
+49
+&gt;&gt;&gt; next(g)
+64
+&gt;&gt;&gt; next(g)
+81
+&gt;&gt;&gt; next(g)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+StopIteration</code></pre>
+<p>创建<code>L</code>和<code>g</code>的区别仅在于最外层的<code>[]</code>和<code>()</code>，<code>L</code>是一个list，而<code>g</code>是一个generator。</p>
+<p>generator保存的是算法，每次调用<code>next(g)</code>，就计算出<code>g</code>的下一个元素的值，直到计算到最后一个元素，没有更多的元素时，抛出<code>StopIteration</code>的错误。</p>
+<p>generator是可迭代对象，所以能够使用<code>for</code>循环迭代</p>
+<p>我们创建了一个generator后，基本上永远不会调用<code>next()</code>，而是通过<code>for</code>循环来迭代它，并且不需要关心<code>StopIteration</code>的错误。</p>
+<p>定义generator的另一种方法。如果一个函数定义中包含<code>yield</code>关键字，那么这个函数就不再是一个普通函数，而是一个generator：</p>
+<pre><code class="python">#普通函数 生成斐波拉契数列
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        print(b)
+        a, b = b, a + b
+        n = n + 1
+    return &#39;done&#39;
+#generator
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n &lt; max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return &#39;done&#39;
+</code></pre>
+<blockquote>
+<p>其中赋值语句：</p>
+<pre><code class="python">a, b = b, a + b</code></pre>
+<p>相当于：</p>
+<pre><code class="python">t = (b, a + b) # t是一个tuple
+a = t[0]
+b = t[1]</code></pre>
+<p>但不必显式写出临时变量t就可以赋值。</p>
+</blockquote>
+<p>这里，最难理解的就是generator和函数的执行流程不一样。函数是顺序执行，遇到<code>return</code>语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用<code>next()</code>的时候执行，遇到<code>yield</code>语句返回，再次执行时从上次返回的<code>yield</code>语句处继续执行。</p>
+<blockquote>
+<p>例子，定义一个generator，依次返回数字1，3，5：</p>
+<pre><code class="python">def odd():
+    print(&#39;step 1&#39;)
+    yield 1
+    print(&#39;step 2&#39;)
+    yield(3)
+    print(&#39;step 3&#39;)
+    yield(5)</code></pre>
+<p>调用该generator时，首先要生成一个generator对象，然后用<code>next()</code>函数不断获得下一个返回值：</p>
+<pre><code class="python">&gt;&gt;&gt; o = odd()
+&gt;&gt;&gt; next(o)
+step 1
+1
+&gt;&gt;&gt; next(o)
+step 2
+3
+&gt;&gt;&gt; next(o)
+step 3
+5
+&gt;&gt;&gt; next(o)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+StopIteration</code></pre>
+<p>可以看到，<code>odd</code>不是普通函数，而是generator，在执行过程中，遇到<code>yield</code>就中断，下次又继续执行。执行3次<code>yield</code>后，已经没有<code>yield</code>可以执行了，所以，第4次调用<code>next(o)</code>就报错。</p>
+</blockquote>
+<p>用<code>for</code>循环调用generator时（如这种：<code>for n in fib(6)</code>），发现拿不到generator的<code>return</code>语句的返回值。如果想要拿到返回值，必须捕获<code>StopIteration</code>错误，返回值包含在<code>StopIteration</code>的<code>value</code>中：</p>
+<pre><code class="python">&gt;&gt;&gt; g = fib(6)
+&gt;&gt;&gt; while True:
+...     try:
+...         x = next(g)
+...         print(&#39;g:&#39;, x)
+...     except StopIteration as e:
+...         print(&#39;Generator return value:&#39;, e.value)
+...         break
+...
+g: 1
+g: 1
+g: 2
+g: 3
+g: 5
+g: 8
+Generator return value: done</code></pre>
+<h3 id="3-5迭代器"><a href="#3-5迭代器" class="headerlink" title="3.5迭代器"></a>3.5迭代器</h3><p>可以直接作用于<code>for</code>循环的数据类型有以下几种：</p>
+<p>一类是集合数据类型，如<code>list</code>、<code>tuple</code>、<code>dict</code>、<code>set</code>、<code>str</code>等；</p>
+<p>一类是<code>generator</code>，包括生成器和带<code>yield</code>的generator function。</p>
+<p>这些可以直接作用于<code>for</code>循环的对象统称为可迭代对象：<code>Iterable</code>。</p>
+<p>可以使用<code>isinstance()</code>判断一个对象是否是<code>Iterable</code>对象：</p>
+<pre><code class="python">&gt;&gt;&gt; from collections import Iterable
+&gt;&gt;&gt; isinstance([], Iterable)
+True
+&gt;&gt;&gt; isinstance({}, Iterable)
+True
+&gt;&gt;&gt; isinstance(&#39;abc&#39;, Iterable)
+True
+&gt;&gt;&gt; isinstance((x for x in range(10)), Iterable)
+True</code></pre>
+<p>而生成器不但可以作用于<code>for</code>循环，还可以被<code>next()</code>函数不断调用并返回下一个值，直到最后抛出<code>StopIteration</code>错误表示无法继续返回下一个值了。</p>
+<p>可以被<code>next()</code>函数调用并不断返回下一个值的对象称为<strong>迭代器</strong>：<code>Iterator</code>。</p>
+<p>可以使用<code>isinstance()</code>判断一个对象是否是<code>Iterator</code>对象：</p>
+<pre><code class="python">&gt;&gt;&gt; from collections import Iterator
+&gt;&gt;&gt; isinstance((x for x in range(10)), Iterator)
+True
+&gt;&gt;&gt; isinstance([], Iterator)
+False
+&gt;&gt;&gt; isinstance({}, Iterator)
+False
+&gt;&gt;&gt; isinstance(&#39;abc&#39;, Iterator)
+False</code></pre>
+<p>生成器都是<code>Iterator</code>对象，但<code>list</code>、<code>dict</code>、<code>str</code>虽然是<code>Iterable</code>，却不是<code>Iterator</code>。</p>
+<p>把<code>list</code>、<code>dict</code>、<code>str</code>等<code>Iterable</code>变成<code>Iterator</code>可以使用<code>iter()</code>函数：</p>
+<pre><code class="python">&gt;&gt;&gt; isinstance(iter([]), Iterator)
+True
+&gt;&gt;&gt; isinstance(iter(&#39;abc&#39;), Iterator)
+True</code></pre>
+<p>为什么<code>list</code>、<code>dict</code>、<code>str</code>等数据类型不是<code>Iterator</code>？</p>
+<p>这是因为Python的<code>Iterator</code>对象表示的是一个数据流，Iterator对象可以被<code>next()</code>函数调用并不断返回下一个数据，直到没有数据时抛出<code>StopIteration</code>错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过<code>next()</code>函数实现按需计算下一个数据，所以<code>Iterator</code>的计算是惰性的，只有在需要返回下一个数据时它才会计算。</p>
+<p><code>Iterator</code>甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的。</p>
+<p><strong>总之</strong>：</p>
+<ul>
+<li>凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型；</li>
+<li>凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列；</li>
+<li>Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的<ul>
+<li>集合数据类型如<code>list</code>、<code>dict</code>、<code>str</code>等会先通过<code>iter()</code>函数获得一个<code>Iterator</code>对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、函数式编程"><a href="#四、函数式编程" class="headerlink" title="四、函数式编程"></a>四、函数式编程</h2><h3 id="4-1高阶函数"><a href="#4-1高阶函数" class="headerlink" title="4.1高阶函数"></a>4.1高阶函数</h3><p>函数本身也可以赋值给变量，即：变量可以指向函数。</p>
+<p>如果一个变量指向了一个函数，那么，可以通过该变量来调用这个函数</p>
+<pre><code class="python">&gt;&gt;&gt; f = abs
+&gt;&gt;&gt; f
+&lt;built-in function abs&gt;
+&gt;&gt;&gt; f(-10)
+10</code></pre>
+<p>函数名其实就是指向函数的变量！对于<code>abs()</code>这个函数，完全可以把函数名<code>abs</code>看成变量，它指向一个可以计算绝对值的函数！</p>
+<pre><code class="python">&gt;&gt;&gt; abs = 10#修改abs的指向
+&gt;&gt;&gt; abs(-10)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &#39;int&#39; object is not callable
+#要恢复abs函数，需要重启Python交互环境。</code></pre>
+<p>注意：由于<code>abs</code>函数实际上是定义在<code>import builtins</code>模块中的，所以要让修改<code>abs</code>变量的指向在其它模块也生效，要用<code>import builtins; builtins.abs = 10</code>。</p>
+<p>既然变量可以指向函数，函数的参数能接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就称之为<strong>高阶函数</strong>。</p>
+<p>如：</p>
+<pre><code class="python">def add(x, y, f):
+    return f(x) + f(y)</code></pre>
+<p>编写高阶函数，就是让函数的参数能够接收别的函数。函数式编程就是指这种高度抽象的编程范式。</p>
+<h4 id="4-1-1map-reduce"><a href="#4-1-1map-reduce" class="headerlink" title="4.1.1map/reduce"></a>4.1.1map/reduce</h4><p>Python内建了<code>map()</code>和<code>reduce()</code>函数。</p>
+<p><code>map()</code>函数接收两个参数，一个是函数，一个是<code>Iterable</code>，<code>map</code>将传入的函数依次作用到序列的每个元素，并把结果作为新的<code>Iterator</code>返回。</p>
+<blockquote>
+<p>比如我们有一个函数f(x)=x2，要把这个函数作用在一个list <code>[1, 2, 3, 4, 5, 6, 7, 8, 9]</code>上，就可以用<code>map()</code>实现如下：</p>
+<pre><code class="ascii">            f(x) = x * x
+
+                  │
+                  │
+  ┌───┬───┬───┬───┼───┬───┬───┬───┐
+  │   │   │   │   │   │   │   │   │
+  ▼   ▼   ▼   ▼   ▼   ▼   ▼   ▼   ▼
+
+[ 1   2   3   4   5   6   7   8   9 ]
+
+  │   │   │   │   │   │   │   │   │
+  │   │   │   │   │   │   │   │   │
+  ▼   ▼   ▼   ▼   ▼   ▼   ▼   ▼   ▼
+
+[ 1   4   9  16  25  36  49  64  81 ]</code></pre>
+<p>现在，我们用Python代码实现：</p>
+<pre><code class="python">&gt;&gt;&gt; def f(x):
+...     return x * x
+...
+&gt;&gt;&gt; r = map(f, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+&gt;&gt;&gt; list(r)
+[1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
+<p><code>map()</code>传入的第一个参数是<code>f</code>，即函数对象本身。由于结果<code>r</code>是一个<code>Iterator</code>，<code>Iterator</code>是惰性序列，因此通过<code>list()</code>函数让它把整个序列都计算出来并返回一个list。</p>
+</blockquote>
+<p><code>map()</code>作为高阶函数，事实上它把运算规则抽象了，因此，我们不但可以计算简单的f(x)=x^2^，还可以计算任意复杂的函数，比如，把这个list所有数字转为字符串：</p>
+<pre><code class="python">&gt;&gt;&gt; list(map(str, [1, 2, 3, 4, 5, 6, 7, 8, 9]))
+[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;]</code></pre>
+<p>只需要一行代码。</p>
+<p><code>reduce</code>把一个函数作用在一个序列<code>[x1, x2, x3, ...]</code>上，这个函数必须接收两个参数，<code>reduce</code>把结果继续和序列的下一个元素做累积计算，其效果就是：</p>
+<pre><code class="python">reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)</code></pre>
+<blockquote>
+<p>比如对一个序列求和，就可以用<code>reduce</code>实现：</p>
+<pre><code class="python">&gt;&gt;&gt; from functools import reduce
+&gt;&gt;&gt; def add(x, y):
+...     return x + y
+...
+&gt;&gt;&gt; reduce(add, [1, 3, 5, 7, 9])
+25</code></pre>
+<p>比如把<code>str</code>转换为<code>int</code>：</p>
+<pre><code class="python">from functools import reduce
+
+DIGITS = {&#39;0&#39;: 0, &#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9}
+
+def str2int(s):
+    def fn(x, y):
+        return x * 10 + y
+    def char2num(s):
+        return DIGITS[s]
+    return reduce(fn, map(char2num, s))</code></pre>
+<p>还可以用lambda函数进一步简化成：</p>
+<pre><code class="python">from functools import reduce
+
+DIGITS = {&#39;0&#39;: 0, &#39;1&#39;: 1, &#39;2&#39;: 2, &#39;3&#39;: 3, &#39;4&#39;: 4, &#39;5&#39;: 5, &#39;6&#39;: 6, &#39;7&#39;: 7, &#39;8&#39;: 8, &#39;9&#39;: 9}
+
+def char2num(s):
+    return DIGITS[s]
+
+def str2int(s):
+    return reduce(lambda x, y: x * 10 + y, map(char2num, s))</code></pre>
+<p>lambda函数的用法在后面介绍。</p>
+</blockquote>
+<h4 id="4-1-2filter"><a href="#4-1-2filter" class="headerlink" title="4.1.2filter"></a>4.1.2filter</h4><p>和<code>map()</code>类似，<code>filter()</code>也接收一个函数和一个序列。和<code>map()</code>不同的是，<code>filter()</code>把传入的函数依次作用于每个元素，然后根据返回值是<code>True</code>还是<code>False</code>决定保留还是丢弃该元素。</p>
+<blockquote>
+<p>把一个序列中的空字符串删掉：</p>
+<pre><code class="python">def not_empty(s):
+    return s and s.strip()
+
+list(filter(not_empty, [&#39;A&#39;, &#39;&#39;, &#39;B&#39;, None, &#39;C&#39;, &#39;  &#39;]))
+# 结果: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]</code></pre>
+</blockquote>
+<p>注意到<code>filter()</code>函数返回的是一个<code>Iterator</code>，也就是一个惰性序列，所以要强迫<code>filter()</code>完成计算结果，需要用<code>list()</code>函数获得所有结果并返回list。</p>
+<h4 id="4-1-3sorted"><a href="#4-1-3sorted" class="headerlink" title="4.1.3sorted"></a>4.1.3sorted</h4><p>Python内置的<code>sorted()</code>函数就可以对list从小到大进行排序：</p>
+<pre><code class="python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21])
+[-21, -12, 5, 9, 36]</code></pre>
+<p>此外，<code>sorted()</code>函数也是一个高阶函数，它还可以接收一个<code>key</code>函数来实现自定义的排序，key指定的函数将作用于list的每一个元素上，并根据key函数返回的结果进行排序。</p>
+<blockquote>
+<p>如按绝对值大小排序：</p>
+<pre><code class="python">&gt;&gt;&gt; sorted([36, 5, -12, 9, -21], key=abs)
+[5, 9, -12, -21, 36]</code></pre>
+<p>这个过程可以理解为：</p>
+<pre><code class="python">list = [36, 5, -12, 9, -21]#原始的list
+keys = [36, 5,  12, 9,  21]#经过key=abs处理过的list</code></pre>
+<p>然后<code>sorted()</code>函数按照keys进行排序，并按照对应关系返回list相应的元素：</p>
+<pre><code class="ascii">keys排序结果 =&gt; [5, 9,  12,  21, 36]
+                |  |    |    |   |
+最终结果     =&gt; [5, 9, -12, -21, 36]</code></pre>
+</blockquote>
+<p>默认情况下，对字符串排序，是按照ASCII的大小比较的</p>
+<p>要进行<strong>反向排序</strong>，不必改动key函数，可以传入第三个参数<code>reverse=True</code></p>
+<h3 id="4-2返回函数"><a href="#4-2返回函数" class="headerlink" title="4.2返回函数"></a>4.2返回函数</h3><p>高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。</p>
+<pre><code class="python">def lazy_sum(*args):
+    def sum():
+        ax = 0
+        for n in args:
+            ax = ax + n
+        return ax
+    return sum</code></pre>
+<p>当我们调用<code>lazy_sum()</code>时，返回的并不是求和结果，而是求和函数：</p>
+<pre><code class="python">&gt;&gt;&gt; f = lazy_sum(1, 3, 5, 7, 9)
+&gt;&gt;&gt; f
+&lt;function lazy_sum.&lt;locals&gt;.sum at 0x101c6ed90&gt;
+#真正计算求和的结果
+&gt;&gt;&gt; f()
+25</code></pre>
+<p>调用函数<code>f</code>时，才真正计算求和的结果</p>
+<p>在这个例子中，我们在函数<code>lazy_sum</code>中又定义了函数<code>sum</code>，并且，内部函数<code>sum</code>可以引用外部函数<code>lazy_sum</code>的参数和局部变量，当<code>lazy_sum</code>返回函数<code>sum</code>时，相关参数和变量都保存在返回的函数中，这种称为“<strong>闭包</strong>（Closure）”的程序结构拥有极大的威力。</p>
+<p>请再注意一点，当我们调用<code>lazy_sum()</code>时，每次调用都会返回一个新的函数，即使传入相同的参数：</p>
+<pre><code class="python">&gt;&gt;&gt; f1 = lazy_sum(1, 3, 5, 7, 9)
+&gt;&gt;&gt; f2 = lazy_sum(1, 3, 5, 7, 9)
+&gt;&gt;&gt; f1==f2
+False</code></pre>
+<p><code>f1()</code>和<code>f2()</code>的调用结果互不影响。</p>
+<h4 id="4-2-1闭包"><a href="#4-2-1闭包" class="headerlink" title="4.2.1闭包"></a>4.2.1闭包</h4><p>注意到返回的函数在其定义内部引用了局部变量<code>args</code>，所以，当一个函数返回了一个函数后，其内部的局部变量还被新函数引用，所以，闭包用起来简单，实现起来可不容易。</p>
+<p>另一个需要注意的问题是，返回的函数并没有立刻执行，而是直到调用了<code>f()</code>才执行。</p>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">def count():
+    fs = []
+    for i in range(1, 4):
+        def f():
+             return i*i
+        fs.append(f)
+    return fs
+
+f1, f2, f3 = count()</code></pre>
+<p>在上面的例子中，每次循环，都创建了一个新的函数，然后，把创建的3个函数都返回了。</p>
+<p>你可能认为调用<code>f1()</code>，<code>f2()</code>和<code>f3()</code>结果应该是<code>1</code>，<code>4</code>，<code>9</code>，但实际结果是：</p>
+<pre><code class="python">&gt;&gt;&gt; f1()
+9
+&gt;&gt;&gt; f2()
+9
+&gt;&gt;&gt; f3()
+9</code></pre>
+<p>全部都是<code>9</code>！原因就在于返回的函数引用了变量<code>i</code>，但它并非立刻执行。等到3个函数都返回时，它们所引用的变量<code>i</code>已经变成了<code>3</code>，因此最终结果为<code>9</code>。</p>
+</blockquote>
+<p>返回闭包时牢记一点：<strong>返回函数不要引用任何循环变量，或者后续会发生变化的变量</strong>。</p>
+<blockquote>
+<p>如果一定要引用循环变量怎么办？方法是再创建一个函数，用该函数的参数绑定循环变量当前的值，无论该循环变量后续如何更改，已绑定到函数参数的值不变：</p>
+<pre><code class="python">def count():
+    def f(j):
+        def g():
+            return j*j
+        return g
+    fs = []
+    for i in range(1, 4):
+        fs.append(f(i)) # f(i)立刻被执行，因此i的当前值被传入f()
+    return fs</code></pre>
+<p>再看看结果：</p>
+<pre><code class="python">&gt;&gt;&gt; f1, f2, f3 = count()
+&gt;&gt;&gt; f1()
+1
+&gt;&gt;&gt; f2()
+4
+&gt;&gt;&gt; f3()
+9</code></pre>
+<p>缺点是代码较长，可利用lambda函数缩短代码。</p>
+</blockquote>
+<h4 id="4-2-2关键字global与nonlocal"><a href="#4-2-2关键字global与nonlocal" class="headerlink" title="4.2.2关键字global与nonlocal"></a>4.2.2关键字global与nonlocal</h4><p>第一，两者的功能不同。global关键字修饰变量后标识该变量是全局变量，对该变量进行修改就是修改全局变量，而nonlocal关键字修饰变量后标识该变量是上一级函数中的局部变量，如果上一级函数中不存在该局部变量，nonlocal位置会发生错误（最上层的函数使用nonlocal修饰变量必定会报错）。</p>
+<p>第二，两者使用的范围不同。global关键字可以用在任何地方，包括最上层函数中和嵌套函数中，即使之前未定义该变量，global修饰后也可以直接使用，而nonlocal关键字只能用于嵌套函数中，并且外层函数中定义了相应的局部变量，否则会发生错误</p>
+<h3 id="4-3匿名函数"><a href="#4-3匿名函数" class="headerlink" title="4.3匿名函数"></a>4.3匿名函数</h3><p>匿名函数<code>lambda x: x * x</code>实际上就是：</p>
+<pre><code class="python">def f(x):
+    return x * x</code></pre>
+<p>关键字<code>lambda</code>表示匿名函数，冒号前面的<code>x</code>表示函数参数。</p>
+<p>匿名函数有个限制，就是只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果。</p>
+<p>用匿名函数有个好处，因为函数没有名字，不必担心函数名冲突。此外，匿名函数也是一个函数对象，也可以把匿名函数赋值给一个变量，再利用变量来调用该函数：</p>
+<pre><code class="python">&gt;&gt;&gt; f = lambda x: x * x
+&gt;&gt;&gt; f
+&lt;function &lt;lambda&gt; at 0x101c6ef28&gt;
+&gt;&gt;&gt; f(5)
+25</code></pre>
+<p>同样，也可以把匿名函数作为返回值返回，比如：</p>
+<pre><code class="python">def build(x, y):
+    return lambda: x * x + y * y</code></pre>
+<h3 id="4-4装饰器"><a href="#4-4装饰器" class="headerlink" title="4.4装饰器"></a>4.4装饰器</h3><p>函数对象有一个<code>__name__</code>属性，可以拿到函数的名字</p>
+<pre><code class="python">&gt;&gt;&gt; def now():
+...     print(&#39;2015-3-25&#39;)
+...
+&gt;&gt;&gt; now.__name__
+&#39;now&#39;</code></pre>
+<p>现在，假设我们要增强<code>now()</code>函数的功能，比如，在函数调用前后自动打印日志，但又不希望修改<code>now()</code>函数的定义，这种在代码运行期间<strong>动态增加功能</strong>的方式，称之为“<strong>装饰器</strong>”（Decorator）。</p>
+<p>本质上，decorator就是一个返回函数的高阶函数。所以，我们要定义一个能打印日志的decorator，可以定义如下：</p>
+<pre><code class="python">def log(func):
+    def wrapper(*args, **kw):
+        print(&#39;call %s():&#39; % func.__name__)
+        return func(*args, **kw)
+    return wrapper</code></pre>
+<p>观察上面的<code>log</code>，因为它是一个decorator，所以接受一个函数作为参数，并返回一个函数。我们要借助Python的<strong>@</strong>语法，把decorator置于函数的定义处：</p>
+<pre><code class="python">@log
+def now():
+    print(&#39;2015-3-25&#39;)</code></pre>
+<p>调用<code>now()</code>函数，不仅会运行<code>now()</code>函数本身，还会在运行<code>now()</code>函数前打印一行日志：</p>
+<pre><code class="python">&gt;&gt;&gt; now()
+call now():
+2015-3-25</code></pre>
+<p>把<code>@log</code>放到<code>now()</code>函数的定义处，相当于执行了语句：</p>
+<pre><code class="python">now = log(now)</code></pre>
+<p>由于<code>log()</code>是一个decorator，返回一个函数，所以，原来的<code>now()</code>函数仍然存在，只是现在同名的<code>now</code>变量指向了新的函数，于是调用<code>now()</code>将执行新函数，即在<code>log()</code>函数中返回的<code>wrapper()</code>函数。</p>
+<p><code>wrapper()</code>函数的参数定义是<code>(*args, **kw)</code>，因此，<code>wrapper()</code>函数可以接受任意参数的调用。在<code>wrapper()</code>函数内，首先打印日志，再紧接着调用原始函数。</p>
+<p>如果decorator本身需要传入参数，那就需要编写一个返回decorator的高阶函数，写出来会更复杂。比如，要自定义log的文本：</p>
+<pre><code class="python">def log(text):
+    def decorator(func):
+        def wrapper(*args, **kw):
+            print(&#39;%s %s():&#39; % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator</code></pre>
+<p>这个3层嵌套的decorator用法如下：</p>
+<pre><code class="python">@log(&#39;execute&#39;)
+def now():
+    print(&#39;2015-3-25&#39;)</code></pre>
+<p>执行结果如下：</p>
+<pre><code class="python">&gt;&gt;&gt; now()
+execute now():
+2015-3-25</code></pre>
+<p>和两层嵌套的decorator相比，3层嵌套的效果是这样的：</p>
+<pre><code class="python">&gt;&gt;&gt; now = log(&#39;execute&#39;)(now)</code></pre>
+<p>我们来剖析上面的语句，首先执行<code>log(&#39;execute&#39;)</code>，返回的是<code>decorator</code>函数，再调用返回的函数，参数是<code>now</code>函数，返回值最终是<code>wrapper</code>函数。</p>
+<p>以上两种decorator的定义都没有问题，但还差最后一步。因为我们讲了函数也是对象，它有<code>__name__</code>等属性，但你去看经过decorator装饰之后的函数，它们的<code>__name__</code>已经从原来的<code>&#39;now&#39;</code>变成了<code>&#39;wrapper&#39;</code>：</p>
+<pre><code class="python">&gt;&gt;&gt; now.__name__
+&#39;wrapper&#39;</code></pre>
+<p>因为返回的那个<code>wrapper()</code>函数名字就是<code>&#39;wrapper&#39;</code>，所以，需要把原始函数的<code>__name__</code>等属性复制到<code>wrapper()</code>函数中，否则，有些依赖函数签名的代码执行就会出错。</p>
+<p>不需要编写<code>wrapper.__name__ = func.__name__</code>这样的代码，Python内置的<code>functools.wraps</code>就是干这个事的，所以，一个完整的decorator的写法如下：</p>
+<pre><code class="python">import functools
+
+def log(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kw):
+        print(&#39;call %s():&#39; % func.__name__)
+        return func(*args, **kw)
+    return wrapper</code></pre>
+<p>或者针对带参数的decorator：</p>
+<pre><code class="python">import functools
+
+def log(text):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kw):
+            print(&#39;%s %s():&#39; % (text, func.__name__))
+            return func(*args, **kw)
+        return wrapper
+    return decorator</code></pre>
+<p><code>import functools</code>是导入<code>functools</code>模块。模块的概念稍候讲解。现在，只需记住在定义<code>wrapper()</code>的前面加上<code>@functools.wraps(func)</code>即可。</p>
+<h3 id="4-5偏函数"><a href="#4-5偏函数" class="headerlink" title="4.5偏函数"></a>4.5偏函数</h3><p>Python的<code>functools</code>模块提供了很多有用的功能，其中一个就是偏函数（Partial function）</p>
+<p><code>functools.partial</code>就是帮助我们创建一个偏函数的，作用就是把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单。</p>
+<pre><code class="python">&gt;&gt;&gt; import functools
+&gt;&gt;&gt; int2 = functools.partial(int, base=2)
+&gt;&gt;&gt; int2(&#39;1000000&#39;)
+64
+#重设默认值
+&gt;&gt;&gt; int2(&#39;1000000&#39;, base=10)
+1000000</code></pre>
+<p>最后，创建偏函数时，实际上可以接收 函数对象、<code>*args</code>和<code>**kw</code>这3个参数</p>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">int2 = functools.partial(int, base=2)
+int2(&#39;10010&#39;)
+#相当于
+kw = { &#39;base&#39;: 2 }
+int(&#39;10010&#39;, **kw)</code></pre>
+<p>又：</p>
+<pre><code class="python">max2 = functools.partial(max, 10)
+max2(5, 6, 7)
+#相当于
+args = (10, 5, 6, 7)#实际上会把10作为*args的一部分自动加到左边
+max(*args)</code></pre>
+<p>注意上述例子中会把10作为<em>args的一部分自动加到*</em>左边**</p>
+</blockquote>
+<h2 id="五、模块"><a href="#五、模块" class="headerlink" title="五、模块"></a>五、模块</h2><h3 id="5-0模块和包"><a href="#5-0模块和包" class="headerlink" title="5.0模块和包"></a>5.0模块和包</h3><p>在Python中，一个.py文件就称之为一个模块（Module）。</p>
+<p>为了避免模块名冲突，Python又引入了按目录来组织模块的方法，称为包（Package）。</p>
+<blockquote>
+<p>例子：</p>
+<p>一个<code>abc.py</code>的文件就是一个名字叫<code>abc</code>的模块，一个<code>xyz.py</code>的文件就是一个名字叫<code>xyz</code>的模块。</p>
+<p>现在，假设我们的<code>abc</code>和<code>xyz</code>这两个模块名字与其他模块冲突了，于是我们可以通过包来组织模块，避免冲突。方法是选择一个顶层包名，比如<code>mycompany</code>，按照如下目录存放：</p>
+<pre><code class="ascii">mycompany
+├─ __init__.py
+├─ abc.py
+└─ xyz.py</code></pre>
+<p>引入了包以后，只要顶层的包名不与别人冲突，那所有模块都不会与别人冲突。现在，<code>abc.py</code>模块的名字就变成了<code>mycompany.abc</code>，类似的，<code>xyz.py</code>的模块名变成了<code>mycompany.xyz</code>。</p>
+<p>请注意，每一个包目录下面都会有一个<code>__init__.py</code>的文件，这个文件是必须存在的，否则，Python就把这个目录当成普通目录，而不是一个包。<code>__init__.py</code>可以是空文件，也可以有Python代码，因为<code>__init__.py</code>本身就是一个模块，而它的模块名就是<code>mycompany</code>。</p>
+</blockquote>
+<p>可以有多级目录，组成多级层次的包结构</p>
+<blockquote>
+<p>例子：</p>
+<pre><code class="ascii">mycompany
+ ├─ web
+ │  ├─ __init__.py
+ │  ├─ utils.py
+ │  └─ www.py
+ ├─ __init__.py
+ ├─ abc.py
+ └─ utils.py</code></pre>
+<p>文件<code>www.py</code>的模块名就是<code>mycompany.web.www</code>，两个文件<code>utils.py</code>的模块名分别是<code>mycompany.utils</code>和<code>mycompany.web.utils</code>。</p>
+<p><code>mycompany.web</code>也是一个模块，该模块对应为<code>mycompany.web.__init__.py</code>文件。</p>
+</blockquote>
+<p>自己创建模块时要注意命名，不能和Python自带的模块名称冲突。例如，系统自带了sys模块，自己的模块就不可命名为sys.py，否则将无法导入系统自带的sys模块。</p>
+<h3 id="5-1使用模块"><a href="#5-1使用模块" class="headerlink" title="5.1使用模块"></a>5.1使用模块</h3><p>Python模块的标准文件模板：</p>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+&#39; a test module &#39;
+
+__author__ = &#39;Michael Liao&#39;
+
+import sys
+
+def test():
+    args = sys.argv
+    if len(args)==1:
+        print(&#39;Hello, world!&#39;)
+    elif len(args)==2:
+        print(&#39;Hello, %s!&#39; % args[1])
+    else:
+        print(&#39;Too many arguments!&#39;)
+
+if __name__==&#39;__main__&#39;:
+    test()</code></pre>
+<p>第1行和第2行是标准注释，第1行注释可以让这个<code>hello.py</code>文件直接在Unix/Linux/Mac上运行，第2行注释表示.py文件本身使用标准UTF-8编码；</p>
+<p>第4行是一个字符串，表示模块的文档注释，任何模块代码的第一个字符串都被视为模块的文档注释；</p>
+<p>第6行使用<code>__author__</code>变量把作者写进去</p>
+<p>使用<code>sys</code>模块的第一步，就是导入该模块。导入<code>sys</code>模块后，我们就有了变量<code>sys</code>指向该模块，利用<code>sys</code>这个变量，就可以访问<code>sys</code>模块的所有功能。</p>
+<p><code>sys</code>模块有一个<code>argv</code>变量，用list存储了命令行的所有参数。<code>argv</code>至少有一个元素，因为第一个参数永远是该.py文件的名称</p>
+<blockquote>
+<p>如：</p>
+<p>运行<code>python3 hello.py</code>获得的<code>sys.argv</code>就是<code>[&#39;hello.py&#39;]</code>；</p>
+<p>运行<code>python3 hello.py Michael</code>获得的<code>sys.argv</code>就是<code>[&#39;hello.py&#39;, &#39;Michael]</code>。</p>
+</blockquote>
+<p>注意到这两行代码：</p>
+<pre><code class="python">if __name__==&#39;__main__&#39;:
+    test()</code></pre>
+<p>当我们在命令行运行<code>hello</code>模块文件时，Python解释器把一个特殊变量<code>__name__</code>置为<code>__main__</code>，而如果在其他地方导入该<code>hello</code>模块时，<code>if</code>判断将失败，因此，这种<code>if</code>测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试。</p>
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>正常的函数和变量名是公开的（public），可以被直接引用，比如：<code>abc</code>，<code>x123</code>，<code>PI</code>等；</p>
+<ul>
+<li><p>类似<code>__xxx__</code>这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的<code>__author__</code>，<code>__name__</code>就是特殊变量，<code>hello</code>模块定义的文档注释也可以用特殊变量<code>__doc__</code>访问，我们自己的变量一般不要用这种变量名；</p>
+</li>
+<li><p>类似<code>_xxx</code>和<code>__xxx</code>这样的函数或变量就是非公开的（private），不应该被直接引用，比如<code>_abc</code>，<code>__abc</code>等；</p>
+</li>
+</ul>
+<p>注意：private函数和变量“不应该”被直接引用，而不是“不能”被直接引用，是因为Python并没有一种方法可以完全限制访问private函数或变量，但是，从编程习惯上不应该引用private函数或变量。</p>
+<p>外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public。</p>
+<h3 id="5-2安装第三方模块"><a href="#5-2安装第三方模块" class="headerlink" title="5.2安装第三方模块"></a>5.2安装第三方模块</h3><p>在Python中，安装第三方模块，是通过包管理工具pip完成的。</p>
+<p>注意：Mac或Linux上有可能并存Python 3.x和Python 2.x，因此对应的pip命令是<code>pip3</code>。</p>
+<p>一般来说，第三方库都会在Python官方的<a href="https://pypi.python.org/" target="_blank" rel="noopener">pypi.python.org</a>网站注册，要安装一个第三方库，必须先知道该库的名称</p>
+<p>推荐直接使用<a href="https://www.anaconda.com/" target="_blank" rel="noopener">Anaconda</a>，这是一个基于Python的数据处理和科学计算平台，它已经内置了许多非常有用的第三方库，我们装上Anaconda，就相当于把数十个第三方模块自动安装好了，非常简单易用。</p>
+<p>下载安装后，Anaconda会把系统Path中的python指向自己自带的Python，并且，Anaconda安装的第三方模块会安装在Anaconda自己的路径下，不影响系统已安装的Python目录。</p>
+<h4 id="5-2-1模块搜索路径"><a href="#5-2-1模块搜索路径" class="headerlink" title="5.2.1模块搜索路径"></a>5.2.1模块搜索路径</h4><p>默认情况下，Python解释器会搜索 当前目录、所有已安装的内置模块和第三方模块，搜索路径存放在<code>sys</code>模块的<code>path</code>变量中：</p>
+<pre><code class="python">&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path
+[&#39;&#39;, &#39;/Library/Frameworks/Python.framework/Versions/3.6/lib/python36.zip&#39;, &#39;/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6&#39;, ..., &#39;/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages&#39;]</code></pre>
+<p>如果我们要添加自己的搜索目录，有两种方法：</p>
+<p>一是直接修改<code>sys.path</code>，添加要搜索的目录：</p>
+<pre><code class="python">&gt;&gt;&gt; import sys
+&gt;&gt;&gt; sys.path.append(&#39;/Users/michael/my_py_scripts&#39;)</code></pre>
+<p>这种方法是在运行时修改，运行结束后失效。</p>
+<p>第二种方法是设置环境变量<code>PYTHONPATH</code>，该环境变量的内容会被自动添加到模块搜索路径中。</p>
+<h2 id="六、面向对象编程"><a href="#六、面向对象编程" class="headerlink" title="六、面向对象编程"></a>六、面向对象编程</h2><p>面向对象编程——Object Oriented Programming，简称OOP，是一种程序设计思想。OOP把对象作为程序的基本单元，一个对象包含了数据和操作数据的函数。</p>
+<p>在Python中，所有数据类型都可以视为对象，当然也可以自定义对象。自定义的对象数据类型就是面向对象中的类（Class）的概念。</p>
+<h3 id="6-1类和实例"><a href="#6-1类和实例" class="headerlink" title="6.1类和实例"></a>6.1类和实例</h3><p>以Student类为例，在Python中，定义类是通过<code>class</code>关键字：</p>
+<pre><code class="python">class Student(object):
+    pass</code></pre>
+<p><code>class</code>后面紧接着是类名，即<code>Student</code>，类名通常是大写开头的单词，紧接着是<code>(object)</code>，表示该类是从哪个类继承下来的，继承的概念我们后面再讲，通常，如果没有合适的继承类，就使用<code>object</code>类，这是所有类最终都会继承的类。</p>
+<p>定义好了<code>Student</code>类，就可以根据<code>Student</code>类创建出<code>Student</code>的实例，创建实例是通过类名+()实现的：</p>
+<pre><code class="python">&gt;&gt;&gt; bart = Student()
+&gt;&gt;&gt; bart
+&lt;__main__.Student object at 0x10a67a590&gt;
+&gt;&gt;&gt; Student
+&lt;class &#39;__main__.Student&#39;&gt;</code></pre>
+<p>可以看到，变量<code>bart</code>指向的就是一个<code>Student</code>的实例，后面的<code>0x10a67a590</code>是内存地址，每个object的地址都不一样，而<code>Student</code>本身则是一个类。</p>
+<p>可以自由地给一个实例变量绑定属性，比如，给实例<code>bart</code>绑定一个<code>name</code>属性：</p>
+<pre><code class="python">&gt;&gt;&gt; bart.name = &#39;Bart Simpson&#39;
+&gt;&gt;&gt; bart.name
+&#39;Bart Simpson&#39;</code></pre>
+<p>由于类可以起到模板的作用，因此，可以在创建实例的时候，把一些我们认为必须绑定的属性强制填写进去。通过定义一个特殊的<code>__init__</code>方法，在创建实例的时候，就把<code>name</code>，<code>score</code>等属性绑上去：</p>
+<pre><code class="python">class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score</code></pre>
+<p>注意到<code>__init__</code>方法的第一个参数永远是<code>self</code>，表示创建的实例本身，因此，在<code>__init__</code>方法内部，就可以把各种属性绑定到<code>self</code>，因为<code>self</code>就指向创建的实例本身。</p>
+<p>有了<code>__init__</code>方法，在创建实例的时候，就不能传入空的参数了，必须传入与<code>__init__</code>方法匹配的参数，但<code>self</code>不需要传，Python解释器自己会把实例变量传进去</p>
+<p>和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量<code>self</code>，并且，调用时，不用传递该参数。除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、关键字参数和命名关键字参数。</p>
+<h4 id="6-1-1数据封装"><a href="#6-1-1数据封装" class="headerlink" title="6.1.1数据封装"></a>6.1.1数据封装</h4><p>每个实例拥有各自的<code>name</code>和<code>score</code>这些数据，我们可以通过函数来访问这些数据。将这些封装数据的函数和<code>Student</code>类本身关联起来，我们称之为类的方法：</p>
+<pre><code class="python">class Student(object):
+
+    def __init__(self, name, score):
+        self.name = name
+        self.score = score
+
+    def print_score(self):
+        print(&#39;%s: %s&#39; % (self.name, self.score))</code></pre>
+<p>要定义一个方法，除了第一个参数是<code>self</code>外，其他和普通函数一样。要调用一个方法，只需要在实例变量上直接调用，除了<code>self</code>不用传递，其他参数正常传入：</p>
+<pre><code class="python">&gt;&gt;&gt; bart = Student(&#39;Bart Simpson&#39;, 59)
+&gt;&gt;&gt; bart.print_score()
+Bart Simpson: 59</code></pre>
+<p>封装的另一个好处是随时可以给<code>Student</code>类增加新的方法</p>
+<p>和静态语言不同，Python允许对实例变量绑定任何数据，也就是说，对于两个实例变量，虽然它们都是同一个类的不同实例，但拥有的变量名称都可能不同：</p>
+<pre><code class="python">&gt;&gt;&gt; bart = Student(&#39;Bart Simpson&#39;, 59)
+&gt;&gt;&gt; lisa = Student(&#39;Lisa Simpson&#39;, 87)
+&gt;&gt;&gt; bart.age = 8
+&gt;&gt;&gt; bart.age
+8
+&gt;&gt;&gt; lisa.age
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: &#39;Student&#39; object has no attribute &#39;age&#39;</code></pre>
+<h3 id="6-2访问限制"><a href="#6-2访问限制" class="headerlink" title="6.2访问限制"></a>6.2访问限制</h3><p>从前面Student类的定义来看，外部代码还是可以自由地修改一个实例的<code>name</code>、<code>score</code>属性</p>
+<p>如果要让内部属性不被外部访问，可以把属性的名称前加上两个下划线<code>__</code>，在Python中，实例的变量名如果以<code>__</code>开头，就变成了一个私有变量（private），只有内部可以访问，外部不能访问</p>
+<blockquote>
+<p>把Student类改一改：</p>
+<pre><code class="python">class Student(object):
+
+    def __init__(self, name, score):
+        self.__name = name
+        self.__score = score
+
+    def print_score(self):
+        print(&#39;%s: %s&#39; % (self.__name, self.__score))</code></pre>
+<p>改完后，对于外部代码来说，没什么变动，但是已经无法从外部访问<code>实例变量.__name</code>和<code>实例变量.__score</code>了：</p>
+</blockquote>
+<p>如果外部代码要获取name和score，可以给Student类增加<code>get_name</code>和<code>get_score</code>这样的方法</p>
+<p>同理，要允许外部代码修改score，可以再给Student类增加<code>set_score</code>方法</p>
+<p>有些时候，你会看到以一个下划线开头的实例变量名，比如<code>_name</code>，这样的实例变量外部是可以访问的，但是，按照约定俗成的规定，当你看到这样的变量时，意思就是，“虽然我可以被访问，但是，请把我视为私有变量，不要随意访问”。</p>
+<p>双下划线开头的实例变量是不是一定不能从外部访问呢？其实也不是。不能直接访问<code>__name</code>是因为Python解释器对外把<code>__name</code>变量改成了<code>_Student__name</code>，所以，仍然可以通过<code>_Student__name</code>来访问<code>__name</code>变量：</p>
+<pre><code class="python">&gt;&gt;&gt; bart._Student__name
+&#39;Bart Simpson&#39;</code></pre>
+<p>但是强烈建议你不要这么干，因为不同版本的Python解释器可能会把<code>__name</code>改成不同的变量名。</p>
+<p>总的来说就是，Python本身没有任何机制阻止你干坏事，一切全靠自觉。</p>
+<h3 id="6-3继承和多态"><a href="#6-3继承和多态" class="headerlink" title="6.3继承和多态"></a>6.3继承和多态</h3><p>在OOP程序设计中，当我们定义一个class的时候，可以从某个现有的class继承，新的class称为子类（Subclass），而被继承的class称为基类、父类或超类（Base class、Super class）</p>
+<blockquote>
+<p>比如，我们已经编写了一个名为<code>Animal</code>的class，有一个<code>run()</code>方法可以直接打印：</p>
+<pre><code class="python">class Animal(object):
+    def run(self):
+        print(&#39;Animal is running...&#39;)</code></pre>
+<p>当我们需要编写<code>Dog</code>和<code>Cat</code>类时，就可以直接从<code>Animal</code>类继承：</p>
+<pre><code class="python">class Dog(Animal):
+    pass
+
+class Cat(Animal):
+    pass</code></pre>
+<p>最大的好处是子类获得了父类的全部功能。由于<code>Animial</code>实现了<code>run()</code>方法，因此，<code>Dog</code>和<code>Cat</code>作为它的子类，什么事也没干，就自动拥有了<code>run()</code>方法</p>
+<p>也可以对子类增加一些方法，比如Dog类：</p>
+<pre><code class="python">class Dog(Animal):
+
+    def run(self):
+        print(&#39;Dog is running...&#39;)
+
+    def eat(self):
+        print(&#39;Eating meat...&#39;)</code></pre>
+<p>对<code>Dog</code>和<code>Cat</code>类改进如下：</p>
+<pre><code class="python">class Dog(Animal):
+
+    def run(self):
+        print(&#39;Dog is running...&#39;)
+
+class Cat(Animal):
+
+    def run(self):
+        print(&#39;Cat is running...&#39;)</code></pre>
+<p>再次运行，结果如下：</p>
+<pre><code class="python">Dog is running...
+Cat is running...</code></pre>
+<p>当子类和父类都存在相同的<code>run()</code>方法时，我们说，子类的<code>run()</code>覆盖了父类的<code>run()</code>，在代码运行的时候，总是会调用子类的<code>run()</code>。这样，我们就获得了继承的另一个好处：多态。</p>
+</blockquote>
+<p>判断一个变量是否是某个类型可以用<code>isinstance()</code>判断</p>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">a = list() # a是list类型
+b = Animal() # b是Animal类型
+c = Dog() # c是Dog类型
+&gt;&gt;&gt; isinstance(a, list)
+True
+&gt;&gt;&gt; isinstance(b, Animal)
+True
+&gt;&gt;&gt; isinstance(c, Dog)
+True</code></pre>
+</blockquote>
+<p><strong>多态</strong>：对于一个变量，我们只需要知道它是<code>Animal</code>类型，无需确切地知道它的子类型，就可以放心地调用<code>run()</code>方法，而具体调用的<code>run()</code>方法是作用在<code>Animal</code>、<code>Dog</code>、<code>Cat</code>还是<code>Tortoise</code>对象上，由运行时该对象的确切类型决定，这就是多态真正的威力：调用方只管调用，不管细节，而当我们新增一种<code>Animal</code>的子类时，只要确保<code>run()</code>方法编写正确，不用管原来的代码是如何调用的。这就是著名的“开闭”原则：</p>
+<ul>
+<li>对扩展开放：允许新增<code>Animal</code>子类；</li>
+<li>对修改封闭：不需要修改依赖<code>Animal</code>类型的<code>run_twice()</code>等函数。</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">class Animal(object):
+    def run(self):
+        print(&#39;Animal is running...&#39;)
+class Dog(Animal):
+    def run(self):
+        print(&#39;Dog is running...&#39;)
+class Cat(Animal):
+    def run(self):
+        print(&#39;Cat is running...&#39;)
+#只需要animal类型的变量即可
+def run_twice(animal):
+    animal.run()
+    animal.run()
+#调用：
+&gt;&gt;&gt; run_twice(Animal())
+Animal is running...
+Animal is running...
+&gt;&gt;&gt; run_twice(Dog())
+Dog is running...
+Dog is running...
+&gt;&gt;&gt; run_twice(Cat())
+Cat is running...
+Cat is running...
+#新增Tortoise类，并调用仍然可以正常运行
+class Tortoise(Animal):
+    def run(self):
+        print(&#39;Tortoise is running slowly...&#39;)
+&gt;&gt;&gt; run_twice(Tortoise())
+Tortoise is running slowly...
+Tortoise is running slowly...</code></pre>
+</blockquote>
+<p>继承还可以一级一级地继承下来，就好比从爷爷到爸爸、再到儿子这样的关系。而任何类，最终都可以追溯到根类object，这些继承关系看上去就像一颗倒着的树。比如如下的继承树：</p>
+<pre><code class="ascii">                ┌───────────────┐
+                │    object     │
+                └───────────────┘
+                        │
+           ┌────────────┴────────────┐
+           │                         │
+           ▼                         ▼
+    ┌─────────────┐           ┌─────────────┐
+    │   Animal    │           │    Plant    │
+    └─────────────┘           └─────────────┘
+           │                         │
+     ┌─────┴──────┐            ┌─────┴──────┐
+     │            │            │            │
+     ▼            ▼            ▼            ▼
+┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐
+│   Dog   │  │   Cat   │  │  Tree   │  │ Flower  │
+└─────────┘  └─────────┘  └─────────┘  └─────────┘</code></pre>
+<h4 id="6-3-1静态语言和动态语言在此处的区别"><a href="#6-3-1静态语言和动态语言在此处的区别" class="headerlink" title="6.3.1静态语言和动态语言在此处的区别"></a>6.3.1静态语言和动态语言在此处的区别</h4><p>对于静态语言（例如Java）来说，如果需要传入<code>Animal</code>类型，则传入的对象必须是<code>Animal</code>类型或者它的子类，否则，将无法调用<code>run()</code>方法。</p>
+<p>对于Python这样的动态语言来说，则不一定需要传入<code>Animal</code>类型。我们只需要保证传入的对象有一个<code>run()</code>方法就可以了：</p>
+<pre><code class="python">class Timer(object):
+    def run(self):
+        print(&#39;Start...&#39;)</code></pre>
+<p>这就是动态语言的“鸭子类型”，它并不要求严格的继承体系，一个对象只要“看起来像鸭子，走起路来像鸭子”，那它就可以被看做是鸭子。</p>
+<p>Python的“file-like object“就是一种鸭子类型。对真正的文件对象，它有一个<code>read()</code>方法，返回其内容。但是，许多对象，只要有<code>read()</code>方法，都被视为“file-like object“。许多函数接收的参数就是“file-like object“，你不一定要传入真正的文件对象，完全可以传入任何实现了<code>read()</code>方法的对象。</p>
+<p>动态语言的鸭子类型特点决定了继承不像静态语言那样是必须的。</p>
+<h3 id="6-4获取对象信息"><a href="#6-4获取对象信息" class="headerlink" title="6.4获取对象信息"></a>6.4获取对象信息</h3><h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>基本类型都可以用<code>type()</code>判断：</p>
+<pre><code class="python">&gt;&gt;&gt; type(123)
+&lt;class &#39;int&#39;&gt;
+&gt;&gt;&gt; type(&#39;str&#39;)
+&lt;class &#39;str&#39;&gt;
+&gt;&gt;&gt; type(None)
+&lt;type(None) &#39;NoneType&#39;&gt;
+#指向函数或者类
+&gt;&gt;&gt; type(abs)
+&lt;class &#39;builtin_function_or_method&#39;&gt;
+&gt;&gt;&gt; type(a)
+&lt;class &#39;__main__.Animal&#39;&gt;</code></pre>
+<p><code>type()</code>函数返回对应的Class类型</p>
+<p>比较：</p>
+<pre><code class="python">#判断基本数据类型可以直接写int，str等
+&gt;&gt;&gt; type(123)==type(456)
+True
+&gt;&gt;&gt; type(123)==int
+True
+&gt;&gt;&gt; type(&#39;abc&#39;)==type(&#39;123&#39;)
+True
+&gt;&gt;&gt; type(&#39;abc&#39;)==str
+True
+#判断一个对象是否是函数
+#使用types模块中定义的常量
+&gt;&gt;&gt; import types
+&gt;&gt;&gt; def fn():
+...     pass
+...
+&gt;&gt;&gt; type(fn)==types.FunctionType
+True
+&gt;&gt;&gt; type(abs)==types.BuiltinFunctionType
+True
+&gt;&gt;&gt; type(lambda x: x)==types.LambdaType
+True
+&gt;&gt;&gt; type((x for x in range(10)))==types.GeneratorType
+True</code></pre>
+<h4 id="isinstance"><a href="#isinstance" class="headerlink" title="isinstance"></a>isinstance</h4><p>对于class的继承关系来说，使用<code>type()</code>就很不方便。我们要判断class的类型，可以使用<code>isinstance()</code>函数。</p>
+<blockquote>
+<p>例如上次的继承关系：</p>
+<pre><code class="python">object -&gt; Animal -&gt; Dog -&gt; Husky</code></pre>
+<p>那么，<code>isinstance()</code>就可以告诉我们，一个对象是否是某种类型。</p>
+<pre><code class="python">&gt;&gt;&gt; a = Animal()
+&gt;&gt;&gt; d = Dog()
+&gt;&gt;&gt; h = Husky()
+&gt;&gt;&gt; isinstance(h, Husky)
+True
+&gt;&gt;&gt; isinstance(h, Dog)
+True
+&gt;&gt;&gt; isinstance(h, Animal)
+True
+#基本类型
+&gt;&gt;&gt; isinstance(&#39;a&#39;, str)
+True
+&gt;&gt;&gt; isinstance(123, int)
+True
+&gt;&gt;&gt; isinstance(b&#39;a&#39;, bytes)
+True
+#判断一个变量是否是某些类型中的一种
+&gt;&gt;&gt; isinstance([1, 2, 3], (list, tuple))
+True
+&gt;&gt;&gt; isinstance((1, 2, 3), (list, tuple))
+True</code></pre>
+</blockquote>
+<p>总是优先使用isinstance()判断类型，可以将指定类型及其子类“一网打尽”。</p>
+<h4 id="dir"><a href="#dir" class="headerlink" title="dir"></a>dir</h4><p>如果要获得一个对象的所有属性和方法，可以使用<code>dir()</code>函数，它返回一个包含字符串的list，比如，获得一个str对象的所有属性和方法：</p>
+<pre><code class="python">&gt;&gt;&gt; dir(&#39;ABC&#39;)
+[&#39;__add__&#39;, &#39;__class__&#39;,..., &#39;__subclasshook__&#39;, &#39;capitalize&#39;, &#39;casefold&#39;,..., &#39;zfill&#39;]</code></pre>
+<p>类似<code>__xxx__</code>的属性和方法在Python中都是有特殊用途的，比如<code>__len__</code>方法返回长度。在Python中，如果你调用<code>len()</code>函数试图获取一个对象的长度，实际上，在<code>len()</code>函数内部，它自动去调用该对象的<code>__len__()</code>方法</p>
+<p>自己写的类，如果也想用<code>len(myObj)</code>的话，就自己写一个<code>__len__()</code>方法：</p>
+<pre><code class="python">&gt;&gt;&gt; class MyDog(object):
+...     def __len__(self):
+...         return 100
+...
+&gt;&gt;&gt; dog = MyDog()
+&gt;&gt;&gt; len(dog)
+100</code></pre>
+<p>仅仅把属性和方法列出来是不够的，配合内置函数<code>getattr()</code>、<code>setattr()</code>以及<code>hasattr()</code>，我们可以直接操作一个对象的状态：</p>
+<pre><code class="python">&gt;&gt;&gt; class MyObject(object):
+...     def __init__(self):
+...         self.x = 9
+...     def power(self):
+...         return self.x * self.x
+...&gt;&gt;&gt; hasattr(obj, &#39;power&#39;) # 有属性&#39;power&#39;吗？
+True
+&gt;&gt;&gt; getattr(obj, &#39;power&#39;) # 获取属性&#39;power&#39;
+&lt;bound method MyObject.power of &lt;__main__.MyObject object at 0x10077a6a0&gt;&gt;
+&gt;&gt;&gt; fn = getattr(obj, &#39;power&#39;) # 获取属性&#39;power&#39;并赋值到变量fn
+&gt;&gt;&gt; fn # fn指向obj.power
+&lt;bound method MyObject.power of &lt;__main__.MyObject object at 0x10077a6a0&gt;&gt;
+&gt;&gt;&gt; fn() # 调用fn()与调用obj.power()是一样的
+81
+&gt;&gt;&gt; obj = MyObject()
+&gt;&gt;&gt; hasattr(obj, &#39;x&#39;) # 有属性&#39;x&#39;吗？
+True
+&gt;&gt;&gt; obj.x
+9
+&gt;&gt;&gt; hasattr(obj, &#39;y&#39;) # 有属性&#39;y&#39;吗？
+False
+&gt;&gt;&gt; setattr(obj, &#39;y&#39;, 19) # 设置一个属性&#39;y&#39;
+&gt;&gt;&gt; hasattr(obj, &#39;y&#39;) # 有属性&#39;y&#39;吗？
+True
+&gt;&gt;&gt; getattr(obj, &#39;y&#39;) # 获取属性&#39;y&#39;
+19
+&gt;&gt;&gt; obj.y # 获取属性&#39;y&#39;
+19
+#试图获取不存在的属性，会抛出AttributeError的错误
+#可以传入一个default参数，如果属性不存在，就返回默认值
+&gt;&gt;&gt; getattr(obj, &#39;z&#39;, 404) # 获取属性&#39;z&#39;，如果不存在，返回默认值404
+404
+#也可以获得对象的方法
+&gt;&gt;&gt; hasattr(obj, &#39;power&#39;) # 有属性&#39;power&#39;吗？
+True
+&gt;&gt;&gt; getattr(obj, &#39;power&#39;) # 获取属性&#39;power&#39;
+&lt;bound method MyObject.power of &lt;__main__.MyObject object at 0x10077a6a0&gt;&gt;
+&gt;&gt;&gt; fn = getattr(obj, &#39;power&#39;) # 获取属性&#39;power&#39;并赋值到变量fn
+&gt;&gt;&gt; fn # fn指向obj.power
+&lt;bound method MyObject.power of &lt;__main__.MyObject object at 0x10077a6a0&gt;&gt;
+&gt;&gt;&gt; fn() # 调用fn()与调用obj.power()是一样的
+81</code></pre>
+<p>注意：只有在不知道对象信息的时候，我们才会去获取对象信息。如果可以直接获取就直接获取</p>
+<h3 id="6-5实例属性和类属性"><a href="#6-5实例属性和类属性" class="headerlink" title="6.5实例属性和类属性"></a>6.5实例属性和类属性</h3><p>直接在class中定义属性，这种属性是<strong>类属性</strong>，归该类所有</p>
+<p>当我们定义了一个类属性后，这个属性虽然归类所有，但类的所有实例都可以访问到。</p>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; class Student(object):
+...     name = &#39;Student&#39;
+...
+&gt;&gt;&gt; s = Student() # 创建实例s
+&gt;&gt;&gt; print(s.name) # 打印name属性，因为实例并没有name属性，所以会继续查找class的name属性
+Student
+&gt;&gt;&gt; print(Student.name) # 打印类的name属性
+Student
+&gt;&gt;&gt; s.name = &#39;Michael&#39; # 给实例绑定name属性
+&gt;&gt;&gt; print(s.name) # 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性
+Michael
+&gt;&gt;&gt; print(Student.name) # 但是类属性并未消失，用Student.name仍然可以访问
+Student
+&gt;&gt;&gt; del s.name # 如果删除实例的name属性
+&gt;&gt;&gt; print(s.name) # 再次调用s.name，由于实例的name属性没有找到，类的name属性就显示出来了
+Student</code></pre>
+</blockquote>
+<p>在编写程序的时候，千万不要对实例属性和类属性使用相同的名字，因为相同名称的实例属性将<strong>屏蔽掉类属性</strong>，但是当你删除实例属性后，再使用相同的名称，访问到的将是类属性。</p>
+<h2 id="七、面向对象高级编程"><a href="#七、面向对象高级编程" class="headerlink" title="七、面向对象高级编程"></a>七、面向对象高级编程</h2><h3 id="7-1使用-slots"><a href="#7-1使用-slots" class="headerlink" title="7.1使用_slots_"></a>7.1使用_<em>slots_</em></h3><p>正常情况下，当我们定义了一个class，创建了一个class的实例后，我们可以给该实例绑定任何属性和方法，这就是动态语言的灵活性。</p>
+<p>但是，给一个实例绑定的方法，对另一个实例是不起作用的。为了给所有实例都绑定方法，可以给class绑定方法。给class绑定方法后，所有实例均可调用</p>
+<p>如果我们想要限制实例的属性，Python允许在定义class的时候，定义一个特殊的<code>__slots__</code>变量，来限制该class实例能添加的属性</p>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">class Student(object):
+    __slots__ = (&#39;name&#39;, &#39;age&#39;) # 用tuple定义允许绑定的属性名称
+&gt;&gt;&gt; s = Student() # 创建新的实例
+&gt;&gt;&gt; s.name = &#39;Michael&#39; # 绑定属性&#39;name&#39;
+&gt;&gt;&gt; s.age = 25 # 绑定属性&#39;age&#39;
+&gt;&gt;&gt; s.score = 99 # 绑定属性&#39;score&#39;
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+AttributeError: &#39;Student&#39; object has no attribute &#39;score&#39;</code></pre>
+</blockquote>
+<p>注意，<code>__slots__</code>定义的属性仅对当前类实例起作用，对继承的子类是不起作用的，除非在子类中也定义<code>__slots__</code>，这样，子类实例允许定义的属性就是自身的<code>__slots__</code>加上父类的<code>__slots__</code>。</p>
+<h3 id="7-2使用-property"><a href="#7-2使用-property" class="headerlink" title="7.2使用@property"></a>7.2使用@property</h3><p>在绑定属性时，如果我们直接把属性暴露出去，虽然写起来很简单，但是，没办法检查参数，导致可以把属性随便改。解决方法就是增加一个<code>set_xxx()</code>方法来设置属性，再通过一个<code>get_xxx()</code>来获取属性，这样，在<code>set_sss()</code>方法里，就可以检查参数。但是，这样的调用方法又略显复杂，没有直接用属性这么直接简单。</p>
+<p>对于Python来说，可以利用之前的装饰器（decorator），对于类的方法，装饰器一样起作用。Python内置的<code>@property</code>装饰器就是负责把一个方法变成属性调用的：</p>
+<pre><code class="python">class Student(object):
+    @property
+    def score(self):
+        return self._score
+    @score.setter
+    def score(self, value):
+        if not isinstance(value, int):
+            raise ValueError(&#39;score must be an integer!&#39;)
+        if value &lt; 0 or value &gt; 100:
+            raise ValueError(&#39;score must between 0 ~ 100!&#39;)
+        self._score = value</code></pre>
+<p><code>@property</code>的实现比较复杂，我们先考察如何使用。把一个getter方法变成属性，只需要加上<code>@property</code>就可以了。此时，<code>@property</code>本身又创建了另一个装饰器<code>@score.setter</code>，负责把一个setter方法变成属性赋值，于是，我们就拥有一个可控的属性操作：</p>
+<pre><code class="python">&gt;&gt;&gt; s = Student()
+&gt;&gt;&gt; s.score = 60 # OK，实际转化为s.set_score(60)
+&gt;&gt;&gt; s.score # OK，实际转化为s.get_score()
+60
+&gt;&gt;&gt; s.score = 9999
+Traceback (most recent call last):
+  ...
+ValueError: score must between 0 ~ 100!</code></pre>
+<p>还可以定义只读属性，只定义getter方法，不定义setter方法就是一个只读属性：</p>
+<pre><code class="python">class Student(object):
+
+    @property
+    def birth(self):
+        return self._birth
+
+    @birth.setter
+    def birth(self, value):
+        self._birth = value
+
+    @property
+    def age(self):
+        return 2015 - self._birth</code></pre>
+<p>上面的<code>birth</code>是可读写属性，而<code>age</code>就是一个<em>只读</em>属性，因为<code>age</code>可以根据<code>birth</code>和当前时间计算出来。</p>
+<h3 id="7-3多重继承"><a href="#7-3多重继承" class="headerlink" title="7.3多重继承"></a>7.3多重继承</h3><p>继承是面向对象编程的一个重要的方式，因为通过继承，子类就可以扩展父类的功能。</p>
+<p>回忆一下<code>Animal</code>类层次的设计，假设我们要实现以下4种动物：</p>
+<ul>
+<li>Dog - 狗狗；</li>
+<li>Bat - 蝙蝠；</li>
+<li>Parrot - 鹦鹉；</li>
+<li>Ostrich - 鸵鸟。</li>
+</ul>
+<p>类的层次设计可以根据不同的需求来确定不同的设计，如果同时需要多种层次类型就需要多重继承。</p>
+<blockquote>
+<p>主要的类层次仍按照哺乳类和鸟类设计：</p>
+<pre><code class="python">class Animal(object):
+    pass
+
+# 大类:
+class Mammal(Animal):
+    pass
+
+class Bird(Animal):
+    pass
+
+# 各种动物:
+class Dog(Mammal):
+    pass
+
+class Bat(Mammal):
+    pass
+
+class Parrot(Bird):
+    pass
+
+class Ostrich(Bird):
+    pass
+#给动物再加上Runnable和Flyable的功能
+class Runnable(object):
+    def run(self):
+        print(&#39;Running...&#39;)
+
+class Flyable(object):
+    def fly(self):
+        print(&#39;Flying...&#39;)
+#需要Runnable功能的动物，就多继承一个Runnable
+class Dog(Mammal, Runnable):
+    pass
+#需要Flyable功能的动物，就多继承一个Flyable
+class Bat(Mammal, Flyable):
+    pass</code></pre>
+</blockquote>
+<p>通过多重继承，一个子类就可以同时获得多个父类的所有功能。</p>
+<h4 id="7-3-1MinIn"><a href="#7-3-1MinIn" class="headerlink" title="7.3.1MinIn"></a>7.3.1MinIn</h4><p>在设计类的继承关系时，通常，主线都是单一继承下来的，例如，<code>Ostrich</code>继承自<code>Bird</code>。但是，如果需要“混入”额外的功能，通过多重继承就可以实现，比如，让<code>Ostrich</code>除了继承自<code>Bird</code>外，再同时继承<code>Runnable</code>。这种设计通常称之为MixIn。</p>
+<p>MixIn的目的就是给一个类增加多个功能，这样，在设计类的时候，我们优先考虑通过多重继承来组合多个MixIn的功能，而不是设计多层次的复杂的继承关系。</p>
+<blockquote>
+<p>python自带的很多库也使用了MixIn。举个例子，Python自带了<code>TCPServer</code>和<code>UDPServer</code>这两类网络服务，而要同时服务多个用户就必须使用多进程或多线程模型，这两种模型由<code>ForkingMixIn</code>和<code>ThreadingMixIn</code>提供。通过组合，我们就可以创造出合适的服务来。</p>
+<p>比如，编写一个多进程模式的TCP服务，定义如下：</p>
+<pre><code class="python">#多进程模式的TCP服务
+class MyTCPServer(TCPServer, ForkingMixIn):
+    pass
+#多线程模式的UDP服务
+class MyUDPServer(UDPServer, ThreadingMixIn):
+    pass
+#协程模型
+class MyTCPServer(TCPServer, CoroutineMixIn):
+    pass</code></pre>
+<p>不需要复杂而庞大的继承链，只要选择组合不同的类的功能，就可以快速构造出所需的子类。</p>
+</blockquote>
+<h3 id="7-4定制类"><a href="#7-4定制类" class="headerlink" title="7.4定制类"></a>7.4定制类</h3><p>除<code>__slots__</code>、<code>__len__()</code>之外，Python的class中还有许多这种形如<code>__xxx__</code>的变量或者函数名，可以帮助我们定制类。</p>
+<h4 id="7-4-1-str-、-repr"><a href="#7-4-1-str-、-repr" class="headerlink" title="7.4.1__str__、_repr_"></a>7.4.1__str__、_<em>repr_</em></h4><p>我们先定义一个<code>Student</code>类，打印一个实例：</p>
+<pre><code class="python">&gt;&gt;&gt; class Student(object):
+...     def __init__(self, name):
+...         self.name = name
+...
+&gt;&gt;&gt; print(Student(&#39;Michael&#39;))
+&lt;__main__.Student object at 0x109afb190&gt;</code></pre>
+<p>打印出一堆<code>&lt;__main__.Student object at 0x109afb190&gt;</code>，不好看。</p>
+<p>怎么才能打印得好看呢？只需要定义好<code>__str__()</code>方法，返回一个好看的字符串就可以了：</p>
+<pre><code class="python">&gt;&gt;&gt; class Student(object):
+...     def __init__(self, name):
+...         self.name = name
+...     def __str__(self):
+...         return &#39;Student object (name: %s)&#39; % self.name
+...
+&gt;&gt;&gt; print(Student(&#39;Michael&#39;))
+Student object (name: Michael)</code></pre>
+<p>这样打印出来的实例，不但好看，而且容易看出实例内部重要的数据。</p>
+<p>但是细心的朋友会发现直接敲变量不用<code>print</code>，打印出来的实例还是不好看：</p>
+<pre><code class="python">&gt;&gt;&gt; s = Student(&#39;Michael&#39;)
+&gt;&gt;&gt; s
+&lt;__main__.Student object at 0x109afb310&gt;</code></pre>
+<p>这是因为直接显示变量调用的不是<code>__str__()</code>，而是<code>__repr__()</code>，两者的区别是<code>__str__()</code>返回用户看到的字符串，而<code>__repr__()</code>返回程序开发者看到的字符串，也就是说，<code>__repr__()</code>是为调试服务的。</p>
+<p>解决办法是再定义一个<code>__repr__()</code>。但是通常<code>__str__()</code>和<code>__repr__()</code>代码都是一样的，所以，有个偷懒的写法：</p>
+<pre><code class="python">class Student(object):
+    def __init__(self, name):
+        self.name = name
+    def __str__(self):
+        return &#39;Student object (name=%s)&#39; % self.name
+    __repr__ = __str__</code></pre>
+<h4 id="7-4-2-iter"><a href="#7-4-2-iter" class="headerlink" title="7.4.2_iter_"></a>7.4.2_<em>iter_</em></h4><p>如果一个类想被用于<code>for ... in</code>循环，类似list或tuple那样，就必须实现一个<code>__iter__()</code>方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的<code>__next__()</code>方法拿到循环的下一个值，直到遇到<code>StopIteration</code>错误时退出循环。</p>
+<p>我们以斐波那契数列为例，写一个Fib类，可以作用于for循环：</p>
+<pre><code class="python">class Fib(object):
+    def __init__(self):
+        self.a, self.b = 0, 1 # 初始化两个计数器a，b
+
+    def __iter__(self):
+        return self # 实例本身就是迭代对象，故返回自己
+
+    def __next__(self):
+        self.a, self.b = self.b, self.a + self.b # 计算下一个值
+        if self.a &gt; 100000: # 退出循环的条件
+            raise StopIteration()
+        return self.a # 返回下一个值</code></pre>
+<p>现在，试试把Fib实例作用于for循环：</p>
+<pre><code class="python">&gt;&gt;&gt; for n in Fib():
+...     print(n)
+...
+1
+1
+2
+3
+5
+...
+46368
+75025</code></pre>
+<h4 id="7-4-3-getitem"><a href="#7-4-3-getitem" class="headerlink" title="7.4.3_getitem_"></a>7.4.3_<em>getitem_</em></h4><p>Fib实例虽然能作用于for循环，看起来和list有点像，但是，把它当成list来使用还是不行，比如，取第5个元素：</p>
+<pre><code class="python">&gt;&gt;&gt; Fib()[5]
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: &#39;Fib&#39; object does not support indexing</code></pre>
+<p>要表现得像list那样按照下标取出元素，需要实现<code>__getitem__()</code>方法：</p>
+<pre><code class="python">class Fib(object):
+    def __getitem__(self, n):
+        a, b = 1, 1
+        for x in range(n):
+            a, b = b, a + b
+        return a</code></pre>
+<p>现在，就可以按下标访问数列的任意一项了：</p>
+<pre><code class="python">&gt;&gt;&gt; f = Fib()
+&gt;&gt;&gt; f[0]
+1
+&gt;&gt;&gt; f[1]
+1
+&gt;&gt;&gt; f[2]
+2
+&gt;&gt;&gt; f[3]
+3
+&gt;&gt;&gt; f[10]
+89
+&gt;&gt;&gt; f[100]
+573147844013817084101</code></pre>
+<p>但是list有个神奇的切片方法：</p>
+<pre><code class="python">&gt;&gt;&gt; list(range(100))[5:10]
+[5, 6, 7, 8, 9]</code></pre>
+<p>对于Fib却报错。原因是<code>__getitem__()</code>传入的参数可能是一个int，也可能是一个切片对象<code>slice</code>，所以要做判断：</p>
+<pre><code class="python">class Fib(object):
+    def __getitem__(self, n):
+        if isinstance(n, int): # n是索引
+            a, b = 1, 1
+            for x in range(n):
+                a, b = b, a + b
+            return a
+        if isinstance(n, slice): # n是切片
+            start = n.start
+            stop = n.stop
+            if start is None:
+                start = 0
+            a, b = 1, 1
+            L = []
+            for x in range(stop):
+                if x &gt;= start:
+                    L.append(a)
+                a, b = b, a + b
+            return L</code></pre>
+<p>现在试试Fib的切片：</p>
+<pre><code class="python">&gt;&gt;&gt; f = Fib()
+&gt;&gt;&gt; f[0:5]
+[1, 1, 2, 3, 5]
+&gt;&gt;&gt; f[:10]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55]</code></pre>
+<p>但是没有对step参数作处理：</p>
+<pre><code class="python">&gt;&gt;&gt; f[:10:2]
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</code></pre>
+<p>也没有对负数作处理，所以，要正确实现一个<code>__getitem__()</code>还是有很多工作要做的。</p>
+<p>此外，如果把对象看成<code>dict</code>，<code>__getitem__()</code>的参数也可能是一个可以作key的object，例如<code>str</code>。</p>
+<p>与之对应的是<code>__setitem__()</code>方法，把对象视作list或dict来对集合赋值。最后，还有一个<code>__delitem__()</code>方法，用于删除某个元素。</p>
+<p>总之，通过上面的方法，我们自己定义的类表现得和Python自带的list、tuple、dict没什么区别，这完全归功于动态语言的“鸭子类型”，不需要强制继承某个接口。</p>
+<h4 id="7-4-4-getattr"><a href="#7-4-4-getattr" class="headerlink" title="7.4.4_getattr_"></a>7.4.4_<em>getattr_</em></h4><p>正常情况下，当我们调用类的方法或属性时，如果不存在，就会报错。比如定义<code>Student</code>类：</p>
+<pre><code class="python">class Student(object):
+
+    def __init__(self):
+        self.name = &#39;Michael&#39;</code></pre>
+<p>调用<code>name</code>属性，没问题，但是，调用不存在的<code>score</code>属性，就有问题了：</p>
+<pre><code class="python">&gt;&gt;&gt; s = Student()
+&gt;&gt;&gt; print(s.name)
+Michael
+&gt;&gt;&gt; print(s.score)
+Traceback (most recent call last):
+  ...
+AttributeError: &#39;Student&#39; object has no attribute &#39;score&#39;</code></pre>
+<p>错误信息很清楚地告诉我们，没有找到<code>score</code>这个attribute。</p>
+<p>要避免这个错误，除了可以加上一个<code>score</code>属性外，Python还有另一个机制，那就是写一个<code>__getattr__()</code>方法，动态返回一个属性。修改如下：</p>
+<pre><code class="python">class Student(object):
+
+    def __init__(self):
+        self.name = &#39;Michael&#39;
+
+    def __getattr__(self, attr):
+        if attr==&#39;score&#39;:
+            return 99</code></pre>
+<p>当调用不存在的属性时，比如<code>score</code>，Python解释器会试图调用<code>__getattr__(self, &#39;score&#39;)</code>来尝试获得属性，这样，我们就有机会返回<code>score</code>的值：</p>
+<pre><code class="python">&gt;&gt;&gt; s = Student()
+&gt;&gt;&gt; s.name
+&#39;Michael&#39;
+&gt;&gt;&gt; s.score
+99</code></pre>
+<p>返回函数也是完全可以的：</p>
+<pre><code class="python">class Student(object):
+
+    def __getattr__(self, attr):
+        if attr==&#39;age&#39;:
+            return lambda: 25</code></pre>
+<p>只是调用方式要变为：</p>
+<pre><code class="python">&gt;&gt;&gt; s.age()
+25</code></pre>
+<p>注意，只有在没有找到属性的情况下，才调用<code>__getattr__</code>，已有的属性，比如<code>name</code>，不会在<code>__getattr__</code>中查找。</p>
+<p>此外，注意到任意调用如<code>s.abc</code>都会返回<code>None</code>，这是因为我们定义的<code>__getattr__</code>默认返回就是<code>None</code>。要让class只响应特定的几个属性，我们就要按照约定，抛出<code>AttributeError</code>的错误：</p>
+<pre><code class="python">class Student(object):
+
+    def __getattr__(self, attr):
+        if attr==&#39;age&#39;:
+            return lambda: 25
+        raise AttributeError(&#39;\&#39;Student\&#39; object has no attribute \&#39;%s\&#39;&#39; % attr)</code></pre>
+<p>这实际上可以把一个类的所有属性和方法调用全部动态化处理了，不需要任何特殊手段。</p>
+<p>这种完全动态调用的特性有什么实际作用呢？作用就是，可以针对完全动态的情况作调用。</p>
+<blockquote>
+<p>举个例子：</p>
+<p>现在很多网站都搞REST API，比如新浪微博、豆瓣啥的，调用API的URL类似：</p>
+<ul>
+<li><a href="http://api.server/user/friends" target="_blank" rel="noopener">http://api.server/user/friends</a></li>
+<li><a href="http://api.server/user/timeline/list" target="_blank" rel="noopener">http://api.server/user/timeline/list</a></li>
+</ul>
+<p>如果要写SDK，给每个URL对应的API都写一个方法，那得累死，而且，API一旦改动，SDK也要改。</p>
+<p>利用完全动态的<code>__getattr__</code>，我们可以写出一个链式调用：</p>
+<pre><code class="python">class Chain(object):
+
+    def __init__(self, path=&#39;&#39;):
+        self._path = path
+
+    def __getattr__(self, path):
+        return Chain(&#39;%s/%s&#39; % (self._path, path))
+
+    def __str__(self):
+        return self._path
+
+    __repr__ = __str__</code></pre>
+<p>试试：</p>
+<pre><code class="python">&gt;&gt;&gt; Chain().status.user.timeline.list
+&#39;/status/user/timeline/list&#39;</code></pre>
+<p>这样，无论API怎么变，SDK都可以根据URL实现完全动态的调用，而且，不随API的增加而改变！</p>
+<p>还有些REST API会把参数放到URL中，比如GitHub的API：</p>
+<pre><code class="python">GET /users/:user/repos</code></pre>
+<p>调用时，需要把<code>:user</code>替换为实际用户名。如果我们能写出这样的链式调用：</p>
+<pre><code class="python">Chain().users(&#39;michael&#39;).repos</code></pre>
+<p>就可以非常方便地调用API了。有兴趣的童鞋可以试试写出来。</p>
+</blockquote>
+<h4 id="7-4-5-call"><a href="#7-4-5-call" class="headerlink" title="7.4.5_call_"></a>7.4.5_<em>call_</em></h4><p>一个对象实例可以有自己的属性和方法，当我们调用实例方法时，我们用<code>instance.method()</code>来调用。能不能直接在实例本身上调用呢？在Python中，答案是肯定的。</p>
+<p>任何类，只需要定义一个<code>__call__()</code>方法，就可以直接对实例进行调用。请看示例：</p>
+<pre><code class="python">class Student(object):
+    def __init__(self, name):
+        self.name = name
+
+    def __call__(self):
+        print(&#39;My name is %s.&#39; % self.name)</code></pre>
+<p>调用方式如下：</p>
+<pre><code class="python">&gt;&gt;&gt; s = Student(&#39;Michael&#39;)
+&gt;&gt;&gt; s() # self参数不要传入
+My name is Michael.</code></pre>
+<p><code>__call__()</code>还可以定义参数。对实例进行直接调用就好比对一个函数进行调用一样，所以你完全可以把对象看成函数，把函数看成对象，因为这两者之间本来就没啥根本的区别。</p>
+<p>如果你把对象看成函数，那么函数本身其实也可以在运行期动态创建出来，因为类的实例都是运行期创建出来的，这么一来，我们就模糊了对象和函数的界限。</p>
+<p>那么，怎么判断一个变量是对象还是函数呢？其实，更多的时候，我们需要判断一个对象是否能被调用，能被调用的对象就是一个<code>Callable</code>对象，比如函数和我们上面定义的带有<code>__call__()</code>的类实例：</p>
+<pre><code class="python">&gt;&gt;&gt; callable(Student())
+True
+&gt;&gt;&gt; callable(max)
+True
+&gt;&gt;&gt; callable([1, 2, 3])
+False
+&gt;&gt;&gt; callable(None)
+False
+&gt;&gt;&gt; callable(&#39;str&#39;)
+False</code></pre>
+<p>通过<code>callable()</code>函数，我们就可以判断一个对象是否是“可调用”对象。</p>
+<h3 id="7-5使用枚举类"><a href="#7-5使用枚举类" class="headerlink" title="7.5使用枚举类"></a>7.5使用枚举类</h3>
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎指出任何有错误或不够清晰的表达。邮件：1125934312@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Go语言</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">23.7k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-01-10, 20:18:52</p>
+    <p><span class="copy-title">最后更新:</span>2020-01-13, 16:49:54</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/01/10/python/" title="Go语言">http://NU-LL.github.io/2020/01/10/python/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 NU-LL</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#DM9000C','#网卡移植','#Kconfig语法','#文件描述符','#IIC驱动','#Latex','#Ctex','#Linux内核','#字符驱动','#LiCheePi Zero','#NanoPi Neo Core','#等待队列','#wait_queue_head_t','#wait_queue_t','#git','#markdownlint','#Markdown','#Xmanager','#远程链接','#二维数组','#指针','#存储器','#IAP','#BootLoader','#dual bank','#u-boot','#按键驱动','#poll机制','#异步通知机制','#根文件系统','#快速排序','#网卡驱动框架','#虚拟网卡','#设备树','#深度学习','#TensorFlow2','#输入子系统','#Go语言入门经典','#廖雪峰python教程',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

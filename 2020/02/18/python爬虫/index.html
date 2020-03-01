@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>python爬虫 | 无名小卒</title>
+  <meta name="keywords" content=" python , 爬虫 ">
+  <meta name="description" content="python爬虫 | 无名小卒">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://NU-LL.github.io/about/index.html">
+<meta property="og:site_name" content="无名小卒">
+<meta property="og:description" content="关于">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-21T14:30:10.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="关于">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1" rel="stylesheet">
+
+<link href="/css/hl_theme/github.css?v=1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>NU-LL</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/NU-LL" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/CSDN_JZ_" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:1125934312@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=1125934312&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=323374922" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(34)</small></div></li>
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(21)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="编程语言">编程语言<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="STM32">STM32<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="感悟与总结">感悟与总结<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="人工智能">人工智能<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+<input type="hidden" id="yelog_site_word_count" value="200.9k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://github.com/NU-LL">NU-LL</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Latex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Ctex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">DM9000C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网卡移植</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">文件描述符</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">IIC驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Kconfig语法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Linux内核</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">LiCheePi Zero</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Mininet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">字符驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Xmanager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">远程链接</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network namespace</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">等待队列</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_head_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">NanoPi Neo Core</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">python实战</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">markdownlint</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">u-boot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">IAP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">BootLoader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">dual bank</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">二维数组</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">指针</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">存储器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">快速排序</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">根文件系统</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">按键驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">poll机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">异步通知机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">爬虫</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">深度学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">TensorFlow2</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">输入子系统</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">网卡驱动框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">虚拟网卡</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">设备树</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Go语言入门经典</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">廖雪峰python教程</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="Linux "
+           href="/2020/01/16/Docker/"
+           data-tag="Docker"
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2020-01-16 20:14:51">2020/01/16</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/08/19/Latex排版全解/"
+           data-tag="Latex,Ctex"
+           data-author="" >
+            <span class="post-title" title="Latex排版全解">Latex排版全解</span>
+            <span class="post-date" title="2019-08-19 16:02:27">2019/08/19</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/04/DM9000C网卡移植/"
+           data-tag="DM9000C,网卡移植"
+           data-author="" >
+            <span class="post-title" title="DM9000C网卡移植">DM9000C网卡移植</span>
+            <span class="post-date" title="2019-08-04 23:07:22">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/Linux编程--文件描述符fd/"
+           data-tag="文件描述符"
+           data-author="" >
+            <span class="post-title" title="Linux编程--文件描述符fd">Linux编程--文件描述符fd</span>
+            <span class="post-date" title="2019-07-21 10:13:47">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/05/IIC驱动/"
+           data-tag="IIC驱动"
+           data-author="" >
+            <span class="post-title" title="IIC驱动">IIC驱动</span>
+            <span class="post-date" title="2019-08-05 14:39:10">2019/08/05</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/15/Kconfig文件语法分析/"
+           data-tag="Kconfig语法"
+           data-author="" >
+            <span class="post-title" title="Kconfig文件语法分析">Kconfig文件语法分析</span>
+            <span class="post-date" title="2019-08-15 19:38:40">2019/08/15</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/13/Linux内核启动流程/"
+           data-tag="Linux内核"
+           data-author="" >
+            <span class="post-title" title="Linux内核启动流程">Linux内核启动流程</span>
+            <span class="post-date" title="2019-08-13 16:13:46">2019/08/13</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/18/LiCheePi_Zero底层开发/"
+           data-tag="LiCheePi Zero"
+           data-author="" >
+            <span class="post-title" title="LiCheePi_Zero底层开发">LiCheePi_Zero底层开发</span>
+            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/02/13/Mininet/"
+           data-tag="Mininet"
+           data-author="" >
+            <span class="post-title" title="Mininet">Mininet</span>
+            <span class="post-date" title="2020-02-13 18:37:12">2020/02/13</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/RTC驱动分析/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="RTC驱动分析">RTC驱动分析</span>
+            <span class="post-date" title="2019-08-07 13:37:33">2019/08/07</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/07/12/Markdown 语法整理/"
+           data-tag="Markdown"
+           data-author="" >
+            <span class="post-title" title="Markdown 语法整理">Markdown 语法整理</span>
+            <span class="post-date" title="2019-07-12 13:57:24">2019/07/12</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/09/17/git/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2019-09-17 09:59:56">2019/09/17</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/11/08/Xmanager远程Ubuntu系统图像化界面/"
+           data-tag="Xmanager,远程链接"
+           data-author="" >
+            <span class="post-title" title="Xmanager远程Ubuntu系统图像化界面">Xmanager远程Ubuntu系统图像化界面</span>
+            <span class="post-date" title="2019-11-08 22:58:53">2019/11/08</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/02/10/linux 网络虚拟化： network namespace 简介/"
+           data-tag="network namespace"
+           data-author="" >
+            <span class="post-title" title="linux 网络虚拟化： network namespace 简介">linux 网络虚拟化： network namespace 简介</span>
+            <span class="post-date" title="2020-02-10 14:24:09">2020/02/10</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/linux等待队列wait_queue_head_t和wait_queue_t/"
+           data-tag="等待队列,wait_queue_head_t,wait_queue_t"
+           data-author="" >
+            <span class="post-title" title="linux等待队列wait_queue_head_t和wait_queue_t">linux等待队列wait_queue_head_t和wait_queue_t</span>
+            <span class="post-date" title="2019-07-21 18:18:54">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/18/NanoPi_Neo_Core底层开发/"
+           data-tag="NanoPi Neo Core"
+           data-author="" >
+            <span class="post-title" title="NanoPi_Neo_Core底层开发">NanoPi_Neo_Core底层开发</span>
+            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/01/29/python实战/"
+           data-tag="python实战"
+           data-author="" >
+            <span class="post-title" title="python实战">python实战</span>
+            <span class="post-date" title="2020-01-29 21:36:32">2020/01/29</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/09/17/markdownlint规则详细介绍/"
+           data-tag="markdownlint"
+           data-author="" >
+            <span class="post-title" title="VSC插件之markdownlint规则详细介绍">VSC插件之markdownlint规则详细介绍</span>
+            <span class="post-date" title="2019-09-17 15:00:13">2019/09/17</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/12/u-boot分析与使用/"
+           data-tag="u-boot"
+           data-author="" >
+            <span class="post-title" title="u-boot分析与使用">u-boot分析与使用</span>
+            <span class="post-date" title="2019-08-12 19:16:50">2019/08/12</span>
+        </a>
+        
+        <a  class="STM32 "
+           href="/2019/11/12/基于STM32L476的IAP升级/"
+           data-tag="IAP,BootLoader,dual bank"
+           data-author="" >
+            <span class="post-title" title="基于STM32L476的IAP升级">基于STM32L476的IAP升级</span>
+            <span class="post-date" title="2019-11-12 22:47:40">2019/11/12</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/06/二维数组与指针的一些问题/"
+           data-tag="二维数组,指针"
+           data-author="" >
+            <span class="post-title" title="二维数组与指针的一些问题">二维数组与指针的一些问题</span>
+            <span class="post-date" title="2019-08-06 13:11:26">2019/08/06</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/11/各种存储器的区别/"
+           data-tag="存储器"
+           data-author="" >
+            <span class="post-title" title="各种存储器的区别">各种存储器的区别</span>
+            <span class="post-date" title="2019-08-11 10:57:19">2019/08/11</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2019/07/29/快速排序/"
+           data-tag="快速排序"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-07-29 22:27:34">2019/07/29</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/14/构造根文件系统/"
+           data-tag="根文件系统"
+           data-author="" >
+            <span class="post-title" title="构造根文件系统">构造根文件系统</span>
+            <span class="post-date" title="2019-08-14 20:18:45">2019/08/14</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/按键驱动——poll机制/"
+           data-tag="按键驱动,poll机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动——poll机制">按键驱动——poll机制</span>
+            <span class="post-date" title="2019-07-21 20:30:38">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/22/按键驱动：异步通知机制/"
+           data-tag="按键驱动,异步通知机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动：异步通知机制">按键驱动：异步通知机制</span>
+            <span class="post-date" title="2019-07-22 19:04:24">2019/07/22</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/字符驱动设备的另一种写法/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="字符驱动设备的另一种写法">字符驱动设备的另一种写法</span>
+            <span class="post-date" title="2019-08-07 12:20:30">2019/08/07</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/02/18/python爬虫/"
+           data-tag="python,爬虫"
+           data-author="" >
+            <span class="post-title" title="python爬虫">python爬虫</span>
+            <span class="post-date" title="2020-02-18 23:40:18">2020/02/18</span>
+        </a>
+        
+        <a  class="人工智能 "
+           href="/2020/01/03/深度学习与TensorFlow2/"
+           data-tag="深度学习,TensorFlow2"
+           data-author="" >
+            <span class="post-title" title="深度学习与TensorFlow2">深度学习与TensorFlow2</span>
+            <span class="post-date" title="2020-01-03 21:04:26">2020/01/03</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/25/输入子系统/"
+           data-tag="按键驱动,输入子系统"
+           data-author="" >
+            <span class="post-title" title="输入子系统">输入子系统</span>
+            <span class="post-date" title="2019-07-25 00:05:15">2019/07/25</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/04/网卡驱动程序/"
+           data-tag="网卡驱动框架,虚拟网卡"
+           data-author="" >
+            <span class="post-title" title="网卡驱动程序">网卡驱动程序</span>
+            <span class="post-date" title="2019-08-04 21:24:07">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/13/设备树/"
+           data-tag="设备树"
+           data-author="" >
+            <span class="post-title" title="设备树">设备树</span>
+            <span class="post-date" title="2019-10-13 15:53:24">2019/10/13</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2019/10/23/Go语言/"
+           data-tag="Go语言入门经典"
+           data-author="" >
+            <span class="post-title" title="Go语言">Go语言</span>
+            <span class="post-date" title="2019-10-23 21:07:25">2019/10/23</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/01/10/python/"
+           data-tag="廖雪峰python教程"
+           data-author="" >
+            <span class="post-title" title="Python">Python</span>
+            <span class="post-date" title="2020-01-10 20:18:52">2020/01/10</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-python爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">python爬虫</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="编程语言">编程语言</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color2">python</a>
+            
+            <a href="javascript:" class="color3">爬虫</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-02-27 12:42:01'>2020-02-18 23:40</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:13.1k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#定向网络数据爬取和网页解析"><span class="toc-text">定向网络数据爬取和网页解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#get"><span class="toc-text">get</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通用代码框架"><span class="toc-text">通用代码框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP协议及request库方法"><span class="toc-text">HTTP协议及request库方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP协议"><span class="toc-text">HTTP协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#request库方法"><span class="toc-text">request库方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Robots协议"><span class="toc-text">Robots协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#遵守方式"><span class="toc-text">遵守方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络爬虫与信息提取"><span class="toc-text">网络爬虫与信息提取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BeautifulSoup库的基本元素"><span class="toc-text">BeautifulSoup库的基本元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML遍历"><span class="toc-text">HTML遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML格式化和编码"><span class="toc-text">HTML格式化和编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信息标记"><span class="toc-text">信息标记</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内容查找"><span class="toc-text">内容查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例-1"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式库"><span class="toc-text">正则表达式库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#操作符"><span class="toc-text">操作符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Match对象"><span class="toc-text">Match对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相关函数"><span class="toc-text">相关函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#等价用法"><span class="toc-text">等价用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#贪婪匹配和最小匹配"><span class="toc-text">贪婪匹配和最小匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例-2"><span class="toc-text">实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scrapy框架"><span class="toc-text">Scrapy框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#和request库的比较"><span class="toc-text">和request库的比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建工程"><span class="toc-text">创建工程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#产生爬虫"><span class="toc-text">产生爬虫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置爬虫"><span class="toc-text">配置爬虫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行爬虫"><span class="toc-text">运行爬虫</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scrap爬虫的使用步骤"><span class="toc-text">Scrap爬虫的使用步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Request类"><span class="toc-text">Request类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Response类"><span class="toc-text">Response类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Item类"><span class="toc-text">Item类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-Selector基本使用"><span class="toc-text">CSS Selector基本使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例子"><span class="toc-text">例子</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="定向网络数据爬取和网页解析"><a href="#定向网络数据爬取和网页解析" class="headerlink" title="定向网络数据爬取和网页解析"></a>定向网络数据爬取和网页解析</h2><p>request库：<a href="http://www.python-request.org" target="_blank" rel="noopener">http://www.python-request.org</a></p>
+<p>requests库官方文档中文版：<a href="http://cn.python-requests.org/zh_CN/latest/index.html" target="_blank" rel="noopener">http://cn.python-requests.org/zh_CN/latest/index.html</a><br>BeautifulSoup库官方文档中文版：<a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">http://beautifulsoup.readthedocs.io/zh_CN/latest/</a><br>PEP8——Python代码规范：<a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></p>
+<p>简单入门：</p>
+<pre><code class="python">&gt;&gt;&gt; import request
+&gt;&gt;&gt; r = requests.get(&quot;http://www.baidu.com&quot;)#访问百度
+&gt;&gt;&gt; r.status_code#获取状态码
+200
+&gt;&gt;&gt; r.encoding=&#39;utf-8&#39;#更改编码
+&gt;&gt;&gt; r.text#打印网页内容
+&#39;&lt;!DOCTYPE html&gt;\r\n&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equiv=content-type content=text/html;charset=utf-8&gt;&lt;meta http-equiv=X-UA-Compatible content=IE=Edge&gt;&lt;meta content=always name=referrer&gt;&lt;link rel=stylesheet type=text/css href=http://s1.bdstatic.com/r/www/cache/bdorz/baidu.min.css&gt;&lt;title&gt;百度一下，你就知道&lt;/title&gt;&lt;/head&gt; &lt;body link=#0000cc&gt; &lt;div id=wrapper&gt; &lt;div id=head&gt; &lt;div class=head_wrapper&gt; &lt;div class=s_form&gt; &lt;div class=s_form_wrapper&gt; &lt;div id=lg&gt; &lt;img hidefocus=true src=//www.baidu.com/img/bd_logo1.png width=270 height=129&gt; &lt;/div&gt; &lt;form id=form name=f action=//www.baidu.com/s class=fm&gt; &lt;input type=hidden name=bdorz_come value=1&gt; &lt;input type=hidden name=ie value=utf-8&gt; &lt;input type=hidden name=f value=8&gt; &lt;input type=hidden name=rsv_bp value=1&gt; &lt;input type=hidden name=rsv_idx value=1&gt; &lt;input type=hidden name=tn value=baidu&gt;&lt;span class=&quot;bg s_ipt_wr&quot;&gt;&lt;input id=kw name=wd class=s_ipt value maxlength=255 autocomplete=off autofocus&gt;&lt;/span&gt;&lt;span class=&quot;bg s_btn_wr&quot;&gt;&lt;input type=submit id=su value=百度一下 class=&quot;bg s_btn&quot;&gt;&lt;/span&gt; &lt;/form&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=u1&gt; &lt;a href=http://news.baidu.com name=tj_trnews class=mnav&gt;新闻&lt;/a&gt; &lt;a href=http://www.hao123.com name=tj_trhao123 class=mnav&gt;hao123&lt;/a&gt; &lt;a href=http://map.baidu.com name=tj_trmap class=mnav&gt;地图&lt;/a&gt; &lt;a href=http://v.baidu.com name=tj_trvideo class=mnav&gt;视频&lt;/a&gt; &lt;a href=http://tieba.baidu.com name=tj_trtieba class=mnav&gt;贴吧&lt;/a&gt; &lt;noscript&gt; &lt;a href=http://www.baidu.com/bdorz/login.gif?login&amp;amp;tpl=mn&amp;amp;u=http%3A%2F%2Fwww.baidu.com%2f%3fbdorz_come%3d1 name=tj_login class=lb&gt;登录&lt;/a&gt; &lt;/noscript&gt; &lt;script&gt;document.write(\&#39;&lt;a href=&quot;http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u=\&#39;+ encodeURIComponent(window.location.href+ (window.location.search === &quot;&quot; ? &quot;?&quot; : &quot;&amp;&quot;)+ &quot;bdorz_come=1&quot;)+ \&#39;&quot; name=&quot;tj_login&quot; class=&quot;lb&quot;&gt;登录&lt;/a&gt;\&#39;);&lt;/script&gt; &lt;a href=//www.baidu.com/more/ name=tj_briicon class=bri style=&quot;display: block;&quot;&gt;更多产品&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=ftCon&gt; &lt;div id=ftConw&gt; &lt;p id=lh&gt; &lt;a href=http://home.baidu.com&gt;关于百度&lt;/a&gt; &lt;a href=http://ir.baidu.com&gt;About Baidu&lt;/a&gt; &lt;/p&gt; &lt;p id=cp&gt;&amp;copy;2017&amp;nbsp;Baidu&amp;nbsp;&lt;a href=http://www.baidu.com/duty/&gt;使用百度前必读&lt;/a&gt;&amp;nbsp; &lt;a href=http://jianyi.baidu.com/ class=cp-feedback&gt;意见反馈&lt;/a&gt;&amp;nbsp;京ICP证030173号&amp;nbsp; &lt;img src=//www.baidu.com/img/gs.gif&gt; &lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;\r\n&#39;</code></pre>
+<p>常用的7个方法：</p>
+<pre><code class="python">requests.request()#构造一个请求,支撑以下各方法的基础方法
+requests.get()#获取HTML网页的主要方法,对应于HTTP的GET 
+requests.head()#获取HTML网页头信息的方法,对应于HTTP的HEAD 
+requests.post()#向HTML网页提交POST请求的方法,对应于HTTP的POST 
+requests.put()#向HTML网页提交PUT请求的方法,对应于HTTP的PUT 
+requests.patch()#向HTML网页提交局部修改请求,对应于HTTP的PATCH 
+requests.delete()#向HTML页面提交删除请求,对应于HTTP的DELETE</code></pre>
+<ul>
+<li>实际上底层都是使用了<code>request</code>方法来封装</li>
+</ul>
+<p>爬虫的尺寸：</p>
+<ul>
+<li>Requests库：小规模，数据量小，爬取速度不敏感（爬取网页 玩转网页）</li>
+<li>Scrapy库：中规模，数据规模较大，爬取速度敏感（爬取网站 爬取系列网站）</li>
+<li>定制开发：大规模，搜索引擎，爬取速度关键（爬取全网）</li>
+</ul>
+<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><pre><code class="python">r = request.get(url)
+#完整版
+r = request.get(url, params=None, **kwargs)</code></pre>
+<ul>
+<li>get方法构造一个向服务器请求资源的Request对象（由request库内部生成）</li>
+<li>r：返回一个包含服务器资源的Response对象（包括从服务器返回的所有资源）</li>
+<li>url：拟获取页面的url链接</li>
+<li>params:url中的额外参数,字典或字节流格式,可选</li>
+<li>**kwargs:12个控制访问的参数</li>
+</ul>
+<p>Response对象常用属性：</p>
+<ul>
+<li><code>r.status_code</code>：HTTP请求的返回状态,200表示<strong>连接成功</strong>,404表示失败（其余各种数均为失败）</li>
+<li><code>r.text</code>：HTTP响应内容的字符串形式,即,url应的页面内容</li>
+<li><code>r.encoding</code>：从 HTTP header中猜测的响应内容编码方式（如果HTTP header中不存在，则默认为<strong>ISO-8859-1</strong>）</li>
+<li><code>r.apparent_encoding</code>：从内容中分析出的响应内容编码方式(备选编码方式)</li>
+<li><code>r.content</code>：HTTP响应内容的二进制形式（保存图片可能会用到）</li>
+</ul>
+<h3 id="通用代码框架"><a href="#通用代码框架" class="headerlink" title="通用代码框架"></a>通用代码框架</h3><p>request库的相关异常：</p>
+<ul>
+<li><code>requests.ConnectionError</code>：网络连接错误异常,如DNS查询失败、拒绝连接等</li>
+<li><code>requests.HTTPError</code>：HTTP错误异常</li>
+<li><code>requests.URLRequired</code>：URL缺失异常</li>
+<li><code>requests.TooManyRedirects</code>：超过最大重定向次数,产生重定向异常</li>
+<li><code>requests.ConnectTimeout</code>：连接远程服务器超时异常（仅仅指与远程服务器连接的时间）</li>
+<li><code>requests.Timeout</code>：请求URL超时,产生超时异常（发出请求到获得内容的整个过程的时间）</li>
+</ul>
+<p>产生异常函数：</p>
+<pre><code class="python">r.raise_for_status()#如果不是200,产生异常requests.HTTPError</code></pre>
+<p>通用代码框架：</p>
+<pre><code class="python">import requests
+def getHTMLText(url):
+    try:
+        r = requests.get(url, timeout=30)
+        r.raise_for_status()#如果状态不是200,引发理 PError异常
+        r.encoding = r.apparent_encoding
+        return r. text
+    except:
+        return &quot;产生异常&quot;
+if __name__ == &quot;__main__&quot;:
+    url = &quot;http://www.baidu.com&quot;
+    print(getHTMLText(url))</code></pre>
+<h3 id="HTTP协议及request库方法"><a href="#HTTP协议及request库方法" class="headerlink" title="HTTP协议及request库方法"></a>HTTP协议及request库方法</h3><h4 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h4><p>HTTP, Hypertext Transfer Protocol,超文本传输协议，基于”请求与响应”模式的、无状态的应用层协议，采用URL作为定位网络资源的标识。URL是通过HTTP协议存取资源的Internet路径,一个URL对应一个数据资源。</p>
+<p>URL格式：<code>http://host[:port][path]</code></p>
+<ul>
+<li>host:合法的 Internet主机域名或IP地址</li>
+<li>port:端口号,缺省端囗为80</li>
+<li>path:请求资源的路径</li>
+</ul>
+<p>HTTP协议对资源的操作：</p>
+<ul>
+<li><code>GET</code>：请求获取URL位置的资源</li>
+<li><code>HEAD</code>：请求获取URL位置资源的响应消息报告,即获得该资源的头部信息</li>
+<li><code>POST</code>：请求向URL位置的资源后附加新的数据</li>
+<li><code>PUT</code>：请求向URL位置存储一个资源,覆盖原URL位置的资源</li>
+<li><code>PATCH</code>：请求局部更新URL位置的资原,即改变该处资原的部分内容（节省网络带宽）</li>
+<li><code>DELETE</code>：请求删除URL位置存储的资源</li>
+</ul>
+<p>注：上述方法和request库中的方法是一一对应的</p>
+<h4 id="request库方法"><a href="#request库方法" class="headerlink" title="request库方法"></a>request库方法</h4><p>由于网络安全的限制，一般只会使用到get，对于某些特别大的url链接只用head即可</p>
+<p><strong>request方法</strong>：所有方法的基础方法</p>
+<pre><code class="python">requests.request(method, url, **kwargs)</code></pre>
+<ul>
+<li><p>method:请求方式,对应其他get/put/post等7种方法</p>
+<pre><code class="python">  requests.request(&#39;GET&#39;, url, **kwargs)
+  requests.request(&#39;HEAD&#39;, url, **kwargs)
+  requests.request(&#39;POST&#39;, url, **kwargs)
+  requests.request(&#39;PUT&#39;, url, **kwargs)
+  requests.request(&#39;PATCH&#39;, url, **kwargs)
+  requests.request(&#39;delete&#39;, url, **kwargs)
+  requests.request(&#39;OPTIONS&#39;, url, **kwargs)</code></pre>
+</li>
+<li><p>url:拟获取页面的url链接</p>
+</li>
+<li><p>**kwargs:控制访问的参数,共13个</p>
+<ul>
+<li><p>params:字典或字节序列,作为参数增加到url中</p>
+<pre><code class="python">  &gt;&gt;&gt; kv = {&#39;key1&#39;:&#39;value1&#39;,&#39;key2&#39;:&#39;value2&#39;}
+  &gt;&gt;&gt; r = requests.request(&#39;GET&#39;,&#39;http://python123.io/ws&#39;,params = kv)
+  &gt;&gt;&gt; print(r.url)
+  https://python123.io/ws?key1=value1&amp;key2=value2
+  &gt;&gt;&gt; print(r.request.url)#发过去的链接
+  https://python123.io/ws?key1=value1&amp;key2=value2</code></pre>
+</li>
+<li><p>data:字典、字节序列或文件对象,作为 Request的内容</p>
+<pre><code class="python">  &gt;&gt;&gt; kv = {&#39;key1&#39;:&#39;value1&#39;,&#39;key2&#39;:&#39;value2&#39;}
+  &gt;&gt;&gt; r = requests.request(&#39;POST&#39;,&#39;http://python123.io/ws&#39;,data = kv)
+  &gt;&gt;&gt; body = &#39;主体内容&#39;
+  &gt;&gt;&gt; r = requests.request(&#39;POST&#39;,&#39;http://python123.io/ws&#39;,data = body)</code></pre>
+</li>
+<li><p>json:JSON格式的数据,作为 Request的内容</p>
+<pre><code class="python">  &gt;&gt;&gt; kv = {&#39;key1&#39;:&#39;value1&#39;}
+  &gt;&gt;&gt; r = requests.request(&#39;POST&#39;,&#39;http://python123.io/ws&#39;,json = kv)#赋值到服务器的json域上</code></pre>
+</li>
+<li><p>headers:字典,HTTP定制头</p>
+<pre><code class="python">  &gt;&gt;&gt; hd = {&#39;user-agent&#39;:&#39;Chrome/10&#39;}
+  &gt;&gt;&gt; r = requests.request(&#39;POST&#39;,&#39;http://python123.io/ws&#39;,headers = hd)</code></pre>
+</li>
+<li><p>cookies:字典或 Cookiejar, Request中的 cookie</p>
+</li>
+<li><p>auth:元组,支持HTTP认证功能</p>
+</li>
+<li><p>files:字典类型,传输文件</p>
+<pre><code class="python">  &gt;&gt;&gt; fs = {&#39;file&#39;:open(&#39;data.xls&#39;,&#39;rb&#39;)}
+  &gt;&gt;&gt; r = requests.request(&#39;POST&#39;,&#39;http://python123.io/ws&#39;,files = fs)</code></pre>
+</li>
+<li><p>timeout:设定超时时间,秒为单位（如果请求内容没有返回回来，会产生一个超时的异常）</p>
+<pre><code class="python">  &gt;&gt;&gt; r = requests.request(&#39;GET&#39;,&#39;http://www.baidu.com&#39;,timeout = 10)</code></pre>
+</li>
+<li><p>proxies:字典类型,设定访问代理服务器,可以增加登录认证</p>
+<pre><code class="python">  &gt;&gt;&gt; pxs = {&#39;http&#39;:&#39;http://user:pass@10.10.10.1:1234&#39;,&#39;https&#39;:&#39;https://10.10.10.1:4321&#39;}#增加http和https的代理，防止对爬虫的逆追踪
+  &gt;&gt;&gt; r = requests.request(&#39;GET&#39;,&#39;http://www.baidu.com&#39;,proxies = pxs)</code></pre>
+</li>
+<li><p>allow_redirects:True/ False,默认为True,重定向开关</p>
+</li>
+<li><p>stream:True/ False,默认为True,获取内容立即下载开关</p>
+</li>
+<li><p>verify:True/ False,默认为True,认证SSL证书开关</p>
+</li>
+<li><p>cert:本地SSL证书路径</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>get方法</strong>：获取网页</p>
+<pre><code class="python">requests.get(url, params=None, **kwargs)</code></pre>
+<ul>
+<li>url：拟获取页面的url链接</li>
+<li>params:url中的额外参数,字典或字节流格式,可选</li>
+<li>**kwargs:12个控制访问的参数(request方法中除了params的12个访问参数)</li>
+</ul>
+<p><strong>head方法</strong>：用很少的流量获得资源的概要信息</p>
+<pre><code class="python">requests.head(url, **kwargs)</code></pre>
+<ul>
+<li>url：拟获取页面的url链接</li>
+<li>**kwargs:13个控制访问的参数(与request方法中一样)</li>
+</ul>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; r = requests.head(&#39;http://httpbin.org/get&#39;)
+&gt;&gt;&gt; r.headers#展示头部信息
+{&#39;Date&#39;: &#39;Wed, 19 Feb 2020 04:58:13 GMT&#39;, &#39;Content-Type&#39;: &#39;application/json&#39;, &#39;Content-Length&#39;: &#39;305&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;, &#39;Server&#39;: &#39;gunicorn/19.9.0&#39;, &#39;Access-Control-Allow-Origin&#39;: &#39;*&#39;, &#39;Access-Control-Allow-Credentials&#39;: &#39;true&#39;}
+&gt;&gt;&gt; r.text#展示全部内容
+&#39;&#39;</code></pre>
+<p><strong>post方法</strong>：向服务器提交新增数据。向 URL POST一个<strong>字典</strong>会自动编码为<strong>form</strong>(表单)，向 URL POST一个<strong>字符串</strong>会自动编码为<strong>data</strong></p>
+<pre><code class="python">requests.post(url, data=None, json=None, **kwargs)</code></pre>
+<ul>
+<li>url：拟获取页面的url链接</li>
+<li>data:字典、字节序列或文件, Request的内容</li>
+<li>json:JSON格式的数据, Request的内容</li>
+<li>**kwargs:剩下11个控制访问的参数(与request方法中一样)</li>
+</ul>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; payload = {&#39;key1&#39;:&#39;value1&#39;,&#39;key2&#39;:&#39;value2&#39;}
+&gt;&gt;&gt; r = requests.post(&#39;http://httpbin.org/post&#39;,data = payload)
+&gt;&gt;&gt; print(r.text)
+{
+  ...
+  &quot;form&quot;: {
+    &quot;key1&quot;: &quot;value1&quot;,
+    &quot;key2&quot;: &quot;value2&quot;
+  },
+  ...
+}
+&gt;&gt;&gt; r = requests.post(&#39;http://httpbin.org/post&#39;,data = &#39;ABC&#39;)
+&gt;&gt;&gt; print(r.text)
+{
+  ...
+  &quot;data&quot;: &quot;ABC&quot;,
+  ...
+  &quot;form&quot;: {},
+  ...
+}</code></pre>
+<p><strong>put方法</strong>：与post方法类似，只不过会覆盖原有数据</p>
+<pre><code class="python">requests.put(url, data=None, **kwargs)</code></pre>
+<ul>
+<li>url：拟获取页面的url链接</li>
+<li>data:字典、字节序列或文件, Request的内容</li>
+<li>**kwargs:剩下12个控制访问的参数(与request方法中一样)</li>
+</ul>
+<p><strong>patch方法</strong>：向HTML网页提交局部修改请求,对应于HTTP的PATCH，能够节省网络带宽</p>
+<pre><code class="python">requests.patch(url, data=None, **kwargs)</code></pre>
+<ul>
+<li>url：拟获取页面的url链接</li>
+<li>data:字典、字节序列或文件, Request的内容</li>
+<li>**kwargs:剩下12个控制访问的参数(与request方法中一样)</li>
+</ul>
+<p><strong>delete方法</strong>：</p>
+<pre><code class="python">requests.patch(url, **kwargs)</code></pre>
+<ul>
+<li>url：拟获取页面的url链接</li>
+<li>**kwargs:13个控制访问的参数(与request方法中一样)</li>
+</ul>
+<h3 id="Robots协议"><a href="#Robots协议" class="headerlink" title="Robots协议"></a>Robots协议</h3><p>一些网站对网络爬虫的限制：</p>
+<ul>
+<li>来源审查:判断 User-Agent进行限制<ul>
+<li>检查来访HTTP协议头的User-Agent域或,只响应浏览器或友好爬虫的访问</li>
+</ul>
+</li>
+<li>发布公告: Robots协议，Robots exclusion standard 网络爬虫排除标准<ul>
+<li>告知所有爬虫，网站的爬取策略，要求爬虫遵守.</li>
+</ul>
+</li>
+</ul>
+<p>Robots协议：</p>
+<ul>
+<li>作用:网站告知网络爬虫哪些页面可以抓取,哪些不行</li>
+<li>形式:在网站根目录下的 robots.txt文件中写明了那些目录能够爬取，那些不能</li>
+</ul>
+<p>例子（京东Robots协议<a href="https://www.jd.com/robots.txt" target="_blank" rel="noopener">https://www.jd.com/robots.txt</a>）：</p>
+<pre><code class="python">User-agent: * 
+Disallow: /?* 
+Disallow: /pop/*.html 
+Disallow: /pinpai/*.html?* 
+User-agent: EtaoSpider 
+Disallow: / 
+User-agent: HuihuiSpider 
+Disallow: / 
+User-agent: GwdangSpider 
+Disallow: / 
+User-agent: WochachaSpider 
+Disallow: /</code></pre>
+<ul>
+<li><code>User-agent: *</code> ：对于任何的爬虫来源，都应该遵守如下规则</li>
+<li><code>Disallow</code>：不允许访问的目录和文件</li>
+<li><code>EtaoSpider</code>、<code>HuihuiSpider</code>、<code>GwdangSpider</code>、<code>WochachaSpider</code>：对这四类爬虫禁止爬取</li>
+</ul>
+<p>其他例子：</p>
+<ul>
+<li>百度：<a href="http://www.baudu.com/robots.txt" target="_blank" rel="noopener">http://www.baudu.com/robots.txt</a></li>
+<li>新浪：<a href="http://www.sina.com.cn/robots.txt" target="_blank" rel="noopener">http://www.sina.com.cn/robots.txt</a></li>
+<li>QQ：<a href="http://www.qq.com/robots.txt" target="_blank" rel="noopener">http://www.qq.com/robots.txt</a></li>
+<li>QQ新闻：<a href="http://news.qq.com/robots.txt" target="_blank" rel="noopener">http://news.qq.com/robots.txt</a></li>
+</ul>
+<h4 id="遵守方式"><a href="#遵守方式" class="headerlink" title="遵守方式"></a>遵守方式</h4><p>要求网络爬虫能够自动或人工识别 robots.txt,再进行内容爬取</p>
+<p>Robots协议是建议但非约束性,网络爬虫可以不遵守,但存在法律风险.</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>亚马逊商品获取：</p>
+<pre><code class="python">import requests
+url = &quot;https://www.amazon.cn/gp/product/B01M8L5Z3Y&quot;
+try:
+    kv = {&#39;user-agent&#39;:&#39;Mozilla/5.0&#39;}
+    r = requests.get(url, headers=kv)
+    r.raise_for_status()
+    r.encoding = r.apparent_encoding
+    print(r.text[1000:2000])
+except:
+    print(&quot;爬取失败&quot;)</code></pre>
+<p>360、百度的搜索：</p>
+<pre><code class="python">import requests
+url = &quot;http://www.baidu.com/s&quot;#百度
+#url = &quot;http://www.so.com/s&quot;#360
+keyword = &quot;python&quot;
+try:
+    kv = {&#39;wd&#39;:keyword}#百度
+    #kv = {&#39;q&#39;:keyword}#360
+    r = requests.get(url, params=kv)
+    print(r.request.url)
+    r.raise_for_status()
+    print(len(r.text))
+except:
+    print(&quot;爬取失败&quot;)</code></pre>
+<p>网络图片的爬取和存储：</p>
+<pre><code class="python">import requests
+import os
+url = &quot;http://image.nationalgeographic.com.cn/2017/0211/20170211061910157.jpg&quot;
+root = &quot;D://pics//&quot;
+path = root+url.split(&#39;/&#39;)[-1]
+try:
+    if not os.path.exists(root):
+        os.mkdir(root)
+    if not os.path.exists(path):
+        r = requests.get(url)
+        with open(path,&#39;wb&#39;) as f:
+            f.write(r.content)
+            f.close()
+            print(&quot;文件保存成功&quot;)
+    else:
+        print(&quot;文件已存在&quot;)
+except:
+    print(&quot;爬取失败&quot;)</code></pre>
+<h2 id="网络爬虫与信息提取"><a href="#网络爬虫与信息提取" class="headerlink" title="网络爬虫与信息提取"></a>网络爬虫与信息提取</h2><p>BeautifulSoup库：能够解析HTML和XML</p>
+<p>BeautifulSoup库官方文档中文版：<a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">http://beautifulsoup.readthedocs.io/zh_CN/latest/</a></p>
+<h3 id="BeautifulSoup库的基本元素"><a href="#BeautifulSoup库的基本元素" class="headerlink" title="BeautifulSoup库的基本元素"></a>BeautifulSoup库的基本元素</h3><p>HTML/XML文档 &lt;==&gt; 标签树 &lt;==&gt; BeautifulSoup类，即BeautifulSoup类对应一个 HTMLIXML文档的全部内容.</p>
+<pre><code class="python">#常用形式：
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(&quot;&lt;html&gt;data&lt;/html&gt;&quot;,&quot;html.parser&quot;)#方式一
+soup2 = BeautifulSoup(open(&quot;D://demo.html&quot;),&quot;html.parser&quot;)#方式二</code></pre>
+<p>BeautifulSoup库的解析器：</p>
+<ul>
+<li>bs4的HTML解析器：<code>BeautifulSoup( mk, &#39;html.parser&#39;)</code>，需要安装bs4库</li>
+<li>lxml的HTML解析器：<code>BeautifulSoup(mk,&#39;lxml&#39;)</code>，需要安装lxml：<br>  <code>pip install Ixml</code></li>
+<li>lxml的XML解析器：<code>BeautifulSoup(mk, ‘xml’)</code>，需要安装lxml：<code>pip install lxml</code></li>
+<li>htmI5lib的解析器：<code>BeautifulSoup(mk, &#39;html5lib&#39;)</code>，需要安装html5lib：<code>pip install html5lib</code></li>
+</ul>
+<p>BeautifulSoup类的基本元素：</p>
+<ul>
+<li><code>Tag</code>：标签,最基本的信息组织单元,分别用&lt;&gt;和&lt;/&gt;标明开头和结尾</li>
+<li><code>Name</code>：标签的名字,<p>…</p>的名字是’p’,格式:<tag>.name</tag></li>
+<li><code>Attributes</code>：标签的属性,<strong>字典</strong>形式组织,格式:<tag>.attrs<ul>
+<li>无论标签有没有属性，总能获得一个attrs，无属性就是空</li>
+</ul>
+</tag></li>
+<li><code>NavigableString</code>：标签内非属性字符串,&lt;&gt;…&lt;/&gt;中字符串,格式:<tag>.string </tag></li>
+<li><code>Comment</code>：标签内字符串的注释部分,一种特殊的Comment类型</li>
+</ul>
+<p><img src="//NU-LL.github.io/2020/02/18/python爬虫/image-20200220123236026.png" alt="图解"></p>
+<p>例子：</p>
+<p>对于如下demo网页<a href="https://python123.io/ws/demo.html" target="_blank" rel="noopener">https://python123.io/ws/demo.html</a>，其内容为：</p>
+<pre><code class="html">&lt;html&gt;
+
+&lt;head&gt;
+    &lt;title&gt;This is a python demo page&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;
+    &lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to
+        professional by tracking the following courses:
+        &lt;a href=&quot;http://www.icourse163.org/course/BIT-268001&quot; class=&quot;py1&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a
+            href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; class=&quot;py2&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+<p>使用方法：</p>
+<pre><code class="python">&gt;&gt;&gt; import requests
+&gt;&gt;&gt; r = requests.get(&quot;https://python123.io/ws/demo.html&quot;)
+&gt;&gt;&gt; demo = r.text#保存页面到变量demo
+
+&gt;&gt;&gt; from bs4 import BeautifulSoup#从bs4库中导入BeautifulSoup类
+&gt;&gt;&gt; soup = BeautifulSoup(demo,&quot;html.parser&quot;)#demo即为上述页面的一个变量
+#也可以通过soup = BeautifulSoup(open(&quot;demo.html&quot;),&quot;html.parser&quot;)，从本地文件获取
+&gt;&gt;&gt; soup.title#查看title
+&lt;title&gt;This is a python demo page&lt;/title&gt;
+&gt;&gt;&gt; tag = soup.a#获得a标签（只能获取第一个）
+
+&gt;&gt;&gt; tag#标签
+&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;
+&gt;&gt;&gt; type(tag)
+&lt;class &#39;bs4.element.Tag&#39;&gt;
+
+&gt;&gt;&gt; tag.attrs#标签属性 字典类型
+{&#39;href&#39;: &#39;http://www.icourse163.org/course/BIT-268001&#39;, &#39;class&#39;: [&#39;py1&#39;], &#39;id&#39;: &#39;link1&#39;}
+&gt;&gt;&gt; tag.attrs[&#39;class&#39;]
+[&#39;py1&#39;]
+&gt;&gt;&gt; type(tag.attrs)
+&lt;class &#39;dict&#39;&gt;
+
+&gt;&gt;&gt; tag.string#字符串属性 
+&#39;Basic Python&#39;
+&gt;&gt;&gt; type(tag.string)
+&lt;class &#39;bs4.element.NavigableString&#39;&gt;
+
+&gt;&gt;&gt; soup.a.name#获得a标签的名字
+&#39;a&#39;
+&gt;&gt;&gt; soup.a.parent.name#获得a标签的父亲的名字
+&#39;p&#39;
+&gt;&gt;&gt; soup.a.parent.parent.name#获得a标签的父亲的父亲的名字
+&#39;body&#39;</code></pre>
+<p>关于注释的例子：</p>
+<pre><code class="python">&gt;&gt;&gt; from bs4 import BeautifulSoup
+&gt;&gt;&gt; newsoup = BeautifulSoup(&quot;&lt;b&gt;&lt;!--This is a comment--&gt;&lt;/b&gt;&lt;p&gt;This is not a comment&lt;/p&gt;&quot;,&quot;html.parser&quot;)
+#注释
+&gt;&gt;&gt; newsoup.b.string
+&#39;This is a comment&#39;
+&gt;&gt;&gt; type(newsoup.b.string)
+&lt;class &#39;bs4.element.Comment&#39;&gt;
+#字符串
+&gt;&gt;&gt; newsoup.p.string
+&#39;This is not a comment&#39;
+&gt;&gt;&gt; type(newsoup.p.string)
+&lt;class &#39;bs4.element.NavigableString&#39;&gt;</code></pre>
+<ul>
+<li>是字符串还是注释，需要根据<strong>类型</strong>去判断</li>
+</ul>
+<h3 id="HTML遍历"><a href="#HTML遍历" class="headerlink" title="HTML遍历"></a>HTML遍历</h3><p>下行遍历：沿着根节点向叶子节点遍历的</p>
+<p>上行遍历：沿着叶子结点向根节点遍历</p>
+<p>平行遍历：在平行节点之间互相遍历</p>
+<p>标签树的<strong>下行遍历</strong>：</p>
+<ul>
+<li><code>.contents</code>：子节点的列表,将<tag><strong>所有</strong>儿子节点存入列表</tag></li>
+<li><code>.children</code>：子节点的迭代类型,与.contents类似,用于循环遍历儿子节点</li>
+<li><code>.descendants</code>：子孙节点的迭代类型,包含所有子孙节点,用于循环遍历</li>
+</ul>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; from bs4 import BeautifulSoup
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; r = requests.get(&quot;https://python123.io/ws/demo.html&quot;)
+&gt;&gt;&gt; demo = r.text#保存页面到变量demo
+&gt;&gt;&gt; soup = BeautifulSoup(demo,&quot;html.parser&quot;)
+
+&gt;&gt;&gt; soup.head
+&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;
+&gt;&gt;&gt; soup.head.contents
+[&lt;title&gt;This is a python demo page&lt;/title&gt;]
+#.contents
+&gt;&gt;&gt; soup.body.contents
+[&#39;\n&#39;, &lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;, &#39;\n&#39;, &lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;, &#39;\n&#39;]
+&gt;&gt;&gt; len(soup.body.contents)
+5
+&gt;&gt;&gt; soup.body.contents[1]
+&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;
+#.children 遍历儿子节点
+for child in soup.body.children:
+    print(child)
+#.descendants 遍历子孙节点
+for child in soup.body.descendants:
+    print(child)</code></pre>
+<ul>
+<li>一个标签的子节点并不仅仅只有标签节点，也存在<strong>字符串节点</strong>，如：’\n’</li>
+</ul>
+<p>标签树的<strong>上行遍历</strong>：</p>
+<ul>
+<li><code>.parent</code>：节点的父亲标签</li>
+<li><code>.parents</code>：节点先辈标签的迭代类型,用于循环遍历先辈节点</li>
+</ul>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; from bs4 import BeautifulSoup
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; r = requests.get(&quot;https://python123.io/ws/demo.html&quot;)
+&gt;&gt;&gt; demo = r.text#保存页面到变量demo
+&gt;&gt;&gt; soup = BeautifulSoup(demo,&quot;html.parser&quot;)
+#.parent
+&gt;&gt;&gt; soup.title.parent
+&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;
+&gt;&gt;&gt; soup.html.parent
+&lt;html&gt;&lt;head&gt;&lt;title&gt;This is a python demo page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;title&quot;&gt;&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;&lt;/p&gt;
+&lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+&gt;&gt;&gt; soup.parent#空
+
+
+#.parents 上行遍历
+for parent in soup.a.parents:
+    if parent is None:
+        print(parent)
+    else:
+        print(parent.name)</code></pre>
+<p>标签树的<strong>平行遍历</strong>：</p>
+<ul>
+<li>.next_sibling：返回按照HTML文本顺序的下一个平行节点标签</li>
+<li>.previous_sibling：返回按照HTML文本顺序的上一个平行节点标签</li>
+<li>.next_siblings：迭代类型,返回按照HTML文本顺序的后续所有平行节点标签</li>
+<li>.previous_siblings：迭代类型,返回按照HTML文本顺序的前续所有平行节点标签</li>
+</ul>
+<p>条件：所有的平行遍历都发生在<strong>同一个父节点</strong>下的各节点间</p>
+<p>注意：任何一个节点的平行、父亲、儿子节点是可能存在<strong>NavigableString</strong>类型的</p>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; from bs4 import BeautifulSoup
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; r = requests.get(&quot;https://python123.io/ws/demo.html&quot;)
+&gt;&gt;&gt; demo = r.text#保存页面到变量demo
+&gt;&gt;&gt; soup = BeautifulSoup(demo,&quot;html.parser&quot;)
+#.next_sibling
+&gt;&gt;&gt; soup.a.next_sibling
+&#39; and &#39;
+&gt;&gt;&gt; soup.a.next_sibling.next_sibling
+&lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;
+#.previous_sibling
+&gt;&gt;&gt; soup.a.previous_sibling
+&#39;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:\r\n&#39;
+&gt;&gt;&gt; soup.a.previous_sibling.previous_sibling#空标签
+
+&gt;&gt;&gt; soup.a.parent
+&lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;
+#遍历后续节点：
+for sibling in soup.a.next_siblings:
+    print(sibling)
+#遍历前续节点
+for sibling in soup.a.previous_siblings:
+    print(sibling)</code></pre>
+<h3 id="HTML格式化和编码"><a href="#HTML格式化和编码" class="headerlink" title="HTML格式化和编码"></a>HTML格式化和编码</h3><p>基于bs4库的<code>prettify()</code>方法</p>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; from bs4 import BeautifulSoup
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; r = requests.get(&quot;https://python123.io/ws/demo.html&quot;)
+&gt;&gt;&gt; demo = r.text#保存页面到变量demo
+&gt;&gt;&gt; soup = BeautifulSoup(demo,&quot;html.parser&quot;)
+&gt;&gt;&gt; soup.prettify()
+&#39;&lt;html&gt;\n &lt;head&gt;\n  &lt;title&gt;\n   This is a python demo page\n  &lt;/title&gt;\n &lt;/head&gt;\n &lt;body&gt;\n  &lt;p class=&quot;title&quot;&gt;\n   &lt;b&gt;\n    The demo python introduces several python courses.\n   &lt;/b&gt;\n  &lt;/p&gt;\n  &lt;p class=&quot;course&quot;&gt;\n   Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:\n   &lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;\n    Basic Python\n   &lt;/a&gt;\n   and\n   &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;\n    Advanced Python\n   &lt;/a&gt;\n   .\n  &lt;/p&gt;\n &lt;/body&gt;\n&lt;/html&gt;&#39;
+&gt;&gt;&gt; print(soup.prettify())
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;
+   This is a python demo page
+  &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;p class=&quot;title&quot;&gt;
+   &lt;b&gt;
+    The demo python introduces several python courses.
+   &lt;/b&gt;
+  &lt;/p&gt;
+  &lt;p class=&quot;course&quot;&gt;
+   Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+   &lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;
+    Basic Python
+   &lt;/a&gt;
+   and
+   &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;
+    Advanced Python
+   &lt;/a&gt;
+   .
+  &lt;/p&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+&gt;&gt;&gt; print(soup.a.prettify())
+&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;
+ Basic Python
+&lt;/a&gt;</code></pre>
+<p>bs4将任何html文件或字符串都转化为了<strong>utf-8编码</strong></p>
+<h3 id="信息标记"><a href="#信息标记" class="headerlink" title="信息标记"></a>信息标记</h3><p>信息标记的三种形式：</p>
+<ul>
+<li><p>XML（eXtensible Markup Language）：采取了以标签为主，来构建信息表达信息的方式（XML是HTML发展以来的一种通用信息表达形式）</p>
+<ul>
+<li>在标签中具有名字、属性，与HTML类似：<code>&lt;img src=&quot;china,jpg&quot; size=&quot;10&quot;&gt;...&lt;/img&gt;</code></li>
+<li>如果标签中没有内容，可以采用缩写形式：<code>&lt;img src=&quot;china,jpg&quot; size=&quot;10&quot; /&gt;</code></li>
+<li>可以嵌入注释：<code>&lt;!--This is acomment, very useful --&gt;</code></li>
+</ul>
+</li>
+<li><p>JSON（JavsScript Object Notation）：有类型的键值对构建的信息表达方式</p>
+<ul>
+<li>规定：<ul>
+<li>键：对信息类型进行定义</li>
+<li>值：对信息值的描述</li>
+<li>键值对具有数据类型：无论是键还是值，均需要通过<code>&quot;</code>来表示字符串</li>
+<li>当值中有多个信息的时候，采用<code>[,]</code>形式来组织：<code>&quot;name&quot;:[&quot;北京&quot;,&quot;延安&quot;]</code></li>
+<li>键值对之间可以嵌套使用，嵌套时采用<code>{,}</code>书写：<code>&quot;name&quot;:{&quot;oldname&quot;:&quot;北京&quot;,&quot;newname&quot;:&quot;延安&quot;}</code></li>
+</ul>
+</li>
+<li>好处：<ul>
+<li>对于JavaScript等编程语言来说，可以直接将JSON作为程序的一部分</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>YAML（YAML Aint Markup Language）：采用无类型键值对，在键值之间不采用任何双引号或相关的类型标记</p>
+<ul>
+<li><p>没有数据类型：<code>name:北京</code></p>
+</li>
+<li><p>可以通过缩进的关系表达所属关系</p>
+</li>
+<li><p>用<code>-</code>表达并联关系</p>
+</li>
+<li><p>用<code>|</code>表示整块数据</p>
+</li>
+<li><p>用<code>#</code>表示注释</p>
+<pre><code class="yaml">  key : value
+  key : #Comment
+  -value1
+  -value2
+  key :
+      dubkey : subvalue</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>对比：</p>
+<ul>
+<li>XML最早的通用信息标记语言,可扩展性好,但繁琐.<ul>
+<li>Internet上的信息交互和传递</li>
+</ul>
+</li>
+<li>JSON信息有类型,适合程序处理(js),较XML简洁.<ul>
+<li>移动应用云端和节点的信息通信,无注释.</li>
+</ul>
+</li>
+<li>YAML信息无类型,文本信息比例最高,可读性好.<ul>
+<li>各类系统的配置文件,有注释易读.</li>
+</ul>
+</li>
+</ul>
+<p>信息提取的一般方法：</p>
+<ul>
+<li>完成解析信息的标记形式，再提取关键信息<ul>
+<li>优点：信息解析准确</li>
+<li>缺点：提取过程繁琐，速度慢</li>
+</ul>
+</li>
+<li>无视标记形式,直接搜索关键信息<ul>
+<li>优点:提取过程简洁,速度较快.</li>
+<li>缺点:提取结果准确性与信息內容相关</li>
+</ul>
+</li>
+<li>融合方法:结合形式解析与搜索方法,提取关键信息</li>
+</ul>
+<p>例子：</p>
+<pre><code class="python">#融合方法:先查找a的标签 再解析
+&gt;&gt;&gt; from bs4 import BeautifulSoup
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; r = requests.get(&quot;https://python123.io/ws/demo.html&quot;)
+&gt;&gt;&gt; demo = r.text#保存页面到变量demo
+&gt;&gt;&gt; soup = BeautifulSoup(demo,&quot;html.parser&quot;)
+&gt;&gt;&gt; for link in soup.find_all(&#39;a&#39;):
+...     print(link.get(&#39;href&#39;))
+...
+http://www.icourse163.org/course/BIT-268001
+http://www.icourse163.org/course/BIT-1001870001</code></pre>
+<h3 id="内容查找"><a href="#内容查找" class="headerlink" title="内容查找"></a>内容查找</h3><p>基本方法：</p>
+<pre><code class="python">&lt;&gt;.find_all(name,attrs,recursive,string,**kwargs)</code></pre>
+<ul>
+<li>返回值：列表，储存查取结果</li>
+<li>name：对标签名称的检索字符串，如果为True则输出所有标签信息，可以使用正则表达式</li>
+<li>attrs：对标签属性值的检索字符串，可标注属性检索，只能够精确查找，否则需要正则表达式</li>
+<li>recursive：是否对子孙所有节点进行检索，默认True</li>
+<li>string：&lt;&gt;…&lt;/&gt;中字符串区域的检索字符串，只能够精确查找，否则需要正则表达式</li>
+</ul>
+<p>注意，由于find_all方法常用，可以简写为：</p>
+<ul>
+<li><code>&lt;tag&gt;.find_all(...)</code>等价于<code>&lt;tag&gt;(...)</code></li>
+<li><code>soup.find_all(...)</code>等价于<code>soup(...)</code></li>
+</ul>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; from bs4 import BeautifulSoup
+&gt;&gt;&gt; import requests
+&gt;&gt;&gt; import re
+&gt;&gt;&gt; r = requests.get(&quot;https://python123.io/ws/demo.html&quot;)
+&gt;&gt;&gt; demo = r.text#保存页面到变量demo
+&gt;&gt;&gt; soup = BeautifulSoup(demo,&quot;html.parser&quot;)
+#name
+&gt;&gt;&gt; soup.find_all(&#39;a&#39;)
+[&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;, &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;]
+&gt;&gt;&gt; soup.find_all([&#39;a&#39;,&#39;b&#39;])
+[&lt;b&gt;The demo python introduces several python courses.&lt;/b&gt;, &lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;, &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;]
+&gt;&gt;&gt; for tag in soup.find_all(True):
+...     print(tag.name)
+...
+html
+head
+title
+body
+p
+b
+p
+a
+a
+&gt;&gt;&gt; for tag in soup.find_all(re.compile(&#39;b&#39;)):#使用正则
+...     print(tag.name)
+...
+body
+b
+#attrs
+&gt;&gt;&gt; soup.find_all(&#39;p&#39;,&#39;course&#39;)#检索p标签中带有course属性值的标签
+[&lt;p class=&quot;course&quot;&gt;Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:
+&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt; and &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;.&lt;/p&gt;]
+&gt;&gt;&gt; soup.find_all(id=&#39;link1&#39;)#属性域中id=&#39;link1&#39;的标签  精确查找
+[&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;]
+&gt;&gt;&gt; soup.find_all(id=&#39;link&#39;)
+[]
+&gt;&gt;&gt; soup.find_all(id=re.compile(&#39;link&#39;))#正则
+[&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;, &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;]
+#recursive
+&gt;&gt;&gt; soup.find_all(&#39;a&#39;)
+[&lt;a class=&quot;py1&quot; href=&quot;http://www.icourse163.org/course/BIT-268001&quot; id=&quot;link1&quot;&gt;Basic Python&lt;/a&gt;, &lt;a class=&quot;py2&quot; href=&quot;http://www.icourse163.org/course/BIT-1001870001&quot; id=&quot;link2&quot;&gt;Advanced Python&lt;/a&gt;]
+&gt;&gt;&gt; soup.find_all(&#39;a&#39;,recursive=False)
+[]
+#string
+&gt;&gt;&gt; soup.find_all(string = &quot;Basic Python&quot;)#精确
+[&#39;Basic Python&#39;]
+&gt;&gt;&gt; soup.find_all(string = re.compile(&quot;python&quot;))#正则
+[&#39;This is a python demo page&#39;, &#39;The demo python introduces several python courses.&#39;]</code></pre>
+<p>扩展方法（与find_all的参数一样）：</p>
+<ul>
+<li><code>&lt;&gt;.find()</code>：搜索且只返回一个结果,字符串类型,同<code>.find_all()</code>参数</li>
+<li><code>&lt;&gt;.find_parents()</code>：在先辈节点中搜索,返回列表类型,同<code>.find_all()</code>参数</li>
+<li><code>&lt;&gt;.find_parent()</code>：在先辈节点中返回一个结果,字符串类型,同<code>.find_all()</code>参数</li>
+<li><code>&lt;&gt;.find_next_siblings()</code>：在后续平行节点中搜索,返回列表类型,同<code>.find_all()</code>参数</li>
+<li><code>&lt;&gt;.find_next_sibling()</code>：在后续平行节点中返回一个结果,字符串类型,同<code>.find_all()</code>参数</li>
+<li><code>&lt;&gt;.find_previous_siblings()</code>：在前序平行节点中搜索,返回列表类型,同<code>.find_all()</code>参数</li>
+<li><code>&lt;&gt;.find_previous_sibling()</code>：在前序平行节点中返回一个结果,字符串类型,同<code>.find_all()</code>参数</li>
+</ul>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><p>中国大学排名定向爬虫</p>
+<p>定向爬虫：仅对输入URL进行爬取,不扩展爬取.</p>
+<p>爬取网页：<a href="http://www.zuihaodaxue.com/BCSR/xinxiyutongxingongcheng2019.html" target="_blank" rel="noopener">http://www.zuihaodaxue.com/BCSR/xinxiyutongxingongcheng2019.html</a>，且没有robots.txt文件</p>
+<p>部分html代码：</p>
+<pre><code class="html">&lt;tbody&gt;
+    &lt;tr class=&quot;bgfd&quot;&gt;
+        &lt;td class=&quot;ranking&quot;&gt;1&lt;/td&gt;
+        &lt;td class=&quot;ranking&quot;&gt;1&lt;/td&gt;
+        &lt;td class=&quot;align-center&quot;&gt;前1%&lt;/td&gt;
+        &lt;td class=&quot;align-left&quot;&gt;清华大学&lt;/td&gt;
+        &lt;td&gt;&lt;img src=&quot;../houtai/templates/images/subject/bo1.png&quot; title=&quot;一级学科博士学位授权点&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;img src=&quot;../houtai/templates/images/subject/zhong1.png&quot; title=&quot;一级学科国家重点学科&quot;&gt;&lt;/td&gt;
+        &lt;td&gt;1219&lt;/td&gt;
+    &lt;/tr&gt;
+    ...</code></pre>
+<pre><code class="python"># encoding=utf-8
+from bs4 import BeautifulSoup
+import requests
+import bs4
+
+def getHTMLText(url):
+    try:
+        r = requests.get(url, timeout = 30)#30s
+        r.raise_for_status()
+        r.encoding = r.apparent_encoding
+        return r.text
+    except:
+        return &quot;&quot;
+
+def fillUnivList(ulist, html):
+    soup = BeautifulSoup(html,&quot;html.parser&quot;)
+    for tr in soup.find(&#39;tbody&#39;).children:
+        if isinstance(tr,bs4.element.Tag):
+            tds = tr(&#39;td&#39;)#tr.find_all(&#39;td&#39;)简写
+            ulist.append([tds[0].string, tds[3].string, tds[6].string])#大学排名 大学名称 大学总分
+
+def printUnivList(ulist, num):
+    print(&quot;{:^10}\t{:^6}\t{:^10}&quot;.format(&quot;排名&quot;,&quot;名称&quot;,&quot;总分&quot;))
+    for i in range(num):
+        u = ulist[i]
+        print(&quot;{:^10}\t{:^6}\t{:^10}&quot;.format(u[0],u[1],u[2]))
+
+def main():
+    uinfo = []
+    url = &#39;http://www.zuihaodaxue.com/BCSR/xinxiyutongxingongcheng2019.html&#39;
+    html = getHTMLText(url)
+    fillUnivList(uinfo, html)
+    printUnivList(uinfo, 20)#只列出前20组</code></pre>
+<ul>
+<li><p>上述代码中，由于format输出过程中，采用英文空格填充，因为中英文间距宽度不同，所以会使得结果不会居中</p>
+</li>
+<li><p>为解决居中问题，可以将默认的填充字符由英文空格换成中文空格<code>ch(12288)</code>即可</p>
+</li>
+<li><p>修改后的<code>printUnivList</code>函数：</p>
+<pre><code class="python">  def printUnivList(ulist, num):
+      tplt = &quot;{0:^10}\t{1:{3}^10}\t{2:^10}&quot;#{3}是采用第三个参数，即中文空格chr(12288)
+      print(tplt.format(&quot;排名&quot;,&quot;名称&quot;,&quot;总分&quot;,chr(12288)))
+      for i in range(num):
+          u = ulist[i]
+          print(tplt.format(u[0],u[1],u[2],chr(12288)))</code></pre>
+</li>
+</ul>
+<h2 id="正则表达式库"><a href="#正则表达式库" class="headerlink" title="正则表达式库"></a>正则表达式库</h2><ul>
+<li>通用的字符串表达框架</li>
+<li>用来<strong>简洁</strong>的表达一组字符串的表达式</li>
+<li>是字符串表达”简洁“和”特征“思想的工具</li>
+<li>判断某字符串的特征归属</li>
+</ul>
+<p>正则表达式是由<strong>字符</strong>和<strong>操作符</strong>构成的</p>
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">说明</th>
+<th align="center">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.</td>
+<td align="center">表示任何单个字符</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">[]</td>
+<td align="center">字符集，对单个字符给出取值范围</td>
+<td align="center">[abc]表示a、b、c，[a-z]表示a到z单个字符</td>
+</tr>
+<tr>
+<td align="center">[^]</td>
+<td align="center">非字符集，对单个字符给出排除范围</td>
+<td align="center">[^abc]表示非a或b或c的单个字符</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">前一个字符0次或无限次扩展</td>
+<td align="center">abc*表示ab、abc、abcc、abccc等</td>
+</tr>
+<tr>
+<td align="center">+</td>
+<td align="center">前一个字符1次或无限次扩展</td>
+<td align="center">abc+表示abc、abcc、abccc等</td>
+</tr>
+<tr>
+<td align="center">?</td>
+<td align="center">前一个字符0次或1次扩展</td>
+<td align="center">abc?表示abc、abcc、abccc等</td>
+</tr>
+<tr>
+<td align="center">|</td>
+<td align="center">左右表达式任意一个</td>
+<td align="center">abc|def表示abc或者是def</td>
+</tr>
+<tr>
+<td align="center">{m}</td>
+<td align="center">扩展前一个字符m次</td>
+<td align="center">ab{2}c表示abbc</td>
+</tr>
+<tr>
+<td align="center">{m,n}</td>
+<td align="center">扩展前一个字符m至n次（包含n）</td>
+<td align="center">ab{1,2}c表示abc、abbc</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">匹配字符串开头</td>
+<td align="center">^abc表示abc且在一个字符串的开头</td>
+</tr>
+<tr>
+<td align="center">$</td>
+<td align="center">匹配字符串结尾</td>
+<td align="center">abc$表示abc且在一个字符串的结尾</td>
+</tr>
+<tr>
+<td align="center">()</td>
+<td align="center">分组标记，内部只能使用|操作符</td>
+<td align="center">(abc)表示abc，(abc|def)表示abc或def</td>
+</tr>
+<tr>
+<td align="center">\d</td>
+<td align="center">数字，等价于[0-9]</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">\w</td>
+<td align="center">单词字符，等价于[A-Za-z0-9_]</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h3 id="Match对象"><a href="#Match对象" class="headerlink" title="Match对象"></a>Match对象</h3><p>一次匹配的结果，包含了很多匹配的相关信息，Match对象的具体类型为<code>re.Match</code></p>
+<p>重要属性：</p>
+<ul>
+<li><code>.string</code>：待匹配的文本</li>
+<li><code>.re</code>：匹配时使用的 pattern对象(即正则表达式)</li>
+<li><code>.pos</code>：正则表达式搜索文本的开始位置</li>
+<li><code>.endpos</code>：正则表达式搜索文本的结束位置</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li><code>.group(0)</code>：获得匹配后的字符串</li>
+<li><code>.start()</code>：匹配字符串在原始字符串的开始位置</li>
+<li><code>.end()</code>：匹配字符串在原始字符串的结束位置</li>
+<li><code>.span()</code>：返回(.start(), .end())</li>
+</ul>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; m = re.match(r&#39;[1-9]\d{5}&#39;,&#39;271035 TaiAn,WeiHai 264200&#39;)
+&gt;&gt;&gt; m.string
+&#39;271035 TaiAn,WeiHai 264200&#39;
+&gt;&gt;&gt; m.re
+re.compile(&#39;[1-9]\\d{5}&#39;)
+&gt;&gt;&gt; m.pos
+0
+&gt;&gt;&gt; m.endpos
+26
+&gt;&gt;&gt; m.group(0)
+&#39;271035&#39;
+&gt;&gt;&gt; m.start()
+0
+&gt;&gt;&gt; m.end()
+6
+&gt;&gt;&gt; m.span()
+(0, 6)</code></pre>
+<h3 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>re.search()</td>
+<td>在一个字符串中搜索匹配正则表达式的<strong>第一个位置</strong>,返回 match对象</td>
+</tr>
+<tr>
+<td>re.match()</td>
+<td>从一个字符串的<strong>开始位置起</strong>匹配正则表达式,返回 match对象</td>
+</tr>
+<tr>
+<td>re.findall()</td>
+<td>搜索字符串,以<strong>列表</strong>类型返回<strong>全部</strong>能匹配的子串</td>
+</tr>
+<tr>
+<td>re.split()</td>
+<td>将一个字符串按照正则表达式匹配结果进行<strong>分割</strong>,返回列表类型</td>
+</tr>
+<tr>
+<td>re.finditer()</td>
+<td>搜索字符串,返回一个匹配结果的<strong>迭代</strong>类型,每个迭代元素是 match对象</td>
+</tr>
+<tr>
+<td>re.sub()</td>
+<td>在一个字符串中<strong>替换</strong>所有匹配正则表达式的子串,返回替换后的字符串</td>
+</tr>
+</tbody></table>
+<p>函数说明：</p>
+<pre><code class="python">re.search(pattern, string, flags=0)</code></pre>
+<p>在一个字符串中搜索匹配正则表达式的第一个位置，返回 match对象</p>
+<ul>
+<li>pattern：正则表达式的字符串或原生字符串表示<ul>
+<li>原生字符串（raw string）：即<code>r&quot;xxxx&quot;</code>类型字符串</li>
+</ul>
+</li>
+<li>string：待匹配字符串</li>
+<li>flags：正则表达式使用时的控制标记<ul>
+<li><code>re.I(re.IGNORECASE)</code>：<strong>忽略</strong>正则表达式的<strong>大小写</strong>，[A-Z]能够匹配小写字符</li>
+<li><code>re.M(re.MULTILINE)</code>：正则表达式中的<strong>^</strong>操作符能够将给定字符串的<strong>每行</strong>当作匹配开始</li>
+<li><code>re.S(re.DOTALL)</code>：正则表达式中的<strong>.</strong>操作符能够匹配<strong>所有字符</strong>（默认匹配<strong>除换行外</strong>的所有字符）</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">import re
+match = re.search(r&#39;[1-9]\d{5}&#39;,&#39;TaiAn 271035,WeiHai 264200&#39;)
+if match :
+    print(match.group(0))
+#输出 271035</code></pre>
+</blockquote>
+<hr>
+<pre><code class="python">re.match(pattern, string, flags=0) </code></pre>
+<p>从一个字符串的开始位置起匹配正则表达式，返回match对象</p>
+<ul>
+<li>参数同<code>search</code>函数</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">&#39;&#39;&#39;
+re.match()从字符串的起始位置开始匹配，如果起始位置匹配不成功，则匹配失败
+&#39;&#39;&#39;
+import re
+match = re.match(r&#39;[1-9]\d{5}&#39;,&#39;TaiAn 271035,WeiHai 264200&#39;)
+if match :
+    print(match.group(0))
+else:
+    print(type(match))
+#输出&lt;class &#39;NoneType&#39;&gt;
+
+#匹配成功例子：
+match = re.match(r&#39;[1-9]\d{5}&#39;,&#39;271035 TaiAn,WeiHai 264200&#39;)
+if match :
+    print(match.group(0))
+else:
+    print(type(match))
+#输出 &#39;271035&#39;</code></pre>
+</blockquote>
+<hr>
+<pre><code class="python">re.findall(pattern, string, flags=0) </code></pre>
+<p>搜索字符串，以列表类型返回全部能匹配的子串</p>
+<ul>
+<li>参数同<code>search</code>函数</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">import re
+ls = re.findall(r&#39;[1-9]\d{5}&#39;,&#39;TaiAn 271035 WeiHai 264200 222222 115545&#39;)
+if ls :
+    print(ls)
+else:
+    print(type(ls))
+
+#[&#39;271035&#39;, &#39;264200&#39;, &#39;222222&#39;, &#39;115545&#39;]</code></pre>
+</blockquote>
+<hr>
+<pre><code class="python">re.split(pattern, string, maxsplit=0, flags=0) </code></pre>
+<p>将一个字符串按照正则表达式匹配结果进行分割，返回列表类型</p>
+<ul>
+<li>maxsplit：最大分割数，剩余部分作为最后一个元素输出</li>
+<li>其余参数同<code>search</code>函数</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.split(r&#39;[1-9]\d{5}&#39;,&#39;TaiAn271035WeiHai264200wo222222nihao115545abc&#39;)
+[&#39;TaiAn&#39;, &#39;WeiHai&#39;, &#39;wo&#39;, &#39;nihao&#39;, &#39;abc&#39;]
+&gt;&gt;&gt; re.split(r&#39;[1-9]\d{5}&#39;,&#39;TaiAn271035WeiHai264200wo222222nihao115545abc&#39;,maxsplit=2)
+[&#39;TaiAn&#39;, &#39;WeiHai&#39;, &#39;wo222222nihao115545abc&#39;]</code></pre>
+</blockquote>
+<hr>
+<pre><code class="python">re.finditer(pattern, string, flags=0) </code></pre>
+<p>搜索字符串，返回一个匹配结果的迭代类型，每个迭代元素是 match对象</p>
+<ul>
+<li>参数同<code>search</code>函数</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; for m in re.finditer(r&#39;[1-9]\d{5}&#39;,&#39;TaiAn271035WeiHai264200wo222222nihao115545abc&#39;) :
+...     if m:
+...         print(m.group(0))
+...         print(type(m))
+...     else:
+...         print(&quot;null&quot;)
+...
+271035
+&lt;class &#39;re.Match&#39;&gt;
+264200
+&lt;class &#39;re.Match&#39;&gt;
+222222
+&lt;class &#39;re.Match&#39;&gt;
+115545
+&lt;class &#39;re.Match&#39;&gt;</code></pre>
+</blockquote>
+<hr>
+<pre><code class="python">re.sub(pattern, repl, string, count=0, flags=0)</code></pre>
+<p>用一个新的字符串替换所有匹配正则表达式的子串，返回替换后的字符串</p>
+<ul>
+<li>repl：替换匹配字符串的字符串</li>
+<li>count：匹配的最大替换次数</li>
+<li>其余参数同<code>search</code>函数</li>
+</ul>
+<blockquote>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; re.sub(r&#39;[1-9]\d{5}&#39;,&#39;隐藏邮政编码&#39;,&#39;TaiAn271035WeiHai264200wo222222nihao115545abc&#39;)
+&#39;TaiAn隐藏邮政编码WeiHai隐藏邮政编码wo隐藏邮政编码nihao隐藏邮政编码abc&#39;</code></pre>
+</blockquote>
+<h3 id="等价用法"><a href="#等价用法" class="headerlink" title="等价用法"></a>等价用法</h3><ul>
+<li><p>函数式用法：一次性操作</p>
+<pre><code class="python">  rst = re.search(r&#39;[1-9]\d{5}&#39;,&#39;BIT 100081&#39;)</code></pre>
+</li>
+<li><p>面向对象用法：编译后的多次操作（能够加快程序运行速度）</p>
+<pre><code class="python">  pat = re.compile(r&#39;[1-9]\d{5}&#39;)
+  rst = pat.search(&#39;BIT 100081&#39;)</code></pre>
+</li>
+</ul>
+<p>compile函数：</p>
+<pre><code class="python">regex = re.compile(pattern, flags=0)</code></pre>
+<p>将正则表达式的字符串形式编译成正则表达式对象</p>
+<ul>
+<li>pattern：正则表达式的字符串或原生字符串表示</li>
+<li>flags：正则表达式使用时的控制标记</li>
+</ul>
+<p>注意：这里regex才是正则表达式（对象），代表了一组字符串。同时regex对象也含有上述re库提供的的六个方法，但是需要将方法中的<code>pattern</code>参数去除</p>
+<h3 id="贪婪匹配和最小匹配"><a href="#贪婪匹配和最小匹配" class="headerlink" title="贪婪匹配和最小匹配"></a>贪婪匹配和最小匹配</h3><p>Re库<strong>默认</strong>釆用贪婪匹配，即输出匹配<strong>最长</strong>的子串</p>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; match = re.search(r&#39;PY.*N&#39;,&#39;PYANBNCNDN&#39;)
+&gt;&gt;&gt; match.group(0)
+&#39;PYANBNCNDN&#39;</code></pre>
+<p>最小匹配：输出匹配<strong>最短</strong>的子串，具体方法为 在匹配不同长度的操作符后 加个<code>?</code>即可</p>
+<p>具体扩展的操作符：</p>
+<table>
+<thead>
+<tr>
+<th align="center">操作符</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">*?</td>
+<td align="center">前一个字符0次或无限次扩展,最小匹配</td>
+</tr>
+<tr>
+<td align="center">+?</td>
+<td align="center">前一个字符1次或无限次扩展,最小匹配</td>
+</tr>
+<tr>
+<td align="center">??</td>
+<td align="center">前一个字符0次或1次扩展,最小匹配</td>
+</tr>
+<tr>
+<td align="center">{m,n}?</td>
+<td align="center">扩展前一个字符m至n次(含n),最小匹配</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<pre><code class="python">&gt;&gt;&gt; import re
+&gt;&gt;&gt; match = re.search(r&#39;PY.*?N&#39;,&#39;PYANBNCNDN&#39;)
+&gt;&gt;&gt; match.group(0)
+&#39;PYAN&#39;</code></pre>
+<h3 id="实例-2"><a href="#实例-2" class="headerlink" title="实例"></a>实例</h3><p>淘宝商品价格爬取</p>
+<p>搜索接口：<a href="https://s.taobao.com/search?q=篮球" target="_blank" rel="noopener">https://s.taobao.com/search?q=篮球</a><br>翻页接口：第二页 <a href="https://s.taobao.com/search?q=篮球&amp;s=44" target="_blank" rel="noopener">https://s.taobao.com/search?q=篮球&amp;s=44</a><br>                  第三页 <a href="https://s.taobao.com/search?q=篮球&amp;s=88" target="_blank" rel="noopener">https://s.taobao.com/search?q=篮球&amp;s=88</a></p>
+<p>用爬虫爬淘宝，得到的页面是登录页面，想要跳过这个页面，需要提前在浏览器中登录淘宝，并获取hearders信息（关键是<strong>cookie</strong>和User-Agent）用于模拟用户登录，并作为参数传给requests.get(url,headers = header)，获取方法如下：</p>
+<p>首先登陆淘宝账号，然后按 F12 进入检查，在上面的 network 的第一行中拖到最后，找到最上方以search？开头的一栏，右键 Copy–&gt;Copy as URL(bash)，然后打开这个网站： <a href="https://curl.trillworks.com/" target="_blank" rel="noopener">https://curl.trillworks.com/</a> 在里面把复制的内容放进去，选择 Python 然后会发现右边有一个 headers:{省略…}，把这个 headers 放进代码，用一个变量储存，然后在代码中的r equest.get(url,headers=你刚才复制的内容，也就是那个变量）,这个时候你再请求 request.text 返回的就是你要的页面</p>
+<pre><code class="python">import requests
+import re
+
+def getHtmlText(url):
+    try:
+        header =  {
+    &#39;authority&#39;: &#39;s.taobao.com&#39;,
+    &#39;pragma&#39;: &#39;no-cache&#39;,
+    &#39;cache-control&#39;: &#39;no-cache&#39;,
+    &#39;upgrade-insecure-requests&#39;: &#39;1&#39;,
+    &#39;user-agent&#39;: &#39;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36&#39;,
+    &#39;accept&#39;: &#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8&#39;,
+    &#39;referer&#39;: ,
+    &#39;accept-encoding&#39;: &#39;gzip, deflate, br&#39;,
+    &#39;accept-language&#39;: &#39;zh-CN,zh;q=0.9&#39;,
+    &#39;cookie&#39;: ,
+}#隐去了cookie信息和referer信息
+        r = requests.get(url,headers = header)
+        r.raise_for_status()
+        r.encoding = r.apparent_encoding
+
+        return r.text
+    except:
+        print(&quot;爬取失败&quot;)
+        return &quot;&quot;
+
+
+def parsePage(ilist,html):
+    try:
+        plt = re.findall(r&#39;\&quot;view_price\&quot;:\&quot;\d+\.\d*\&quot;&#39;,html)
+        tlt = re.findall(r&#39;\&quot;raw_title\&quot;:\&quot;.*?\&quot;&#39;,html)
+        #print(tlt)
+        print(len(plt))
+        for i in range(len(plt)):
+            price = eval(plt[i].split(&#39;:&#39;)[3])  # eval：去掉双引号或单引号
+            title = tlt[i].split(&#39;\&quot;&#39;)[3]  # 防止名字中出现:
+            ilist.append([title,price])
+        #print(ilist)
+    except:
+        print(&quot;解析出错&quot;)
+
+def printGoodsList(ilist,num):
+    print(&quot;=====================================================================================================&quot;)
+    tplt = &quot;{0:&lt;3}\t{1:&lt;30}\t{2:&gt;6}&quot;
+    print(tplt.format(&quot;序号&quot;,&quot;商品名称&quot;,&quot;价格&quot;))
+    count = 0
+    for g in ilist:
+        count += 1
+        if count &lt;= num:   
+            print(tplt.format(count,g[0],g[1]))
+    print(&quot;=====================================================================================================&quot;)
+
+def main():
+    goods = &quot;篮球&quot;
+    depth = 1
+    start_url = &quot;https://s.taobao.com/search?q=&quot;+goods
+    infoList = []
+    num = 20
+    for i in range(depth):
+        try:
+            url = start_url + &#39;$S=&#39; + str(44*i)
+            html = getHtmlText(url)
+            parsePage(infoList,html)
+        except:
+            continue
+
+    printGoodsList(infoList,num)
+
+main() </code></pre>
+<p>股票数据定向爬取：</p>
+<p>步骤1：从中财网<a href="http://quote.cfi.cn/stockList.aspx获取股票列表" target="_blank" rel="noopener">http://quote.cfi.cn/stockList.aspx获取股票列表</a></p>
+<p>步骤2：根据股票列表获取股票的url，通过每个url获取股票信息</p>
+<p>步骤3：将结果保存到文件中</p>
+<pre><code class="python">#股票数据定向爬虫
+import re
+import requests
+from bs4 import BeautifulSoup
+import traceback
+
+#函数功能：原始数据爬取
+def getHtmlText(url):
+    try:
+        r = requests.get(url)
+        #r.encoding = r.apparent_encoding
+        r.encoding = &#39;utf-8&#39;
+        r.raise_for_status()
+        #print(r.text[-500:])
+        return r.text
+    except:
+        traceback.print_exc()
+
+
+#函数功能：获取股票列表
+def getStockList(lst,stockListURL):
+    ra = [11,12,13,14,15,16,17]
+    #ra = [11]
+    count = 1
+    for i in ra:
+        stock_list_html = getHtmlText(stockListURL+str(i))
+        soup = BeautifulSoup(stock_list_html,&quot;html.parser&quot;)
+        a = soup.find_all(&#39;a&#39;)
+        for i in a:
+            try :
+                href = i.attrs[&quot;href&quot;]
+                stock_a = re.search(r&#39;\d{6}.html$&#39;,href)
+                if stock_a:
+                    count += 1
+                    lst.append(stock_a.group(0))
+            except:
+                traceback.print_exc()
+    return count    
+
+#函数功能：进入每个股票的链接，爬取对应股票的相关信息               
+def getStockInfo(lis,stockInfoURL,fpath,count):
+    ready_count = 0
+    f = open(fpath,&#39;a&#39;,encoding=&#39;utf-8&#39;)
+    for j in lis[:100]:
+        stock_info_html = getHtmlText(stockInfoURL+str(j))
+        #print(stock_info_html)
+        try:
+            if stock_info_html == &#39;&#39;:
+                continue
+            #每个股票存为字典，数据处理较麻烦，有些数据有“杂音”，需单独给出if判断，或在正则中约束
+            infoDict = { }
+            soup = BeautifulSoup(stock_info_html,&quot;html.parser&quot;)
+            stockInfo = soup.find(&#39;div&#39;,attrs={&#39;id&#39;:&#39;act_quote&#39;})
+            name = stockInfo.find(&#39;div&#39;,attrs={&#39;class&#39;:&#39;Lfont&#39;}).string
+            #print(name)
+            infoDict.update({&#39;股票名称&#39;: name})
+            stockDetialInfo = stockInfo.find(&#39;table&#39;,attrs={&#39;id&#39;:&#39;quotetab_stock&#39;})
+            td = stockDetialInfo.find_all(&quot;td&quot;)
+            #print(td)
+            for item in td:
+                #print(item.get_text())
+                text= item.get_text()
+                if(text==&quot;业绩预告&quot;):
+                    print(&quot;hear&quot;)
+                    key = &quot;业绩预告&quot;
+                    real_val = &quot;业绩预告&quot;
+                else:
+                    text_split = re.split(&#39;:|：&#39;,text)#网站程序员分号用了中文和英文两种……
+                    key = text_split[0]
+                    val = text_split[1]
+                    real_val = re.search(r&#39;(-?\d+.?\d*[%|手|万|元]?)|(--)|(正无穷大)&#39;,val).group(0)
+
+                infoDict[key] = real_val
+            f.write(str(infoDict)+&#39;\n&#39;) #每个股票字典数据转为字符串写入文件
+            ready_count += 1
+            print(&#39;\r当前第{0:}个,共{1:}个&#39;.format(ready_count,count)) #打印进度
+
+        except:
+            print(&#39;\r当前第{0:}个,共{1:}个&#39;.format(ready_count,count))
+            traceback.print_exc()
+    f.close()
+
+
+def main():
+    lst = []
+    stock_list_url = &quot;http://quote.cfi.cn/stockList.aspx?t=&quot; #股票列表，翻页接口
+    stock_info_url = &quot;http://quote.cfi.cn/&quot;                  #每个股票的链接都是http://quote.cfi.cn/000000.html的形式。000000代表六位的股票代码
+    output_path = &quot;D:\ArticleForProgram\PythonProgram\Spider\StockInfo.txt&quot; #改成自己的
+    stock_count = getStockList(lst,stock_list_url)
+    getStockInfo(lst,stock_info_url,output_path,stock_count)
+
+main()</code></pre>
+<h2 id="Scrapy框架"><a href="#Scrapy框架" class="headerlink" title="Scrapy框架"></a>Scrapy框架</h2><p>安装scrapy：</p>
+<pre><code class="python">pip install scrapy
+scrapy -h</code></pre>
+<p>框架：</p>
+<p><img src="//NU-LL.github.io/2020/02/18/python爬虫/image-20200224175001094.png" alt="总体框架图"></p>
+<p>Engine模块（无需修改）：</p>
+<ul>
+<li>控制所有模块之间的数据流</li>
+<li>根据条件触发事件</li>
+</ul>
+<p>Download模块（无需修改）：</p>
+<ul>
+<li>根据用户请求下载网页</li>
+</ul>
+<p>Scheduler模块（无需修改）：</p>
+<ul>
+<li>对所有爬取请求进行调度管理</li>
+</ul>
+<p>Downloader Middleware中间件（一般无需修改）：</p>
+<ul>
+<li>实施 Engine、 Scheduler和 Downloader之间进行用户可配置的控制</li>
+<li>用户可以通过该中间件的编写来修改、丢弃、新增请求或响应</li>
+</ul>
+<p><strong>Spider模块</strong>：</p>
+<ul>
+<li>解析 Downloader返回的响应( Response)</li>
+<li>产生爬取项( scraped item)</li>
+<li>产生额外的爬取请求( Request)</li>
+</ul>
+<p><strong>Item Pipelines模块</strong>：</p>
+<ul>
+<li>以流水线方式处理 Spider产生的爬取项.</li>
+<li>由一组操作顺序组成,类似流水线,每个操作是一个Item Pipeline类型.</li>
+<li>可能操作包括:清理、检验和查重爬取项中的HTML数据、将数据存储到数据库.</li>
+</ul>
+<p>Spider Middleware中间件：</p>
+<ul>
+<li>对请求和肥取项的再处理</li>
+<li>功能包括修改、丢弃、新增请求或爬取项</li>
+</ul>
+<h3 id="和request库的比较"><a href="#和request库的比较" class="headerlink" title="和request库的比较"></a>和request库的比较</h3><p>相同点：</p>
+<ul>
+<li>两者都可以进行页面请求和肥取, Python肥吧虫的两个重要技术路线.</li>
+<li>两者可用性都好,文档丰富,入门简单.</li>
+<li>两者都没有处理js、提交表单、应对验证码等功能(可扩展).</li>
+</ul>
+<p>不同点：</p>
+<table>
+<thead>
+<tr>
+<th align="center">request</th>
+<th align="center">Scrapy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">页面级爬虫</td>
+<td align="center">网站级爬虫</td>
+</tr>
+<tr>
+<td align="center">功能库</td>
+<td align="center">框架</td>
+</tr>
+<tr>
+<td align="center">并发性考虑不足,性能较差</td>
+<td align="center">并发性好,性能较高</td>
+</tr>
+<tr>
+<td align="center">重点在于页面下载</td>
+<td align="center">重点在于爬虫结构</td>
+</tr>
+<tr>
+<td align="center">定制灵活</td>
+<td align="center">一般定制灵活,深度定制困难</td>
+</tr>
+<tr>
+<td align="center">上手十分简单</td>
+<td align="center">入门稍难</td>
+</tr>
+</tbody></table>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>Scrapy是为持续运行设计的专业爬虫框架，提供操作的Scrap命令行，其格式为：</p>
+<pre><code class="bash">&gt;scrapy &lt;command&gt; [options] [args]</code></pre>
+<p>常用命令（command）</p>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">说明</th>
+<th align="center">格式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>startproject</strong></td>
+<td align="center">创建一个新工程</td>
+<td align="center">scrapy startproject <name> [dir]</name></td>
+</tr>
+<tr>
+<td align="center"><strong>genspider</strong></td>
+<td align="center">创建一个爬虫</td>
+<td align="center">scrapy genspider [options] <name> [domain]</name></td>
+</tr>
+<tr>
+<td align="center">settings</td>
+<td align="center">获得爬虫配置信息</td>
+<td align="center">scrapy settings [options]</td>
+</tr>
+<tr>
+<td align="center"><strong>crawl</strong></td>
+<td align="center">运行一个爬虫</td>
+<td align="center">scrapy crawl <spider></spider></td>
+</tr>
+<tr>
+<td align="center">list</td>
+<td align="center">列出工程中所有爬虫</td>
+<td align="center">scrapy list</td>
+</tr>
+<tr>
+<td align="center">shell</td>
+<td align="center">启动URL调试命令行</td>
+<td align="center">scrapy shell <url></url></td>
+</tr>
+</tbody></table>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h4><pre><code class="powershell">scrapy startproject demo</code></pre>
+<p>会产生如下文件：</p>
+<ul>
+<li>demo/：外层目录<ul>
+<li>scrapy.cfg：部署 Scrap爬虫的配置文件（服务器上用，本地无需）</li>
+<li>demo/：Scrap框架的用户自定义 Python代码<ul>
+<li>__init__.py：初始化脚本</li>
+<li>items.py：Items代码模板(继承类)</li>
+<li>middlewares.py：Middlewares代码模板(继承类)</li>
+<li>pipelines.py：Pipelines代码模板(继承类)</li>
+<li>settings：Scrap爬虫的配置文件</li>
+<li>spiders/：Spiders代码模板目录(继承类)<ul>
+<li>__pycache__/：缓存目录,无需修改</li>
+<li>__init__.py：初始化脚本</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="产生爬虫"><a href="#产生爬虫" class="headerlink" title="产生爬虫"></a>产生爬虫</h4><pre><code class="powershell">cd 
+scrapy genspider demopython123 python123.io#名字 网站</code></pre>
+<p>注意：爬虫名字不能和工程同名</p>
+<p>会在<code>demo\demo\spiders\</code>下增加<code>demopython123.py</code>：</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class Demopython123Spider(scrapy.Spider):#必须继承自scrapy.Spider
+    name = &#39;demopython123&#39;#爬虫名字
+    allowed_domains = [&#39;python123.io&#39;]#要爬取的域名
+    start_urls = [&#39;http://python123.io/&#39;]#框架要爬取的初始页面
+
+    def parse(self, response):
+        pass</code></pre>
+<ul>
+<li><code>parse()</code>用于处理响应,解析内容形成字典,发现新的URL爬取请求</li>
+</ul>
+<h4 id="配置爬虫"><a href="#配置爬虫" class="headerlink" title="配置爬虫"></a>配置爬虫</h4><p>修改<code>demopython123.py</code>：</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class Demopython123Spider(scrapy.Spider):
+    name = &#39;demopython123&#39;
+    #allowed_domains = [&#39;python123.io&#39;]
+    start_urls = [&#39;http://python123.io/ws/demo.html&#39;]#需要爬取的页面
+
+    #response：从网络中返回内容所存储的或对应的对象
+    def parse(self, response):#爬取功能
+        fname = response.url.split(&#39;/&#39;)[-1]
+        with open(fname,&#39;wb&#39;) as f:
+            f.write(response.body)
+        sele.log(&#39;Save file %s.&#39; % fname)
+        pass</code></pre>
+<h4 id="运行爬虫"><a href="#运行爬虫" class="headerlink" title="运行爬虫"></a>运行爬虫</h4><pre><code class="powershell">scrapy crawl demopython123</code></pre>
+<p>捕获页面最终会在<code>\demo\demo.html</code>处</p>
+<p>但是实际上，生成的<code>demopython123.py</code>文件是简化版，完整版的如下：</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+
+
+class Demopython123Spider(scrapy.Spider):#必须继承自scrapy.Spider
+    name = &#39;demopython123&#39;#爬虫名字
+
+    def start_request(self):
+        urls = [
+            &#39;http://python123.io/ws/demo.html&#39;
+        ]
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse)
+
+    def parse(self, response):
+        pass</code></pre>
+<p>完整版和简化版的区别就在于将简化版中的start_urls变量改为了利用<code>yield</code>生成器的函数start_request</p>
+<h3 id="Scrap爬虫的使用步骤"><a href="#Scrap爬虫的使用步骤" class="headerlink" title="Scrap爬虫的使用步骤"></a>Scrap爬虫的使用步骤</h3><ul>
+<li>步骤1:创建一个工程和 Spider模板</li>
+<li>步骤2:编写 Spider</li>
+<li>步骤3:编写 Item Pipeline</li>
+<li>步骤4:优化配置策略</li>
+</ul>
+<p>涉及到的类：</p>
+<ul>
+<li>Request类：向网络上提交请求的内容</li>
+<li>Response类：从网络中爬取内容的封装类</li>
+<li>Item类：由Spider产生的信息而封装的类</li>
+</ul>
+<h4 id="Request类"><a href="#Request类" class="headerlink" title="Request类"></a>Request类</h4><p>class scrapy.http.Request()</p>
+<ul>
+<li>表示一个Request对象</li>
+<li>由 Spider生成,由 Downloader执行.</li>
+</ul>
+<p>属性或方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性或方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.url</td>
+<td align="center">Request对应的请求URL地址</td>
+</tr>
+<tr>
+<td align="center">.method</td>
+<td align="center">对应的请求方法，’GET’、’POST’等</td>
+</tr>
+<tr>
+<td align="center">.headers</td>
+<td align="center">字典类型风格的请求头</td>
+</tr>
+<tr>
+<td align="center">.body</td>
+<td align="center">请求内容主体，字符串类型</td>
+</tr>
+<tr>
+<td align="center">.meta</td>
+<td align="center">用户添加的扩展信息，在 Scrapy内部模块间传递信息使用</td>
+</tr>
+<tr>
+<td align="center">.copy()</td>
+<td align="center">复制该请求</td>
+</tr>
+</tbody></table>
+<h4 id="Response类"><a href="#Response类" class="headerlink" title="Response类"></a>Response类</h4><p>class scrapy.http.Response()</p>
+<ul>
+<li>Response对象表示一个HTTP响应</li>
+<li>由 Downloader生成,由 Spider处理</li>
+</ul>
+<p>属性或方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性或方法</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.url</td>
+<td align="center">Response对应的请求URL地址</td>
+</tr>
+<tr>
+<td align="center">.status</td>
+<td align="center">HTTP状态码，默认是200</td>
+</tr>
+<tr>
+<td align="center">.headers</td>
+<td align="center">Response对应的头部信息</td>
+</tr>
+<tr>
+<td align="center">.body</td>
+<td align="center">Response对应的内容信息，字符串类型</td>
+</tr>
+<tr>
+<td align="center">.flags</td>
+<td align="center">一组标记</td>
+</tr>
+<tr>
+<td align="center">.request</td>
+<td align="center">产生 Response类型对应的 Request对象</td>
+</tr>
+<tr>
+<td align="center">.copy()</td>
+<td align="center">复制该响应</td>
+</tr>
+</tbody></table>
+<h4 id="Item类"><a href="#Item类" class="headerlink" title="Item类"></a>Item类</h4><p>class scrapy.http.Item()</p>
+<ul>
+<li>Item对象表示一个从HTML页面中提取的信息内容</li>
+<li>由 Spider生成,由 Item Pipeline处理</li>
+<li>Item类似字典类型，可以按照字典类型操作</li>
+</ul>
+<p>Scrapy爬虫支持多种HTML信息提取方法：</p>
+<ul>
+<li>Beautiful Soup</li>
+<li>Ixml</li>
+<li>re</li>
+<li>XPath Selector</li>
+<li>CSS Selector</li>
+</ul>
+<h4 id="CSS-Selector基本使用"><a href="#CSS-Selector基本使用" class="headerlink" title="CSS Selector基本使用"></a>CSS Selector基本使用</h4><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>建立工程</p>
+<pre><code class="powershell">scrapy startproject BaiduStocks
+cd BaiduStocks
+scrapy genspider stocks baidu.com</code></pre>
+<p>修改<code>spiders\stocks.py</code>文件：</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+import scrapy
+import re
+
+class StocksSpider(scrapy.Spider):#必须继承自scrapy.Spider
+    name = &#39;stocks&#39;#爬虫名字
+    start_urls = [&#39;http://quote.eastmoney.com/stocklist.html/&#39;]#框架要爬取的初始页面
+
+    def parse(self, response):
+        for href in response.css(&#39;a::attr(href)&#39;).extract():
+            try:
+                stock = re.findall(r&quot;[s][hz]\d{6}&quot;,href)[0]
+                url = &#39;htps://gupiao.baidu.com/stock&#39; + stock + &#39;.html&#39;
+                yield scrapy.Request(url, callback=self.parse_stock)#处理该url的回调函数
+            except:
+                continue
+
+    def parse_stock(self, response):
+        infoDict = {}
+        stockInfo = response.css(&#39;.stock-bets&#39;)
+        name = stockInfo.css(&#39;.bets-name&#39;).extract()[0]
+        keyList = stockInfo.css(&#39;dt&#39;).extract()
+        valueList = stockInfo.css(&#39;dd&#39;).extract()
+        for i in range(len(keyList)):
+            key = re.findall(r&#39;&gt;.*&lt;/dt&gt;&#39;, keyList[i])[0][1:-5]
+            try:
+                val = re.findall(r&#39;\d+\.?.*&lt;/dd&gt;&#39;, valueList[i])[0][0:-5]
+            except:
+                val = &#39;--&#39;
+            infoDict[key] = val
+        infoDict.update(
+            {&#39;股票名称&#39;: re.findall(r&#39;\s.*\(&#39;, name)[0].split()[0] + \
+             re.findall(r&#39;&gt;.*\&lt;&#39;, name)[0][1:-1]})
+        yield infoDict</code></pre>
+<p>编写Pipelines</p>
+<ul>
+<li>配置pipelines.py文件</li>
+<li>定义对爬取项（Scraped Item）的处理类</li>
+</ul>
+<pre><code class="python"># -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don&#39;t forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+class BaiduStocksPipeline(object):
+    def process_item(self, item, spider):
+        return item
+
+class BaiduStocksInfoPipeline(object):#自己写的新的类
+    def open_spider(self, spider):#爬虫被调用时对应的pipeline启动的方法
+        self.f = open(&#39;BaiduStocksInfo.txt&#39;, &#39;w&#39;)
+
+    def open_spider(self, spider):#爬虫关闭或结束时对应的pipeline方法
+        self.f.close()
+
+    def process_item(self, item, spider):#对每一个item项进行处理时对应的方法，pipeline中主体函数
+        try:
+            line = str(dict(item)) + &#39;\n&#39;
+            self.f.write(line)
+        except:
+            pass
+        return item</code></pre>
+<p>将新的类让框架知道，修改settings.py：</p>
+<pre><code class="python"># -*- coding: utf-8 -*-
+...
+
+# Configure item pipelines
+# See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+ITEM_PIPELINES = {
+    &#39; BaiduStocks.pipelines. BaiduStocksInfoPipeline&#39;: 300,
+}# 修改该参数，由 BaiduStocks.pipelines. BaiduStocksPipeline 改为BaiduStocks.pipelines. BaiduStocksInfoPipeline
+
+...</code></pre>
+<p>执行程序：</p>
+<pre><code class="powershell">scrapy crawl stocks</code></pre>
+<p>优化：</p>
+<p>settings.py文件提供如下配置：</p>
+<table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CONCURRENT_REQUESTS</td>
+<td align="center">Downloader最大并发请求下载数量，默认32</td>
+</tr>
+<tr>
+<td align="center">CONCURRENT_ITEMS</td>
+<td align="center">Item Pipeline最大井发ITEM处理数量，默认100</td>
+</tr>
+<tr>
+<td align="center">CONCURRENT_REQUESTS_PER_DOMAIN</td>
+<td align="center">每个目标域名最大的并发请求数量，默认8</td>
+</tr>
+<tr>
+<td align="center">CONCURRENT_ REQUESTS_PER_IP</td>
+<td align="center">每个目标IP最大的并发请求数量，默认0，非0有效</td>
+</tr>
+</tbody></table>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎指出任何有错误或不够清晰的表达。邮件：1125934312@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>python爬虫</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">13.1k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-02-18, 23:40:18</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-27, 12:42:01</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/18/python爬虫/" title="python爬虫">http://NU-LL.github.io/2020/02/18/python爬虫/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 NU-LL</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Docker','#Latex','#Ctex','#DM9000C','#网卡移植','#文件描述符','#IIC驱动','#Kconfig语法','#Linux内核','#LiCheePi Zero','#Mininet','#字符驱动','#Markdown','#git','#Xmanager','#远程链接','#network namespace','#等待队列','#wait_queue_head_t','#wait_queue_t','#NanoPi Neo Core','#python实战','#markdownlint','#u-boot','#IAP','#BootLoader','#dual bank','#二维数组','#指针','#存储器','#快速排序','#根文件系统','#按键驱动','#poll机制','#异步通知机制','#python','#爬虫','#深度学习','#TensorFlow2','#输入子系统','#网卡驱动框架','#虚拟网卡','#设备树','#Go语言入门经典','#廖雪峰python教程',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <title>SVM（线性模型）数学推导 | 无名小卒</title>
+  <meta name="keywords" content=" SVM ">
+  <meta name="description" content="SVM（线性模型）数学推导 | 无名小卒">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="关于">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://NU-LL.github.io/about/index.html">
+<meta property="og:site_name" content="无名小卒">
+<meta property="og:description" content="关于">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-21T14:30:10.192Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="about">
+<meta name="twitter:description" content="关于">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1" rel="stylesheet">
+
+<link href="/css/hl_theme/github.css?v=1" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js?v=1"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script src="/js/iconfont.js?v=1"></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+  <input class="theme_blog_path" value>
+</div>
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar.jpg" />
+</a>
+<div class="author">
+    <span>NU-LL</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+        <a title="github" href="https://github.com/NU-LL" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-github"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <a title="csdn" href="https://blog.csdn.net/CSDN_JZ_" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-csdn"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+    
+        
+        <a title="email" href="mailto:1125934312@qq.com" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-email"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=1125934312&site=qq&menu=yes" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-qq"></use>
+                </svg>
+            
+        </a>
+        
+    
+        
+    
+        
+        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=323374922" target="_blank">
+            
+                <svg class="iconfont-svg" aria-hidden="true">
+                    <use xlink:href="#icon-neteasemusic"></use>
+                </svg>
+            
+        </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li><div class="all active">全部文章<small>(44)</small></div></li>
+    
+        
+            
+            <li><div data-rel="编程语言">编程语言<small>(6)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="MCU">MCU<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="Linux">Linux<small>(25)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="工具">工具<small>(4)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="人工智能">人工智能<small>(3)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="感悟与总结">感悟与总结<small>(2)</small></div>
+                
+            </li>
+            
+        
+    
+        
+            
+            <li><div data-rel="算法">算法<small>(1)</small></div>
+                
+            </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="44">
+<input type="hidden" id="yelog_site_word_count" value="288.7k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://github.com/NU-LL">NU-LL</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+            <label for="tagswitch">Tags:</label>
+            <input id="tagswitch" type="checkbox" style="display: none" />
+            <i id="tagsWitchIcon"></i>
+        </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">GO</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">ESP32</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Docker</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">DM9000C</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">网卡移植</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">ESP8266</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Latex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Ctex</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">IIC驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Linux服务</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Linux内核</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">文件描述符</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">LiCheePi Zero</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Kconfig语法</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Mininet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">NanoPi Neo Core</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">SVM</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">TensorFlow2</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Markdown</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Xmanager</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">远程链接</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">字符驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">数据分析</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">等待队列</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_head_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">wait_queue_t</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">network namespace</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">markdownlint</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Kubernetes</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">python</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">爬虫</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">python实战</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">存储器</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">二维数组</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">指针</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">u-boot</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">IAP</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">BootLoader</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">dual bank</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">按键驱动</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">poll机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">异步通知机制</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">根文件系统</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">快速排序</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">设备树</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">网卡驱动框架</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">虚拟网卡</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">输入子系统</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Go语言入门经典</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">驱动API</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">深度学习</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">廖雪峰python教程</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="编程语言 "
+           href="/2020/05/09/C和GO的语法对比/"
+           data-tag="GO"
+           data-author="" >
+            <span class="post-title" title="C和GO的语法对比">C和GO的语法对比</span>
+            <span class="post-date" title="2020-05-09 19:55:39">2020/05/09</span>
+        </a>
+        
+        <a  class="MCU "
+           href="/2020/05/16/ESP32/"
+           data-tag="ESP32"
+           data-author="" >
+            <span class="post-title" title="ESP8266">ESP8266</span>
+            <span class="post-date" title="2020-05-16 10:30:54">2020/05/16</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/01/16/Docker/"
+           data-tag="Docker"
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2020-01-16 20:14:51">2020/01/16</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/04/DM9000C网卡移植/"
+           data-tag="DM9000C,网卡移植"
+           data-author="" >
+            <span class="post-title" title="DM9000C网卡移植">DM9000C网卡移植</span>
+            <span class="post-date" title="2019-08-04 23:07:22">2019/08/04</span>
+        </a>
+        
+        <a  class="MCU "
+           href="/2020/04/28/ESP8266/"
+           data-tag="ESP8266"
+           data-author="" >
+            <span class="post-title" title="ESP8266">ESP8266</span>
+            <span class="post-date" title="2020-04-28 14:27:54">2020/04/28</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/08/19/Latex排版全解/"
+           data-tag="Latex,Ctex"
+           data-author="" >
+            <span class="post-title" title="Latex排版全解">Latex排版全解</span>
+            <span class="post-date" title="2019-08-19 16:02:27">2019/08/19</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/05/IIC驱动/"
+           data-tag="IIC驱动"
+           data-author="" >
+            <span class="post-title" title="IIC驱动">IIC驱动</span>
+            <span class="post-date" title="2019-08-05 14:39:10">2019/08/05</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/03/28/Linux上常见服务搭建/"
+           data-tag="Linux服务"
+           data-author="" >
+            <span class="post-title" title="Linux上常见服务搭建">Linux上常见服务搭建</span>
+            <span class="post-date" title="2020-03-28 01:27:58">2020/03/28</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/13/Linux内核启动流程/"
+           data-tag="Linux内核"
+           data-author="" >
+            <span class="post-title" title="Linux内核启动流程">Linux内核启动流程</span>
+            <span class="post-date" title="2019-08-13 16:13:46">2019/08/13</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/Linux编程--文件描述符fd/"
+           data-tag="文件描述符"
+           data-author="" >
+            <span class="post-title" title="Linux编程--文件描述符fd">Linux编程--文件描述符fd</span>
+            <span class="post-date" title="2019-07-21 10:13:47">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/18/LiCheePi_Zero底层开发/"
+           data-tag="LiCheePi Zero"
+           data-author="" >
+            <span class="post-title" title="LiCheePi_Zero底层开发">LiCheePi_Zero底层开发</span>
+            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/15/Kconfig文件语法分析/"
+           data-tag="Kconfig语法"
+           data-author="" >
+            <span class="post-title" title="Kconfig文件语法分析">Kconfig文件语法分析</span>
+            <span class="post-date" title="2019-08-15 19:38:40">2019/08/15</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/02/13/Mininet/"
+           data-tag="Mininet"
+           data-author="" >
+            <span class="post-title" title="Mininet">Mininet</span>
+            <span class="post-date" title="2020-02-13 18:37:12">2020/02/13</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/18/NanoPi_Neo_Core底层开发/"
+           data-tag="NanoPi Neo Core"
+           data-author="" >
+            <span class="post-title" title="NanoPi_Neo_Core底层开发">NanoPi_Neo_Core底层开发</span>
+            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
+        </a>
+        
+        <a  class="人工智能 "
+           href="/2020/06/05/SVM/"
+           data-tag="SVM"
+           data-author="" >
+            <span class="post-title" title="SVM（线性模型）数学推导">SVM（线性模型）数学推导</span>
+            <span class="post-date" title="2020-06-05 21:12:53">2020/06/05</span>
+        </a>
+        
+        <a  class="人工智能 "
+           href="/2020/05/03/TensorFlow2/"
+           data-tag="TensorFlow2"
+           data-author="" >
+            <span class="post-title" title="TensorFlow2入门与实践">TensorFlow2入门与实践</span>
+            <span class="post-date" title="2020-05-03 00:52:53">2020/05/03</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/07/12/Markdown 语法整理/"
+           data-tag="Markdown"
+           data-author="" >
+            <span class="post-title" title="Markdown 语法整理">Markdown 语法整理</span>
+            <span class="post-date" title="2019-07-12 13:57:24">2019/07/12</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/11/08/Xmanager远程Ubuntu系统图像化界面/"
+           data-tag="Xmanager,远程链接"
+           data-author="" >
+            <span class="post-title" title="Xmanager远程Ubuntu系统图像化界面">Xmanager远程Ubuntu系统图像化界面</span>
+            <span class="post-date" title="2019-11-08 22:58:53">2019/11/08</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/RTC驱动分析/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="RTC驱动分析">RTC驱动分析</span>
+            <span class="post-date" title="2019-08-07 13:37:33">2019/08/07</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/03/10/Python数据分析与展示/"
+           data-tag="数据分析"
+           data-author="" >
+            <span class="post-title" title="Python数据分析与展示">Python数据分析与展示</span>
+            <span class="post-date" title="2020-03-10 15:10:50">2020/03/10</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/linux等待队列wait_queue_head_t和wait_queue_t/"
+           data-tag="等待队列,wait_queue_head_t,wait_queue_t"
+           data-author="" >
+            <span class="post-title" title="linux等待队列wait_queue_head_t和wait_queue_t">linux等待队列wait_queue_head_t和wait_queue_t</span>
+            <span class="post-date" title="2019-07-21 18:18:54">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/02/10/linux 网络虚拟化： network namespace 简介/"
+           data-tag="network namespace"
+           data-author="" >
+            <span class="post-title" title="linux 网络虚拟化： network namespace 简介">linux 网络虚拟化： network namespace 简介</span>
+            <span class="post-date" title="2020-02-10 14:24:09">2020/02/10</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/09/17/markdownlint规则详细介绍/"
+           data-tag="markdownlint"
+           data-author="" >
+            <span class="post-title" title="VSC插件之markdownlint规则详细介绍">VSC插件之markdownlint规则详细介绍</span>
+            <span class="post-date" title="2019-09-17 15:00:13">2019/09/17</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2019/09/17/git/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2019-09-17 09:59:56">2019/09/17</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/03/15/kubernetes/"
+           data-tag="Kubernetes"
+           data-author="" >
+            <span class="post-title" title="Kubernetes">Kubernetes</span>
+            <span class="post-date" title="2020-03-15 13:48:53">2020/03/15</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/02/18/python爬虫/"
+           data-tag="python,爬虫"
+           data-author="" >
+            <span class="post-title" title="python爬虫">python爬虫</span>
+            <span class="post-date" title="2020-02-18 23:40:18">2020/02/18</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/01/29/python实战/"
+           data-tag="python实战"
+           data-author="" >
+            <span class="post-title" title="python实战">python实战</span>
+            <span class="post-date" title="2020-01-29 21:36:32">2020/01/29</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/11/各种存储器的区别/"
+           data-tag="存储器"
+           data-author="" >
+            <span class="post-title" title="各种存储器的区别">各种存储器的区别</span>
+            <span class="post-date" title="2019-08-11 10:57:19">2019/08/11</span>
+        </a>
+        
+        <a  class="感悟与总结 "
+           href="/2019/08/06/二维数组与指针的一些问题/"
+           data-tag="二维数组,指针"
+           data-author="" >
+            <span class="post-title" title="二维数组与指针的一些问题">二维数组与指针的一些问题</span>
+            <span class="post-date" title="2019-08-06 13:11:26">2019/08/06</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/12/u-boot分析与使用/"
+           data-tag="u-boot"
+           data-author="" >
+            <span class="post-title" title="u-boot分析与使用">u-boot分析与使用</span>
+            <span class="post-date" title="2019-08-12 19:16:50">2019/08/12</span>
+        </a>
+        
+        <a  class="MCU "
+           href="/2019/11/12/基于STM32L476的IAP升级/"
+           data-tag="IAP,BootLoader,dual bank"
+           data-author="" >
+            <span class="post-title" title="基于STM32L476的IAP升级">基于STM32L476的IAP升级</span>
+            <span class="post-date" title="2019-11-12 22:47:40">2019/11/12</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/21/按键驱动——poll机制/"
+           data-tag="按键驱动,poll机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动——poll机制">按键驱动——poll机制</span>
+            <span class="post-date" title="2019-07-21 20:30:38">2019/07/21</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/22/按键驱动：异步通知机制/"
+           data-tag="按键驱动,异步通知机制"
+           data-author="" >
+            <span class="post-title" title="按键驱动：异步通知机制">按键驱动：异步通知机制</span>
+            <span class="post-date" title="2019-07-22 19:04:24">2019/07/22</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/14/构造根文件系统/"
+           data-tag="根文件系统"
+           data-author="" >
+            <span class="post-title" title="构造根文件系统">构造根文件系统</span>
+            <span class="post-date" title="2019-08-14 20:18:45">2019/08/14</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/07/字符驱动设备的另一种写法/"
+           data-tag="字符驱动"
+           data-author="" >
+            <span class="post-title" title="字符驱动设备的另一种写法">字符驱动设备的另一种写法</span>
+            <span class="post-date" title="2019-08-07 12:20:30">2019/08/07</span>
+        </a>
+        
+        <a  class="算法 "
+           href="/2019/07/29/快速排序/"
+           data-tag="快速排序"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-07-29 22:27:34">2019/07/29</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/10/13/设备树/"
+           data-tag="设备树"
+           data-author="" >
+            <span class="post-title" title="设备树">设备树</span>
+            <span class="post-date" title="2019-10-13 15:53:24">2019/10/13</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/04/网卡驱动程序/"
+           data-tag="网卡驱动框架,虚拟网卡"
+           data-author="" >
+            <span class="post-title" title="网卡驱动程序">网卡驱动程序</span>
+            <span class="post-date" title="2019-08-04 21:24:07">2019/08/04</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/07/25/输入子系统/"
+           data-tag="按键驱动,输入子系统"
+           data-author="" >
+            <span class="post-title" title="输入子系统">输入子系统</span>
+            <span class="post-date" title="2019-07-25 00:05:15">2019/07/25</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2019/10/23/Go语言/"
+           data-tag="Go语言入门经典"
+           data-author="" >
+            <span class="post-title" title="Go语言">Go语言</span>
+            <span class="post-date" title="2019-10-23 21:07:25">2019/10/23</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2020/04/06/Linux驱动常用API整理/"
+           data-tag="驱动API"
+           data-author="" >
+            <span class="post-title" title="Linux驱动常用API整理">Linux驱动常用API整理</span>
+            <span class="post-date" title="2020-04-06 22:48:09">2020/04/06</span>
+        </a>
+        
+        <a  class="Linux "
+           href="/2019/08/12/u-boot分析与使用/u-boot分析与使用 - 老版本备份/"
+           data-tag="u-boot"
+           data-author="" >
+            <span class="post-title" title="u-boot分析与使用">u-boot分析与使用</span>
+            <span class="post-date" title="2019-08-12 19:16:50">2019/08/12</span>
+        </a>
+        
+        <a  class="人工智能 "
+           href="/2020/01/03/深度学习与TensorFlow2/"
+           data-tag="TensorFlow2,深度学习"
+           data-author="" >
+            <span class="post-title" title="深度学习与TensorFlow2">深度学习与TensorFlow2</span>
+            <span class="post-date" title="2020-01-03 21:04:26">2020/01/03</span>
+        </a>
+        
+        <a  class="编程语言 "
+           href="/2020/01/10/python/"
+           data-tag="廖雪峰python教程"
+           data-author="" >
+            <span class="post-title" title="Python">Python</span>
+            <span class="post-date" title="2020-01-10 20:18:52">2020/01/10</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-SVM" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">SVM（线性模型）数学推导</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            
+                <a href="javascript:" data-rel="人工智能">人工智能</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color4">SVM</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2020-06-05 21:14:31'>2020-06-05 21:12</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:5.2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SVM（线性模型）数学推导"><span class="toc-text">SVM（线性模型）数学推导</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个重要的概念"><span class="toc-text">几个重要的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求解超平面转化为下列优化问题"><span class="toc-text">求解超平面转化为下列优化问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SVM（非线性模型）数学推导"><span class="toc-text">SVM（非线性模型）数学推导</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#改写优化目标函数和限制条件"><span class="toc-text">改写优化目标函数和限制条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#低维到高维的映射"><span class="toc-text">低维到高维的映射</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核函数"><span class="toc-text">核函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原问题和对偶问题"><span class="toc-text">原问题和对偶问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#强对偶定理"><span class="toc-text">强对偶定理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将SVM原问题转化为对偶问题"><span class="toc-text">将SVM原问题转化为对偶问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核函数SVM算法总结"><span class="toc-text">核函数SVM算法总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SVM处理多分类问题"><span class="toc-text">SVM处理多分类问题</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="SVM（线性模型）数学推导"><a href="#SVM（线性模型）数学推导" class="headerlink" title="SVM（线性模型）数学推导"></a>SVM（线性模型）数学推导</h1><p>作者：<a href="https://github.com/zihuanqiu" target="_blank" rel="noopener">zihuanqiu</a></p>
+<p><img src="//NU-LL.github.io/2020/06/05/SVM/%5CSVM.assets%5C1590504502746.png" alt="1590504502746"></p>
+<p>学习路线：先线性二分类解释清楚，再加入核方法扩展至非线性二分类</p>
+<h2 id="几个重要的概念"><a href="#几个重要的概念" class="headerlink" title="几个重要的概念"></a>几个重要的概念</h2><ol>
+<li><p>训练样本集</p>
+<p>$(\boldsymbol{x}_i,y_i)$，其中$\boldsymbol{x_i}$为$n$维列向量，表示$n$维特征；$y_i$为标签，当$y_i=+1$时为正样本，$y_i=-1$时为负样本。</p>
+<p>则训练样本集为：$D=\left{ \left( \boldsymbol{x}_{\boldsymbol{1}},y_1 \right) ,\left( \boldsymbol{x}_2,y_2 \right) ,\cdots ,\left( \boldsymbol{x}_m,y_m \right) \right} , y\in \left{ -1,+1 \right} $</p>
+</li>
+</ol>
+<ol start="2">
+<li><p>什么叫超平面</p>
+<p>如上图，若在二维空间内（两个特征），若数据为线性可分，则可以用一条直线将正负样本区分开来（2分类问题）；若在三维空间则为一个平面；三维空间以上无法想象统称为超平面。</p>
+<p>但上图中区分正负样本肯定又不止一种划分方法，何者为最优？最优者才叫做SVM的超平面。</p>
+<p>最优的判断标准则是，若对数据样本加以扰动（可以理解为采样样本总有误差），那么SVM超平面具有最佳的鲁棒性。从几何上来看，在上图中，若将超平面左右平移，直至触碰到最近的样本，那么这个被界定的范围记为$d$，则SVM的超平面是有最大$d$的那个超平面。</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>什么叫支持向量</p>
+<p>SVM超平面左右平移最先触碰到的为支持向量</p>
+</li>
+</ol>
+<ol start="4">
+<li><p>超平面的方程<br>$$<br>\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b=0<br>$$<br>其中：$\boldsymbol{w}$和$\boldsymbol{x}$都是$n\times 1$的列向量，$n$是特征维数。$b$为标量；$\boldsymbol{w}$还是超平面的法向量，$b$控制了超平面到原点的距离。确定了$\boldsymbol{w}$和$b$，超平面就被完全确定了。</p>
+<p>那么在超平面上方数据$\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b&gt;0 $；在超平面下方数据$\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b&lt;0 $；</p>
+</li>
+</ol>
+<ol start="5">
+<li><p>$\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b=0$与$\zeta\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+\zeta b=0$表示的是同一个超平面</p>
+<blockquote>
+<p>如：$4x+4y=0$ 和 $ x+y=0$是同一个平面，$4x+4y=4 $和$ x+y=1$也是同一个平面</p>
+</blockquote>
+</li>
+</ol>
+<ol start="6">
+<li><p>线性可分数据集的定义</p>
+<p>在数据集$\left{ \left( \boldsymbol{x}_i,y_i \right) \right} _{i=1\sim m}$中，$\exists \left( \boldsymbol{w},b \right) $，使得对于$\forall i=1 \sim m$，有：<br>$$<br>\begin{cases}</p>
+<pre><code>\text{若}y_i=+1, \text{则}\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}_{\boldsymbol{i}}+b&gt; 0\\
+\text{若}y_i=-1, \text{则}\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}_{\boldsymbol{i}}+b&lt; 0\\</code></pre><p>\end{cases}<br>$$<br>即正样本全部分到上方，负样本全部分到下方</p>
+<p>等价于 $y_i(\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}_{\boldsymbol{i}}+b)&gt; 0$</p>
+</li>
+</ol>
+<ol start="7">
+<li><p>点到平面距离公式</p>
+<p>点$(x_0,y_0)$到平面$w_1x+w_2y+b=0$的距离表示为：<br>$$<br>d=\frac{\left| w_1x_0+w_2y_0+b \right|}{\sqrt{w_{1}^{2}+w_{2}^{2}}}<br>$$<br>则样本点到超平面的距离表示为：<br>$$<br>d=\frac{\left| \boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}_{\boldsymbol{i}}+b \right|}{\lVert \boldsymbol{w} \rVert}<br>$$</p>
+</li>
+<li><p>若假设支持向量过超平面的平行线为$\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b=1$和$\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b=-1$（如上图所示），那么可求得</p>
+<p>支持向量到超平面的距离为:<br>$$<br>d=\frac{1}{\lVert \boldsymbol{w} \rVert}<br>$$<br>那么超平面左右平移被限制的范围（即两个异类支持向量到超平面的距离之和）为：<br>$$<br>\varUpsilon =\frac{2}{\lVert \boldsymbol{w} \rVert}<br>$$<br>$\varUpsilon$被称为SVM的“间隔”（margin）</p>
+</li>
+</ol>
+<blockquote>
+<p>为什么可以假设支持向量过超平面的平行线为$\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b=1$和$\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b=-1$呢？正如上面第5点所述，由于$\boldsymbol{W}$和$b$可以整体缩放倍数，超平面不变。那么总可以通过$\zeta \cdot \left( \boldsymbol{w},b \right) \rightarrow \left( \boldsymbol{w’},b’ \right) $，使$\left| \boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}+b \right|=1$。归一化的操作为我们带来便利</p>
+</blockquote>
+<h2 id="求解超平面转化为下列优化问题"><a href="#求解超平面转化为下列优化问题" class="headerlink" title="求解超平面转化为下列优化问题"></a>求解超平面转化为下列优化问题</h2><p>在限制条件 $y_i(w^Tx_i+b)\geqslant 1,i=1\sim m$ 下，最小化 $\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2$ 的问题</p>
+<p>即：<br>$$<br>\begin{align}<br>&amp;\underset{\boldsymbol{w},b}{\min},,\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2<br>\<br>&amp;s.t.\quad y_i(\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}_{\boldsymbol{i}}+b)\geqslant 1,i=1\sim m<br>\end{align}<br>$$</p>
+<blockquote>
+<p>最大化$\varUpsilon =\frac{2}{\lVert \boldsymbol{w} \rVert}$等价于最小化$\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2$，而限制条件$y_i(w^Tx_i+b)\geqslant 1,i=1\sim m$表示求解超平面的前提条件是所有样本都被正确分类的情况下</p>
+</blockquote>
+<p>这样就把支持向量机的求解转化为凸优化问题中的二次规划问题</p>
+<blockquote>
+<p>二次规划（Quadratic Programming）</p>
+<ol>
+<li>目标函数（Objective Function）为二次项</li>
+<li>限制条件为一次项</li>
+</ol>
+<p>要么无解，要么只有一个极值</p>
+</blockquote>
+<h1 id="SVM（非线性模型）数学推导"><a href="#SVM（非线性模型）数学推导" class="headerlink" title="SVM（非线性模型）数学推导"></a>SVM（非线性模型）数学推导</h1><p>若数据集非线性可分，那么线性SVM的优化问题会变得无解。通过加入正则项，可以使SVM应用于非线性可分的数据集。</p>
+<h2 id="改写优化目标函数和限制条件"><a href="#改写优化目标函数和限制条件" class="headerlink" title="改写优化目标函数和限制条件"></a>改写优化目标函数和限制条件</h2><p>$$<br>\begin{align}<br>    &amp;\underset{\boldsymbol{w},b}{\min},,\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2+C\sum_{i=1}^m{\xi <em>i}\<br>    &amp;s.t.\quad \begin{cases}<br>    y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}</em>{\boldsymbol{i}}+b \right) \geqslant 1-\xi _i\<br>    \xi _i\geqslant 0\<br>\end{cases},i=1\sim m\<br>\end{align}<br>\tag{1} \label{eq:1}<br>$$</p>
+<p>其中：$\xi_i$称为松弛变量（Slack  Variable），$\sum_{i=1}^m{\xi _i}$称为正则项</p>
+<blockquote>
+<p>若$\xi_i$足够大，则限制条件可以被轻易满足（即为限制条件加入了容忍度）。但$\xi_i$又不能太大，那么限制条件就失去了意义。因此在优化目标函数里需要添加$\xi_i$，并用一个超参数$C$来权衡最小化$\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2$与最小化$\sum_{i=1}^m{\xi _i}$之间的关系</p>
+</blockquote>
+<h2 id="低维到高维的映射"><a href="#低维到高维的映射" class="headerlink" title="低维到高维的映射"></a>低维到高维的映射</h2><p>改写优化目标函数和限制条件后的SVM可以应用于非线性可分的数据集中。但是这样的SVM仍然是在试图寻找一条直线将正负样本划分，在某些情况下这仍然不够好，例如：</p>
+<img src="\SVM.assets\1590496039067.png" alt="1590496039067">
+
+
+
+<p>不同于其他机器学习算法，SVM试图通过高维映射，使低维空间的线性不可分问题变成高维空间中的线性可分问题，从而在高维空间中画出超平面对数据集进行划分。</p>
+<p>我们定义高维映射$\varphi (\boldsymbol{x})$：<br>$$<br>\boldsymbol{x}\xrightarrow{\varphi }\varphi  \left( \boldsymbol{x} \right)<br>$$</p>
+<blockquote>
+<p>其中$\boldsymbol{x}$是低维向量，而$\varphi (\boldsymbol{x})$为高维向量</p>
+</blockquote>
+<p>那么SVM的优化条件变为：<br>$$<br>\begin{align}<br>&amp;\underset{\boldsymbol{w},b}{\min},,\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2 +C\sum_{i=1}^m{\xi _i}</p>
+<p>\<br>&amp;s.t.\quad \begin{cases}<br>    y_i(\boldsymbol{w}^{\boldsymbol{T}}\varphi  (\boldsymbol{x}_{\boldsymbol{i}})+b) \geqslant 1-\xi _i\<br>    \xi _i\geqslant 0\<br>\end{cases},i=1\sim m<br>\end{align}<br>$$</p>
+<blockquote>
+<p>此时$\boldsymbol{w}$的维度也升高了，与$\varphi (\boldsymbol{x})$的维度相同</p>
+</blockquote>
+<p>例子：</p>
+<p><img src="//NU-LL.github.io/2020/06/05/SVM/%5CSVM.assets%5C1590498357677.png" alt="1590498357677"></p>
+<p>对于这么一个异或问题，我们有：<br>$$<br>\begin{align}<br>&amp;\boldsymbol{x}<em>{\boldsymbol{1}}=\left[ \begin{array}{c}<br>    0\<br>    0\<br>\end{array} \right] \in C_1,\quad \boldsymbol{x}</em>{\boldsymbol{2}}=\left[ \begin{array}{c}<br>    1\<br>    1\<br>\end{array} \right] \in C_1,\quad<br>\<br>&amp;\boldsymbol{x}<em>{\boldsymbol{3}}=\left[ \begin{array}{c}<br>    1\<br>    0\<br>\end{array} \right] \in C_2,\quad \boldsymbol{x}</em>{\boldsymbol{4}}=\left[ \begin{array}{c}<br>    0\<br>    1\<br>\end{array} \right] \in C_2<br>\end{align}<br>$$<br>定义映射关系：<br>$$<br>\boldsymbol{x}=\left[ \begin{array}{c}<br>    a\<br>    b\<br>\end{array} \right] \xrightarrow{\varphi }\varphi  \left( \boldsymbol{x} \right) =\left[ \begin{array}{c}<br>    a^2\<br>    b^2\<br>    a\<br>    \begin{array}{c}<br>    b\<br>    ab\<br>\end{array}\<br>\end{array} \right]<br>$$<br>则升维后的样本为</p>
+<p>$$<br>\begin{align}<br>&amp;\varphi \left( \boldsymbol{x}<em>{\boldsymbol{1}} \right) =\left[ \begin{array}{c}<br>    \begin{array}{c}<br>    0\<br>    0\<br>\end{array}\<br>    \begin{array}{c}<br>    0\<br>    0\<br>    0\<br>\end{array}\<br>\end{array} \right] \in C_1,\quad \varphi \left( \boldsymbol{x}</em>{\boldsymbol{2}} \right) =\left[ \begin{array}{c}<br>    \begin{array}{c}<br>    1\<br>    1\<br>\end{array}\<br>    \begin{array}{c}<br>    1\<br>    1\<br>    1\<br>\end{array}\<br>\end{array} \right] \in C_1,\quad<br>\<br>&amp;\varphi \left( \boldsymbol{x}<em>{\boldsymbol{3}} \right) =\left[ \begin{array}{c}<br>    \begin{array}{c}<br>    1\<br>    0\<br>\end{array}\<br>    \begin{array}{c}<br>    1\<br>    0\<br>    0\<br>\end{array}\<br>\end{array} \right] \in C_2,\quad \varphi \left( \boldsymbol{x}</em>{\boldsymbol{4}} \right) =\left[ \begin{array}{c}<br>    \begin{array}{c}<br>    0\<br>    1\<br>\end{array}\<br>    \begin{array}{c}<br>    0\<br>    1\<br>    0\<br>\end{array}\<br>\end{array} \right] \in C_2<br>\end{align}<br>$$</p>
+<p>求得$\boldsymbol{w}$为：<br>$$<br>\boldsymbol{w}=\left[ \begin{array}{c}<br>    \begin{array}{c}<br>    -1\<br>    -1\<br>\end{array}\<br>    \begin{array}{c}<br>    -1\<br>    -1\<br>    6\<br>\end{array}\<br>\end{array} \right] ,\quad b=1<br>$$<br>则<br>$$<br>\begin{align}<br>\widehat{y}<em>1&amp;=\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}</em>{\boldsymbol{1}}+b,,=,,1&gt;0\\widehat{y}<em>2&amp;=\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}</em>{\boldsymbol{2}}+b,,=,,3&gt;0\\widehat{y}<em>3&amp;=\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}</em>{\boldsymbol{3}}+b,,=,,-1&lt;0\\widehat{y}<em>4&amp;=\boldsymbol{w}^{\boldsymbol{T}}\boldsymbol{x}</em>{\boldsymbol{4}}+b,,=,,-1&lt;0<br>\end{align}<br>$$<br>可见的确通过升维，在高维空间划分了超平面，实现了非线性可分数据的分类问题。</p>
+<h2 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h2><p>可以证明：若升的维度越高，则数据集越有可能在高维空间被线性划分。可以猜想，若$\varphi (\boldsymbol{x})$为无限维度，则必定可以在无限高维空间划分任意数据集。但这样，会使得$\boldsymbol{w}$也变为无限维度，使优化问题$\eqref{eq:1}$变得不可解（因为$\boldsymbol{w}$是代求参数）。</p>
+<p><strong>定理：我们可以不知道无限维映射$\varphi (\boldsymbol{x})$的显式表达，我们只要知道一个核函数（Kernel Function）</strong><br>$$<br>K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right) ,,=,,\varphi \left( \boldsymbol{x}<em>{\boldsymbol{1}} \right) ^T\cdot \varphi \left( \boldsymbol{x}</em>{\boldsymbol{2}} \right)<br>$$<br><strong>则$\eqref{eq:1}$这个优化式仍然可解。</strong></p>
+<p>常用核函数：</p>
+<ol>
+<li>高斯核<br>$$<br>K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right) ,,=,,e^{-\frac{\lVert x_1-x_2 \rVert ^2}{2\sigma ^2}}<br>$$</li>
+</ol>
+<ol start="2">
+<li>多项式核</li>
+</ol>
+<p>$$<br>K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right) ,,=,,\left( \boldsymbol{x}<em>{\boldsymbol{1}}^{\boldsymbol{T}}\boldsymbol{x}</em>{\boldsymbol{2}}+1 \right) ^d<br>$$</p>
+<blockquote>
+<p>我们知道核$K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right)$的表达式，且知道$K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right)$可以表示为$\varphi \left( \boldsymbol{x}<em>{\boldsymbol{1}} \right) ^T \varphi \left( \boldsymbol{x}</em>{\boldsymbol{2}} \right)$，并且$\varphi (\boldsymbol{x})$是无限维的（不需要知道$\varphi (\boldsymbol{x})$的显示表达）。</p>
+</blockquote>
+<blockquote>
+<p>$K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right)$能写成$\varphi \left( \boldsymbol{x}<em>{\boldsymbol{1}} \right) ^T \varphi \left( \boldsymbol{x}</em>{\boldsymbol{2}} \right)$的充要条件为（Mercer’s Theorem）：</p>
+<ol>
+<li>$K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right) = K\left( \boldsymbol{x}<em>{\boldsymbol{2}},\boldsymbol{x}</em>{\boldsymbol{1}} \right)$（交换性）</li>
+<li>$\forall C_i, ,, \boldsymbol{x_i}(i=1\sim N)$，有$\sum_{i=1}^N{\sum_{j=1}^N{C_iC_jK\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right) \geqslant 0}},,$成立（半正定性）</li>
+</ol>
+</blockquote>
+<h2 id="原问题和对偶问题"><a href="#原问题和对偶问题" class="headerlink" title="原问题和对偶问题"></a>原问题和对偶问题</h2><p>现在我们要在只知道$K\left( \boldsymbol{x}<em>{\boldsymbol{1}},\boldsymbol{x}</em>{\boldsymbol{2}} \right)$不知道$\varphi (\boldsymbol{x})$的情况下，解优化问题$\eqref{eq:1}$，因此我们需要一些理论知识铺垫。</p>
+<blockquote>
+<p>这是优化理论的内容，用到就学一下吧</p>
+</blockquote>
+<p>原问题（Prime Problem）：</p>
+<p>最小化：<br>$$<br>f(\boldsymbol{\omega})<br>$$<br>限制条件：<br>$$<br>g_i\left( \boldsymbol{\omega} \right) \leqslant 0  \left( i=1\sim K \right)<br>\<br>h_i\left( \boldsymbol{\omega} \right) =0  \left( i=1\sim M \right)<br>$$<br>则其对偶问题（Dual Problem）为：</p>
+<p>最大化：<br>$$<br>\varTheta \left( \boldsymbol{\alpha} ,\boldsymbol{\beta}\right) ,,=,,\underset{for,,all,,\boldsymbol{\omega}}{inf}\left{ L\left( \boldsymbol{\omega} ,\boldsymbol{\alpha} ,\boldsymbol{\beta} \right) \right}<br>$$</p>
+<p>限制条件：</p>
+<p>$$<br>\boldsymbol{\alpha }\geqslant 0<br>$$</p>
+<blockquote>
+<p>其中$L\left( \boldsymbol{\omega} ,\boldsymbol{\alpha },\boldsymbol{\beta } \right) $为：<br>$$<br>\begin{align}<br>L\left( \boldsymbol{\omega} ,\boldsymbol{\alpha },\boldsymbol{\beta } \right) ,,&amp;=,,f\left( \boldsymbol{\omega} \right) +\sum_{i=1}^K{\alpha <em>ig_i\left( \boldsymbol{\omega} \right)}+\sum</em>{i=1}^M{\beta _ih_i\left( \boldsymbol{\boldsymbol{\omega}} \right)},,<br>\<br>&amp;=,,f\left( \boldsymbol{\omega} \right) +\boldsymbol{\alpha }^{\boldsymbol{T}}g\left( \boldsymbol{\omega} \right) +\boldsymbol{\beta }^{\boldsymbol{T}}h\left( \boldsymbol{\omega} \right)<br>\end{align}<br>$$</p>
+</blockquote>
+<blockquote>
+<p>$\underset{for,,all,,\boldsymbol{\omega}}{inf}$的意思是，在所有$\boldsymbol{\omega}$取值上取得的最小值</p>
+</blockquote>
+<p> 原问题和对偶问题的关系：如果$\boldsymbol{\omega}^<em>$是原问题的解，而$\boldsymbol{\alpha}^</em>,\boldsymbol{\beta}^<em>$是对偶问题的解，则有：<br>$$<br>f\left( \boldsymbol{\omega} ^</em> \right) \geqslant \theta \left( \boldsymbol{\alpha} ^<em>,\boldsymbol{\beta} ^</em> \right)<br>$$</p>
+<blockquote>
+<p>proof:<br>$$<br>\begin{align}<br>\theta \left( \boldsymbol{\alpha }^<em>,\boldsymbol{\beta }^</em> \right) ,,&amp;=,,\underset{for,,all,,\omega}{inf}\left{ L\left( \boldsymbol{\omega },\boldsymbol{\alpha }^<em>,\boldsymbol{\beta }^</em> \right) \right} \leqslant L\left( \boldsymbol{\omega }^<em>,\boldsymbol{\alpha }^</em>,\boldsymbol{\beta }^* \right)<br>\<br> &amp;=,,f\left( \boldsymbol{\omega }^* \right) +\sum_{i=1}^K{\boldsymbol{\alpha }<em>{i}^{<em>}g_i\left( \boldsymbol{\omega }^</em> \right)}+\sum</em>{i=1}^M{\boldsymbol{\beta }_{i}^{<em>}h_i\left( \boldsymbol{\omega }^</em> \right)}\leqslant ,,f\left( \boldsymbol{\omega }^* \right)<br>\end{align}<br>$$<br>因为其中$\boldsymbol{\alpha^* }\geqslant 0$,  $g_i\left( \boldsymbol{\omega ^<em>} \right) \leqslant 0   $，$h_i\left( \boldsymbol{\omega^</em> } \right) =0$</p>
+</blockquote>
+<h2 id="强对偶定理"><a href="#强对偶定理" class="headerlink" title="强对偶定理"></a>强对偶定理</h2><p>若$f(\boldsymbol{\omega})$为凸函数，且$g(\boldsymbol{\omega}) = \boldsymbol{A\omega} + b$，$h(\boldsymbol{\omega}) = \boldsymbol{C\omega} + d$，则优化问题的原问题与对偶问题间距为0，即：<br>$$<br>f\left( \boldsymbol{\omega} ^* \right) = \theta \left( \boldsymbol{\alpha} ^<em>,\boldsymbol{\beta} ^</em> \right)<br>$$<br>再观察上面的proof过程，可以立即得出：</p>
+<p>对 $\forall i=1 \sim K$，有$\boldsymbol{\alpha^<em>_i }=0$ 或者 $g_i\left( \boldsymbol{\omega ^</em>} \right) =0   $</p>
+<p>以上称为<strong>KKT条件</strong></p>
+<h2 id="将SVM原问题转化为对偶问题"><a href="#将SVM原问题转化为对偶问题" class="headerlink" title="将SVM原问题转化为对偶问题"></a>将SVM原问题转化为对偶问题</h2><p>核函数SVM优化目标可以改写为（为了使形式上靠近优化理论，将$\xi _i\geqslant 0\rightarrow \xi _i\leqslant 0$）</p>
+<p>最小化：<br>$$<br>\underset{\boldsymbol{w},b}{\min},,\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2+C\sum_{i=1}^m{\xi <em>i}\rightarrow \underset{\boldsymbol{w},b}{\min},,\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2-C\sum</em>{i=1}^m{\xi _i}<br>$$</p>
+<p>限制条件：<br>$$<br>\begin{align}<br>y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}<em>{\boldsymbol{i}}\text{)}+b \right) \geqslant 1-\xi _i,,&amp;\rightarrow ,,y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) \geqslant 1+\xi <em>i,,<br>\<br>&amp;\rightarrow ,,1+\xi _i-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) \leqslant 0<br>\<br>\xi _i\geqslant 0&amp;\rightarrow \xi _i\leqslant 0<br>\end{align}<br>$$</p>
+<table>
+<thead>
+<tr>
+<th align="left">1. 原问题</th>
+<th align="left">1.核函数SVM原问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">最小化：<br>$f(\boldsymbol{\omega})$</td>
+<td align="left">最小化：<br>$\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2-C\sum_{i=1}^m{\xi _i}$</td>
+</tr>
+<tr>
+<td align="left">限制条件：<br>$g_i\left( \boldsymbol{\omega} \right) \leqslant 0  \left( i=1\sim K \right) \h_i\left( \boldsymbol{\omega} \right) =0  \left( i=1\sim M \right)$</td>
+<td align="left">限制条件：<br>$,1+\xi <em>i-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) \leqslant 0 \ \xi _i\leqslant 0$</td>
+</tr>
+</tbody></table>
+<p>从限制条件可知，左边的不等式限制条件$g_i\left( \boldsymbol{\omega} \right) \leqslant 0$对应右边的$,1+\xi <em>i-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) \leqslant 0 $和$\xi _i\leqslant 0$；而没有等式限制条。</p>
+<p>优化目标函数$f(\boldsymbol{\omega})$对应$\frac{1}{2}\lVert \boldsymbol{w} \rVert ^2+C\sum_{i=1}^m{\xi _i}$</p>
+<p>左边只有一个变量$\boldsymbol{\omega}$，而右边对应有三个变量$\boldsymbol{\omega}，\xi _i， b$</p>
+<p>因此可以推导出核函数SVM的对偶问题：</p>
+<table>
+<thead>
+<tr>
+<th><strong>2. 对偶问题</strong></th>
+<th>2. 核函数SVM对偶问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最大化：<br>$\varTheta \left( \boldsymbol{\alpha} ,\boldsymbol{\beta}\right) ,=,\underset{for,,all,,\boldsymbol{\omega}}{inf}\left{ L\left( \boldsymbol{\omega} ,\boldsymbol{\alpha} ,\boldsymbol{\beta} \right) \right}$</td>
+<td>最大化：<br>$$\begin{align}\varTheta \left( \boldsymbol{\alpha },\boldsymbol{\beta } \right) ,=,\underset{for,,all,\left( ,\boldsymbol{\omega },\xi <em>i,b \right)}{inf}\left{ \frac{1}{2}\lVert \boldsymbol{w} \rVert ^2-C\sum</em>{i=1}^m{\xi <em>i}+\sum</em>{i=1}^m{\alpha <em>i},\left( 1+\xi _i-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) \right) +\sum_{i=1}^m{\beta _i\xi _i} \right}\end{align}$$</td>
+</tr>
+<tr>
+<td>限制条件：<br>$\alpha_i\geqslant 0 \quad    (i=1 \sim K)            $</td>
+<td>限制条件：<br>$\alpha_i\geqslant 0 , \beta_i \geqslant 0     \quad(i=1 \sim m)            $</td>
+</tr>
+<tr>
+<td>$L\left( \boldsymbol{\omega },\boldsymbol{\alpha },\boldsymbol{\beta } \right) ,,=,,f\left( \boldsymbol{\omega } \right) +\sum_{i=1}^K{\alpha <em>ig_i\left( \boldsymbol{\omega } \right)}+\sum</em>{i=1}^M{\beta _ih_i\left( \boldsymbol{\omega } \right)},,$</td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意，由于SVM中的不等式限制条件有$\alpha_i$和$\beta_i$两个，因此实际上左边的$\alpha_i$对应右边的$\alpha_i$和$\beta_i$</p>
+</blockquote>
+<p>现在我们来求解下式的具体表达式<br>$$<br>\begin{align}<br>\varTheta \left( \boldsymbol{\alpha },\boldsymbol{\beta } \right) ,&amp;=\underset{for,,all,\left( ,\boldsymbol{\omega },\xi <em>i,b \right)}{inf}\left{ L\left( \boldsymbol{\omega },\boldsymbol{\xi },b \right) \right} ,<br>\<br>&amp;=\underset{for,,all,\left( ,\boldsymbol{\omega },\boldsymbol{\xi },b \right)}{inf}\left{ \frac{1}{2}\lVert \boldsymbol{w} \rVert ^2-C\sum</em>{i=1}^m{\xi <em>i}+\sum</em>{i=1}^m{\alpha <em>i},\left( 1+\xi _i-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) \right) +\sum_{i=1}^m{\beta <em>i\xi _i} \right}<br>\end{align}<br>$$<br>$\underset{for,,all,\left( ,\boldsymbol{\omega },\xi _i,b \right)}{inf}$表示求关于$\left( ,\boldsymbol{\omega },\xi _i,b \right) $的最小值，即求$\frac{\partial}{\partial \boldsymbol{\omega }}L\left( \boldsymbol{\omega },\xi _i,b \right) $，$\frac{\partial}{\partial \xi _i}L\left( \boldsymbol{\omega },\xi _i,b \right) $，$\frac{\partial}{\partial b}L\left( \boldsymbol{\omega },\xi _i,b \right) $，并使他们等于零：<br>$$<br>\begin{align}<br>    &amp;\frac{\partial}{\partial \boldsymbol{\omega }}L\left( \boldsymbol{\omega },\xi _i,b \right) =0\rightarrow \boldsymbol{\omega }=\sum</em>{i=1}^m{\alpha <em>iy_i\varphi \left( x_i \right)}\<br>    &amp;\frac{\partial}{\partial \xi _i}L\left( \boldsymbol{\omega },\xi _i,b \right) =0\rightarrow \alpha _i+\beta _i=C\<br>    &amp;\frac{\partial}{\partial b}L\left( \boldsymbol{\omega },\xi _i,b \right) =0\rightarrow \sum</em>{i=1}^m{\alpha _iy_i=0}\<br>\end{align}<br>\tag2<br>\label{eq:2}<br>$$</p>
+<blockquote>
+<p>其中用到矩阵求导参考矩阵论，这里给出结果</p>
+<p>若$f\left( \boldsymbol{\omega } \right) =\frac{1}{2}\lVert \boldsymbol{\omega } \rVert ^2$，则$\frac{\partial}{\partial \boldsymbol{\omega }}f\left( \boldsymbol{\omega } \right) =\boldsymbol{\omega }$</p>
+<p>若$f\left( \boldsymbol{\omega } \right) =\boldsymbol{\omega }^{\text{T}}x$，则$\frac{\partial}{\partial \boldsymbol{\omega }}f\left( \boldsymbol{\omega } \right) =x$</p>
+</blockquote>
+<p>将$\eqref{eq:2}$带入$\varTheta \left( \boldsymbol{\alpha },\boldsymbol{\beta } \right) $，得到：<br>$$<br>\varTheta \left( \boldsymbol{\alpha }\right) =\sum_{i=1}^m{\alpha <em>i-\frac{1}{2}\sum</em>{i=1}^m{\sum_{j=1}^m{\alpha _i\alpha _jy_iy_j}}}K\left( x_i,x_j \right)<br>$$</p>
+<blockquote>
+<p>这时，通过把原问题转换为对偶问题，得到了核函数的表示形式！</p>
+</blockquote>
+<p>将$\eqref{eq:2}$带入限制条件$\alpha_i\geqslant 0 , \beta_i \geqslant 0 (i=1 \sim m)            $得到：<br>$$<br>0\leqslant \alpha <em>i\leqslant C<br>\<br>\sum</em>{i=1}^m{\alpha _iy_i=0}<br>$$</p>
+<p>于是我们求得了核函数SVM的优化对偶问题</p>
+<table>
+<thead>
+<tr>
+<th>核函数SVM对偶问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最大化：$\varTheta \left( \boldsymbol{\alpha }\right) =\sum_{i=1}^m{\alpha <em>i-\frac{1}{2}\sum</em>{i=1}^m{\sum_{j=1}^m{\alpha _i\alpha _jy_iy_j}}}K\left( x_i,x_j \right)$</td>
+</tr>
+<tr>
+<td>限制条件：$0\leqslant \alpha <em>i\leqslant C \quad\quad \sum</em>{i=1}^m{\alpha _iy_i=0}$</td>
+</tr>
+</tbody></table>
+<p>于是只有一个参数待求解：$\boldsymbol{\alpha}$，通常可以使用SMO算法</p>
+<p>在测试流程中，我们可以有如下判断：<br>$$<br>\begin{cases}<br>    \text{若}\boldsymbol{w}^{\boldsymbol{T}}\varphi \left( \boldsymbol{x}<em>{\text{i}} \right) +b&gt;0,\text{则}y</em>{\text{i}}=+1\<br>    \text{若}\boldsymbol{w}^{\boldsymbol{T}}\varphi \left( \boldsymbol{x}<em>{\text{i}} \right) +b&lt;0,\text{则}y</em>{\text{i}}=-1\<br>\end{cases}<br>$$<br>在$\eqref{eq:2}$中，我们知道有$\boldsymbol{\omega }=\sum_{i=1}^m{\alpha <em>iy_i\varphi \left( \boldsymbol{x_i} \right)}$，则：<br>$$<br>\begin{align}<br>\boldsymbol{w}^{\boldsymbol{T}}\varphi \left( \boldsymbol{x}</em>{\boldsymbol{i}} \right) &amp;=\sum_{j=1}^m{\left[ \alpha <em>iy_i\varphi \left( \boldsymbol{x}_j \right) \right] ^{\text{T}}}\varphi \left( \boldsymbol{x}</em>{\boldsymbol{i}} \right) \&amp;=\sum_{j=1}^m{\alpha <em>iy_i\varphi \left( \boldsymbol{x}</em>{\boldsymbol{j}} \right) ^{\text{T}}\varphi \left( \boldsymbol{x}<em>{\boldsymbol{i}} \right)}\&amp;=\sum</em>{j=1}^m{\alpha <em>iy_iK\left( \boldsymbol{x}</em>{\boldsymbol{i}},\boldsymbol{x}_{\boldsymbol{j}} \right)}<br>\end{align}<br>\tag{3}<br>\label{eq:3}<br>$$<br>只剩下$b$待求解。确定了$b$，则核函数SVM训练完成</p>
+<p>$b$的求解需要用到KKT条件，</p>
+<table>
+<thead>
+<tr>
+<th><strong>3. KKT条件</strong></th>
+<th>3. SVM的KKT条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\forall i=1 \sim K$，<br>$\boldsymbol{\alpha^<em>_i }=0$ 或者 $g_i\left( \boldsymbol{\omega ^</em>} \right) =0   $</td>
+<td>$\forall i=1 \sim  m$，<br>1. $\boldsymbol{\alpha_i }=0$ 或者 $,1+\xi <em>i-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) = 0$<br>2. $\boldsymbol{\beta_i }=0$或者$\xi_i=0$</td>
+</tr>
+</tbody></table>
+<p>取一个$0&lt;\boldsymbol{\alpha }<em>{\boldsymbol{i}}&lt;C\Rightarrow \boldsymbol{\beta }</em>{\boldsymbol{i}}=C-\boldsymbol{\alpha }<em>{\boldsymbol{i}}&gt;0$，此时有：<br>$$<br>\begin{align}<br>\boldsymbol{\beta }</em>{\boldsymbol{i}}\ne 0&amp;\Rightarrow \xi <em>i=0<br>\<br>\boldsymbol{\alpha }</em>{\boldsymbol{i}}\ne 0&amp;\Rightarrow 1+\xi <em>i-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}+b \right) =0<br>\<br>&amp;\Rightarrow 1-y_i\left( \boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}<em>{\boldsymbol{i}}\text{)}+b \right) =0<br>\end{align}<br>$$<br>带入$\eqref{eq:3}$，得到：<br>$$<br>\begin{align}<br>b&amp;=\frac{1}{y_i}-\boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}</em>{\boldsymbol{i}}\text{)}=\frac{1-y_i\boldsymbol{w}^{\boldsymbol{T}}\varphi \boldsymbol{(x}<em>{\boldsymbol{i}}\text{)}}{y_i}<br>\<br>&amp;=\frac{1-y_i\sum</em>{j=1}^m{\alpha <em>iy_iK\left( \boldsymbol{x}</em>{\boldsymbol{i}},\boldsymbol{x}_{\boldsymbol{j}} \right)}}{y_i}<br>\end{align}<br>$$</p>
+<p>以上就是核函数SVM原问题转换为对偶问题，并用对偶问题训练SVM（求出$\boldsymbol{\alpha_i}$和$b$的过程）的推导过程</p>
+<h2 id="核函数SVM算法总结"><a href="#核函数SVM算法总结" class="headerlink" title="核函数SVM算法总结"></a>核函数SVM算法总结</h2><p>SVM算法</p>
+<ol>
+<li><p>训练流程：</p>
+<ul>
+<li><p>输入${(\boldsymbol{x_i},y_i)}_{i=1 \sim m}$</p>
+</li>
+<li><p>解优化问题：</p>
+<p>​    最大化：$\varTheta \left( \boldsymbol{\alpha }\right) =\sum_{i=1}^m{\alpha <em>i-\frac{1}{2}\sum</em>{i=1}^m{\sum_{j=1}^m{\alpha _i\alpha _jy_iy_j}}}K\left( x_i,x_j \right)$</p>
+<p>​    限制条件：$0\leqslant \alpha <em>i\leqslant C, \quad\sum</em>{i=1}^m{\alpha _iy_i=0}$</p>
+<p>​    求解$b$：找一个$0&lt;\boldsymbol{\alpha }<em>{\boldsymbol{i}}&lt;C$，可以算得$b=\frac{1-y_i\sum</em>{j=1}^m{\alpha <em>iy_iK\left( \boldsymbol{x}</em>{\boldsymbol{i}},\boldsymbol{x}_{\boldsymbol{j}} \right)}}{y_i}$</p>
+</li>
+</ul>
+</li>
+<li><p>测试流程</p>
+<ul>
+<li>输入测试样本$\boldsymbol{x}$<br>$$<br>\begin{cases}<pre><code>\text{若}\sum_{j=1}^m\alpha _iy_iK\left( \boldsymbol{x}_{\boldsymbol{i}},\boldsymbol{x}_{\boldsymbol{j}} \right) +b&gt;0,\text{则}y_{\text{i}}=+1\\
+\text{若}\sum_{j=1}^m\alpha _iy_iK\left( \boldsymbol{x}_{\boldsymbol{i}},\boldsymbol{x}_{\boldsymbol{j}} \right) +b&lt;0,\text{则}y_{\text{i}}=-1\\</code></pre>\end{cases}<br>$$</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>通过转换为对偶问题，我们可以看到上面没有出现$\varphi (\boldsymbol{x})$，而待求解的参数只有$\boldsymbol{\alpha_i}$和$b$</p>
+</blockquote>
+<h1 id="SVM处理多分类问题"><a href="#SVM处理多分类问题" class="headerlink" title="SVM处理多分类问题"></a>SVM处理多分类问题</h1><p>上面都在说如何用SVM处理二分类问题，那么怎么样用SVM处理多分类问题呢？</p>
+<p>我们有一下三种方法：</p>
+<ol>
+<li><p>改造优化的目标函数和限制条件，使之能处理多分类问题。</p>
+<blockquote>
+<p>这种方法通常效果一般，SVM专为二分类而生</p>
+</blockquote>
+</li>
+<li><p>一类VS其他类</p>
+<blockquote>
+<p>例子：</p>
+<p>若有$C_1 ,C_2 ,C_3$三类，则可以设计三个SVM</p>
+<p>SVM1：$(C_1 ,C_2)VS(C_3)$</p>
+<p>SVM2：$(C_1 ,C_3)VS(C_2)$</p>
+<p>SVM3：$(C_2 ,C_3)VS(C_1)$</p>
+<p>若$y_1=+1,y_2=+1,y_3=-1$，则 显然为第一类</p>
+<p>若$y_1=+1,y_2=-1,y_3=-1$，在看看SVM1和SVM2的$\boldsymbol{w}^{\boldsymbol{T}}\varphi \left( \boldsymbol{x}_{\text{i}} \right) +b$哪一个负的比较多就判断为哪一个</p>
+</blockquote>
+</li>
+<li><p>一类VS另一类</p>
+<blockquote>
+<p>例子：</p>
+<p>若有$C_1 ,C_2 ,C_3$三类，则可以设计三个SVM</p>
+<p>SVM1：$(C_1 )VS(C_2)$</p>
+<p>SVM2：$(C_1 )VS(C_3)$</p>
+<p>SVM3：$(C_2)VS(C_3)$</p>
+<p>若$y_1=+1,y_2=+1,y_3=-1$，则 显然为第一类（$C_1$被投了两票，$C_3$被投了一票）</p>
+</blockquote>
+</li>
+</ol>
+<p>对于n分类问题：</p>
+<p>用一类VS其他类我们需要用n个SVM；</p>
+<p>用一类VS另一类我们需要用$\frac{n\left( n-1 \right)}{2}$个SVM。</p>
+<p>根据经验，用一类VS另一类的效果最佳，但同时也是最复杂的。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 欢迎指出任何有错误或不够清晰的表达。邮件：1125934312@qq.com </span>
+    </div>
+</article>
+
+
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>SVM（线性模型）数学推导</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">5.2k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="NU-LL">NU-LL</a></p>
+    <p><span class="copy-title">发布时间:</span>2020-06-05, 21:12:53</p>
+    <p><span class="copy-title">最后更新:</span>2020-06-05, 21:14:31</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/06/05/SVM/" title="SVM（线性模型）数学推导">http://NU-LL.github.io/2020/06/05/SVM/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2016-2019 NU-LL</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="/js/script.js?v=1" ></script>
+<script>
+    var img_resize = 'default';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#GO','#ESP32','#Docker','#DM9000C','#网卡移植','#ESP8266','#Latex','#Ctex','#IIC驱动','#Linux服务','#Linux内核','#文件描述符','#LiCheePi Zero','#Kconfig语法','#Mininet','#NanoPi Neo Core','#SVM','#TensorFlow2','#Markdown','#Xmanager','#远程链接','#字符驱动','#数据分析','#等待队列','#wait_queue_head_t','#wait_queue_t','#network namespace','#markdownlint','#git','#Kubernetes','#python','#爬虫','#python实战','#存储器','#二维数组','#指针','#u-boot','#IAP','#BootLoader','#dual bank','#按键驱动','#poll机制','#异步通知机制','#根文件系统','#快速排序','#设备树','#网卡驱动框架','#虚拟网卡','#输入子系统','#Go语言入门经典','#驱动API','#深度学习','#廖雪峰python教程',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: ;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 1px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

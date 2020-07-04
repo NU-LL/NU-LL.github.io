@@ -1,944 +1,114 @@
-<!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  <title>NanoPi_Neo_Core底层开发 | 无名小卒</title>
-  <meta name="keywords" content=" NanoPi Neo Core ">
-  <meta name="description" content="NanoPi_Neo_Core底层开发 | 无名小卒">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="关于">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://NU-LL.github.io/about/index.html">
-<meta property="og:site_name" content="无名小卒">
-<meta property="og:description" content="关于">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-21T14:30:10.192Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="关于">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NanoPi_Neo_Core底层开发 | spaceman</title><meta name="description" content="NanoPi Neo Core底层开发  一、编译下载镜像 各个部分编译后的文件都在对应的文件夹中，如编译friendlycore-xenial_4.14_armhf系统，对应的各个镜像就都在friendlycore-xenial_4.14_armhf文件夹中 最后生成的img文件会在out文件夹中  1. 编译  1.1编译uboot 1UBOOT_SRC&#x3D;..&#x2F;UBOOT&#x2F;u-boot-su"><meta name="keywords" content="NanoPi Neo Core"><meta name="author" content="spaceman"><meta name="copyright" content="spaceman"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="NanoPi_Neo_Core底层开发"><meta name="twitter:description" content="NanoPi Neo Core底层开发  一、编译下载镜像 各个部分编译后的文件都在对应的文件夹中，如编译friendlycore-xenial_4.14_armhf系统，对应的各个镜像就都在friendlycore-xenial_4.14_armhf文件夹中 最后生成的img文件会在out文件夹中  1. 编译  1.1编译uboot 1UBOOT_SRC&#x3D;..&#x2F;UBOOT&#x2F;u-boot-su"><meta name="twitter:image" content="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><meta property="og:type" content="article"><meta property="og:title" content="NanoPi_Neo_Core底层开发"><meta property="og:url" content="http://nu-ll.github.io/2019/10/18/NanoPi_Neo_Core%E5%BA%95%E5%B1%82%E5%BC%80%E5%8F%91/"><meta property="og:site_name" content="spaceman"><meta property="og:description" content="NanoPi Neo Core底层开发  一、编译下载镜像 各个部分编译后的文件都在对应的文件夹中，如编译friendlycore-xenial_4.14_armhf系统，对应的各个镜像就都在friendlycore-xenial_4.14_armhf文件夹中 最后生成的img文件会在out文件夹中  1. 编译  1.1编译uboot 1UBOOT_SRC&#x3D;..&#x2F;UBOOT&#x2F;u-boot-su"><meta property="og:image" content="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><meta property="article:published_time" content="2019-10-18T04:25:42.000Z"><meta property="article:modified_time" content="2019-10-25T08:27:49.143Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '2'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
 
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
 
-<link rel="icon" href="/img/avatar.jpg">
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
 
-<link href="/css/style.css?v=1.1.0" rel="stylesheet">
-
-<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
-
-<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
-
-<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-<script src="/js/titleTip.js?v=1.1.0"></script>
-
-<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
-</script>
-
-<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
-
-
-
-<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js"></script>
-
-<script src="/js/iconfont.js?v=1.1.0"></script>
-
-</head>
-<div style="display: none">
-  <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value>
-  <input class="theme_blog_path" value>
-  <input id="theme_shortcut" value="true">
-</div>
-
-
-<body>
-<aside class="nav">
-    <div class="nav-left">
-        <a href="/" class="avatar_target">
-    <img class="avatar" src="/img/avatar.jpg" />
-</a>
-<div class="author">
-    <span>NU-LL</span>
-</div>
-
-<div class="icon">
-    
-        
-    
-        
-        <a title="github" href="https://github.com/NU-LL" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-github"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-        <a title="csdn" href="https://blog.csdn.net/CSDN_JZ_" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-csdn"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-    
-        
-        <a title="email" href="mailto:1125934312@qq.com" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-email"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-        <a title="qq" href="http://wpa.qq.com/msgrd?v=3&uin=1125934312&site=qq&menu=yes" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-qq"></use>
-                </svg>
-            
-        </a>
-        
-    
-        
-    
-        
-        <a title="neteasemusic" href="https://music.163.com/#/user/home?id=323374922" target="_blank">
-            
-                <svg class="iconfont-svg" aria-hidden="true">
-                    <use xlink:href="#icon-neteasemusic"></use>
-                </svg>
-            
-        </a>
-        
-    
-</div>
-
-
-
-
-<ul>
-    <li><div class="all active" data-rel="全部文章">全部文章<small>(44)</small></div></li>
-    
-        
-            
-            <li><div data-rel="Linux">Linux<small>(25)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="编程语言">编程语言<small>(6)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="MCU">MCU<small>(3)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="人工智能">人工智能<small>(3)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="工具">工具<small>(4)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="算法">算法<small>(1)</small></div>
-                
-            </li>
-            
-        
-    
-        
-            
-            <li><div data-rel="感悟与总结">感悟与总结<small>(2)</small></div>
-                
-            </li>
-            
-        
-    
-</ul>
-<div class="left-bottom">
-    <div class="menus">
-    
-    
-    
-    
-    </div>
-    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
-</div>
-<input type="hidden" id="yelog_site_posts_number" value="44">
-<input type="hidden" id="yelog_site_word_count" value="288.7k">
-<div style="display: none">
-    <span id="busuanzi_value_site_uv"></span>
-    <span id="busuanzi_value_site_pv"></span>
-</div>
-
-    </div>
-    <div class="nav-right">
-        <div class="friends-area">
-    <div class="friends-title">
-        友情链接
-        <i class="iconfont icon-left"></i>
-    </div>
-    <div class="friends-content">
-        <ul>
-            
-            <li><a target="_blank" href="https://github.com/NU-LL">NU-LL</a></li>
-            
-            <li><a target="_blank" href="https://github.com/southernEast">SouthEast</a></li>
-            
-            <li><a target="_blank" href="https://github.com/tan1998lei">tan1998lei</a></li>
-            
-            <li><a target="_blank" href="https://github.com/jiejieTop">jiejieTop</a></li>
-            
-        </ul>
-    </div>
-</div>
-        <div class="title-list">
-    <div class="right-top">
-        <div id="default-panel">
-            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
-            <div class="right-title">全部文章</div>
-            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
-        </div>
-        <div id="search-panel">
-            <i class="iconfont icon-left" data-title="返回"></i>
-            <input id="local-search-input" />
-            <label class="border-line" for="input"></label>
-            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
-            <i class="iconfont icon-tag" data-title="标签"></i>
-        </div>
-        <div id="outline-panel" style="display: none">
-            <div class="right-title">大纲</div>
-            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
-        </div>
-    </div>
-
-    <div class="tags-list">
-    <input id="tag-search" />
-    <div class="tag-wrapper">
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>BootLoader</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Ctex</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>DM9000C</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Docker</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>dual bank</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>ESP32</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>ESP8266</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>git</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>GO</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Go语言入门经典</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>IAP</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>IIC驱动</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Kconfig语法</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Kubernetes</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Latex</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>LiCheePi Zero</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Linux内核</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Linux服务</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Markdown</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>markdownlint</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Mininet</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>NanoPi Neo Core</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>network namespace</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>poll机制</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>python</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>python实战</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>SVM</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>TensorFlow2</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>u-boot</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>wait_queue_head_t</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>wait_queue_t</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>Xmanager</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>二维数组</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>字符驱动</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>存储器</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>廖雪峰python教程</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>异步通知机制</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>快速排序</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>指针</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>按键驱动</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>数据分析</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>文件描述符</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>根文件系统</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>深度学习</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>爬虫</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>等待队列</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>网卡移植</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>网卡驱动框架</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>虚拟网卡</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>设备树</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>输入子系统</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>远程链接</a>
-            </li>
-        
-            <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>驱动API</a>
-            </li>
-        
-    </div>
-
-</div>
-
-    
-    <div id="local-search-result">
-
-    </div>
-    
-    <nav id="title-list-nav">
-        
-        <a  class="全部文章 人工智能 "
-           href="/2020/06/05/SVM/"
-           data-tag="SVM"
-           data-author="" >
-            <span class="post-title" title="SVM（线性模型）数学推导">SVM（线性模型）数学推导</span>
-            <span class="post-date" title="2020-06-05 21:12:53">2020/06/05</span>
-        </a>
-        
-        <a  class="全部文章 MCU "
-           href="/2020/05/16/ESP32/"
-           data-tag="ESP32"
-           data-author="" >
-            <span class="post-title" title="ESP8266">ESP8266</span>
-            <span class="post-date" title="2020-05-16 10:30:54">2020/05/16</span>
-        </a>
-        
-        <a  class="全部文章 编程语言 "
-           href="/2020/05/09/C和GO的语法对比/"
-           data-tag="GO"
-           data-author="" >
-            <span class="post-title" title="C和GO的语法对比">C和GO的语法对比</span>
-            <span class="post-date" title="2020-05-09 19:55:39">2020/05/09</span>
-        </a>
-        
-        <a  class="全部文章 人工智能 "
-           href="/2020/05/03/TensorFlow2/"
-           data-tag="TensorFlow2"
-           data-author="" >
-            <span class="post-title" title="TensorFlow2入门与实践">TensorFlow2入门与实践</span>
-            <span class="post-date" title="2020-05-03 00:52:53">2020/05/03</span>
-        </a>
-        
-        <a  class="全部文章 MCU "
-           href="/2020/04/28/ESP8266/"
-           data-tag="ESP8266"
-           data-author="" >
-            <span class="post-title" title="ESP8266">ESP8266</span>
-            <span class="post-date" title="2020-04-28 14:27:54">2020/04/28</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2020/04/06/Linux驱动常用API整理/"
-           data-tag="驱动API"
-           data-author="" >
-            <span class="post-title" title="Linux驱动常用API整理">Linux驱动常用API整理</span>
-            <span class="post-date" title="2020-04-06 22:48:09">2020/04/06</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2020/03/28/Linux上常见服务搭建/"
-           data-tag="Linux服务"
-           data-author="" >
-            <span class="post-title" title="Linux上常见服务搭建">Linux上常见服务搭建</span>
-            <span class="post-date" title="2020-03-28 01:27:58">2020/03/28</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2020/03/15/kubernetes/"
-           data-tag="Kubernetes"
-           data-author="" >
-            <span class="post-title" title="Kubernetes">Kubernetes</span>
-            <span class="post-date" title="2020-03-15 13:48:53">2020/03/15</span>
-        </a>
-        
-        <a  class="全部文章 编程语言 "
-           href="/2020/03/10/Python数据分析与展示/"
-           data-tag="数据分析"
-           data-author="" >
-            <span class="post-title" title="Python数据分析与展示">Python数据分析与展示</span>
-            <span class="post-date" title="2020-03-10 15:10:50">2020/03/10</span>
-        </a>
-        
-        <a  class="全部文章 编程语言 "
-           href="/2020/02/18/python爬虫/"
-           data-tag="python,爬虫"
-           data-author="" >
-            <span class="post-title" title="python爬虫">python爬虫</span>
-            <span class="post-date" title="2020-02-18 23:40:18">2020/02/18</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2020/02/13/Mininet/"
-           data-tag="Mininet"
-           data-author="" >
-            <span class="post-title" title="Mininet">Mininet</span>
-            <span class="post-date" title="2020-02-13 18:37:12">2020/02/13</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2020/02/10/linux 网络虚拟化： network namespace 简介/"
-           data-tag="network namespace"
-           data-author="" >
-            <span class="post-title" title="linux 网络虚拟化： network namespace 简介">linux 网络虚拟化： network namespace 简介</span>
-            <span class="post-date" title="2020-02-10 14:24:09">2020/02/10</span>
-        </a>
-        
-        <a  class="全部文章 编程语言 "
-           href="/2020/01/29/python实战/"
-           data-tag="python实战"
-           data-author="" >
-            <span class="post-title" title="python实战">python实战</span>
-            <span class="post-date" title="2020-01-29 21:36:32">2020/01/29</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2020/01/16/Docker/"
-           data-tag="Docker"
-           data-author="" >
-            <span class="post-title" title="Docker">Docker</span>
-            <span class="post-date" title="2020-01-16 20:14:51">2020/01/16</span>
-        </a>
-        
-        <a  class="全部文章 编程语言 "
-           href="/2020/01/10/python/"
-           data-tag="廖雪峰python教程"
-           data-author="" >
-            <span class="post-title" title="Python">Python</span>
-            <span class="post-date" title="2020-01-10 20:18:52">2020/01/10</span>
-        </a>
-        
-        <a  class="全部文章 人工智能 "
-           href="/2020/01/03/深度学习与TensorFlow2/"
-           data-tag="TensorFlow2,深度学习"
-           data-author="" >
-            <span class="post-title" title="深度学习与TensorFlow2">深度学习与TensorFlow2</span>
-            <span class="post-date" title="2020-01-03 21:04:26">2020/01/03</span>
-        </a>
-        
-        <a  class="全部文章 MCU "
-           href="/2019/11/12/基于STM32L476的IAP升级/"
-           data-tag="IAP,BootLoader,dual bank"
-           data-author="" >
-            <span class="post-title" title="基于STM32L476的IAP升级">基于STM32L476的IAP升级</span>
-            <span class="post-date" title="2019-11-12 22:47:40">2019/11/12</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/11/08/Xmanager远程Ubuntu系统图像化界面/"
-           data-tag="Xmanager,远程链接"
-           data-author="" >
-            <span class="post-title" title="Xmanager远程Ubuntu系统图像化界面">Xmanager远程Ubuntu系统图像化界面</span>
-            <span class="post-date" title="2019-11-08 22:58:53">2019/11/08</span>
-        </a>
-        
-        <a  class="全部文章 编程语言 "
-           href="/2019/10/23/Go语言/"
-           data-tag="Go语言入门经典"
-           data-author="" >
-            <span class="post-title" title="Go语言">Go语言</span>
-            <span class="post-date" title="2019-10-23 21:07:25">2019/10/23</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/10/18/NanoPi_Neo_Core底层开发/"
-           data-tag="NanoPi Neo Core"
-           data-author="" >
-            <span class="post-title" title="NanoPi_Neo_Core底层开发">NanoPi_Neo_Core底层开发</span>
-            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/10/18/LiCheePi_Zero底层开发/"
-           data-tag="LiCheePi Zero"
-           data-author="" >
-            <span class="post-title" title="LiCheePi_Zero底层开发">LiCheePi_Zero底层开发</span>
-            <span class="post-date" title="2019-10-18 12:25:42">2019/10/18</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/10/13/设备树/"
-           data-tag="设备树"
-           data-author="" >
-            <span class="post-title" title="设备树">设备树</span>
-            <span class="post-date" title="2019-10-13 15:53:24">2019/10/13</span>
-        </a>
-        
-        <a  class="全部文章 工具 "
-           href="/2019/09/17/markdownlint规则详细介绍/"
-           data-tag="markdownlint"
-           data-author="" >
-            <span class="post-title" title="VSC插件之markdownlint规则详细介绍">VSC插件之markdownlint规则详细介绍</span>
-            <span class="post-date" title="2019-09-17 15:00:13">2019/09/17</span>
-        </a>
-        
-        <a  class="全部文章 工具 "
-           href="/2019/09/17/git/"
-           data-tag="git"
-           data-author="" >
-            <span class="post-title" title="git">git</span>
-            <span class="post-date" title="2019-09-17 09:59:56">2019/09/17</span>
-        </a>
-        
-        <a  class="全部文章 工具 "
-           href="/2019/08/19/Latex排版全解/"
-           data-tag="Latex,Ctex"
-           data-author="" >
-            <span class="post-title" title="Latex排版全解">Latex排版全解</span>
-            <span class="post-date" title="2019-08-19 16:02:27">2019/08/19</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/15/Kconfig文件语法分析/"
-           data-tag="Kconfig语法"
-           data-author="" >
-            <span class="post-title" title="Kconfig文件语法分析">Kconfig文件语法分析</span>
-            <span class="post-date" title="2019-08-15 19:38:40">2019/08/15</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/14/构造根文件系统/"
-           data-tag="根文件系统"
-           data-author="" >
-            <span class="post-title" title="构造根文件系统">构造根文件系统</span>
-            <span class="post-date" title="2019-08-14 20:18:45">2019/08/14</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/13/Linux内核启动流程/"
-           data-tag="Linux内核"
-           data-author="" >
-            <span class="post-title" title="Linux内核启动流程">Linux内核启动流程</span>
-            <span class="post-date" title="2019-08-13 16:13:46">2019/08/13</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/12/u-boot分析与使用/"
-           data-tag="u-boot"
-           data-author="" >
-            <span class="post-title" title="u-boot分析与使用">u-boot分析与使用</span>
-            <span class="post-date" title="2019-08-12 19:16:50">2019/08/12</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/12/u-boot分析与使用/u-boot分析与使用 - 老版本备份/"
-           data-tag="u-boot"
-           data-author="" >
-            <span class="post-title" title="u-boot分析与使用">u-boot分析与使用</span>
-            <span class="post-date" title="2019-08-12 19:16:50">2019/08/12</span>
-        </a>
-        
-        <a  class="全部文章 感悟与总结 "
-           href="/2019/08/11/各种存储器的区别/"
-           data-tag="存储器"
-           data-author="" >
-            <span class="post-title" title="各种存储器的区别">各种存储器的区别</span>
-            <span class="post-date" title="2019-08-11 10:57:19">2019/08/11</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/07/RTC驱动分析/"
-           data-tag="字符驱动"
-           data-author="" >
-            <span class="post-title" title="RTC驱动分析">RTC驱动分析</span>
-            <span class="post-date" title="2019-08-07 13:37:33">2019/08/07</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/07/字符驱动设备的另一种写法/"
-           data-tag="字符驱动"
-           data-author="" >
-            <span class="post-title" title="字符驱动设备的另一种写法">字符驱动设备的另一种写法</span>
-            <span class="post-date" title="2019-08-07 12:20:30">2019/08/07</span>
-        </a>
-        
-        <a  class="全部文章 感悟与总结 "
-           href="/2019/08/06/二维数组与指针的一些问题/"
-           data-tag="二维数组,指针"
-           data-author="" >
-            <span class="post-title" title="二维数组与指针的一些问题">二维数组与指针的一些问题</span>
-            <span class="post-date" title="2019-08-06 13:11:26">2019/08/06</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/05/IIC驱动/"
-           data-tag="IIC驱动"
-           data-author="" >
-            <span class="post-title" title="IIC驱动">IIC驱动</span>
-            <span class="post-date" title="2019-08-05 14:39:10">2019/08/05</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/04/DM9000C网卡移植/"
-           data-tag="DM9000C,网卡移植"
-           data-author="" >
-            <span class="post-title" title="DM9000C网卡移植">DM9000C网卡移植</span>
-            <span class="post-date" title="2019-08-04 23:07:22">2019/08/04</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/08/04/网卡驱动程序/"
-           data-tag="网卡驱动框架,虚拟网卡"
-           data-author="" >
-            <span class="post-title" title="网卡驱动程序">网卡驱动程序</span>
-            <span class="post-date" title="2019-08-04 21:24:07">2019/08/04</span>
-        </a>
-        
-        <a  class="全部文章 算法 "
-           href="/2019/07/29/快速排序/"
-           data-tag="快速排序"
-           data-author="" >
-            <span class="post-title" title="快速排序">快速排序</span>
-            <span class="post-date" title="2019-07-29 22:27:34">2019/07/29</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/07/25/输入子系统/"
-           data-tag="按键驱动,输入子系统"
-           data-author="" >
-            <span class="post-title" title="输入子系统">输入子系统</span>
-            <span class="post-date" title="2019-07-25 00:05:15">2019/07/25</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/07/22/按键驱动：异步通知机制/"
-           data-tag="按键驱动,异步通知机制"
-           data-author="" >
-            <span class="post-title" title="按键驱动：异步通知机制">按键驱动：异步通知机制</span>
-            <span class="post-date" title="2019-07-22 19:04:24">2019/07/22</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/07/21/按键驱动——poll机制/"
-           data-tag="按键驱动,poll机制"
-           data-author="" >
-            <span class="post-title" title="按键驱动——poll机制">按键驱动——poll机制</span>
-            <span class="post-date" title="2019-07-21 20:30:38">2019/07/21</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/07/21/linux等待队列wait_queue_head_t和wait_queue_t/"
-           data-tag="等待队列,wait_queue_head_t,wait_queue_t"
-           data-author="" >
-            <span class="post-title" title="linux等待队列wait_queue_head_t和wait_queue_t">linux等待队列wait_queue_head_t和wait_queue_t</span>
-            <span class="post-date" title="2019-07-21 18:18:54">2019/07/21</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
-           href="/2019/07/21/Linux编程--文件描述符fd/"
-           data-tag="文件描述符"
-           data-author="" >
-            <span class="post-title" title="Linux编程--文件描述符fd">Linux编程--文件描述符fd</span>
-            <span class="post-date" title="2019-07-21 10:13:47">2019/07/21</span>
-        </a>
-        
-        <a  class="全部文章 工具 "
-           href="/2019/07/12/Markdown 语法整理/"
-           data-tag="Markdown"
-           data-author="" >
-            <span class="post-title" title="Markdown 语法整理">Markdown 语法整理</span>
-            <span class="post-date" title="2019-07-12 13:57:24">2019/07/12</span>
-        </a>
-        
-        <div id="no-item-tips">
-
-        </div>
-    </nav>
-    <div id="outline-list">
-    </div>
-</div>
-    </div>
-    <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
-            <div class="brackets first"><</div>
-            <div class="brackets">&gt;</div>
-        </div>
-    </div>
-</aside>
-<div id="post">
-    <div class="pjax">
-        <article id="post-NanoPi_Neo_Core底层开发" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">NanoPi_Neo_Core底层开发</h1>
-    
-    <div class="article-meta">
-        
-        
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="Linux">Linux</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color1">NanoPi Neo Core</a>
-            
-        </span>
-        
-    </div>
-    <div class="article-meta">
-        
-            发布时间 : <time class="date" title='最后更新: 2019-10-25 16:27:49'>2019-10-18 12:25</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>字数:6.7k</span>
-        
-        
-        <span id="busuanzi_container_page_pv">
-            阅读 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
-        
-    </div>
-    
-    <div class="toc-ref">
-    
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NanoPi-Neo-Core底层开发"><span class="toc-text">NanoPi Neo Core底层开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、编译下载镜像"><span class="toc-text">一、编译下载镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-编译"><span class="toc-text">1. 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1编译uboot"><span class="toc-text">1.1编译uboot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2编译Linux内核"><span class="toc-text">1.2编译Linux内核</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单独编译设备树"><span class="toc-text">单独编译设备树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#反编译设备树"><span class="toc-text">反编译设备树</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3编译根文件系统"><span class="toc-text">1.3编译根文件系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-下载"><span class="toc-text">2. 下载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1生成img镜像"><span class="toc-text">2.1生成img镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#生成SD卡的img镜像"><span class="toc-text">生成SD卡的img镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#烧录img镜像到SD卡"><span class="toc-text">烧录img镜像到SD卡</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2直接烧录"><span class="toc-text">2.2直接烧录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分区情况"><span class="toc-text">3.分区情况</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1自己创建img镜像文件"><span class="toc-text">3.1自己创建img镜像文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#dd命令详解"><span class="toc-text">dd命令详解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#dev-null和-dev-zero的区别"><span class="toc-text">/dev/null和/dev/zero的区别</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、开发环境搭建"><span class="toc-text">二、开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用官方提供ubuntucore文件系统"><span class="toc-text">使用官方提供ubuntucore文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自己制作根文件系统"><span class="toc-text">自己制作根文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打包成img镜像"><span class="toc-text">打包成img镜像</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、驱动编写"><span class="toc-text">三、驱动编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内核版本查看方法"><span class="toc-text">内核版本查看方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载pc上文件系统"><span class="toc-text">挂载pc上文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一键挂载脚本"><span class="toc-text">一键挂载脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#卸载脚本"><span class="toc-text">卸载脚本</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更换源"><span class="toc-text">更换源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-按键驱动程序"><span class="toc-text">1.按键驱动程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1修改设备树"><span class="toc-text">1.1修改设备树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#编译设备树"><span class="toc-text">编译设备树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看系统中是否存在对应节点"><span class="toc-text">查看系统中是否存在对应节点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设备树中的GPIO节点"><span class="toc-text">设备树中的GPIO节点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2编写驱动"><span class="toc-text">1.2编写驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1检查注册的驱动"><span class="toc-text">1.2.1检查注册的驱动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2gpiolib及gpio操作"><span class="toc-text">1.2.2gpiolib及gpio操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#经典接口"><span class="toc-text">经典接口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#新接口"><span class="toc-text">新接口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#读写gpio"><span class="toc-text">读写gpio</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#控制台中查看当前gpio占用情况的方法"><span class="toc-text">控制台中查看当前gpio占用情况的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3调试"><span class="toc-text">1.3调试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#printk"><span class="toc-text">printk</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#后台运行"><span class="toc-text">后台运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-内核定时器"><span class="toc-text">2.内核定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-中断"><span class="toc-text">3.中断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#上半部和下半部"><span class="toc-text">上半部和下半部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1修改设备树"><span class="toc-text">3.1修改设备树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数"><span class="toc-text">相关函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#编译设备树-1"><span class="toc-text">编译设备树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看系统中是否存在对应节点-1"><span class="toc-text">查看系统中是否存在对应节点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设备树中的中断节点"><span class="toc-text">设备树中的中断节点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2编写驱动"><span class="toc-text">3.2编写驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3调试"><span class="toc-text">3.3调试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-input子系统"><span class="toc-text">4.input子系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1修改设备树"><span class="toc-text">4.1修改设备树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2编写驱动"><span class="toc-text">4.2编写驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数-1"><span class="toc-text">相关函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#input-dev的相关事件"><span class="toc-text">input_dev的相关事件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3调试"><span class="toc-text">4.3调试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-IIC框架驱动"><span class="toc-text">5.IIC框架驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1设备树"><span class="toc-text">5.1设备树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2驱动"><span class="toc-text">5.2驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本数据结构"><span class="toc-text">基本数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数-2"><span class="toc-text">相关函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3调试"><span class="toc-text">5.3调试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#i2c-tools工具"><span class="toc-text">i2c-tools工具</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-SPI框架驱动"><span class="toc-text">6.SPI框架驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1设备树"><span class="toc-text">6.1设备树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-2驱动"><span class="toc-text">6.2驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本数据结构-1"><span class="toc-text">基本数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数-3"><span class="toc-text">相关函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3调试"><span class="toc-text">6.3调试</span></a></li></ol></li></ol></li></ol></li></ol>
-    
-<style>
-    .left-col .switch-btn,
-    .left-col .switch-area {
-        display: none;
-    }
-    .toc-level-6 i,
-    .toc-level-6 ol {
-        display: none !important;
-    }
-</style>
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="NanoPi-Neo-Core底层开发"><a href="#NanoPi-Neo-Core底层开发" class="headerlink" title="NanoPi Neo Core底层开发"></a>NanoPi Neo Core底层开发</h1><h2 id="一、编译下载镜像"><a href="#一、编译下载镜像" class="headerlink" title="一、编译下载镜像"></a>一、编译下载镜像</h2><p>各个部分编译后的文件都在对应的文件夹中，如编译friendlycore-xenial_4.14_armhf系统，对应的各个镜像就都在<code>friendlycore-xenial_4.14_armhf</code>文件夹中</p>
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="http://nu-ll.github.io/2019/10/18/NanoPi_Neo_Core%E5%BA%95%E5%B1%82%E5%BC%80%E5%8F%91/"><link rel="prev" title="LiCheePi_Zero底层开发" href="http://nu-ll.github.io/2019/10/18/LiCheePi_Zero%E5%BA%95%E5%B1%82%E5%BC%80%E5%8F%91/"><link rel="next" title="设备树" href="http://nu-ll.github.io/2019/10/13/%E8%AE%BE%E5%A4%87%E6%A0%91/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://nu-ll.github.io/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: {"text":"富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善","fontSize":"15px"},
+  medium_zoom: true,
+  fancybox: false,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">50</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">59</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fa fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#nanopi-neo-core底层开发"><span class="toc-text"> NanoPi Neo Core底层开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-编译下载镜像"><span class="toc-text"> 一、编译下载镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-编译"><span class="toc-text"> 1. 编译</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11编译uboot"><span class="toc-text"> 1.1编译uboot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12编译linux内核"><span class="toc-text"> 1.2编译Linux内核</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单独编译设备树"><span class="toc-text"> 单独编译设备树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#反编译设备树"><span class="toc-text"> 反编译设备树</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13编译根文件系统"><span class="toc-text"> 1.3编译根文件系统</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-下载"><span class="toc-text"> 2. 下载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#21生成img镜像"><span class="toc-text"> 2.1生成img镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#生成sd卡的img镜像"><span class="toc-text"> 生成SD卡的img镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#烧录img镜像到sd卡"><span class="toc-text"> 烧录img镜像到SD卡</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#22直接烧录"><span class="toc-text"> 2.2直接烧录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3分区情况"><span class="toc-text"> 3.分区情况</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#31自己创建img镜像文件"><span class="toc-text"> 3.1自己创建img镜像文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#dd命令详解"><span class="toc-text"> dd命令详解</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#devnull和devzero的区别"><span class="toc-text"> &#x2F;dev&#x2F;null和&#x2F;dev&#x2F;zero的区别</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-开发环境搭建"><span class="toc-text"> 二、开发环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用官方提供ubuntucore文件系统"><span class="toc-text"> 使用官方提供ubuntucore文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自己制作根文件系统"><span class="toc-text"> 自己制作根文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#打包成img镜像"><span class="toc-text"> 打包成img镜像</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-驱动编写"><span class="toc-text"> 三、驱动编写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#写在前面"><span class="toc-text"> 写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内核版本查看方法"><span class="toc-text"> 内核版本查看方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#挂载pc上文件系统"><span class="toc-text"> 挂载pc上文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一键挂载脚本"><span class="toc-text"> 一键挂载脚本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#卸载脚本"><span class="toc-text"> 卸载脚本</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更换源"><span class="toc-text"> 更换源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1按键驱动程序"><span class="toc-text"> 1.按键驱动程序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11修改设备树"><span class="toc-text"> 1.1修改设备树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#编译设备树"><span class="toc-text"> 编译设备树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看系统中是否存在对应节点"><span class="toc-text"> 查看系统中是否存在对应节点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设备树中的gpio节点"><span class="toc-text"> 设备树中的GPIO节点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12编写驱动"><span class="toc-text"> 1.2编写驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#121检查注册的驱动"><span class="toc-text"> 1.2.1检查注册的驱动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#122gpiolib及gpio操作"><span class="toc-text"> 1.2.2gpiolib及gpio操作</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#经典接口"><span class="toc-text"> 经典接口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#新接口"><span class="toc-text"> 新接口</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#读写gpio"><span class="toc-text"> 读写gpio</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#控制台中查看当前gpio占用情况的方法"><span class="toc-text"> 控制台中查看当前gpio占用情况的方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13调试"><span class="toc-text"> 1.3调试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#printk"><span class="toc-text"> printk</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#后台运行"><span class="toc-text"> 后台运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2内核定时器"><span class="toc-text"> 2.内核定时器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3中断"><span class="toc-text"> 3.中断</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#上半部和下半部"><span class="toc-text"> 上半部和下半部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#31修改设备树"><span class="toc-text"> 3.1修改设备树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数"><span class="toc-text"> 相关函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#编译设备树-2"><span class="toc-text"> 编译设备树</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#查看系统中是否存在对应节点-2"><span class="toc-text"> 查看系统中是否存在对应节点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#设备树中的中断节点"><span class="toc-text"> 设备树中的中断节点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32编写驱动"><span class="toc-text"> 3.2编写驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#33调试"><span class="toc-text"> 3.3调试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4input子系统"><span class="toc-text"> 4.input子系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#41修改设备树"><span class="toc-text"> 4.1修改设备树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#42编写驱动"><span class="toc-text"> 4.2编写驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数-2"><span class="toc-text"> 相关函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#input_dev的相关事件"><span class="toc-text"> input_dev的相关事件</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#43调试"><span class="toc-text"> 4.3调试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5iic框架驱动"><span class="toc-text"> 5.IIC框架驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#51设备树"><span class="toc-text"> 5.1设备树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#52驱动"><span class="toc-text"> 5.2驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本数据结构"><span class="toc-text"> 基本数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数-3"><span class="toc-text"> 相关函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#53调试"><span class="toc-text"> 5.3调试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#i2c-tools工具"><span class="toc-text"> i2c-tools工具</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6spi框架驱动"><span class="toc-text"> 6.SPI框架驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#61设备树"><span class="toc-text"> 6.1设备树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#62驱动"><span class="toc-text"> 6.2驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#基本数据结构-2"><span class="toc-text"> 基本数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#相关函数-4"><span class="toc-text"> 相关函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#63调试"><span class="toc-text"> 6.3调试</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">spaceman</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fa fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">NanoPi_Neo_Core底层开发</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2019-10-18 12:25:42"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2019-10-18</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2019-10-25 16:27:49"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2019-10-25</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">6.7k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 26 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="nanopi-neo-core底层开发"><a class="markdownIt-Anchor" href="#nanopi-neo-core底层开发"></a> NanoPi Neo Core底层开发</h1>
+<h2 id="一-编译下载镜像"><a class="markdownIt-Anchor" href="#一-编译下载镜像"></a> 一、编译下载镜像</h2>
+<p>各个部分编译后的文件都在对应的文件夹中，如编译friendlycore-xenial_4.14_armhf系统，对应的各个镜像就都在<code>friendlycore-xenial_4.14_armhf</code>文件夹中</p>
 <p>最后生成的img文件会在<code>out</code>文件夹中</p>
-<h3 id="1-编译"><a href="#1-编译" class="headerlink" title="1. 编译"></a>1. 编译</h3><h4 id="1-1编译uboot"><a href="#1-1编译uboot" class="headerlink" title="1.1编译uboot"></a>1.1编译uboot</h4><pre><code class="bash">UBOOT_SRC=../UBOOT/u-boot-sunxi-v2017.x ./build-uboot.sh friendlywrt_4.14_armhf</code></pre>
-<h4 id="1-2编译Linux内核"><a href="#1-2编译Linux内核" class="headerlink" title="1.2编译Linux内核"></a>1.2编译Linux内核</h4><pre><code class="bash">KERNEL_SRC=../LINUX/linux-sunxi-4.14.y ./build-kernel.sh friendlycore-xenial_4.14_armhf</code></pre>
+<h3 id="1-编译"><a class="markdownIt-Anchor" href="#1-编译"></a> 1. 编译</h3>
+<h4 id="11编译uboot"><a class="markdownIt-Anchor" href="#11编译uboot"></a> 1.1编译uboot</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UBOOT_SRC=../UBOOT/u-boot-sunxi-v2017.x ./build-uboot.sh friendlywrt_4.14_armhf</span><br></pre></td></tr></table></figure>
+<h4 id="12编译linux内核"><a class="markdownIt-Anchor" href="#12编译linux内核"></a> 1.2编译Linux内核</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KERNEL_SRC=../LINUX/linux-sunxi-4.14.y ./build-kernel.sh friendlycore-xenial_4.14_armhf</span><br></pre></td></tr></table></figure>
 <p>编译内核时会自动编译设备树，如果想重新单独编译设备树，则有：</p>
-<h5 id="单独编译设备树"><a href="#单独编译设备树" class="headerlink" title="单独编译设备树"></a>单独编译设备树</h5><pre><code class="bash">make distclean
-touch .scmversion
-make ARCH=arm sunxi_defconfig
-make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</code></pre>
-<h5 id="反编译设备树"><a href="#反编译设备树" class="headerlink" title="反编译设备树"></a>反编译设备树</h5><pre><code class="bash">./scripts/dtc/dtc -I dtb -O dts -o ../sun8i-h3-nanopi-neo-core.dts ./arch/arm/boot/dts/sun8i-h3-nanopi-neo-core.dtb</code></pre>
-<h4 id="1-3编译根文件系统"><a href="#1-3编译根文件系统" class="headerlink" title="1.3编译根文件系统"></a>1.3编译根文件系统</h4><pre><code class="bash">echo hello &gt; friendlycore-xenial_4.14_armhf/rootfs/root/welcome.txt
-./build-rootfs-img.sh friendlycore-xenial_4.14_armhf/rootfs friendlycore-xenial_4.14_armhf</code></pre>
-<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><h4 id="2-1生成img镜像"><a href="#2-1生成img镜像" class="headerlink" title="2.1生成img镜像"></a>2.1生成img镜像</h4><h5 id="生成SD卡的img镜像"><a href="#生成SD卡的img镜像" class="headerlink" title="生成SD卡的img镜像"></a>生成SD卡的img镜像</h5><pre><code class="bash">sudo ./mk-sd-image.sh friendlycore-xenial_4.14_armhf [h3-sd-friendlycore.img(镜像名字，默认按照时间命名)]</code></pre>
-<h5 id="烧录img镜像到SD卡"><a href="#烧录img镜像到SD卡" class="headerlink" title="烧录img镜像到SD卡"></a>烧录img镜像到SD卡</h5><pre><code class="bash">sudo dd if=out/h3-sd-friendlycore.img bs=1M of=/dev/sdX</code></pre>
-<h4 id="2-2直接烧录"><a href="#2-2直接烧录" class="headerlink" title="2.2直接烧录"></a>2.2直接烧录</h4><pre><code class="bash">sudo ./fusing.sh /dev/sdX friendlycore-xenial_4.14_armhf</code></pre>
-<h3 id="3-分区情况"><a href="#3-分区情况" class="headerlink" title="3.分区情况"></a>3.分区情况</h3><table>
+<h5 id="单独编译设备树"><a class="markdownIt-Anchor" href="#单独编译设备树"></a> 单独编译设备树</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make distclean</span><br><span class="line">touch .scmversion</span><br><span class="line">make ARCH=arm sunxi_defconfig</span><br><span class="line">make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</span><br></pre></td></tr></table></figure>
+<h5 id="反编译设备树"><a class="markdownIt-Anchor" href="#反编译设备树"></a> 反编译设备树</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/dtc/dtc -I dtb -O dts -o ../sun8i-h3-nanopi-neo-core.dts ./arch/arm/boot/dts/sun8i-h3-nanopi-neo-core.dtb</span><br></pre></td></tr></table></figure>
+<h4 id="13编译根文件系统"><a class="markdownIt-Anchor" href="#13编译根文件系统"></a> 1.3编译根文件系统</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello &gt; friendlycore-xenial_4.14_armhf/rootfs/root/welcome.txt</span><br><span class="line">./build-rootfs-img.sh friendlycore-xenial_4.14_armhf/rootfs friendlycore-xenial_4.14_armhf</span><br></pre></td></tr></table></figure>
+<h3 id="2-下载"><a class="markdownIt-Anchor" href="#2-下载"></a> 2. 下载</h3>
+<h4 id="21生成img镜像"><a class="markdownIt-Anchor" href="#21生成img镜像"></a> 2.1生成img镜像</h4>
+<h5 id="生成sd卡的img镜像"><a class="markdownIt-Anchor" href="#生成sd卡的img镜像"></a> 生成SD卡的img镜像</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./mk-sd-image.sh friendlycore-xenial_4.14_armhf [h3-sd-friendlycore.img(镜像名字，默认按照时间命名)]</span><br></pre></td></tr></table></figure>
+<h5 id="烧录img镜像到sd卡"><a class="markdownIt-Anchor" href="#烧录img镜像到sd卡"></a> 烧录img镜像到SD卡</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dd <span class="keyword">if</span>=out/h3-sd-friendlycore.img bs=1M of=/dev/sdX</span><br></pre></td></tr></table></figure>
+<h4 id="22直接烧录"><a class="markdownIt-Anchor" href="#22直接烧录"></a> 2.2直接烧录</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./fusing.sh /dev/sdX friendlycore-xenial_4.14_armhf</span><br></pre></td></tr></table></figure>
+<h3 id="3分区情况"><a class="markdownIt-Anchor" href="#3分区情况"></a> 3.分区情况</h3>
+<table>
 <thead>
 <tr>
 <th>分区名字</th>
@@ -949,7 +119,8 @@ make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</code></pre>
 <th>内容</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>boot0</td>
 <td>raw</td>
 <td>0x2000</td>
@@ -981,63 +152,27 @@ make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</code></pre>
 <td>userdata.img</td>
 <td></td>
 </tr>
-</tbody></table>
-<h4 id="3-1自己创建img镜像文件"><a href="#3-1自己创建img镜像文件" class="headerlink" title="3.1自己创建img镜像文件"></a>3.1自己创建img镜像文件</h4><pre><code class="bash">dd if=/dev/zero of=镜像文件 bs=1024 count=0 seek=镜像大小#单位：k，uboot+kernel(zImage)+dtb+rootfs=1220M，脚本中默认(7800*1000*1000)/1024
-
-#sfdisk ： 查看分区信息
-#将MBR扇区签名写入到镜像
-sfdisk -u S -L -q 镜像文件 2&gt;/dev/null &lt;&lt; EOF
-2048,,0x0C,-
-EOF
-
-# 找到一个loop设备
-losetup -f
-# 将镜像文件虚拟成块设备
-sudo losetup 找到的loop设备 镜像文件#eg: losetup /dev/loop1 floppy.img
-
-# 利用友善之臂的工具sd_update，将分区表同目录下的uboot.bin、boot.img、rootfs.img、userdata.img拷贝到loop设备中并生成img镜像
-sudo ./tools/sd_update -d 找到的loop设备 -p ./friendlycore-xenial_4.14_armhf/partmap.txt(分区表)
-# 读取 找到的loop设备 分区信息
-sudo partprobe 找到的loop设备 -s 2&gt;/dev/null
-# 调整文件系统的大小，这里是p3，意为第三个分区，即userdata分区
-sudo resize2fs -f 找到的loop设备p3;
-
-# 卸载loop设备
-sudo losetup -d 找到的loop设备</code></pre>
+</tbody>
+</table>
+<h4 id="31自己创建img镜像文件"><a class="markdownIt-Anchor" href="#31自己创建img镜像文件"></a> 3.1自己创建img镜像文件</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=镜像文件 bs=1024 count=0 seek=镜像大小<span class="comment">#单位：k，uboot+kernel(zImage)+dtb+rootfs=1220M，脚本中默认(7800*1000*1000)/1024</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#sfdisk ： 查看分区信息</span></span><br><span class="line"><span class="comment">#将MBR扇区签名写入到镜像</span></span><br><span class="line">sfdisk -u S -L -q 镜像文件 2&gt;/dev/null &lt;&lt; EOF</span><br><span class="line">2048,,0x0C,-</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到一个loop设备</span></span><br><span class="line">losetup -f</span><br><span class="line"><span class="comment"># 将镜像文件虚拟成块设备</span></span><br><span class="line">sudo losetup 找到的loop设备 镜像文件<span class="comment">#eg: losetup /dev/loop1 floppy.img</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用友善之臂的工具sd_update，将分区表同目录下的uboot.bin、boot.img、rootfs.img、userdata.img拷贝到loop设备中并生成img镜像</span></span><br><span class="line">sudo ./tools/sd_update -d 找到的loop设备 -p ./friendlycore-xenial_4.14_armhf/partmap.txt(分区表)</span><br><span class="line"><span class="comment"># 读取 找到的loop设备 分区信息</span></span><br><span class="line">sudo partprobe 找到的loop设备 -s 2&gt;/dev/null</span><br><span class="line"><span class="comment"># 调整文件系统的大小，这里是p3，意为第三个分区，即userdata分区</span></span><br><span class="line">sudo resize2fs -f 找到的loop设备p3;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载loop设备</span></span><br><span class="line">sudo losetup -d 找到的loop设备</span><br></pre></td></tr></table></figure>
 <p>例子：</p>
-<pre><code class="bash">dd if=/dev/zero of=out/busyboxflash.img bs=1024 count=0 seek=1331200#1331200k -&gt; 1300M ==&gt; 留给userdata 80M，修改partmap.txt中userdata大小为0x500 0000
-# 实测貌似最少需要8G才能用ubuntucore文件系统
-
-
-#sfdisk ： 查看分区信息
-#将MBR扇区签名写入到镜像
-sfdisk -u S -L -q out/busyboxflash.img 2&gt;/dev/null &lt;&lt; EOF
-2048,,0x0C,-
-EOF
-
-# 找到一个loop设备
-losetup -f
-# 将镜像文件虚拟成块设备
-sudo losetup /dev/loop17 out/busyboxflash.img
-# 利用友善之臂的工具sd_update，将分区表同目录下的uboot.bin、boot.img、rootfs.img、userdata.img拷贝到loop设备中并生成img镜像
-sudo ./tools/sd_update -d /dev/loop17 -p ./friendlycore-xenial_4.14_armhf/partmap.txt(分区表)
-# 读取/dev/loop17分区信息
-sudo partprobe /dev/loop17 -s 2&gt;/dev/null
-# 调整文件系统的大小，这里是p3，意为第三个分区，即userdata分区
-sudo resize2fs -f /dev/loop17p3;
-
-# 卸载loop设备
-sudo losetup -d /dev/loop17</code></pre>
-<h5 id="dd命令详解"><a href="#dd命令详解" class="headerlink" title="dd命令详解"></a>dd命令详解</h5><p> dd：用指定大小的块拷贝一个文件，并在拷贝的同时进行指定的转换。 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=out/busyboxflash.img bs=1024 count=0 seek=1331200<span class="comment">#1331200k -&gt; 1300M ==&gt; 留给userdata 80M，修改partmap.txt中userdata大小为0x500 0000</span></span><br><span class="line"><span class="comment"># 实测貌似最少需要8G才能用ubuntucore文件系统</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#sfdisk ： 查看分区信息</span></span><br><span class="line"><span class="comment">#将MBR扇区签名写入到镜像</span></span><br><span class="line">sfdisk -u S -L -q out/busyboxflash.img 2&gt;/dev/null &lt;&lt; EOF</span><br><span class="line">2048,,0x0C,-</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到一个loop设备</span></span><br><span class="line">losetup -f</span><br><span class="line"><span class="comment"># 将镜像文件虚拟成块设备</span></span><br><span class="line">sudo losetup /dev/loop17 out/busyboxflash.img</span><br><span class="line"><span class="comment"># 利用友善之臂的工具sd_update，将分区表同目录下的uboot.bin、boot.img、rootfs.img、userdata.img拷贝到loop设备中并生成img镜像</span></span><br><span class="line">sudo ./tools/sd_update -d /dev/loop17 -p ./friendlycore-xenial_4.14_armhf/partmap.txt(分区表)</span><br><span class="line"><span class="comment"># 读取/dev/loop17分区信息</span></span><br><span class="line">sudo partprobe /dev/loop17 -s 2&gt;/dev/null</span><br><span class="line"><span class="comment"># 调整文件系统的大小，这里是p3，意为第三个分区，即userdata分区</span></span><br><span class="line">sudo resize2fs -f /dev/loop17p3;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载loop设备</span></span><br><span class="line">sudo losetup -d /dev/loop17</span><br></pre></td></tr></table></figure>
+<h5 id="dd命令详解"><a class="markdownIt-Anchor" href="#dd命令详解"></a> dd命令详解</h5>
+<p>dd：用指定大小的块拷贝一个文件，并在拷贝的同时进行指定的转换。</p>
 <ul>
 <li><code>if</code>=文件名：输入文件名，缺省为标准输入。即指定源文件。&lt;if=inputfile&gt;</li>
 <li><code>of</code>=文件名：输出文件名，缺省为标准输出。即指定目的文件。&lt; of=output file &gt;</li>
-<li>ibs=bytes：一次读入bytes个字节，即指定一个块大小为bytes个字节。<br>  obs=bytes：一次输出bytes个字节，即指定一个块大小为bytes个字节。<br>  <code>bs</code>=bytes：同时设置读入/输出的块大小为bytes个字节。</li>
+<li>ibs=bytes：一次读入bytes个字节，即指定一个块大小为bytes个字节。<br>
+obs=bytes：一次输出bytes个字节，即指定一个块大小为bytes个字节。<br>
+<code>bs</code>=bytes：同时设置读入/输出的块大小为bytes个字节。</li>
 <li>cbs=bytes：一次转换bytes个字节，即指定转换缓冲区大小。</li>
 <li>skip=blocks：从输入文件开头跳过blocks个块后再开始复制。</li>
-<li><code>seek</code>=blocks：从输出文件开头跳过blocks个块后再开始复制。<br>  （注意：通常只用当输出文件是磁盘或磁带时才有效，即备份到磁盘或磁带时才有效。</li>
+<li><code>seek</code>=blocks：从输出文件开头跳过blocks个块后再开始复制。<br>
+（注意：通常只用当输出文件是磁盘或磁带时才有效，即备份到磁盘或磁带时才有效。</li>
 <li><code>count</code>=blocks：仅拷贝blocks个块，块大小等于ibs指定的字节数。</li>
-<li>conv=conversion：用指定的参数转换文件。<ul>
+<li>conv=conversion：用指定的参数转换文件。
+<ul>
 <li>ascii：转换ebcdic为ascii</li>
 <li>ebcdic：转换ascii为ebcdic</li>
 <li>ibm：转换ascii为alternateebcdic</li>
@@ -1052,218 +187,85 @@ sudo losetup -d /dev/loop17</code></pre>
 </ul>
 </li>
 </ul>
-<h5 id="dev-null和-dev-zero的区别"><a href="#dev-null和-dev-zero的区别" class="headerlink" title="/dev/null和/dev/zero的区别"></a>/dev/null和/dev/zero的区别</h5><ul>
-<li><code>/dev/null</code>，外号叫无底洞，你可以向它输出任何数据，它通吃，并且不会撑着！ </li>
-<li><code>/dev/zero</code>，是一个输入设备，你可你用它来初始化文件。该设备无穷尽地提供0，可以使用任何你需要的数目——设备提供的要多的多。他可以用于向设备或文件写入字符串0。 </li>
+<h5 id="devnull和devzero的区别"><a class="markdownIt-Anchor" href="#devnull和devzero的区别"></a> /dev/null和/dev/zero的区别</h5>
+<ul>
+<li><code>/dev/null</code>，外号叫无底洞，你可以向它输出任何数据，它通吃，并且不会撑着！</li>
+<li><code>/dev/zero</code>，是一个输入设备，你可你用它来初始化文件。该设备无穷尽地提供0，可以使用任何你需要的数目——设备提供的要多的多。他可以用于向设备或文件写入字符串0。</li>
 </ul>
-<h2 id="二、开发环境搭建"><a href="#二、开发环境搭建" class="headerlink" title="二、开发环境搭建"></a>二、开发环境搭建</h2><h3 id="使用官方提供ubuntucore文件系统"><a href="#使用官方提供ubuntucore文件系统" class="headerlink" title="使用官方提供ubuntucore文件系统"></a>使用官方提供ubuntucore文件系统</h3><p>切换成root用户：</p>
-<pre><code class="bash">su root</code></pre>
-<p>普通用户： </p>
-<pre><code class="bash">用户名: pi
-密码: pi</code></pre>
-<p>Root用户： </p>
-<pre><code class="bash">用户名: root
-密码: fa</code></pre>
+<h2 id="二-开发环境搭建"><a class="markdownIt-Anchor" href="#二-开发环境搭建"></a> 二、开发环境搭建</h2>
+<h3 id="使用官方提供ubuntucore文件系统"><a class="markdownIt-Anchor" href="#使用官方提供ubuntucore文件系统"></a> 使用官方提供ubuntucore文件系统</h3>
+<p>切换成root用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br></pre></td></tr></table></figure>
+<p>普通用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户名: pi</span><br><span class="line">密码: pi</span><br></pre></td></tr></table></figure>
+<p>Root用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户名: root</span><br><span class="line">密码: fa</span><br></pre></td></tr></table></figure>
 <p>可能会遇到无法切换的行为，此时可以修改默认登录账号为root：</p>
-<pre><code class="bash">cd /etc/systemd/system/serial-getty@ttyS0.service.d/
-vi autologin.conf
-修改前：
-[Service]
-ExecStart=
-ExecStart=-/sbin/agetty --autologin pi --keep-baud 115200,38400,9600 %I $TERM
-修改后：
-[Service]
-ExecStart=
-ExecStart=-/sbin/agetty --autologin root --keep-baud 115200,38400,9600 %I $TERM</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/systemd/system/serial-getty@ttyS0.service.d/</span><br><span class="line">vi autologin.conf</span><br><span class="line">修改前：</span><br><span class="line">[Service]</span><br><span class="line">ExecStart=</span><br><span class="line">ExecStart=-/sbin/agetty --autologin pi --keep-baud 115200,38400,9600 %I <span class="variable">$TERM</span></span><br><span class="line">修改后：</span><br><span class="line">[Service]</span><br><span class="line">ExecStart=</span><br><span class="line">ExecStart=-/sbin/agetty --autologin root --keep-baud 115200,38400,9600 %I <span class="variable">$TERM</span></span><br></pre></td></tr></table></figure>
 <p>更新软件包</p>
-<pre><code class="bash">apt-get update</code></pre>
-<h3 id="自己制作根文件系统"><a href="#自己制作根文件系统" class="headerlink" title="自己制作根文件系统"></a>自己制作根文件系统</h3><p>详见另一篇博客——《构造根文件系统》</p>
-<pre><code class="bash"># 拷贝lib库
-sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/lib/*so* ./lib/ -d
-sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/lib/*.a ./lib/ -d
-
-# 拷贝lib库
-sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/sys-root/usr/lib/*so* ./usr/lib/ -d
-sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/sys-root/usr/lib/*.a ./usr/lib/ -d
-
-# 查看lib文件大小
-du ./lib/ ./usr/lib/ -sh</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+<h3 id="自己制作根文件系统"><a class="markdownIt-Anchor" href="#自己制作根文件系统"></a> 自己制作根文件系统</h3>
+<p>详见另一篇博客——《构造根文件系统》</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拷贝lib库</span></span><br><span class="line">sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/lib/*so* ./lib/ -d</span><br><span class="line">sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/lib/*.a ./lib/ -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝lib库</span></span><br><span class="line">sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/sys-root/usr/lib/*so* ./usr/lib/ -d</span><br><span class="line">sudo cp ../Toolchain/4.9.3/arm-cortexa9-linux-gnueabihf/sys-root/usr/lib/*.a ./usr/lib/ -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看lib文件大小</span></span><br><span class="line">du ./lib/ ./usr/lib/ -sh</span><br></pre></td></tr></table></figure>
 <p>etc/init.d/rcS文件：</p>
-<pre><code class="bash">#!/bin/sh
-
-PATH=/sbin:/bin:/usr/sbin:/usr/bin
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/lib:/usr/lib
-export PATH LD_LIBRARY_PATH runlevel
-
-mount -a
-mkdir /dev/pts
-mount -t devpts devpts /dev/pts
-
-echo /sbin/mdev &gt; /proc/sys/kernel/hotplug
-mdev -s</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">PATH=/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line">LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/lib:/usr/lib</span><br><span class="line"><span class="built_in">export</span> PATH LD_LIBRARY_PATH runlevel</span><br><span class="line"></span><br><span class="line">mount -a</span><br><span class="line">mkdir /dev/pts</span><br><span class="line">mount -t devpts devpts /dev/pts</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> /sbin/mdev &gt; /proc/sys/kernel/hotplug</span><br><span class="line">mdev -s</span><br></pre></td></tr></table></figure>
 <p>chmod 777 rcS</p>
 <p>etc/fstab文件：</p>
-<pre><code class="bash">#device mount-point     type    options         dump    pass
-proc    /proc           proc    defaults        0       0
-tmpfs   /tmp            tmpfs   defaults        0       0
-sysfs   /sys            sysfs   defaults        0       0
-tmpfs   /dev            tmpfs   defaults        0       0</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#device mount-point     type    options         dump    pass</span></span><br><span class="line">proc    /proc           proc    defaults        0       0</span><br><span class="line">tmpfs   /tmp            tmpfs   defaults        0       0</span><br><span class="line">sysfs   /sys            sysfs   defaults        0       0</span><br><span class="line">tmpfs   /dev            tmpfs   defaults        0       0</span><br></pre></td></tr></table></figure>
 <p>etc/inittab文件：</p>
-<pre><code class="bash">#etc/inittab
-::sysinit:/etc/init.d/rcS
-console::askfirst:-/bin/sh
-::restart:/sbin/init
-::ctrlaltdel:/sbin/reboot
-::shutdown:/bin/umount -a -r
-::shutdown:/sbin/swapoff -a</code></pre>
-<h4 id="打包成img镜像"><a href="#打包成img镜像" class="headerlink" title="打包成img镜像"></a>打包成img镜像</h4><pre><code class="bash"># 获得待打包成img镜像的rootfs文件夹大小
-du -s -B 1 friendlycore-xenial_4.14_armhf/rootfs | cut -f1
-# 利用友善之臂提供的工具make_ext4fs制作临时的ext4格式文件系统
-./tools/make_ext4fs  -s -l 最大镜像大小 -a root -L rootfs /dev/null 待打包成img镜像的rootfs文件夹 &gt; tempfile
-# 获得镜像大小
-cat tempfile | grep &quot;Suggest size:&quot; | cut -f2 -d &#39;:&#39; | awk &#39;{gsub(/^\s+|\s+$/, &quot;&quot;);print}&#39;
-# 注意：获得待打包成img镜像的rootfs文件夹大小 &lt; 获得镜像大小
-
-# 真正制作ext4格式文件系统
-./tools/make_ext4fs  -s -l 刚刚获得的镜像大小 -a root -L rootfs 镜像文件.img 待打包成img镜像的rootfs文件夹</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#etc/inittab</span></span><br><span class="line">::sysinit:/etc/init.d/rcS</span><br><span class="line">console::askfirst:-/bin/sh</span><br><span class="line">::restart:/sbin/init</span><br><span class="line">::ctrlaltdel:/sbin/reboot</span><br><span class="line">::shutdown:/bin/umount -a -r</span><br><span class="line">::shutdown:/sbin/swapoff -a</span><br></pre></td></tr></table></figure>
+<h4 id="打包成img镜像"><a class="markdownIt-Anchor" href="#打包成img镜像"></a> 打包成img镜像</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获得待打包成img镜像的rootfs文件夹大小</span></span><br><span class="line">du -s -B 1 friendlycore-xenial_4.14_armhf/rootfs | cut -f1</span><br><span class="line"><span class="comment"># 利用友善之臂提供的工具make_ext4fs制作临时的ext4格式文件系统</span></span><br><span class="line">./tools/make_ext4fs  -s -l 最大镜像大小 -a root -L rootfs /dev/null 待打包成img镜像的rootfs文件夹 &gt; tempfile</span><br><span class="line"><span class="comment"># 获得镜像大小</span></span><br><span class="line">cat tempfile | grep <span class="string">"Suggest size:"</span> | cut -f2 -d <span class="string">':'</span> | awk <span class="string">'&#123;gsub(/^\s+|\s+$/, "");print&#125;'</span></span><br><span class="line"><span class="comment"># 注意：获得待打包成img镜像的rootfs文件夹大小 &lt; 获得镜像大小</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 真正制作ext4格式文件系统</span></span><br><span class="line">./tools/make_ext4fs  -s -l 刚刚获得的镜像大小 -a root -L rootfs 镜像文件.img 待打包成img镜像的rootfs文件夹</span><br></pre></td></tr></table></figure>
 <p>上述这一系列操作已经被友善之臂写入脚本<code>build-rootfs-img.sh</code>中，具体调用方面为：</p>
-<pre><code class="bash">./build-rootfs-img rootfs文件夹所在目录 生成img的镜像文件所在的目录</code></pre>
-<pre><code class="bash">eg：
-./build-rootfs-img.sh friendlycore-xenial_4.14_armhf/rootfs friendlycore-xenial_4.14_armhf
-或
-./build-rootfs-img.sh ~/nfs_root ~/nfs_root</code></pre>
-<p><strong>注：</strong>重新配置文件系统后后，需要重新运行友善之臂的脚本<code>build-kernel.sh</code>编译一次内核，该脚本会将内核中的模块安装至该文件系统镜像中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build-rootfs-img rootfs文件夹所在目录 生成img的镜像文件所在的目录</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">eg：</span><br><span class="line">./build-rootfs-img.sh friendlycore-xenial_4.14_armhf/rootfs friendlycore-xenial_4.14_armhf</span><br><span class="line">或</span><br><span class="line">./build-rootfs-img.sh ~/nfs_root ~/nfs_root</span><br></pre></td></tr></table></figure>
+<p>**注：**重新配置文件系统后后，需要重新运行友善之臂的脚本<code>build-kernel.sh</code>编译一次内核，该脚本会将内核中的模块安装至该文件系统镜像中</p>
 <p>自己做的rootfs平台，build-kernel.sh中需要注释一个平台检测的代码块，同时在./tools/update_kernel_bin_to_img.sh脚本中第122行需要将<code>echo &quot;IMG_SIZE=${IMG_SIZE}&quot; &gt; ${OUT}/${TARGET_OS}_rootfs-img.info</code>改为<code>echo &quot;IMG_SIZE=${IMG_SIZE}&quot;</code></p>
-<pre><code class="bash">KERNEL_SRC=../LINUX/linux-sunxi-4.14.y ./build-kernel-others.sh 放rootfs.img和放生成的boot.img的文件夹</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">KERNEL_SRC=../LINUX/linux-sunxi-4.14.y ./build-kernel-others.sh 放rootfs.img和放生成的boot.img的文件夹</span><br></pre></td></tr></table></figure>
 <p>参考前文，下载img镜像方法如下：</p>
-<pre><code class="bash">dd if=/dev/zero of=out/busyboxflash.img bs=1024 count=0 seek=133120#133120k -&gt; 130M 删除partmap.txt中userdata分区
-
-#sfdisk ： 查看分区信息
-#将MBR扇区签名写入到镜像
-sfdisk -u S -L -q out/busyboxflash.img 2&gt;/dev/null &lt;&lt; EOF
-2048,,0x0C,-
-EOF
-
-# 找到一个loop设备
-losetup -f
-# 将镜像文件虚拟成块设备
-sudo losetup /dev/loop17 out/busyboxflash.img
-# 利用友善之臂的工具sd_update，将分区表同目录下的uboot.bin、boot.img、rootfs.img、userdata.img拷贝到loop设备中并生成img镜像
-sudo ./tools/sd_update -d /dev/loop17 -p ./busybox_rootfs/partmap_no_userdata.txt
-# 读取/dev/loop17分区信息
-sudo partprobe /dev/loop17 -s 2&gt;/dev/null
-
-# 卸载loop设备
-sudo losetup -d /dev/loop17</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=out/busyboxflash.img bs=1024 count=0 seek=133120<span class="comment">#133120k -&gt; 130M 删除partmap.txt中userdata分区</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#sfdisk ： 查看分区信息</span></span><br><span class="line"><span class="comment">#将MBR扇区签名写入到镜像</span></span><br><span class="line">sfdisk -u S -L -q out/busyboxflash.img 2&gt;/dev/null &lt;&lt; EOF</span><br><span class="line">2048,,0x0C,-</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到一个loop设备</span></span><br><span class="line">losetup -f</span><br><span class="line"><span class="comment"># 将镜像文件虚拟成块设备</span></span><br><span class="line">sudo losetup /dev/loop17 out/busyboxflash.img</span><br><span class="line"><span class="comment"># 利用友善之臂的工具sd_update，将分区表同目录下的uboot.bin、boot.img、rootfs.img、userdata.img拷贝到loop设备中并生成img镜像</span></span><br><span class="line">sudo ./tools/sd_update -d /dev/loop17 -p ./busybox_rootfs/partmap_no_userdata.txt</span><br><span class="line"><span class="comment"># 读取/dev/loop17分区信息</span></span><br><span class="line">sudo partprobe /dev/loop17 -s 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载loop设备</span></span><br><span class="line">sudo losetup -d /dev/loop17</span><br></pre></td></tr></table></figure>
 <p>经测试，没有重新编译内核会导致内核启动失败，错误信息：</p>
-<pre><code class="bash">U-Boot SPL 2017.11 (Oct 12 2019 - 17:03:15)
-DRAM: 512 MiB(408MHz)
-CPU Freq: 408MHz
-memory test: 1
-Pattern 55aa  Writing...Reading...OK
-Trying to boot from MMC1
-Boot device: sd
-
-
-U-Boot 2017.11 (Oct 12 2019 - 17:03:15 +0800) Allwinner Technology
-
-CPU:   Allwinner H3 (SUN8I 1680)
-Model: FriendlyElec NanoPi H3
-DRAM:  512 MiB
-CPU Freq: 1008MHz
-MMC:   SUNXI SD/MMC: 0, SUNXI SD/MMC: 1
-*** Warning - bad CRC, using default environment
-
-In:    serial
-Out:   serial
-Err:   serial
-Net:   No ethernet found.
-BOARD: nanopi-neo-core
-starting USB...
-No controllers found
-Hit any key to stop autoboot:  0 
-** Unrecognized filesystem type **
-## Executing script at 43100000
-Wrong image format for &quot;source&quot; command
-=&gt;</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">U-Boot SPL 2017.11 (Oct 12 2019 - 17:03:15)</span><br><span class="line">DRAM: 512 MiB(408MHz)</span><br><span class="line">CPU Freq: 408MHz</span><br><span class="line">memory <span class="built_in">test</span>: 1</span><br><span class="line">Pattern 55aa  Writing...Reading...OK</span><br><span class="line">Trying to boot from MMC1</span><br><span class="line">Boot device: sd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">U-Boot 2017.11 (Oct 12 2019 - 17:03:15 +0800) Allwinner Technology</span><br><span class="line"></span><br><span class="line">CPU:   Allwinner H3 (SUN8I 1680)</span><br><span class="line">Model: FriendlyElec NanoPi H3</span><br><span class="line">DRAM:  512 MiB</span><br><span class="line">CPU Freq: 1008MHz</span><br><span class="line">MMC:   SUNXI SD/MMC: 0, SUNXI SD/MMC: 1</span><br><span class="line">*** Warning - bad CRC, using default environment</span><br><span class="line"></span><br><span class="line">In:    serial</span><br><span class="line">Out:   serial</span><br><span class="line">Err:   serial</span><br><span class="line">Net:   No ethernet found.</span><br><span class="line">BOARD: nanopi-neo-core</span><br><span class="line">starting USB...</span><br><span class="line">No controllers found</span><br><span class="line">Hit any key to stop autoboot:  0 </span><br><span class="line">** Unrecognized filesystem <span class="built_in">type</span> **</span><br><span class="line"><span class="comment">## Executing script at 43100000</span></span><br><span class="line">Wrong image format <span class="keyword">for</span> <span class="string">"source"</span> <span class="built_in">command</span></span><br><span class="line">=&gt;</span><br></pre></td></tr></table></figure>
 <p>根据日志分析貌似是在43100000地址处找不到脚本，但是这个地址是在rootfs中的。。。。。。</p>
 <p>不会搞了，留个坑以后来填。。。。。。</p>
-<h2 id="三、驱动编写"><a href="#三、驱动编写" class="headerlink" title="三、驱动编写"></a>三、驱动编写</h2><p>暂时采用官方镜像，镜像名字为<code>nanopi-neo-core_sd_friendlycore-xenial_4.14_armhf_20190823.img</code>，该镜像中采用的rootfs为<code>UbuntuCore 18.04</code></p>
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><h4 id="内核版本查看方法"><a href="#内核版本查看方法" class="headerlink" title="内核版本查看方法"></a>内核版本查看方法</h4><pre><code class="bash">cat /proc/version
-uname -a</code></pre>
-<h4 id="挂载pc上文件系统"><a href="#挂载pc上文件系统" class="headerlink" title="挂载pc上文件系统"></a>挂载pc上文件系统</h4><pre><code class="bash">mount -t nfs -o nolock 192.168.2.101:/home/null/Code/NanoPi_NEO_Core/nfs /mnt
-
-mount -t nfs -o nolock 192.168.2.101:/home/null/nfs_root /mnt</code></pre>
+<h2 id="三-驱动编写"><a class="markdownIt-Anchor" href="#三-驱动编写"></a> 三、驱动编写</h2>
+<p>暂时采用官方镜像，镜像名字为<code>nanopi-neo-core_sd_friendlycore-xenial_4.14_armhf_20190823.img</code>，该镜像中采用的rootfs为<code>UbuntuCore 18.04</code></p>
+<h3 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h3>
+<h4 id="内核版本查看方法"><a class="markdownIt-Anchor" href="#内核版本查看方法"></a> 内核版本查看方法</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/version</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+<h4 id="挂载pc上文件系统"><a class="markdownIt-Anchor" href="#挂载pc上文件系统"></a> 挂载pc上文件系统</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mount -t nfs -o nolock 192.168.2.101:/home/null/Code/NanoPi_NEO_Core/nfs /mnt</span><br><span class="line"></span><br><span class="line">mount -t nfs -o nolock 192.168.2.101:/home/null/nfs_root /mnt</span><br></pre></td></tr></table></figure>
 <p>挂载报错尝试安装<code>nfs-common</code></p>
 <blockquote>
 <p>报错：</p>
-<pre><code class="bash">mount: wrong fs type, bad option, bad superblock on 192.168.2.101:/home/null/nfs_root,
-       missing codepage or helper program, or other error
-       (for several filesystems (e.g. nfs, cifs) you might
-       need a /sbin/mount.&lt;type&gt; helper program)
-
-       In some cases useful info is found in syslog - try
-       dmesg | tail or so.</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mount: wrong fs <span class="built_in">type</span>, bad option, bad superblock on 192.168.2.101:/home/null/nfs_root,</span><br><span class="line">       missing codepage or helper program, or other error</span><br><span class="line">       (<span class="keyword">for</span> several filesystems (e.g. nfs, cifs) you might</span><br><span class="line">       need a /sbin/mount.&lt;<span class="built_in">type</span>&gt; helper program)</span><br><span class="line"></span><br><span class="line">       In some cases useful info is found <span class="keyword">in</span> syslog - try</span><br><span class="line">       dmesg | tail or so.</span><br></pre></td></tr></table></figure>
 <p>安装nfs-common：</p>
-<pre><code class="bash">sudo apt-get install nfs-common</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nfs-common</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>pc端检查是否配置成功（自己挂接自己）（绝对路径）</p>
-<pre><code class="bash">sudo mount -t nfs -o nolock localhost://home/null/Code/NanoPi_NEO_Core/nfs /mnt/nfs#挂接
-sudo mount -t nfs -o nolock localhost://home/null/nfs_root /mnt/nfs_root#挂接
-ls -l /mnt/nfs#检查
-ls -l /mnt/nfs_root#检查
-sudo umount /mnt/nfs#卸载
-sudo umount /mnt/nfs_root#卸载</code></pre>
-<h5 id="一键挂载脚本"><a href="#一键挂载脚本" class="headerlink" title="一键挂载脚本"></a>一键挂载脚本</h5><pre><code class="bash">#!/bin/bash
-if [ $(id -u) -ne 0 ]; then
-    echo &quot;Re-running script under sudo...&quot;
-    sudo &quot;$0&quot; &quot;$@&quot;
-    exit
-fi
-mount -t nfs -o nolock 192.168.2.101:/home/null/Code/NanoPi_NEO_Core/nfs /mnt
-echo &quot;mount -&gt; /mnt&quot;</code></pre>
-<p>记得chmod +x </p>
-<h5 id="卸载脚本"><a href="#卸载脚本" class="headerlink" title="卸载脚本"></a>卸载脚本</h5><pre><code class="bash">#!/bin/bash
-if [ $(id -u) -ne 0 ]; then
-    echo &quot;Re-running script under sudo...&quot;
-    sudo &quot;$0&quot; &quot;$@&quot;
-    exit
-fi
-umount /mnt
-echo &quot;umount /mnt OK&quot;</code></pre>
-<p>记得chmod +x </p>
-<h4 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h4><p>参考： <a href="http://mirrors.ustc.edu.cn/help/ubuntu-ports.html" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/help/ubuntu-ports.html</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t nfs -o nolock localhost://home/null/Code/NanoPi_NEO_Core/nfs /mnt/nfs<span class="comment">#挂接</span></span><br><span class="line">sudo mount -t nfs -o nolock localhost://home/null/nfs_root /mnt/nfs_root<span class="comment">#挂接</span></span><br><span class="line">ls -l /mnt/nfs<span class="comment">#检查</span></span><br><span class="line">ls -l /mnt/nfs_root<span class="comment">#检查</span></span><br><span class="line">sudo umount /mnt/nfs<span class="comment">#卸载</span></span><br><span class="line">sudo umount /mnt/nfs_root<span class="comment">#卸载</span></span><br></pre></td></tr></table></figure>
+<h5 id="一键挂载脚本"><a class="markdownIt-Anchor" href="#一键挂载脚本"></a> 一键挂载脚本</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ $(id -u) -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Re-running script under sudo..."</span></span><br><span class="line">	sudo <span class="string">"<span class="variable">$0</span>"</span> <span class="string">"<span class="variable">$@</span>"</span></span><br><span class="line">	<span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">mount -t nfs -o nolock 192.168.2.101:/home/null/Code/NanoPi_NEO_Core/nfs /mnt</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"mount -&gt; /mnt"</span></span><br></pre></td></tr></table></figure>
+<p>记得chmod +x</p>
+<h5 id="卸载脚本"><a class="markdownIt-Anchor" href="#卸载脚本"></a> 卸载脚本</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ $(id -u) -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">"Re-running script under sudo..."</span></span><br><span class="line">	sudo <span class="string">"<span class="variable">$0</span>"</span> <span class="string">"<span class="variable">$@</span>"</span></span><br><span class="line">	<span class="built_in">exit</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">umount /mnt</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"umount /mnt OK"</span></span><br></pre></td></tr></table></figure>
+<p>记得chmod +x</p>
+<h4 id="更换源"><a class="markdownIt-Anchor" href="#更换源"></a> 更换源</h4>
+<p>参考： <a href="http://mirrors.ustc.edu.cn/help/ubuntu-ports.html" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/help/ubuntu-ports.html</a></p>
 <p>修改 <code>/etc/apt/sources.list</code> 文件中镜像源服务器地址 <a href="http://ports.ubuntu.com/" target="_blank" rel="noopener">http://ports.ubuntu.com/</a> 为 <a href="http://mirrors.ustc.edu.cn/ubuntu-ports/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/ubuntu-ports/</a></p>
-<pre><code class="bash">deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
-#deb http://ports.ubuntu.com/ bionic main restricted universe multiverse
-# deb-src http://ports.ubuntu.com/ xenial main restricted universe multiverse
-
-deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
-#deb http://ports.ubuntu.com/ bionic-security main restricted universe multiverse
-# deb-src http://ports.ubuntu.com/ xenial-security main restricted universe multiverse
-
-deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
-#deb http://ports.ubuntu.com/ bionic-updates main restricted universe multiverse
-# deb-src http://ports.ubuntu.com/ xenial-updates main restricted universe multiverse
-
-deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
-#deb http://ports.ubuntu.com/ bionic-backports main restricted universe multiverse
-# deb-src http://ports.ubuntu.com/ xenial-backports main restricted universe multiverse</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse</span><br><span class="line"><span class="comment">#deb http://ports.ubuntu.com/ bionic main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://ports.ubuntu.com/ xenial main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line">deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</span><br><span class="line"><span class="comment">#deb http://ports.ubuntu.com/ bionic-security main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://ports.ubuntu.com/ xenial-security main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line">deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse</span><br><span class="line"><span class="comment">#deb http://ports.ubuntu.com/ bionic-updates main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://ports.ubuntu.com/ xenial-updates main restricted universe multiverse</span></span><br><span class="line"></span><br><span class="line">deb http://mirrors.ustc.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse</span><br><span class="line"><span class="comment">#deb http://ports.ubuntu.com/ bionic-backports main restricted universe multiverse</span></span><br><span class="line"><span class="comment"># deb-src http://ports.ubuntu.com/ xenial-backports main restricted universe multiverse</span></span><br></pre></td></tr></table></figure>
 <p>更新源：</p>
-<pre><code class="bash">sudo apt update</code></pre>
-<h3 id="1-按键驱动程序"><a href="#1-按键驱动程序" class="headerlink" title="1.按键驱动程序"></a>1.按键驱动程序</h3><h4 id="1-1修改设备树"><a href="#1-1修改设备树" class="headerlink" title="1.1修改设备树"></a>1.1修改设备树</h4><h5 id="编译设备树"><a href="#编译设备树" class="headerlink" title="编译设备树"></a>编译设备树</h5><pre><code class="bash">make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</code></pre>
-<h5 id="查看系统中是否存在对应节点"><a href="#查看系统中是否存在对应节点" class="headerlink" title="查看系统中是否存在对应节点"></a>查看系统中是否存在对应节点</h5><pre><code class="bash">ls /proc/device-tree/
-
-cat /proc/device-tree/key/compatible
-
-# 注意：hexdump查看的是dtb文件原始数据，其中的数据是按照大字节序排放的（低地址放高位）
-hexdump /proc/device-tree/key/key-gpio
-busybox hexdump /proc/device-tree/key/key-gpio</code></pre>
-<h5 id="设备树中的GPIO节点"><a href="#设备树中的GPIO节点" class="headerlink" title="设备树中的GPIO节点"></a>设备树中的GPIO节点</h5><p>假设PA6和PA7上接入两个LED，通过编写一个GPIO的驱动程序来控制LED的亮灭，在设备树文件sun8i-h3-nanopi-m1.dts的根节点增加一个myleds子节点  ：</p>
-<pre><code>myleds {       
-    compatible = &quot;usr,myleds&quot;;         
-    led-gpios = &lt;&amp;pio 0  7  GPIO_ACTIVE_HIGH&gt;,&lt;&amp;pio 0  6  GPIO_ACTIVE_HIGH&gt;;/* 0表示PA组的io口, 因h3里第0组的io口就是以PA开始命名的 */          
-};</code></pre><p> 节点中的led-gpios属性，引用了pinctrl信息，sunxi-h3-h5.dtsi中有关于该控制器的描述， </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+<h3 id="1按键驱动程序"><a class="markdownIt-Anchor" href="#1按键驱动程序"></a> 1.按键驱动程序</h3>
+<h4 id="11修改设备树"><a class="markdownIt-Anchor" href="#11修改设备树"></a> 1.1修改设备树</h4>
+<h5 id="编译设备树"><a class="markdownIt-Anchor" href="#编译设备树"></a> 编译设备树</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</span><br></pre></td></tr></table></figure>
+<h5 id="查看系统中是否存在对应节点"><a class="markdownIt-Anchor" href="#查看系统中是否存在对应节点"></a> 查看系统中是否存在对应节点</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls /proc/device-tree/</span><br><span class="line"></span><br><span class="line">cat /proc/device-tree/key/compatible</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：hexdump查看的是dtb文件原始数据，其中的数据是按照大字节序排放的（低地址放高位）</span></span><br><span class="line">hexdump /proc/device-tree/key/key-gpio</span><br><span class="line">busybox hexdump /proc/device-tree/key/key-gpio</span><br></pre></td></tr></table></figure>
+<h5 id="设备树中的gpio节点"><a class="markdownIt-Anchor" href="#设备树中的gpio节点"></a> 设备树中的GPIO节点</h5>
+<p>假设PA6和PA7上接入两个LED，通过编写一个GPIO的驱动程序来控制LED的亮灭，在设备树文件sun8i-h3-nanopi-m1.dts的根节点增加一个myleds子节点  ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">myleds &#123;       </span><br><span class="line">	compatible &#x3D; &quot;usr,myleds&quot;;         </span><br><span class="line">	led-gpios &#x3D; &lt;&amp;pio 0  7  GPIO_ACTIVE_HIGH&gt;,&lt;&amp;pio 0  6  GPIO_ACTIVE_HIGH&gt;;&#x2F;* 0表示PA组的io口, 因h3里第0组的io口就是以PA开始命名的 *&#x2F;          </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>节点中的led-gpios属性，引用了pinctrl信息，sunxi-h3-h5.dtsi中有关于该控制器的描述，</p>
 <pre><code>pio: pinctrl@01c20800 {
     /* compatible is in per SoC .dtsi file */
     reg = &lt;0x01c20800 0x400&gt;;
@@ -1276,15 +278,23 @@ busybox hexdump /proc/device-tree/key/key-gpio</code></pre>
     interrupt-controller;
     #interrupt-cells = &lt;3&gt;;
     ......
-};</code></pre><p>myleds子节点描述了两个GPIO信息，具有多个gpio口信息的属性值: <code>&lt;&amp;gpio控制器节点名 具体gpio口的标识符&gt;,&lt;&amp;gpio控制器节点名 具体gpio口的标识符&gt; …;</code>具体gpio口的标识符是由多个数字组成, 数字的个数由所用的gpio控制器节点里的#gpio-cells属性值指定.。全志H3 共有七组GPIO ，也即七个bank，分别为PA (PA0-21),PC(PC0-16) PD (PD0-17), PE(PE0-15),PF(PF0-6) PG(PG0-13) ,PL(PL0-PL11),在内核中PA-PG是一个pinctrl控制器，而PL是另一个pinctrl控制器 。</p>
+};
+</code></pre>
+<p>myleds子节点描述了两个GPIO信息，具有多个gpio口信息的属性值: <code>&lt;&amp;gpio控制器节点名 具体gpio口的标识符&gt;,&lt;&amp;gpio控制器节点名 具体gpio口的标识符&gt; …;</code>具体gpio口的标识符是由多个数字组成, 数字的个数由所用的gpio控制器节点里的#gpio-cells属性值指定.。全志H3 共有七组GPIO ，也即七个bank，分别为PA (PA0-21),PC(PC0-16) PD (PD0-17), PE(PE0-15),PF(PF0-6) PG(PG0-13) ,PL(PL0-PL11),在内核中PA-PG是一个pinctrl控制器，而PL是另一个pinctrl控制器 。</p>
 <p>由#gpio-cells = &lt;3&gt;可以推出GPIO属性需要用3个u32的数据描述，第一个参数代表该GPIO位于哪个bank，第二个参数代表该bank下的序号，第三个参数代表默认电平，myleds节点下的GPIO_ACTIVE_HIGH这个宏就定义于include/dt-bindings/gpio/gpio.h</p>
-<h4 id="1-2编写驱动"><a href="#1-2编写驱动" class="headerlink" title="1.2编写驱动"></a>1.2编写驱动</h4><h5 id="1-2-1检查注册的驱动"><a href="#1-2-1检查注册的驱动" class="headerlink" title="1.2.1检查注册的驱动"></a>1.2.1检查注册的驱动</h5><ul>
-<li><p>驱动安装好后，会在<code>/dev/</code>目录下创建同名目录</p>
+<h4 id="12编写驱动"><a class="markdownIt-Anchor" href="#12编写驱动"></a> 1.2编写驱动</h4>
+<h5 id="121检查注册的驱动"><a class="markdownIt-Anchor" href="#121检查注册的驱动"></a> 1.2.1检查注册的驱动</h5>
+<ul>
+<li>
+<p>驱动安装好后，会在<code>/dev/</code>目录下创建同名目录</p>
 </li>
-<li><p>或者通过<code>cat /proc/devices</code>命令查看多出来的驱动</p>
+<li>
+<p>或者通过<code>cat /proc/devices</code>命令查看多出来的驱动</p>
 </li>
 </ul>
-<h5 id="1-2-2gpiolib及gpio操作"><a href="#1-2-2gpiolib及gpio操作" class="headerlink" title="1.2.2gpiolib及gpio操作"></a>1.2.2gpiolib及gpio操作</h5><h6 id="经典接口"><a href="#经典接口" class="headerlink" title="经典接口"></a>经典接口</h6><ul>
+<h5 id="122gpiolib及gpio操作"><a class="markdownIt-Anchor" href="#122gpiolib及gpio操作"></a> 1.2.2gpiolib及gpio操作</h5>
+<h6 id="经典接口"><a class="markdownIt-Anchor" href="#经典接口"></a> 经典接口</h6>
+<ul>
 <li><code>gpio_request</code>:驱动中要想使用某一个gpio，就必须先调用gpio_request接口来向内核申请，得到允许后才可以去使用这个gpio</li>
 <li><code>gpio_free</code>: 对应gpio_request，用来释放申请后用完了的gpio</li>
 <li><code>gpiochip_is_requested</code>: 接口用来判断某一个gpio是否已经被申请了</li>
@@ -1294,106 +304,120 @@ busybox hexdump /proc/device-tree/key/key-gpio</code></pre>
 <ul>
 <li>一般来说，gpio的资源申请和释放操作应该放在驱动模块的加载与卸载函数内</li>
 <li>gpio_request的第一个参数是需要申请的gpio号。第二个参数是我们给该gpio起个名字</li>
-<li>申请完了之后对这个gpio进行模式设置，我们这里用gpio_direction_output 设置成输出模式，并且默认输出1让led灭 </li>
+<li>申请完了之后对这个gpio进行模式设置，我们这里用gpio_direction_output 设置成输出模式，并且默认输出1让led灭</li>
 </ul>
 </blockquote>
-<h6 id="新接口"><a href="#新接口" class="headerlink" title="新接口"></a>新接口</h6><ul>
-<li><code>devm_gpio_request_one</code>： 自带初始化电平功能，并且会在模块卸载时自动释放gpio，十分简便 </li>
+<h6 id="新接口"><a class="markdownIt-Anchor" href="#新接口"></a> 新接口</h6>
+<ul>
+<li><code>devm_gpio_request_one</code>： 自带初始化电平功能，并且会在模块卸载时自动释放gpio，十分简便</li>
 </ul>
-<h6 id="读写gpio"><a href="#读写gpio" class="headerlink" title="读写gpio"></a>读写gpio</h6><ul>
+<h6 id="读写gpio"><a class="markdownIt-Anchor" href="#读写gpio"></a> 读写gpio</h6>
+<ul>
 <li><code>gpio_get_value</code>：读gpio</li>
 <li><code>gpio_set_value</code>：写gpio</li>
 </ul>
-<h6 id="控制台中查看当前gpio占用情况的方法"><a href="#控制台中查看当前gpio占用情况的方法" class="headerlink" title="控制台中查看当前gpio占用情况的方法"></a>控制台中查看当前gpio占用情况的方法</h6><p>内核中提供了虚拟文件系统debugfs，里面有一个gpio文件，提供了gpio的使用信息</p>
+<h6 id="控制台中查看当前gpio占用情况的方法"><a class="markdownIt-Anchor" href="#控制台中查看当前gpio占用情况的方法"></a> 控制台中查看当前gpio占用情况的方法</h6>
+<p>内核中提供了虚拟文件系统debugfs，里面有一个gpio文件，提供了gpio的使用信息</p>
 <ul>
 <li>使用 <code>mount -t debugfs debugfs /tmp</code> 把debugfs挂接到/tmp下，再重新进入/tmp后就能看到一个名为gpio的文件</li>
 <li><code>cat /tmp/gpio</code>即可得到gpio的所有信息，使用完后<code>umount /tmp</code>卸载掉debugfs</li>
 </ul>
-<h4 id="1-3调试"><a href="#1-3调试" class="headerlink" title="1.3调试"></a>1.3调试</h4><h5 id="printk"><a href="#printk" class="headerlink" title="printk"></a>printk</h5><ul>
-<li><p>查看<code>printk</code>输出的日志：</p>
-<p>  通过<code>dmesg</code>和 <code>more</code>、<code>tail</code>、<code>less</code>、<code>grep</code>的结合查看日志</p>
-<pre><code class="bash">#输出全部信息
-dmesg
-#输出前20行
-dmesg | head -20
-#输出后20行
-dmesg | tail -20
-#输出包含usb的信息（-i：忽略大小写）
-dmesg | grep -i usb
-#清空dmesg环形缓冲区中的日志
-dmesg -c
-    ```</code></pre>
+<h4 id="13调试"><a class="markdownIt-Anchor" href="#13调试"></a> 1.3调试</h4>
+<h5 id="printk"><a class="markdownIt-Anchor" href="#printk"></a> printk</h5>
+<ul>
+<li>
+<p>查看<code>printk</code>输出的日志：</p>
+<p>通过<code>dmesg</code>和 <code>more</code>、<code>tail</code>、<code>less</code>、<code>grep</code>的结合查看日志</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#输出全部信息</span></span><br><span class="line">dmesg</span><br><span class="line"><span class="comment">#输出前20行</span></span><br><span class="line">dmesg | head -20</span><br><span class="line"><span class="comment">#输出后20行</span></span><br><span class="line">dmesg | tail -20</span><br><span class="line"><span class="comment">#输出包含usb的信息（-i：忽略大小写）</span></span><br><span class="line">dmesg | grep -i usb</span><br><span class="line"><span class="comment">#清空dmesg环形缓冲区中的日志</span></span><br><span class="line">dmesg -c</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>或者直接设置日志的输出的等级：</p>
-<pre><code class="bash">  echo $level &gt; /proc/sys/kernel/printk#默认为4 4 1 7
-  #如：
-  echo 8 4 1 7 &gt; /proc/sys/kernel/printk#所有级别日志均可打印输出</code></pre>
+<li>
+<p>或者直接设置日志的输出的等级：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$level</span> &gt; /proc/sys/kernel/printk<span class="comment">#默认为4 4 1 7</span></span><br><span class="line"><span class="comment">#如：</span></span><br><span class="line"><span class="built_in">echo</span> 8 4 1 7 &gt; /proc/sys/kernel/printk<span class="comment">#所有级别日志均可打印输出</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>/proc/sys/kernel/printk中对应的四个数分别对应于：</p>
 <ul>
-<li><p>①控制台日志级别：优先级高于该值的消息将被打印至控制台。</p>
-</li>
-<li><p>②缺省的消息日志级别：将用该值来打印没有优先级的消息。</p>
-</li>
-<li><p>③最低的控制台日志级别：控制台日志级别可能被设置的最小值。</p>
-</li>
-<li><p>④缺省的控制台：控制台日志级别的缺省值。</p>
-<p>日志缓冲区的每一行文本开头具有级别标记, 级别值<strong>越小</strong>则优先级<strong>越高</strong>.  </p>
+<li>①控制台日志级别：优先级高于该值的消息将被打印至控制台。</li>
+<li>②缺省的消息日志级别：将用该值来打印没有优先级的消息。</li>
+<li>③最低的控制台日志级别：控制台日志级别可能被设置的最小值。</li>
+<li>④缺省的控制台：控制台日志级别的缺省值。</li>
+</ul>
+<p>日志缓冲区的每一行文本开头具有级别标记, 级别值<strong>越小</strong>则优先级<strong>越高</strong>.</p>
 <p>系统定义了8个消息级别, 级别号从0到7分别为：</p>
+<ul>
+<li>
+<p>致命级(KERN_EMESG),</p>
 </li>
-<li><p>致命级(KERN_EMESG), </p>
+<li>
+<p>警戒级(KERN_ALERT),</p>
 </li>
-<li><p>警戒级(KERN_ALERT), </p>
+<li>
+<p>临界级(KERN_CRIT),</p>
 </li>
-<li><p>临界级(KERN_CRIT),</p>
+<li>
+<p>错误级(KERN_ERR),</p>
 </li>
-<li><p>错误级(KERN_ERR), </p>
+<li>
+<p>告警级(KERN_WARN),</p>
 </li>
-<li><p>告警级(KERN_WARN), </p>
+<li>
+<p>注意级(KERN_NOTICE),</p>
 </li>
-<li><p>注意级(KERN_NOTICE), </p>
+<li>
+<p>通知级(KERN_INFO),</p>
 </li>
-<li><p>通知级(KERN_INFO),</p>
-</li>
-<li><p>调试级(KERN_DEBUG).</p>
+<li>
+<p>调试级(KERN_DEBUG).</p>
 </li>
 </ul>
 </blockquote>
 </li>
 </ul>
-<h5 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h5><ul>
-<li><p>&amp;</p>
-<p>   当在前台运行某个作业时，终端被该作业占据；可以在命令后面加上&amp; 实现后台运行。例如：sh test.sh &amp;</p>
-<p>  当成功地提交进程以后，就会显示出一个进程号，可以用它来监控该进程，或杀死它。(<code>ps -ef | grep 进程号</code> 或者 <code>kill -9 进程号</code>）</p>
+<h5 id="后台运行"><a class="markdownIt-Anchor" href="#后台运行"></a> 后台运行</h5>
+<ul>
+<li>
+<p>&amp;</p>
+<p>当在前台运行某个作业时，终端被该作业占据；可以在命令后面加上&amp; 实现后台运行。例如：sh <a href="http://test.sh" target="_blank" rel="noopener">test.sh</a> &amp;</p>
+<p>当成功地提交进程以后，就会显示出一个进程号，可以用它来监控该进程，或杀死它。(<code>ps -ef | grep 进程号</code> 或者 <code>kill -9 进程号</code>）</p>
 </li>
-<li><p>nohup  </p>
-<p> 使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为：</p>
-<pre><code class="bash"> nohup command &amp;</code></pre>
-<p> 如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</p>
-<pre><code class="bash"> nohup command &gt; myout.file 2&gt;&amp;1 &amp;</code></pre>
-<p> 使用了nohup之后，很多人就这样不管了，其实这样有可能在当前账户非正常退出或者结束的时候，命令还是自己结束了。所以在使用nohup命令后台运行命令之后，需要使用exit正常退出当前账户，这样才能保证命令一直在后台运行。</p>
+<li>
+<p>nohup</p>
+<p>使用&amp;命令后，作业被提交到后台运行，当前控制台没有被占用，但是一但把当前控制台关掉(退出帐户时)，作业就会停止运行。nohup命令可以在你退出帐户之后继续运行相应的进程。nohup就是不挂起的意思( no hang up)。该命令的一般形式为：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup <span class="built_in">command</span> &amp;</span><br></pre></td></tr></table></figure>
+<p>如果使用nohup命令提交作业，那么在缺省情况下该作业的所有输出都被重定向到一个名为nohup.out的文件中，除非另外指定了输出文件：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup <span class="built_in">command</span> &gt; myout.file 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>使用了nohup之后，很多人就这样不管了，其实这样有可能在当前账户非正常退出或者结束的时候，命令还是自己结束了。所以在使用nohup命令后台运行命令之后，需要使用exit正常退出当前账户，这样才能保证命令一直在后台运行。</p>
 </li>
-<li><p>ctrl + z </p>
-<p> 可以将一个正在前台执行的命令放到后台，并且处于暂停状态。 </p>
+<li>
+<p>ctrl + z</p>
+<p>可以将一个正在前台执行的命令放到后台，并且处于暂停状态。</p>
 </li>
-<li><p>jobs<br>  查看当前有多少在后台运行的命令。<br>  <code>jobs -l</code>选项可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。 </p>
+<li>
+<p>jobs<br>
+查看当前有多少在后台运行的命令。<br>
+<code>jobs -l</code>选项可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。</p>
 </li>
 </ul>
-<h3 id="2-内核定时器"><a href="#2-内核定时器" class="headerlink" title="2.内核定时器"></a>2.内核定时器</h3><h3 id="3-中断"><a href="#3-中断" class="headerlink" title="3.中断"></a>3.中断</h3><h4 id="上半部和下半部"><a href="#上半部和下半部" class="headerlink" title="上半部和下半部"></a>上半部和下半部</h4><ul>
-<li><p>软中断</p>
-<p>  软中断必须在编译的时候静态注册</p>
+<h3 id="2内核定时器"><a class="markdownIt-Anchor" href="#2内核定时器"></a> 2.内核定时器</h3>
+<h3 id="3中断"><a class="markdownIt-Anchor" href="#3中断"></a> 3.中断</h3>
+<h4 id="上半部和下半部"><a class="markdownIt-Anchor" href="#上半部和下半部"></a> 上半部和下半部</h4>
+<ul>
+<li>
+<p>软中断</p>
+<p>软中断必须在编译的时候静态注册</p>
 <ul>
 <li>open_sotfirq：打开软中断</li>
 <li>raise_sotfirq：触发软中断</li>
 </ul>
 </li>
-<li><p>tasklet：利用软中断来实现的另一种下半部机制，在软中断和tasklet之间建议选tasklet</p>
+<li>
+<p>tasklet：利用软中断来实现的另一种下半部机制，在软中断和tasklet之间建议选tasklet</p>
 <ul>
 <li>tasklet_init：初始化tasklet_struct结构体，或直接使用宏DECLARE_TASKLET定义＋初始化</li>
 <li>tasklet_schedule：一般在上半部中调用，使要调度的tasklet在合适的时候运行</li>
 </ul>
 </li>
-<li><p>工作队列：在<strong>进程</strong>上下文执行，允许睡眠或重新调度（下半部可以睡眠就可以交给工作队列），要执行的工作会交给一个内核工作者线程去执行</p>
+<li>
+<p>工作队列：在<strong>进程</strong>上下文执行，允许睡眠或重新调度（下半部可以睡眠就可以交给工作队列），要执行的工作会交给一个内核工作者线程去执行</p>
 <ul>
 <li>宏INIT_WORK：初始化工作</li>
 <li>宏DECLARE_WORK：定义+初始化工作</li>
@@ -1401,21 +425,26 @@ dmesg -c
 </ul>
 </li>
 </ul>
-<h4 id="3-1修改设备树"><a href="#3-1修改设备树" class="headerlink" title="3.1修改设备树"></a>3.1修改设备树</h4><p>参考内核绑定信息：Documentation/devicetree/bindings/arm/gic.txt</p>
+<h4 id="31修改设备树"><a class="markdownIt-Anchor" href="#31修改设备树"></a> 3.1修改设备树</h4>
+<p>参考内核绑定信息：Documentation/devicetree/bindings/arm/gic.txt</p>
 <p>对于一般的ARM处理器来说，<code>#interrupt-cells=&lt;3&gt;</code>对应的三个cell分别为：</p>
 <ol>
-<li>中断类型<ul>
+<li>中断类型
+<ul>
 <li>0：SPI中断</li>
 <li>1：PPI中断</li>
 </ul>
 </li>
-<li>中断号<ul>
+<li>中断号
+<ul>
 <li>SPI：0~987</li>
 <li>PPI：0~15</li>
 </ul>
 </li>
-<li>标志<ul>
-<li>bit[3:0]：中断触发类型<ul>
+<li>标志
+<ul>
+<li>bit[3:0]：中断触发类型
+<ul>
 <li>1：上升沿</li>
 <li>2：下降沿</li>
 <li>4：高电平</li>
@@ -1426,36 +455,42 @@ dmesg -c
 </ul>
 </li>
 </ol>
-<h5 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h5><ul>
+<h5 id="相关函数"><a class="markdownIt-Anchor" href="#相关函数"></a> 相关函数</h5>
+<ul>
 <li>irq_of_parse_and_map：从设备树中中断节点中的interrupts属性提取对应的中断号</li>
 <li>gpio_to_irq：获取gpio对应的中断号</li>
 </ul>
-<h5 id="编译设备树-1"><a href="#编译设备树-1" class="headerlink" title="编译设备树"></a>编译设备树</h5><pre><code class="bash">make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</code></pre>
-<h5 id="查看系统中是否存在对应节点-1"><a href="#查看系统中是否存在对应节点-1" class="headerlink" title="查看系统中是否存在对应节点"></a>查看系统中是否存在对应节点</h5><pre><code class="bash">ls /proc/device-tree/
-
-cat /proc/device-tree/key/compatible
-
-# 注意：hexdump查看的是dtb文件原始数据，其中的数据是按照大字节序排放的（低地址放高位）
-hexdump /proc/device-tree/key/interrupts
-busybox hexdump /proc/device-tree/key/interrupts</code></pre>
-<h5 id="设备树中的中断节点"><a href="#设备树中的中断节点" class="headerlink" title="设备树中的中断节点"></a>设备树中的中断节点</h5><ul>
+<h5 id="编译设备树-2"><a class="markdownIt-Anchor" href="#编译设备树-2"></a> 编译设备树</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make dtbs ARCH=arm CROSS_COMPILE=arm-linux- -j8</span><br></pre></td></tr></table></figure>
+<h5 id="查看系统中是否存在对应节点-2"><a class="markdownIt-Anchor" href="#查看系统中是否存在对应节点-2"></a> 查看系统中是否存在对应节点</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls /proc/device-tree/</span><br><span class="line"></span><br><span class="line">cat /proc/device-tree/key/compatible</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：hexdump查看的是dtb文件原始数据，其中的数据是按照大字节序排放的（低地址放高位）</span></span><br><span class="line">hexdump /proc/device-tree/key/interrupts</span><br><span class="line">busybox hexdump /proc/device-tree/key/interrupts</span><br></pre></td></tr></table></figure>
+<h5 id="设备树中的中断节点"><a class="markdownIt-Anchor" href="#设备树中的中断节点"></a> 设备树中的中断节点</h5>
+<ul>
 <li>interrupt-parent = &lt;&amp;pio&gt;;//属于pio中断控制器</li>
-<li>interrupts = &lt;0 7 IRQ_TYPE_EDGE_BOTH&gt;;<ul>
+<li>interrupts = &lt;0 7 IRQ_TYPE_EDGE_BOTH&gt;;
+<ul>
 <li>第一个参数：第几个GPIO（这里是GPIOA）</li>
 <li>第二个参数：第几个外部中断</li>
 <li>第三个参数：触发沿</li>
 </ul>
 </li>
 </ul>
-<h4 id="3-2编写驱动"><a href="#3-2编写驱动" class="headerlink" title="3.2编写驱动"></a>3.2编写驱动</h4><h4 id="3-3调试"><a href="#3-3调试" class="headerlink" title="3.3调试"></a>3.3调试</h4><p>中断注册成功后可以通过以下命令来查看是否注册到系统中：</p>
-<pre><code class="bash">cat /proc/interrupts</code></pre>
-<h3 id="4-input子系统"><a href="#4-input子系统" class="headerlink" title="4.input子系统"></a>4.input子系统</h3><h4 id="4-1修改设备树"><a href="#4-1修改设备树" class="headerlink" title="4.1修改设备树"></a>4.1修改设备树</h4><p>如果需要使用内核自带的<code>gpio_keys.c</code>驱动，可以参考内核中<code>Documentation/devicetree/bindings/input/gpio-keys.txt</code>，需要设备树中的节点满足以下要求：</p>
+<h4 id="32编写驱动"><a class="markdownIt-Anchor" href="#32编写驱动"></a> 3.2编写驱动</h4>
+<h4 id="33调试"><a class="markdownIt-Anchor" href="#33调试"></a> 3.3调试</h4>
+<p>中断注册成功后可以通过以下命令来查看是否注册到系统中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/interrupts</span><br></pre></td></tr></table></figure>
+<h3 id="4input子系统"><a class="markdownIt-Anchor" href="#4input子系统"></a> 4.input子系统</h3>
+<h4 id="41修改设备树"><a class="markdownIt-Anchor" href="#41修改设备树"></a> 4.1修改设备树</h4>
+<p>如果需要使用内核自带的<code>gpio_keys.c</code>驱动，可以参考内核中<code>Documentation/devicetree/bindings/input/gpio-keys.txt</code>，需要设备树中的节点满足以下要求：</p>
 <ul>
-<li><p>节点名字为<code>“gpio-keys”</code></p>
+<li>
+<p>节点名字为<code>“gpio-keys”</code></p>
 </li>
-<li><p>gpio-keys节点的compatible属性必须为<code>“gpio-keys”</code></p>
+<li>
+<p>gpio-keys节点的compatible属性必须为<code>“gpio-keys”</code></p>
 </li>
-<li><p>所有的按键都是gpio-keys的子节点，并可以使用如下属性描述自己：</p>
+<li>
+<p>所有的按键都是gpio-keys的子节点，并可以使用如下属性描述自己：</p>
 <ul>
 <li>gpios：按键连接的gpio信息</li>
 <li>interrupts：按键使用的中断信息（可选）</li>
@@ -1463,22 +498,17 @@ busybox hexdump /proc/device-tree/key/interrupts</code></pre>
 <li>linux,code：要模拟的按键值</li>
 </ul>
 </li>
-<li><p>如果要支持连按的话需要加入<code>autorepeat</code>属性</p>
-<p>  例子：</p>
-<pre><code>  gpio_keys {
-      compatible = &quot;gpio-keys&quot;;
-      autorepeat;//支持连按
-      k1 {
-          label = &quot;k1&quot;;//按键名称
-          linux,code = &lt;KEY_POWER&gt;;//要模拟的按键值
-          gpios = &lt;&amp;pio 0 7 GPIO_ACTIVE_LOW&gt;;//按键连接的gpio信息
-          interrupts = &lt;0 7 IRQ_TYPE_EDGE_BOTH&gt;;//中断信息 PA7 --&gt; EINT7
-      };
-  };</code></pre></li>
+<li>
+<p>如果要支持连按的话需要加入<code>autorepeat</code>属性</p>
+<p>例子：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gpio_keys &#123;</span><br><span class="line">    compatible &#x3D; &quot;gpio-keys&quot;;</span><br><span class="line">    autorepeat;&#x2F;&#x2F;支持连按</span><br><span class="line">    k1 &#123;</span><br><span class="line">        label &#x3D; &quot;k1&quot;;&#x2F;&#x2F;按键名称</span><br><span class="line">        linux,code &#x3D; &lt;KEY_POWER&gt;;&#x2F;&#x2F;要模拟的按键值</span><br><span class="line">        gpios &#x3D; &lt;&amp;pio 0 7 GPIO_ACTIVE_LOW&gt;;&#x2F;&#x2F;按键连接的gpio信息</span><br><span class="line">        interrupts &#x3D; &lt;0 7 IRQ_TYPE_EDGE_BOTH&gt;;&#x2F;&#x2F;中断信息 PA7 --&gt; EINT7</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h4 id="4-2编写驱动"><a href="#4-2编写驱动" class="headerlink" title="4.2编写驱动"></a>4.2编写驱动</h4><p>Linux中已经实现了input输入子系统框架，因此无需再次注册设备，系统中input框架中的所有设备的主设备号均为13</p>
+<h4 id="42编写驱动"><a class="markdownIt-Anchor" href="#42编写驱动"></a> 4.2编写驱动</h4>
+<p>Linux中已经实现了input输入子系统框架，因此无需再次注册设备，系统中input框架中的所有设备的主设备号均为13</p>
 <ul>
-<li>input设备结构体<code>input_dev</code><ul>
+<li>input设备结构体<code>input_dev</code>
+<ul>
 <li>evbit成员：输入事件类型，可选事件见下文</li>
 <li>keybit成员：按键值</li>
 <li>relbit成员：相对坐标</li>
@@ -1493,12 +523,14 @@ busybox hexdump /proc/device-tree/key/interrupts</code></pre>
 <li>BIT_MASK宏</li>
 <li>input_set_capability：仅仅设置keybit成员</li>
 </ul>
-<h5 id="相关函数-1"><a href="#相关函数-1" class="headerlink" title="相关函数"></a>相关函数</h5><ul>
+<h5 id="相关函数-2"><a class="markdownIt-Anchor" href="#相关函数-2"></a> 相关函数</h5>
+<ul>
 <li>input_allocate_device：申请一个input_dev结构体</li>
 <li>input_free_device：释放申请到的input_dev结构体</li>
 <li>input_register_device：向内核注册input_dev结构体</li>
 <li>input_unregister_device：注销input_dev结构体</li>
-<li>input_event：上报指定事件及对应的值<ul>
+<li>input_event：上报指定事件及对应的值
+<ul>
 <li>input_report_key：封装一层，专门上报按键事件</li>
 <li>input_report_rel</li>
 <li>input_report_abs</li>
@@ -1509,7 +541,8 @@ busybox hexdump /proc/device-tree/key/interrupts</code></pre>
 </li>
 <li>input_sync：同步事件</li>
 </ul>
-<h5 id="input-dev的相关事件"><a href="#input-dev的相关事件" class="headerlink" title="input_dev的相关事件"></a>input_dev的相关事件</h5><ul>
+<h5 id="input_dev的相关事件"><a class="markdownIt-Anchor" href="#input_dev的相关事件"></a> input_dev的相关事件</h5>
+<ul>
 <li>EV_SYN：同步</li>
 <li>EV_KEY：按键</li>
 <li>EV_REL：相对坐标</li>
@@ -1523,12 +556,17 @@ busybox hexdump /proc/device-tree/key/interrupts</code></pre>
 <li>EV_PWR：电源</li>
 <li>EV_FF_STATUS：压力状态</li>
 </ul>
-<h4 id="4-3调试"><a href="#4-3调试" class="headerlink" title="4.3调试"></a>4.3调试</h4><p>input设备注册成功后可以通过以下命令来查看是否注册到系统中：</p>
-<pre><code class="bash">ls /dev/input/ -l</code></pre>
+<h4 id="43调试"><a class="markdownIt-Anchor" href="#43调试"></a> 4.3调试</h4>
+<p>input设备注册成功后可以通过以下命令来查看是否注册到系统中：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /dev/input/ -l</span><br></pre></td></tr></table></figure>
 <p>通过以下命令查看是否有效：</p>
-<pre><code>busybox hexdump /dev/input/event1</code></pre><h3 id="5-IIC框架驱动"><a href="#5-IIC框架驱动" class="headerlink" title="5.IIC框架驱动"></a>5.IIC框架驱动</h3><h4 id="5-1设备树"><a href="#5-1设备树" class="headerlink" title="5.1设备树"></a>5.1设备树</h4><ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">busybox hexdump &#x2F;dev&#x2F;input&#x2F;event1</span><br></pre></td></tr></table></figure>
+<h3 id="5iic框架驱动"><a class="markdownIt-Anchor" href="#5iic框架驱动"></a> 5.IIC框架驱动</h3>
+<h4 id="51设备树"><a class="markdownIt-Anchor" href="#51设备树"></a> 5.1设备树</h4>
+<ul>
 <li><code>clock-frequency</code>属性：iic总线的速度（默认100000，即100k）</li>
-<li>status：是否使能该总线<ul>
+<li>status：是否使能该总线
+<ul>
 <li>okay</li>
 <li>disabled</li>
 </ul>
@@ -1538,23 +576,27 @@ busybox hexdump /proc/device-tree/key/interrupts</code></pre>
 <li>iic控制器节点<code>compatible</code>属性必须为allwinner,sun6i-a31-i2c或allwinner,sun4i-a10-i2c，这里在sunxi-h3-h5.dtsi中已经设置好，无需再次设置</li>
 </ul>
 <p>设备树修改成功后可以通过以下命令来查看是否注册到系统中：</p>
-<pre><code class="bash">#查看设备节点，该目录下放着所有的i2c设备
-#节点是以i2c地址结尾的文件夹
-ls /sys/bus/i2c/devices/</code></pre>
-<h4 id="5-2驱动"><a href="#5-2驱动" class="headerlink" title="5.2驱动"></a>5.2驱动</h4><h5 id="基本数据结构"><a href="#基本数据结构" class="headerlink" title="基本数据结构"></a>基本数据结构</h5><ul>
-<li>IIC总线结构体<code>i2c_bus_type</code><ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看设备节点，该目录下放着所有的i2c设备</span></span><br><span class="line"><span class="comment">#节点是以i2c地址结尾的文件夹</span></span><br><span class="line">ls /sys/bus/i2c/devices/</span><br></pre></td></tr></table></figure>
+<h4 id="52驱动"><a class="markdownIt-Anchor" href="#52驱动"></a> 5.2驱动</h4>
+<h5 id="基本数据结构"><a class="markdownIt-Anchor" href="#基本数据结构"></a> 基本数据结构</h5>
+<ul>
+<li>IIC总线结构体<code>i2c_bus_type</code>
+<ul>
 <li>match函数：驱动和设备匹配是调用该函数来决定是否匹配</li>
 </ul>
 </li>
-<li>IIC适配器（控制器）驱动结构体<code>i2c_adapter</code><ul>
-<li>algo：总线访问算法成员<ul>
+<li>IIC适配器（控制器）驱动结构体<code>i2c_adapter</code>
+<ul>
+<li>algo：总线访问算法成员
+<ul>
 <li>master_xfer：IIC适配器的传输函数</li>
 <li>smbus_xfer：SMBUS总线传输函数</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>IIC设备结构体<code>i2c_client</code><ul>
+<li>IIC设备结构体<code>i2c_client</code>
+<ul>
 <li>addr：芯片地址，存在低7位</li>
 <li>name：名字</li>
 <li>adapter：对应的IIC适配器</li>
@@ -1562,11 +604,13 @@ ls /sys/bus/i2c/devices/</code></pre>
 <li>irq：中断</li>
 </ul>
 </li>
-<li>IIC设备驱动结构体<code>i2c_driver</code><ul>
+<li>IIC设备驱动结构体<code>i2c_driver</code>
+<ul>
 <li>probe函数：IIC设备和驱动匹配后调用，初始化用</li>
 <li>remove函数：同理，卸载用</li>
 <li>id_table：传统方式匹配ID列表</li>
-<li>driver：<ul>
+<li>driver：
+<ul>
 <li>owner：所有者，一般为宏THIS_MODULE</li>
 <li>name：名字</li>
 <li>of_match_table：设备树匹配列表</li>
@@ -1574,7 +618,8 @@ ls /sys/bus/i2c/devices/</code></pre>
 </li>
 </ul>
 </li>
-<li>IIC发送数据结构体<code>i2c_msg</code><ul>
+<li>IIC发送数据结构体<code>i2c_msg</code>
+<ul>
 <li>addr：从机地址</li>
 <li>flags：标志</li>
 <li>len：消息长度</li>
@@ -1582,33 +627,42 @@ ls /sys/bus/i2c/devices/</code></pre>
 </ul>
 </li>
 </ul>
-<h5 id="相关函数-2"><a href="#相关函数-2" class="headerlink" title="相关函数"></a>相关函数</h5><ul>
-<li>IIC适配器（控制器）<ul>
+<h5 id="相关函数-3"><a class="markdownIt-Anchor" href="#相关函数-3"></a> 相关函数</h5>
+<ul>
+<li>IIC适配器（控制器）
+<ul>
 <li>i2c_add_adapter：向系统注册i2c_adapter成员，使用动态总线号</li>
 <li>i2c_add_numbered_adapter：向系统注册i2c_adapter成员，使用静态总线号</li>
 <li>i2c_del_adapter：删除IIC适配器</li>
 </ul>
 </li>
-<li>SPI设备<ul>
+<li>SPI设备
+<ul>
 <li>i2c_register_driver / i2c_add_driver：注册i2c_driver</li>
 <li>i2c_del_driver：卸载i2c_driver</li>
 </ul>
 </li>
-<li>传输数据<ul>
+<li>传输数据
+<ul>
 <li>i2c_transfer：传输i2c_msg类型数据</li>
 <li>i2c_master_send：IIC发送缓存中的数据，最后会调用i2c_transfer</li>
 <li>i2c_master_recv：IIC接收数据到缓存中，最后会调用i2c_transfer</li>
 </ul>
 </li>
 </ul>
-<h4 id="5-3调试"><a href="#5-3调试" class="headerlink" title="5.3调试"></a>5.3调试</h4><h5 id="i2c-tools工具"><a href="#i2c-tools工具" class="headerlink" title="i2c-tools工具"></a>i2c-tools工具</h5><p>得益于ubuntucore，直接运行<code>sudo apt install i2c-tools</code>安装i2c-tools工具</p>
+<h4 id="53调试"><a class="markdownIt-Anchor" href="#53调试"></a> 5.3调试</h4>
+<h5 id="i2c-tools工具"><a class="markdownIt-Anchor" href="#i2c-tools工具"></a> i2c-tools工具</h5>
+<p>得益于ubuntucore，直接运行<code>sudo apt install i2c-tools</code>安装i2c-tools工具</p>
 <ul>
 <li>查询i2c总线<code>sudo i2cdetect -l</code></li>
 <li>检测i2c地址<code>sudo i2cdetect -r -y 0</code>（最后的0为i2c-0总线）</li>
 </ul>
-<h3 id="6-SPI框架驱动"><a href="#6-SPI框架驱动" class="headerlink" title="6.SPI框架驱动"></a>6.SPI框架驱动</h3><h4 id="6-1设备树"><a href="#6-1设备树" class="headerlink" title="6.1设备树"></a>6.1设备树</h4><ul>
+<h3 id="6spi框架驱动"><a class="markdownIt-Anchor" href="#6spi框架驱动"></a> 6.SPI框架驱动</h3>
+<h4 id="61设备树"><a class="markdownIt-Anchor" href="#61设备树"></a> 6.1设备树</h4>
+<ul>
 <li><code>spi-max-frequency</code>属性：spi总线的最大速度（默认100000，即100k）</li>
-<li>status：是否使能该总线<ul>
+<li>status：是否使能该总线
+<ul>
 <li>okay</li>
 <li>disabled</li>
 </ul>
@@ -1620,24 +674,28 @@ ls /sys/bus/i2c/devices/</code></pre>
 <li>spi控制器节点<code>compatible</code>属性必须为allwinner,sun8i-h3-spi或allwinner,sun6i-a31-spi，这里在sunxi-h3-h5.dtsi中已经设置好，无需再次设置</li>
 </ul>
 <p>设备树修改成功后可以通过以下命令来查看是否注册到系统中：</p>
-<pre><code class="bash">#查看设备节点，该目录下放着所有的i2c设备
-#节点是以i2c地址结尾的文件夹
-ls /sys/bus/spi/devices/</code></pre>
-<h4 id="6-2驱动"><a href="#6-2驱动" class="headerlink" title="6.2驱动"></a>6.2驱动</h4><h5 id="基本数据结构-1"><a href="#基本数据结构-1" class="headerlink" title="基本数据结构"></a>基本数据结构</h5><ul>
-<li>SPI总线结构体<code>spi_bus_type</code><ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看设备节点，该目录下放着所有的i2c设备</span></span><br><span class="line"><span class="comment">#节点是以i2c地址结尾的文件夹</span></span><br><span class="line">ls /sys/bus/spi/devices/</span><br></pre></td></tr></table></figure>
+<h4 id="62驱动"><a class="markdownIt-Anchor" href="#62驱动"></a> 6.2驱动</h4>
+<h5 id="基本数据结构-2"><a class="markdownIt-Anchor" href="#基本数据结构-2"></a> 基本数据结构</h5>
+<ul>
+<li>SPI总线结构体<code>spi_bus_type</code>
+<ul>
 <li>match函数：驱动和设备匹配是调用该函数来决定是否匹配</li>
 </ul>
 </li>
-<li>SPI主机驱动结构体<code>spi_master</code><ul>
+<li>SPI主机驱动结构体<code>spi_master</code>
+<ul>
 <li>transfer函数：控制器数据传输函数</li>
 <li>transfer_one_message函数：控制器数据传输函数，一次发一个spi_message包</li>
 </ul>
 </li>
-<li>SPI设备驱动结构体<code>spi_driver</code><ul>
+<li>SPI设备驱动结构体<code>spi_driver</code>
+<ul>
 <li>probe函数：SPI设备和驱动匹配后调用，初始化用</li>
 <li>remove函数：同理，卸载用</li>
 <li>id_table：传统方式匹配ID列表</li>
-<li>driver：<ul>
+<li>driver：
+<ul>
 <li>owner：所有者，一般为宏THIS_MODULE</li>
 <li>name：名字</li>
 <li>of_match_table：设备树匹配列表</li>
@@ -1645,31 +703,37 @@ ls /sys/bus/spi/devices/</code></pre>
 </li>
 </ul>
 </li>
-<li>SPI传输信息结构体<code>spi_transfer</code><ul>
+<li>SPI传输信息结构体<code>spi_transfer</code>
+<ul>
 <li>tx_buf：发送数据</li>
 <li>rx_buf：接收数据</li>
 <li>len：数据长度</li>
 </ul>
 </li>
-<li>SPI消息结构体<code>spi_message</code>，由<code>spi_transfer</code>组成<ul>
+<li>SPI消息结构体<code>spi_message</code>，由<code>spi_transfer</code>组成
+<ul>
 <li>complete函数：异步传输完成时调用</li>
 </ul>
 </li>
 </ul>
-<h5 id="相关函数-3"><a href="#相关函数-3" class="headerlink" title="相关函数"></a>相关函数</h5><ul>
-<li>SPI主机<ul>
+<h5 id="相关函数-4"><a class="markdownIt-Anchor" href="#相关函数-4"></a> 相关函数</h5>
+<ul>
+<li>SPI主机
+<ul>
 <li>spi_alloc_master：申请spi_master结构体</li>
 <li>spi_master_put：释放spi_master结构体</li>
 <li>spi_register_master：注册</li>
 <li>spi_unregister_master：注销</li>
 </ul>
 </li>
-<li>SPI设备<ul>
+<li>SPI设备
+<ul>
 <li>spi_register_driver：注册</li>
 <li>spi_unregister_driver：卸载</li>
 </ul>
 </li>
-<li>数据传输<ul>
+<li>数据传输
+<ul>
 <li>spi_message_init：初始化spi_message结构体</li>
 <li>spi_message_add_tail：将spi_transfer添加到spi_message队列中</li>
 <li>spi_sync：同步传输（会阻塞并等待SPI数据传输完成）</li>
@@ -1677,237 +741,9 @@ ls /sys/bus/spi/devices/</code></pre>
 </ul>
 </li>
 </ul>
-<h4 id="6-3调试"><a href="#6-3调试" class="headerlink" title="6.3调试"></a>6.3调试</h4>
-      
-       <hr><span style="font-style: italic;color: gray;"> 欢迎指出任何有错误或不够清晰的表达。邮件：1125934312@qq.com </span>
-    </div>
-</article>
-
-
-
-<div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>NanoPi_Neo_Core底层开发</p>
-    <p><span class="copy-title">字数:</span><span class="post-count">6.7k</span></p>
-    <p><span class="copy-title">本文作者:</span><a  title="NU-LL">NU-LL</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-10-18, 12:25:42</p>
-    <p><span class="copy-title">最后更新:</span>2019-10-25, 16:27:49</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/10/18/NanoPi_Neo_Core底层开发/" title="NanoPi_Neo_Core底层开发">http://NU-LL.github.io/2019/10/18/NanoPi_Neo_Core底层开发/</a>
-    <p>
-        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">&#34;署名-非商用-相同方式共享 4.0&#34;</a> 转载请保留原文链接及作者。
-    </p>
-</div>
-
-
-
-
-
-    
-
-
-
-
-    </div>
-    <div class="copyright">
-        <p class="footer-entry">
-    ©2016-2020 NU-LL
-</p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
-
-    </div>
-    <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
-<a class="" id="rocket" ></a>
-
-    </div>
-</div>
-
-</body>
-<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
-
-<script src="/js/script.js?v=1.1.0" ></script>
-<script>
-    var img_resize = 'default';
-    function initArticle() {
-        /*渲染对应的表格样式*/
-        
-            $("#post .pjax table").addClass("green_title");
-        
-
-        /*渲染打赏样式*/
-        
-
-        /*高亮代码块行号*/
-        
-        $('pre code').each(function(){
-            var lines = $(this).text().trim().split('\n').length, widther='';
-            if (lines>99) {
-                widther = 'widther'
-            }
-            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
-            $(this).addClass('has-numbering ' + widther)
-                    .parent()
-                    .append($numbering);
-            for(var i=1;i<=lines;i++){
-                $numbering.append($('<li/>').text(i));
-            }
-        });
-        
-
-        /*访问数量*/
-        
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
-
-        /*代码高亮，行号对齐*/
-        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
-
-        
-        
-    }
-
-    /*打赏页面隐藏与展示*/
-    
-
-</script>
-
-<!--加入行号的高亮代码块样式-->
-
-<style>
-    pre{
-        position: relative;
-        margin-bottom: 24px;
-        border-radius: 10px;
-        border: 1px solid #e2dede;
-        background: #FFF;
-        overflow: hidden;
-    }
-    code.has-numbering{
-        margin-left: 30px;
-    }
-    code.has-numbering.widther{
-        margin-left: 35px;
-    }
-    .pre-numbering{
-        margin: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20px;
-        padding: 0.5em 3px 0.7em 5px;
-        border-right: 1px solid #C3CCD0;
-        text-align: right;
-        color: #AAA;
-        background-color: #fafafa;
-    }
-    .pre-numbering.widther {
-        width: 35px;
-    }
-</style>
-
-<!--自定义样式设置-->
-<style>
-    
-    
-    .nav {
-        width: 542px;
-    }
-    .nav.fullscreen {
-        margin-left: -542px;
-    }
-    .nav-left {
-        width: 120px;
-    }
-    
-    
-    @media screen and (max-width: 1468px) {
-        .nav {
-            width: 492px;
-        }
-        .nav.fullscreen {
-            margin-left: -492px;
-        }
-        .nav-left {
-            width: 100px;
-        }
-    }
-    
-    
-    @media screen and (max-width: 1024px) {
-        .nav {
-            width: 492px;
-            margin-left: -492px
-        }
-        .nav.fullscreen {
-            margin-left: 0;
-        }
-    }
-    
-    @media screen and (max-width: 426px) {
-        .nav {
-            width: 100%;
-        }
-        .nav-left {
-            width: 100%;
-        }
-    }
-    
-    
-    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
-    }
-    
-    
-    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
-    }
-    
-    
-    .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
-    }
-    
-    
-
-    /*列表样式*/
-    
-
-    /* 背景图样式 */
-    
-    
-
-
-    /*引用块样式*/
-    
-
-    /*文章列表背景图*/
-    
-    .nav-right:before {
-        content: ' ';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.3;
-        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
-        background-repeat: no-repeat;
-        background-position: 50% 0;
-        -ms-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    
-
-    
-</style>
-
-
-
-
-
-
-
-</html>
+<h4 id="63调试"><a class="markdownIt-Anchor" href="#63调试"></a> 6.3调试</h4>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2019/10/18/NanoPi_Neo_Core%E5%BA%95%E5%B1%82%E5%BC%80%E5%8F%91/">http://nu-ll.github.io/2019/10/18/NanoPi_Neo_Core底层开发/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/NanoPi-Neo-Core/">NanoPi Neo Core</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2019/10/18/LiCheePi_Zero%E5%BA%95%E5%B1%82%E5%BC%80%E5%8F%91/"><img class="prev_cover" src="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">LiCheePi_Zero底层开发</div></div></a></div><div class="next-post pull_right"><a href="/2019/10/13/%E8%AE%BE%E5%A4%87%E6%A0%91/"><img class="next_cover" src="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">设备树</div></div></a></div></nav></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By spaceman</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script><script src="/js/third-party/ClickShowText.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script></body></html>

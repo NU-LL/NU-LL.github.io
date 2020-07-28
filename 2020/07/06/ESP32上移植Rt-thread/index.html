@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ESP32上移植Rt-thread | spaceman</title><meta name="description" content="一、CPU架构移植 参考RT-thread官方手册进行cpu架构移植，其中需要移植以下函数：    函数和变量 描述     rt_base_t rt_hw_interrupt_disable(void); 关闭全局中断   void rt_hw_interrupt_enable(rt_base_t level); 打开全局中断   rt_uint8_t *rt_hw_stack_init(vo"><meta name="keywords" content="ESP32"><meta name="author" content="spaceman"><meta name="copyright" content="spaceman"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="ESP32上移植Rt-thread"><meta name="twitter:description" content="一、CPU架构移植 参考RT-thread官方手册进行cpu架构移植，其中需要移植以下函数：    函数和变量 描述     rt_base_t rt_hw_interrupt_disable(void); 关闭全局中断   void rt_hw_interrupt_enable(rt_base_t level); 打开全局中断   rt_uint8_t *rt_hw_stack_init(vo"><meta name="twitter:image" content="https://gitee.com/NU-LL/image-host/raw/master/12.jpg"><meta property="og:type" content="article"><meta property="og:title" content="ESP32上移植Rt-thread"><meta property="og:url" content="http://nu-ll.github.io/2020/07/06/ESP32%E4%B8%8A%E7%A7%BB%E6%A4%8DRt-thread/"><meta property="og:site_name" content="spaceman"><meta property="og:description" content="一、CPU架构移植 参考RT-thread官方手册进行cpu架构移植，其中需要移植以下函数：    函数和变量 描述     rt_base_t rt_hw_interrupt_disable(void); 关闭全局中断   void rt_hw_interrupt_enable(rt_base_t level); 打开全局中断   rt_uint8_t *rt_hw_stack_init(vo"><meta property="og:image" content="https://gitee.com/NU-LL/image-host/raw/master/12.jpg"><meta property="article:published_time" content="2020-07-06T07:00:38.000Z"><meta property="article:modified_time" content="2020-07-07T15:29:26.323Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '2'
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ESP32上移植Rt-thread | spaceman</title><meta name="description" content="一、CPU架构移植 参考RT-thread官方手册进行cpu架构移植，其中需要移植以下函数：    函数和变量 描述     rt_base_t rt_hw_interrupt_disable(void); 关闭全局中断   void rt_hw_interrupt_enable(rt_base_t level); 打开全局中断   rt_uint8_t *rt_hw_stack_init(vo"><meta name="keywords" content="ESP32"><meta name="author" content="spaceman"><meta name="copyright" content="spaceman"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="ESP32上移植Rt-thread"><meta name="twitter:description" content="一、CPU架构移植 参考RT-thread官方手册进行cpu架构移植，其中需要移植以下函数：    函数和变量 描述     rt_base_t rt_hw_interrupt_disable(void); 关闭全局中断   void rt_hw_interrupt_enable(rt_base_t level); 打开全局中断   rt_uint8_t *rt_hw_stack_init(vo"><meta name="twitter:image" content="https://gitee.com/NU-LL/image-host/raw/master/12.jpg"><meta property="og:type" content="article"><meta property="og:title" content="ESP32上移植Rt-thread"><meta property="og:url" content="http://nu-ll.github.io/2020/07/06/ESP32%E4%B8%8A%E7%A7%BB%E6%A4%8DRt-thread/"><meta property="og:site_name" content="spaceman"><meta property="og:description" content="一、CPU架构移植 参考RT-thread官方手册进行cpu架构移植，其中需要移植以下函数：    函数和变量 描述     rt_base_t rt_hw_interrupt_disable(void); 关闭全局中断   void rt_hw_interrupt_enable(rt_base_t level); 打开全局中断   rt_uint8_t *rt_hw_stack_init(vo"><meta property="og:image" content="https://gitee.com/NU-LL/image-host/raw/master/12.jpg"><meta property="article:published_time" content="2020-07-06T07:00:38.000Z"><meta property="article:modified_time" content="2020-07-14T15:53:24.398Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '2'
 var t = Cookies.get("theme")
 if (autoChangeMode == '1'){
   var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -83,7 +83,7 @@ function activateLightMode(){
 .justified-gallery img{
   opacity: 1
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">53</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">62</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fa fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-cpu架构移植"><span class="toc-text"> 一、CPU架构移植</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-中断相关"><span class="toc-text"> 1.1 中断相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-线程栈初始化"><span class="toc-text"> 1.2 线程栈初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-上下文切换"><span class="toc-text"> 1.3 上下文切换</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://gitee.com/NU-LL/image-host/raw/master/12.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">spaceman</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fa fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">ESP32上移植Rt-thread</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-06 15:00:38"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-07-06</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-07 23:29:26"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-07-07</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/MCU/">MCU</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">2.6k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 11 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="一-cpu架构移植"><a class="markdownIt-Anchor" href="#一-cpu架构移植"></a> 一、CPU架构移植</h2>
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">53</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">62</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fa fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-cpu架构移植"><span class="toc-text"> 一、CPU架构移植</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11-中断相关"><span class="toc-text"> 1.1 中断相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-线程栈初始化"><span class="toc-text"> 1.2 线程栈初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-上下文切换"><span class="toc-text"> 1.3 上下文切换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#131-xtensa中freertos的调度"><span class="toc-text"> 1.3.1 xtensa中freertos的调度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xtensa架构上的汇编指令"><span class="toc-text"> xtensa架构上的汇编指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#move指令"><span class="toc-text"> MOVE指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算术指令"><span class="toc-text"> 算术指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储指令"><span class="toc-text"> 存储指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载指令"><span class="toc-text"> 加载指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理器控制指令"><span class="toc-text"> 处理器控制指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他指令"><span class="toc-text"> 其他指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xtensa架构上相关寄存器说明"><span class="toc-text"> xtensa架构上相关寄存器说明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ps寄存器"><span class="toc-text"> PS寄存器</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://gitee.com/NU-LL/image-host/raw/master/12.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">spaceman</a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fa fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">ESP32上移植Rt-thread</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-07-06 15:00:38"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-07-06</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-07-14 23:53:24"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-07-14</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/MCU/">MCU</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">4.6k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 17 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="一-cpu架构移植"><a class="markdownIt-Anchor" href="#一-cpu架构移植"></a> 一、CPU架构移植</h2>
 <p>参考<a href="https://www.rt-thread.org/document/site/programming-manual/porting/porting/#_2" target="_blank" rel="noopener">RT-thread官方手册</a>进行cpu架构移植，其中需要移植以下函数：</p>
 <table>
 <thead>
@@ -238,7 +238,171 @@ function activateLightMode(){
 <p><code>XT_RTOS_INT_EXIT</code>宏（<code>_frxt_int_exit</code>）：通知RTOS中断处理程序的完成，并将控制权交给RTOS以执行线程/任务调度，从任何系统堆栈切换回并恢复上下文，然后返回保存在堆栈帧中<code>XT_STK_EXIT</code>的出口调度程序。RTOS端口可以调用<code>_xt_context_restore</code>来恢复在<code>XT_RTOS_INT_ENTER</code>中通过<code>_xt_context_save</code>保存的上下文，而仅剩下一小部分上下文由出口调度程序恢复。此函数不会返回到调用它的位置</p>
 <p><code>XT_RTOS_CP_STATE</code>宏（<code>_frxt_task_coproc_state</code>）：在a15中返回触发协处理器异常的线程的协处理器状态保存区的基地址，如果没有线程在运行，则返回0。</p>
 </blockquote>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2020/07/06/ESP32%E4%B8%8A%E7%A7%BB%E6%A4%8DRt-thread/">http://nu-ll.github.io/2020/07/06/ESP32上移植Rt-thread/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ESP32/">ESP32</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/07/06/Xtensa%E5%9F%BA%E7%A1%80/"><img class="prev_cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Xtensa基础</div></div></a></div><div class="next-post pull_right"><a href="/2020/07/01/Linux%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0boot%E5%88%86%E5%8C%BA%E9%97%AE%E9%A2%98/"><img class="next_cover" src="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux内核更新boot分区问题</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/16/ESP32/" title="ESP32"><img class="relatedPosts_cover" src="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-history fa-fw" aria-hidden="true"></i> 2020-07-05</div><div class="relatedPosts_title">ESP32</div></div></a></div><div class="relatedPosts_item"><a href="/2020/07/06/Xtensa基础/" title="Xtensa基础"><img class="relatedPosts_cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-history fa-fw" aria-hidden="true"></i> 2020-07-06</div><div class="relatedPosts_title">Xtensa基础</div></div></a></div></div><div class="clear_both"></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By spaceman</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script><script src="/js/third-party/ClickShowText.js"></script><script>var endLoading = function () {
+<h4 id="131-xtensa中freertos的调度"><a class="markdownIt-Anchor" href="#131-xtensa中freertos的调度"></a> 1.3.1 xtensa中freertos的调度</h4>
+<p>支持两种主流场景的任务调度：</p>
+<ul>
+<li>任务主动调度：主要用于当前工作任务结束、等待，或者需要别的事件输入时，任务将主动放弃当前调度并通过FreeRTOS的<code>TaskYield</code>处理实现任务调度
+<ul>
+<li>vTaskDelay</li>
+</ul>
+</li>
+<li>基于中断的调度
+<ul>
+<li>SysTick调度：ESP32保持了一个1000Hz的SysTick中断，除了实现CPU运转Tick计数和基于Tick的某些定时功能外，还可以用来触发产生任务调度。这样即便没有外围其它中断触发，高优先级任务也能再合适的时间得到调度</li>
+<li>各种中断事件调度：所有中断处理的最后（包括SysTick中断）都会通过<code>XT_RTOS_INT_ENTER()</code>和<code>XT_RTOS_INT_EXIT()</code>函数实现当前任务堆栈的保存和调度切换（根据优先级和当前任务执行时间），这样任何外部事件或者中断触发都可以得到一次任务调度机会</li>
+</ul>
+</li>
+</ul>
+<p>中断相关：</p>
+<p>xtensa中断向量：</p>
+<ul>
+<li>
+<p>_DebugExceptionVector</p>
+<ul>
+<li>xt_debugexception</li>
+</ul>
+</li>
+<li>
+<p>_DoubleExceptionVector</p>
+<ul>
+<li>_xt_panic</li>
+</ul>
+</li>
+<li>
+<p>_KernelExceptionVector</p>
+<ul>
+<li>_xt_panic</li>
+</ul>
+</li>
+<li>
+<p>_UserExceptionVector</p>
+</li>
+<li>
+<p>_Level2Vector</p>
+</li>
+<li>
+<p>_Level3Vector</p>
+</li>
+<li>
+<p>_Level4Vector</p>
+</li>
+<li>
+<p>_Level5Vector</p>
+</li>
+<li>
+<p>_Level6Vector</p>
+</li>
+<li>
+<p>_NMIExceptionVector</p>
+</li>
+<li>
+<p>用户可以通过调用<code>xt_set_interrupt_handler()</code>为低级和中级中断安装特定于应用程序的中断处理程序（蓝牙中有使用）（安装到数组_xt_interrupt_table中）</p>
+<ul>
+<li>最后会在汇编宏<code>dispatch_c_isr</code>中调用注册的中断</li>
+<li>汇编宏<code>dispatch_c_isr</code>会在1-6级（ESP32中只有3级）中断中调用，会通通过<code>XT_RTOS_INT_ENTER()</code>和<code>XT_RTOS_INT_EXIT()</code>函数保护</li>
+</ul>
+</li>
+<li>
+<p>用户还可以通过调用<code>xt_set_exception_handler()</code>以相同的方式安装特定于应用程序的异常处理程序（目前貌似还没看到使用）（安装到数组_xt_exception_table中）</p>
+<ul>
+<li>每个处理程序都将指向异常帧的指针(xt_exc_handler)作为其单个参数传递给它。异常帧是在堆栈上创建的，并保存了发生异常的线程上下文。如果处理程序返回，将还原上下文，并重试导致异常的指令</li>
+<li>最后会在<code>_xt_user_exc</code>函数中调用（User exception handler）注册的函数</li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>程序跳转时使用<code>call0</code>而不是<code>j</code>指令</p>
+</li>
+</ul>
+<h2 id="xtensa架构上的汇编指令"><a class="markdownIt-Anchor" href="#xtensa架构上的汇编指令"></a> xtensa架构上的汇编指令</h2>
+<h3 id="move指令"><a class="markdownIt-Anchor" href="#move指令"></a> MOVE指令</h3>
+<ul>
+<li>MOVI：12bit常量赋值到寄存器中</li>
+<li>MOVEQZ：为零则赋值</li>
+<li>MOVNEZ：非零则赋值</li>
+<li>MOVLTZ：小于零则赋值</li>
+<li>MOVGEZ：大于等于则赋值</li>
+</ul>
+<h3 id="算术指令"><a class="markdownIt-Anchor" href="#算术指令"></a> 算术指令</h3>
+<ul>
+<li>ADD ar, as, at：ar=as+at，无溢出检测，32bit加法</li>
+<li>ADDX2 ar, as, at：ar=(as&lt;&lt;1)+at，无溢出检测，32bit加法</li>
+<li>ADDX4 ar, as, at：ar=(as&lt;&lt;2)+at，无溢出检测，32bit加法</li>
+<li>ADDX8 ar, as, at：ar=(as&lt;&lt;3)+at，无溢出检测，32bit加法</li>
+<li>ADDI at, as, -128-127：at=as+( -128-127)，无溢出检测，32bit加法</li>
+</ul>
+<h3 id="存储指令"><a class="markdownIt-Anchor" href="#存储指令"></a> 存储指令</h3>
+<p>如果启用了区域转换选项（Region Translation Option，Xtensa® Instruction Set Architecture(ISA) Reference Manual第156页）或MMU选项（Xtensa® Instruction Set Architecture(ISA) Reference Manual第158页），则虚拟地址将转换为物理地址。 如果不是，则物理地址与虚拟地址相同。 如果转换或内存引用遇到错误（例如，违反保护或不存在内存），则处理器会引发几种异常之一（Xtensa® Instruction Set Architecture(ISA) Reference Manual第89页的4.4.1.5节）</p>
+<ul>
+<li>S8I at, as, 0-255：将数据从寄存器at存储到虚拟地址中（as+偏移0-255），只存储at中的低8bit</li>
+<li>S16I at, as, 0-510：将数据从寄存器at存储到虚拟地址中（as+偏移0-510），只存储at中的低16bit</li>
+<li>S32I at, as, 0-1020：将数据从寄存器at存储到虚拟地址中（as+偏移0-1020），只存储at中的低32bit</li>
+</ul>
+<h3 id="加载指令"><a class="markdownIt-Anchor" href="#加载指令"></a> 加载指令</h3>
+<p>加载指令通过添加一个基本寄存器和一个8位无符号偏移形成一个虚拟地址。必要时，这个虚拟地址被翻译成物理地址。然后，该物理地址被用来访问内存系统（通常通过高速缓存）。存储器系统返回一个数据项（根据配置，可以是32、64或128位）。然后，加载指令从该内存项中提取引用的数据，并将结果零扩展或符号扩展写入寄存器中。除非启用不对齐异常选项，否则处理器不会处理不对齐的数据。或当使用了一个错误对齐的地址时，会出现陷阱；相反，它只是简单地加载对齐的数据项。含有计算出的虚拟地址。这就允许漏斗移位器与一个包含计算出的虚拟地址的 对的负载来引用任意字节地址上的数据。</p>
+<p>只有loads L32I、L32I.N和L32R可以访问InstRAM和InstROM位置。</p>
+<ul>
+<li>L8UI at, as, 0-255：从虚拟地址as+(0-255)处加载一个无符号8bit数据到at中</li>
+<li>L16SI at, as, 0…510：从虚拟地址as+((0-510)&lt;&lt;1)处加载一个有符号16bit数据到at中</li>
+<li>L16UI at, as, 0…510：从虚拟地址as+((0-510)&lt;&lt;1)处加载一个无符号16bit数据到at中</li>
+<li>L32I at, as, 0-1020：从虚拟地址as+((0-1020)&lt;&lt;2)处加载一个32bit数据到at中</li>
+<li>L32R at, label：</li>
+</ul>
+<h3 id="处理器控制指令"><a class="markdownIt-Anchor" href="#处理器控制指令"></a> 处理器控制指令</h3>
+<p>RSR：</p>
+<p>RSR是RSR.*的汇编器宏，它提供了与包含特殊寄存器名称或编号的旧版本指令的兼容性。</p>
+<ul>
+<li>
+<p>RSR.* at：</p>
+</li>
+<li>
+<p>RSR at, *：</p>
+</li>
+<li>
+<p>RSR at, 0-255：</p>
+</li>
+<li>
+<p>WSR</p>
+</li>
+<li>
+<p>XSR</p>
+</li>
+</ul>
+<h3 id="其他指令"><a class="markdownIt-Anchor" href="#其他指令"></a> 其他指令</h3>
+<p>ENTRY as, 0-32760：</p>
+<p>ENTRY是用CALL4，CALL8，CALL12，CALLX4，CALLX8或CALLX12调用的所有子例程的第一条指令。 该指令不能由CALL0或CALLX0调用的例程使用。主要用途：</p>
+<ol>
+<li>按调用者要求的数量递增寄存器窗口指针(WindowBase)（记录在PS.CALLINC字段中）</li>
+<li>它将堆栈指针从调用者复制到被调用者，并分配被调用者的堆栈帧。操作数’as’指定了堆栈指针寄存器；它必须指定a0…a3中的一个，否则ENTRY的操作就没有定义。在窗口移动之前，先读取它，减去堆栈框架的大小，然后写入被移动窗口中的as寄存器。</li>
+</ol>
+<p>堆栈帧大小被指定为8位字节的12位无符号imm12字段。大小为零扩展，向左移动3，然后从调用者的堆栈指针中减去以获取被调用者的堆栈指针。因此，最多可以指定32760字节的堆栈帧。初始堆栈帧大小必须为常数，但随后可以使用MOVSP指令在堆栈上分配动态大小的对象，或进一步扩展大于32760字节的恒定堆栈帧。</p>
+<hr>
+<p>RSIL at, 0-15：</p>
+<p>首先读取PS寄存器（程序状态寄存器），将参数0-15写到寄存器at中，然后设置PS.INTLEVEL为该值，在PS.INTLEVEL级别及以下的中断将被禁用。</p>
+<h2 id="xtensa架构上相关寄存器说明"><a class="markdownIt-Anchor" href="#xtensa架构上相关寄存器说明"></a> xtensa架构上相关寄存器说明</h2>
+<h3 id="ps寄存器"><a class="markdownIt-Anchor" href="#ps寄存器"></a> PS寄存器</h3>
+<p>PS（Miscellaneous Program State Register）寄存器，杂项程序状态寄存器，复位默认PS.INTLEVEL为15，PS.EXCM为1，其他字段为零（Region Translation Option，Xtensa® Instruction Set Architecture(ISA) Reference Manual第5.3.5节“处理器状态特殊寄存器”详细描述了该寄存器的字段）</p>
+<p><img src="/2020/07/06/ESP32%E4%B8%8A%E7%A7%BB%E6%A4%8DRt-thread/image-20200714192709907.png" alt="PS寄存器"></p>
+<ul>
+<li>INTLEVEL：中断等级禁用选项，用于设置处理器当前中断级别（中断选项），在PS.INTLEVEL级别及以下的中断将被禁用。</li>
+<li>EXCM：异常模式（异常选项）
+<ul>
+<li>0：正常运行</li>
+<li>1：异常模式</li>
+</ul>
+</li>
+<li>UM：用户向量模式（异常选项）
+<ul>
+<li>0：内核向量模式——异常不需要切换堆栈</li>
+<li>1：用户向量模式——异常情况下需要切换堆栈</li>
+</ul>
+</li>
+<li>RING：特权级别（MMU选项）</li>
+<li>OWB：Old window base（窗口寄存器选项），窗口溢出或下溢前的WindowBase值。</li>
+<li>CALLINC：调用增量（窗口寄存器选项），由CALL指令设置窗口增量。由ENTRY用于旋转窗口。</li>
+<li>WOE：窗口溢出检测启用（窗口寄存器选项），用于计算当前窗口溢出的启用情况（4.4.1.4节）</li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2020/07/06/ESP32%E4%B8%8A%E7%A7%BB%E6%A4%8DRt-thread/">http://nu-ll.github.io/2020/07/06/ESP32上移植Rt-thread/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ESP32/">ESP32</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/07/06/Xtensa%E5%9F%BA%E7%A1%80/"><img class="prev_cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Xtensa基础</div></div></a></div><div class="next-post pull_right"><a href="/2020/07/01/Linux%E5%86%85%E6%A0%B8%E6%9B%B4%E6%96%B0boot%E5%88%86%E5%8C%BA%E9%97%AE%E9%A2%98/"><img class="next_cover" src="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux内核更新boot分区问题</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/16/ESP32/" title="ESP32"><img class="relatedPosts_cover" src="https://gitee.com/NU-LL/image-host/raw/master/12.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-history fa-fw" aria-hidden="true"></i> 2020-07-22</div><div class="relatedPosts_title">ESP32</div></div></a></div><div class="relatedPosts_item"><a href="/2020/07/06/Xtensa基础/" title="Xtensa基础"><img class="relatedPosts_cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-history fa-fw" aria-hidden="true"></i> 2020-07-06</div><div class="relatedPosts_title">Xtensa基础</div></div></a></div></div><div class="clear_both"></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By spaceman</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@3/instantpage.min.js" type="module"></script><script src="/js/third-party/ClickShowText.js"></script><script>var endLoading = function () {
   document.body.style.overflow = 'auto';
   document.getElementById('loading-box').classList.add("loaded")
 }

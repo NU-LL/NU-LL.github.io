@@ -12,12 +12,12 @@ tags:</li>
 <h2 id="一-makefile结构分析"><a class="markdownIt-Anchor" href="#一-makefile结构分析"></a> 一、Makefile结构分析</h2>
 <h3 id="1-make-100ask24x0_config配置芯片类型"><a class="markdownIt-Anchor" href="#1-make-100ask24x0_config配置芯片类型"></a> 1、make 100ask24x0_config配置芯片类型</h3>
 <p>打开u-boot-1.1.6/Makefile文件，发现：</p>
-<pre class="highlight"><code class="makefile">SRCTREE    := <span class="variable">$(CURDIR)</span> *CURDIR是make的内嵌变量， 为当前目录
+<pre class="highlight"><code class="makefile">SRCTREE    := <span class="hljs-variable">$(CURDIR)</span> *CURDIR是make的内嵌变量， 为当前目录
 ......
-MKCONFIG    := <span class="variable">$(SRCTREE)</span>/mkconfig
+MKCONFIG    := <span class="hljs-variable">$(SRCTREE)</span>/mkconfig
 ......
 100ask24x0_config    :    unconfig
-@<span class="variable">$(MKCONFIG)</span> $(@:_config=) arm arm920t 100ask24x0 NULL s3c24x0
+@<span class="hljs-variable">$(MKCONFIG)</span> $(@:_config=) arm arm920t 100ask24x0 NULL s3c24x0
 </code></pre>
 <p>上述$(SRCTREE)等于​$(CURDIR)，也就是当前目录u-boot-1.1.6，所以MKCONFIG=./mkconfig<br />
 上述$(@:_config=)的结果就是将 “100ask24x0_config” 中的 “_config” 去掉， 结果为 “100ask24x0” 。<br />
@@ -27,76 +27,76 @@ MKCONFIG    := <span class="variable">$(SRCTREE)</span>/mkconfig
 </code></pre>
 <h4 id="mkconfig脚本分析"><a class="markdownIt-Anchor" href="#mkconfig脚本分析"></a> mkconfig脚本分析</h4>
 <p>显然这里是调用的mkconfig，打开当前目录u-boot-1.1.6下的该文件(用的linux_shell语法，可以参考《精通linux_shell编程教程pdf完整版》以及Linux应用开发手册第264页U-Boot配置过程)，在第6行中给出了mkconfig的用法：</p>
-<pre class="highlight"><code class="makefile"><span class="comment"># Parameters: Target Architecture CPU Board [VENDOR] [SOC]</span>
+<pre class="highlight"><code class="makefile"><span class="hljs-comment"># Parameters: Target Architecture CPU Board [VENDOR] [SOC]</span>
 </code></pre>
 <p>刚好对应mkconfig(参数) 100ask24x0(目标) arm(架构) arm920t(cpu)100ask24x0(开发板选型) NULL(供应商) s3c24x0(片上系统/芯片) 。</p>
 <p>通过分析，精简后的mkconfig文件：</p>
-<pre class="highlight"><code class="bash"><span class="comment">#!/bin/sh -e</span>
-<span class="comment"># Parameters:  Target  Architecture  CPU  Board [VENDOR] [SOC]</span>
-<span class="comment"># mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0</span>
+<pre class="highlight"><code class="bash"><span class="hljs-comment">#!/bin/sh -e</span>
+<span class="hljs-comment"># Parameters:  Target  Architecture  CPU  Board [VENDOR] [SOC]</span>
+<span class="hljs-comment"># mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0</span>
 
-APPEND=no	<span class="comment"># Default: Create new config file</span>
-BOARD_NAME=<span class="string">""</span>	<span class="comment"># Name to print in make output</span>
+APPEND=no	<span class="hljs-comment"># Default: Create new config file</span>
+BOARD_NAME=<span class="hljs-string">""</span>	<span class="hljs-comment"># Name to print in make output</span>
 
-<span class="keyword">while</span> [ <span class="variable">$#</span> -gt 0 ] ; <span class="keyword">do</span>
-	<span class="comment">#不运行</span>
-<span class="keyword">done</span>
+<span class="hljs-keyword">while</span> [ <span class="hljs-variable">$#</span> -gt 0 ] ; <span class="hljs-keyword">do</span>
+	<span class="hljs-comment">#不运行</span>
+<span class="hljs-keyword">done</span>
 
-[ <span class="string">"<span class="variable">${BOARD_NAME}</span>"</span> ] || BOARD_NAME=<span class="string">"<span class="variable">$1</span>"</span><span class="comment">#BOARD_NAME=100ask24x0</span>
-<span class="comment"># $#:参数的个数</span>
-[ <span class="variable">$#</span> -lt 4 ] &amp;&amp; <span class="built_in">exit</span> 1<span class="comment">#不运行</span>
-[ <span class="variable">$#</span> -gt 6 ] &amp;&amp; <span class="built_in">exit</span> 1<span class="comment">#不运行</span>
+[ <span class="hljs-string">"<span class="hljs-variable">${BOARD_NAME}</span>"</span> ] || BOARD_NAME=<span class="hljs-string">"<span class="hljs-variable">$1</span>"</span><span class="hljs-comment">#BOARD_NAME=100ask24x0</span>
+<span class="hljs-comment"># $#:参数的个数</span>
+[ <span class="hljs-variable">$#</span> -lt 4 ] &amp;&amp; <span class="hljs-built_in">exit</span> 1<span class="hljs-comment">#不运行</span>
+[ <span class="hljs-variable">$#</span> -gt 6 ] &amp;&amp; <span class="hljs-built_in">exit</span> 1<span class="hljs-comment">#不运行</span>
 
-<span class="built_in">echo</span> <span class="string">"Configuring for <span class="variable">${BOARD_NAME}</span> board..."</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"Configuring for <span class="hljs-variable">${BOARD_NAME}</span> board..."</span>
 
-<span class="comment">#</span>
-<span class="comment"># Create link to architecture specific headers</span>
-<span class="comment">#</span>
-<span class="keyword">if</span> [ <span class="string">"<span class="variable">$SRCTREE</span>"</span> != <span class="string">"<span class="variable">$OBJTREE</span>"</span> ] ; <span class="keyword">then</span><span class="comment">#通过Makefile发现相等</span>
-	<span class="comment">#不运行</span>
-<span class="keyword">else</span>
-	<span class="built_in">cd</span> ./include<span class="comment">#进入include目录</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Create link to architecture specific headers</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$SRCTREE</span>"</span> != <span class="hljs-string">"<span class="hljs-variable">$OBJTREE</span>"</span> ] ; <span class="hljs-keyword">then</span><span class="hljs-comment">#通过Makefile发现相等</span>
+	<span class="hljs-comment">#不运行</span>
+<span class="hljs-keyword">else</span>
+	<span class="hljs-built_in">cd</span> ./include<span class="hljs-comment">#进入include目录</span>
 	rm -f asm
-	ln -s asm-<span class="variable">$2</span> asm<span class="comment">#ln -s asm-arm asm：建立链接文件asm，指向asm-arm</span>
-<span class="keyword">fi</span>
+	ln -s asm-<span class="hljs-variable">$2</span> asm<span class="hljs-comment">#ln -s asm-arm asm：建立链接文件asm，指向asm-arm</span>
+<span class="hljs-keyword">fi</span>
 
-rm -f asm-<span class="variable">$2</span>/arch<span class="comment">#rm -f asm-arm/arch：删除文件</span>
+rm -f asm-<span class="hljs-variable">$2</span>/arch<span class="hljs-comment">#rm -f asm-arm/arch：删除文件</span>
 
-<span class="keyword">if</span> [ -z <span class="string">"<span class="variable">$6</span>"</span> -o <span class="string">"<span class="variable">$6</span>"</span> = <span class="string">"NULL"</span> ] ; <span class="keyword">then</span><span class="comment">#第6个参数为空或等于NULL</span>
-	ln -s <span class="variable">${LNPREFIX}</span>arch-<span class="variable">$3</span> asm-<span class="variable">$2</span>/arch<span class="comment">#不运行</span>
-<span class="keyword">else</span>
-	ln -s <span class="variable">${LNPREFIX}</span>arch-<span class="variable">$6</span> asm-<span class="variable">$2</span>/arch<span class="comment">#ln -s arch-s3c24x0 asm-arm/arch：建立链接文件asm-arm/arch，指向arch-s3c24x0</span>
-<span class="keyword">fi</span>
+<span class="hljs-keyword">if</span> [ -z <span class="hljs-string">"<span class="hljs-variable">$6</span>"</span> -o <span class="hljs-string">"<span class="hljs-variable">$6</span>"</span> = <span class="hljs-string">"NULL"</span> ] ; <span class="hljs-keyword">then</span><span class="hljs-comment">#第6个参数为空或等于NULL</span>
+	ln -s <span class="hljs-variable">${LNPREFIX}</span>arch-<span class="hljs-variable">$3</span> asm-<span class="hljs-variable">$2</span>/arch<span class="hljs-comment">#不运行</span>
+<span class="hljs-keyword">else</span>
+	ln -s <span class="hljs-variable">${LNPREFIX}</span>arch-<span class="hljs-variable">$6</span> asm-<span class="hljs-variable">$2</span>/arch<span class="hljs-comment">#ln -s arch-s3c24x0 asm-arm/arch：建立链接文件asm-arm/arch，指向arch-s3c24x0</span>
+<span class="hljs-keyword">fi</span>
 
-<span class="keyword">if</span> [ <span class="string">"<span class="variable">$2</span>"</span> = <span class="string">"arm"</span> ] ; <span class="keyword">then</span>
-	rm -f asm-<span class="variable">$2</span>/proc<span class="comment">#删除文件</span>
-	ln -s <span class="variable">${LNPREFIX}</span>proc-armv asm-<span class="variable">$2</span>/proc<span class="comment">#ln -s proc-armv asm-arm/proc：建立链接文件asm-arm/proc，指向proc-armv</span>
-<span class="keyword">fi</span>
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$2</span>"</span> = <span class="hljs-string">"arm"</span> ] ; <span class="hljs-keyword">then</span>
+	rm -f asm-<span class="hljs-variable">$2</span>/proc<span class="hljs-comment">#删除文件</span>
+	ln -s <span class="hljs-variable">${LNPREFIX}</span>proc-armv asm-<span class="hljs-variable">$2</span>/proc<span class="hljs-comment">#ln -s proc-armv asm-arm/proc：建立链接文件asm-arm/proc，指向proc-armv</span>
+<span class="hljs-keyword">fi</span>
 
-<span class="comment">#</span>
-<span class="comment"># Create include file for Make</span>
-<span class="comment">#</span>
-<span class="built_in">echo</span> <span class="string">"ARCH   = <span class="variable">$2</span>"</span> &gt;  config.mk<span class="comment">#新建config.mk</span>
-<span class="built_in">echo</span> <span class="string">"CPU    = <span class="variable">$3</span>"</span> &gt;&gt; config.mk<span class="comment">#追加</span>
-<span class="built_in">echo</span> <span class="string">"BOARD  = <span class="variable">$4</span>"</span> &gt;&gt; config.mk
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Create include file for Make</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"ARCH   = <span class="hljs-variable">$2</span>"</span> &gt;  config.mk<span class="hljs-comment">#新建config.mk</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"CPU    = <span class="hljs-variable">$3</span>"</span> &gt;&gt; config.mk<span class="hljs-comment">#追加</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"BOARD  = <span class="hljs-variable">$4</span>"</span> &gt;&gt; config.mk
 
-[ <span class="string">"<span class="variable">$5</span>"</span> ] &amp;&amp; [ <span class="string">"<span class="variable">$5</span>"</span> != <span class="string">"NULL"</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"VENDOR = <span class="variable">$5</span>"</span> &gt;&gt; config.mk<span class="comment">#不会执行</span>
+[ <span class="hljs-string">"<span class="hljs-variable">$5</span>"</span> ] &amp;&amp; [ <span class="hljs-string">"<span class="hljs-variable">$5</span>"</span> != <span class="hljs-string">"NULL"</span> ] &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">"VENDOR = <span class="hljs-variable">$5</span>"</span> &gt;&gt; config.mk<span class="hljs-comment">#不会执行</span>
 
-[ <span class="string">"<span class="variable">$6</span>"</span> ] &amp;&amp; [ <span class="string">"<span class="variable">$6</span>"</span> != <span class="string">"NULL"</span> ] &amp;&amp; <span class="built_in">echo</span> <span class="string">"SOC    = <span class="variable">$6</span>"</span> &gt;&gt; config.mk
+[ <span class="hljs-string">"<span class="hljs-variable">$6</span>"</span> ] &amp;&amp; [ <span class="hljs-string">"<span class="hljs-variable">$6</span>"</span> != <span class="hljs-string">"NULL"</span> ] &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">"SOC    = <span class="hljs-variable">$6</span>"</span> &gt;&gt; config.mk
 
-<span class="comment">#</span>
-<span class="comment"># Create board specific header file</span>
-<span class="comment">#</span>
-<span class="keyword">if</span> [ <span class="string">"<span class="variable">$APPEND</span>"</span> = <span class="string">"yes"</span> ]	<span class="comment">#第五行：APPEND=no</span>
-<span class="keyword">then</span>
-	<span class="built_in">echo</span> &gt;&gt; config.h
-<span class="keyword">else</span>
-	&gt; config.h		<span class="comment">#新建config.h</span>
-<span class="keyword">fi</span>
-<span class="built_in">echo</span> <span class="string">"/* Automatically generated - do not edit */"</span> &gt;&gt;config.h
-<span class="built_in">echo</span> <span class="string">"#include &lt;configs/<span class="variable">$1</span>.h&gt;"</span> &gt;&gt;config.h
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># Create board specific header file</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$APPEND</span>"</span> = <span class="hljs-string">"yes"</span> ]	<span class="hljs-comment">#第五行：APPEND=no</span>
+<span class="hljs-keyword">then</span>
+	<span class="hljs-built_in">echo</span> &gt;&gt; config.h
+<span class="hljs-keyword">else</span>
+	&gt; config.h		<span class="hljs-comment">#新建config.h</span>
+<span class="hljs-keyword">fi</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"/* Automatically generated - do not edit */"</span> &gt;&gt;config.h
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"#include &lt;configs/<span class="hljs-variable">$1</span>.h&gt;"</span> &gt;&gt;config.h
 
-<span class="built_in">exit</span> 0
+<span class="hljs-built_in">exit</span> 0
 </code></pre>
 <p>发现会创建include/config.mk文件：</p>
 <pre class="highlight"><code class="">  ARCH = arm
@@ -105,8 +105,8 @@ rm -f asm-<span class="variable">$2</span>/arch<span class="comment">#rm -f asm-
   SOC = s3c24x0
 </code></pre>
 <p>以及include/config.h</p>
-<pre class="highlight"><code class="c"><span class="comment">/* Automatically generated - do not edit */</span>
-<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;configs/100ask24x0.h&gt;</span></span>
+<pre class="highlight"><code class="c"><span class="hljs-comment">/* Automatically generated - do not edit */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;configs/100ask24x0.h&gt;</span></span>
 </code></pre>
 <h4 id="mkconfig脚本总结"><a class="markdownIt-Anchor" href="#mkconfig脚本总结"></a> mkconfig脚本总结</h4>
 <ol>
@@ -127,23 +127,23 @@ ln -s proc-armv asm-arm/proc
 </li>
 <li>
 <p>创建开发板相关的头文件include/config.h</p>
-<pre class="highlight"><code class="c"><span class="comment">/* Automatically generated - do not edit */</span>
-<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;configs/100ask24x0.h&gt;</span></span>
+<pre class="highlight"><code class="c"><span class="hljs-comment">/* Automatically generated - do not edit */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;configs/100ask24x0.h&gt;</span></span>
 </code></pre>
 </li>
 </ol>
 <h3 id="2-make-编译u-boot"><a class="markdownIt-Anchor" href="#2-make-编译u-boot"></a> 2、make 编译u-boot</h3>
 <p>u-boot-1.1.6/Makefile文件:</p>
-<pre class="highlight"><code class="makefile"><span class="keyword">include</span> <span class="variable">$(OBJTREE)</span>/<span class="keyword">include</span>/config.mk//调用config.mk这个文件
+<pre class="highlight"><code class="makefile"><span class="hljs-keyword">include</span> <span class="hljs-variable">$(OBJTREE)</span>/<span class="hljs-keyword">include</span>/config.mk//调用config.mk这个文件
 ...
-<span class="keyword">ifeq</span> (<span class="variable">$(ARCH)</span>,ppc)//判断config.mk这个文件中ARCH是否等于ppc
+<span class="hljs-keyword">ifeq</span> (<span class="hljs-variable">$(ARCH)</span>,ppc)//判断config.mk这个文件中ARCH是否等于ppc
 CROSS_COMPILE = powerpc-linux- 
-<span class="keyword">endif</span>
-<span class="keyword">ifeq</span> (<span class="variable">$(ARCH)</span>,arm)//判断config.mk这个文件中ARCH是否等于arm
+<span class="hljs-keyword">endif</span>
+<span class="hljs-keyword">ifeq</span> (<span class="hljs-variable">$(ARCH)</span>,arm)//判断config.mk这个文件中ARCH是否等于arm
 CROSS_COMPILE = arm-linux- 
-<span class="keyword">endif</span>
+<span class="hljs-keyword">endif</span>
 ...
-<span class="keyword">include</span> <span class="variable">$(TOPDIR)</span>/config.mk
+<span class="hljs-keyword">include</span> <span class="hljs-variable">$(TOPDIR)</span>/config.mk
 </code></pre>
 <p>最后的config.mk是属于顶层目录的config,主要通过arm，arm920t，100ask24x0，s3c24x0来确定编译器、编译选项等</p>
 <p>顶层的config.mk部分为：</p>
@@ -158,23 +158,23 @@ LDFLAGS += -Bstatic -T $(LDSCRIPT) -Ttext $(TEXT_BASE) $(PLATFORM_LDFLAGS)
 </ul>
 <p>继续看，发现all目标：</p>
 <pre class="highlight"><code class="makefile">...
-ALL = <span class="variable">$(obj)</span>u-boot.srec <span class="variable">$(obj)</span>u-boot.bin <span class="variable">$(obj)</span>System.map <span class="variable">$(U_BOOT_NAND)</span>//all的依赖文件
+ALL = <span class="hljs-variable">$(obj)</span>u-boot.srec <span class="hljs-variable">$(obj)</span>u-boot.bin <span class="hljs-variable">$(obj)</span>System.map <span class="hljs-variable">$(U_BOOT_NAND)</span>//all的依赖文件
 
-<span class="section">all:    <span class="variable">$(ALL)</span>//使用make命令,相当于执行make all </span>
+<span class="hljs-section">all:    <span class="hljs-variable">$(ALL)</span>//使用make命令,相当于执行make all </span>
 ...
-<span class="variable">$(obj)</span>u-boot.bin:   <span class="variable">$(obj)</span>u-boot//生成u-boot.bin需要elf格式的u-boot，elf也就是通过ld链接文件生成的。
-<span class="variable">$(OBJCOPY)</span> ${OBJCFLAGS} -O binary <span class="variable">$&lt;</span> <span class="variable">$@</span>//执行:arm-linux-objcopy -O binary u-boot u-boot.bin
+<span class="hljs-variable">$(obj)</span>u-boot.bin:   <span class="hljs-variable">$(obj)</span>u-boot//生成u-boot.bin需要elf格式的u-boot，elf也就是通过ld链接文件生成的。
+<span class="hljs-variable">$(OBJCOPY)</span> ${OBJCFLAGS} -O binary <span class="hljs-variable">$&lt;</span> <span class="hljs-variable">$@</span>//执行:arm-linux-objcopy -O binary u-boot u-boot.bin
 ...
 
-<span class="variable">$(obj)</span>u-boot:   depend version <span class="variable">$(SUBDIRS)</span> <span class="variable">$(OBJS)</span> <span class="variable">$(LIBS)</span> <span class="variable">$(LDSCRIPT)</span>//生成elf格式的u-boot所需要的依赖文件
-		UNDEF_SYM=`<span class="variable">$(OBJDUMP)</span> -x <span class="variable">$(LIBS)</span> |sed -n -e 's/.*\(__u_boot_cmd_.*\)/-u\1/p'|sort|uniq`;\
-		cd <span class="variable">$(LNDIR)</span> &amp;&amp; <span class="variable">$(LD)</span> <span class="variable">$(LDFLAGS)</span> $$UNDEF_SYM <span class="variable">$(__OBJS)</span> \                       
-			--start-group <span class="variable">$(__LIBS)</span> --end-group <span class="variable">$(PLATFORM_LIBS)</span> \
+<span class="hljs-variable">$(obj)</span>u-boot:   depend version <span class="hljs-variable">$(SUBDIRS)</span> <span class="hljs-variable">$(OBJS)</span> <span class="hljs-variable">$(LIBS)</span> <span class="hljs-variable">$(LDSCRIPT)</span>//生成elf格式的u-boot所需要的依赖文件
+		UNDEF_SYM=`<span class="hljs-variable">$(OBJDUMP)</span> -x <span class="hljs-variable">$(LIBS)</span> |sed -n -e 's/.*\(__u_boot_cmd_.*\)/-u\1/p'|sort|uniq`;\
+		cd <span class="hljs-variable">$(LNDIR)</span> &amp;&amp; <span class="hljs-variable">$(LD)</span> <span class="hljs-variable">$(LDFLAGS)</span> $$UNDEF_SYM <span class="hljs-variable">$(__OBJS)</span> \                       
+			--start-group <span class="hljs-variable">$(__LIBS)</span> --end-group <span class="hljs-variable">$(PLATFORM_LIBS)</span> \
 			-Map u-boot.map -o u-boot
 </code></pre>
 <p>上述10行开始就是开始制作elf格式的u-boot，具体展开的命令可以看make后命令行最后输出的命令，值得注意的是这中间包含的<strong>链接脚本</strong>，他决定了各种.o文件是怎么组织的（注意<code>$(LDFLAGS)</code>）</p>
 <p>通过make后命令行输出的命令：</p>
-<pre class="highlight"><code class="bash">......&amp;&amp;arm-linux-ld -Bstatic -T /work/system/u-boot-1.1.6/board/100ask24x0/u-boot.lds -Ttext 0x33F80000 <span class="variable">$UNDEF_SYM</span> cpu/arm920t/start.o......
+<pre class="highlight"><code class="bash">......&amp;&amp;arm-linux-ld -Bstatic -T /work/system/u-boot-1.1.6/board/100ask24x0/u-boot.lds -Ttext 0x33F80000 <span class="hljs-variable">$UNDEF_SYM</span> cpu/arm920t/start.o......
 </code></pre>
 <p>可以发现链接脚本为<code>board/100ask24x0/u-boot.lds</code>，并且通过**-Ttext**参数确定链接脚本的起始地址为0x33F80000</p>
 <blockquote>
@@ -324,8 +324,8 @@ _start_armboot:	.word start_armboot
 </li>
 <li>
 <p>跳到<code>main_loop</code>函数</p>
-<pre class="highlight"><code class="c"><span class="comment">/* main_loop() can return to retry autoboot, if so just run it again. */</span>
-<span class="keyword">for</span> (;;) {
+<pre class="highlight"><code class="c"><span class="hljs-comment">/* main_loop() can return to retry autoboot, if so just run it again. */</span>
+<span class="hljs-keyword">for</span> (;;) {
     main_loop ();
 }
 </code></pre>
@@ -368,36 +368,36 @@ __u_boot_cmd_end = .;// *u_boot_cmd段结束位置<br />
 <blockquote>
 <p>例子：</p>
 <pre class="highlight"><code class="c">U_BOOT_CMD(
- 	bootm,	CFG_MAXARGS,	<span class="number">1</span>,	do_bootm,
- 	<span class="string">"bootm   - boot application image from memory\n"</span>,
- 	<span class="string">"[addr [arg ...]]\n    - boot application image stored in memory\n"</span>
- 	<span class="string">"\tpassing arguments 'arg ...'; when booting a Linux kernel,\n"</span>
- 	<span class="string">"\t'arg' can be the address of an initrd image\n"</span>
+ 	bootm,	CFG_MAXARGS,	<span class="hljs-number">1</span>,	do_bootm,
+ 	<span class="hljs-string">"bootm   - boot application image from memory\n"</span>,
+ 	<span class="hljs-string">"[addr [arg ...]]\n    - boot application image stored in memory\n"</span>
+ 	<span class="hljs-string">"\tpassing arguments 'arg ...'; when booting a Linux kernel,\n"</span>
+ 	<span class="hljs-string">"\t'arg' can be the address of an initrd image\n"</span>
 #ifdef CONFIG_OF_FLAT_TREE
-	<span class="string">"\tWhen booting a Linux kernel which requires a flat device-tree\n"</span>
-	<span class="string">"\ta third argument is required which is the address of the of the\n"</span>
-	<span class="string">"\tdevice-tree blob. To boot that kernel without an initrd image,\n"</span>
-	<span class="string">"\tuse a '-' for the second argument. If you do not pass a third\n"</span>
-	<span class="string">"\ta bd_info struct will be passed instead\n"</span>
+	<span class="hljs-string">"\tWhen booting a Linux kernel which requires a flat device-tree\n"</span>
+	<span class="hljs-string">"\ta third argument is required which is the address of the of the\n"</span>
+	<span class="hljs-string">"\tdevice-tree blob. To boot that kernel without an initrd image,\n"</span>
+	<span class="hljs-string">"\tuse a '-' for the second argument. If you do not pass a third\n"</span>
+	<span class="hljs-string">"\ta bd_info struct will be passed instead\n"</span>
 #endif
 );
 </code></pre>
 </blockquote>
 <h2 id="五-启动内核"><a class="markdownIt-Anchor" href="#五-启动内核"></a> 五、启动内核</h2>
 <p>uboot启动内核是依赖以下两条命令：</p>
-<pre class="highlight"><code class="c">s = getenv (<span class="string">"bootcmd"</span>);
+<pre class="highlight"><code class="c">s = getenv (<span class="hljs-string">"bootcmd"</span>);
 </code></pre>
-<pre class="highlight"><code class="c">run_command (s, <span class="number">0</span>);
+<pre class="highlight"><code class="c">run_command (s, <span class="hljs-number">0</span>);
 </code></pre>
 <p>这里的<code>s</code>为环境变量<code>bootcmd</code>中的值，即</p>
 <pre class="highlight"><code class="bash">nand read.jffs2 0x30007EC0 kernel;//从kernel分区读出内核放到0x30007EC0位置
 bootm 0x30007EC0//从0x30007EC0位置启动内核
 </code></pre>
 <p>这里的分区在源码中已经写死，位置为：<code>include/configs/a00ask24x0.h</code>中的<code>MTDPARTS_DEFAULT</code>宏：</p>
-<pre class="highlight"><code class="c"><span class="meta">#<span class="meta-keyword">define</span> MTDPARTS_DEFAULT <span class="meta-string">"mtdparts=nandflash0:256k@0(bootloader),"</span> \<span class="comment">/*0开始的256k为bootloader*/</span></span>
-                            <span class="string">"128k(params),"</span> \<span class="comment">/*接下来的128k为环境变量*/</span>
-                            <span class="string">"2m(kernel),"</span> \
-                            <span class="string">"-(root)"</span>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MTDPARTS_DEFAULT <span class="hljs-meta-string">"mtdparts=nandflash0:256k@0(bootloader),"</span> \<span class="hljs-comment">/*0开始的256k为bootloader*/</span></span>
+                            <span class="hljs-string">"128k(params),"</span> \<span class="hljs-comment">/*接下来的128k为环境变量*/</span>
+                            <span class="hljs-string">"2m(kernel),"</span> \
+                            <span class="hljs-string">"-(root)"</span>
 </code></pre>
 <p>在uboot下可以通过<code>mtd</code>命令读取，kernel结果为0x0006 0000起始，大小为0x0020 0000，故原来的指令可以改写为：</p>
 <pre class="highlight"><code class="">nand read.jffs2 0x30007EC0 0x00060000 0x00200000;//从0x00060000读出0x00200000大小数据放到0x30007EC0位置
@@ -405,85 +405,85 @@ bootm 0x30007EC0//从0x30007EC0位置启动内核
 </code></pre>
 <h3 id="nand命令"><a class="markdownIt-Anchor" href="#nand命令"></a> nand命令</h3>
 <p>通过全局搜索<code>nand</code>可以搜索到其命令函数在<code>common/cmd_nand.c</code>下的do_nand函数，简化后：</p>
-<pre class="highlight"><code class="c"><span class="function"><span class="keyword">int</span> <span class="title">do_nand</span><span class="params">(<span class="keyword">cmd_tbl_t</span> * cmdtp, <span class="keyword">int</span> flag, <span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span>
+<pre class="highlight"><code class="c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">do_nand</span><span class="hljs-params">(<span class="hljs-keyword">cmd_tbl_t</span> * cmdtp, <span class="hljs-keyword">int</span> flag, <span class="hljs-keyword">int</span> argc, <span class="hljs-keyword">char</span> *argv[])</span>
 </span>{
-    <span class="keyword">int</span> i, dev, ret;
-    ulong addr, off, <span class="built_in">size</span>;
-    <span class="keyword">char</span> *cmd, *s;
-    <span class="keyword">nand_info_t</span> *nand;
-    <span class="keyword">int</span> quiet = <span class="number">0</span>;
-    <span class="keyword">const</span> <span class="keyword">char</span> *quiet_str = getenv(<span class="string">"quiet"</span>);
+    <span class="hljs-keyword">int</span> i, dev, ret;
+    ulong addr, off, <span class="hljs-built_in">size</span>;
+    <span class="hljs-keyword">char</span> *cmd, *s;
+    <span class="hljs-keyword">nand_info_t</span> *nand;
+    <span class="hljs-keyword">int</span> quiet = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *quiet_str = getenv(<span class="hljs-string">"quiet"</span>);
 
-    <span class="comment">/* at least two arguments please */</span>
-    <span class="keyword">if</span> (argc &lt; <span class="number">2</span>)
-        <span class="keyword">goto</span> usage;
+    <span class="hljs-comment">/* at least two arguments please */</span>
+    <span class="hljs-keyword">if</span> (argc &lt; <span class="hljs-number">2</span>)
+        <span class="hljs-keyword">goto</span> usage;
 
-    <span class="keyword">if</span> (quiet_str)
-        quiet = simple_strtoul(quiet_str, <span class="literal">NULL</span>, <span class="number">0</span>) != <span class="number">0</span>;
+    <span class="hljs-keyword">if</span> (quiet_str)
+        quiet = simple_strtoul(quiet_str, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>) != <span class="hljs-number">0</span>;
 
-    cmd = argv[<span class="number">1</span>];
+    cmd = argv[<span class="hljs-number">1</span>];
 
     ......
-    <span class="comment">/* read write */</span>
-    <span class="keyword">if</span> (<span class="built_in">strncmp</span>(cmd, <span class="string">"read"</span>, <span class="number">4</span>) == <span class="number">0</span> || <span class="built_in">strncmp</span>(cmd, <span class="string">"write"</span>, <span class="number">5</span>) == <span class="number">0</span>) {
-        <span class="keyword">int</span> <span class="built_in">read</span>;
+    <span class="hljs-comment">/* read write */</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">strncmp</span>(cmd, <span class="hljs-string">"read"</span>, <span class="hljs-number">4</span>) == <span class="hljs-number">0</span> || <span class="hljs-built_in">strncmp</span>(cmd, <span class="hljs-string">"write"</span>, <span class="hljs-number">5</span>) == <span class="hljs-number">0</span>) {
+        <span class="hljs-keyword">int</span> <span class="hljs-built_in">read</span>;
 
-        <span class="keyword">if</span> (argc &lt; <span class="number">4</span>)
-            <span class="keyword">goto</span> usage;
+        <span class="hljs-keyword">if</span> (argc &lt; <span class="hljs-number">4</span>)
+            <span class="hljs-keyword">goto</span> usage;
 
-        addr = (ulong)simple_strtoul(argv[<span class="number">2</span>], <span class="literal">NULL</span>, <span class="number">16</span>);
+        addr = (ulong)simple_strtoul(argv[<span class="hljs-number">2</span>], <span class="hljs-literal">NULL</span>, <span class="hljs-number">16</span>);
 
-        <span class="built_in">read</span> = <span class="built_in">strncmp</span>(cmd, <span class="string">"read"</span>, <span class="number">4</span>) == <span class="number">0</span>; <span class="comment">/* 1 = read, 0 = write */</span>
-        <span class="built_in">printf</span>(<span class="string">"\nNAND %s: "</span>, <span class="built_in">read</span> ? <span class="string">"read"</span> : <span class="string">"write"</span>);
-        <span class="keyword">if</span> (arg_off_size(argc - <span class="number">3</span>, argv + <span class="number">3</span>, nand, &amp;off, &amp;<span class="built_in">size</span>) != <span class="number">0</span>)
-            <span class="keyword">return</span> <span class="number">1</span>;
+        <span class="hljs-built_in">read</span> = <span class="hljs-built_in">strncmp</span>(cmd, <span class="hljs-string">"read"</span>, <span class="hljs-number">4</span>) == <span class="hljs-number">0</span>; <span class="hljs-comment">/* 1 = read, 0 = write */</span>
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\nNAND %s: "</span>, <span class="hljs-built_in">read</span> ? <span class="hljs-string">"read"</span> : <span class="hljs-string">"write"</span>);
+        <span class="hljs-keyword">if</span> (arg_off_size(argc - <span class="hljs-number">3</span>, argv + <span class="hljs-number">3</span>, nand, &amp;off, &amp;<span class="hljs-built_in">size</span>) != <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
 
-        s = <span class="built_in">strchr</span>(cmd, <span class="string">'.'</span>);
-        <span class="keyword">if</span> (s != <span class="literal">NULL</span> &amp;&amp;
-            (!<span class="built_in">strcmp</span>(s, <span class="string">".jffs2"</span>) || !<span class="built_in">strcmp</span>(s, <span class="string">".e"</span>) || !<span class="built_in">strcmp</span>(s, <span class="string">".i"</span>))) {
-            <span class="keyword">if</span> (<span class="built_in">read</span>) {
-                <span class="comment">/* read */</span>
-                <span class="keyword">nand_read_options_t</span> opts;
-                <span class="built_in">memset</span>(&amp;opts, <span class="number">0</span>, <span class="keyword">sizeof</span>(opts));
-                opts.<span class="built_in">buffer</span> = (u_char*) addr;
-                opts.length = <span class="built_in">size</span>;
+        s = <span class="hljs-built_in">strchr</span>(cmd, <span class="hljs-string">'.'</span>);
+        <span class="hljs-keyword">if</span> (s != <span class="hljs-literal">NULL</span> &amp;&amp;
+            (!<span class="hljs-built_in">strcmp</span>(s, <span class="hljs-string">".jffs2"</span>) || !<span class="hljs-built_in">strcmp</span>(s, <span class="hljs-string">".e"</span>) || !<span class="hljs-built_in">strcmp</span>(s, <span class="hljs-string">".i"</span>))) {
+            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">read</span>) {
+                <span class="hljs-comment">/* read */</span>
+                <span class="hljs-keyword">nand_read_options_t</span> opts;
+                <span class="hljs-built_in">memset</span>(&amp;opts, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(opts));
+                opts.<span class="hljs-built_in">buffer</span> = (u_char*) addr;
+                opts.length = <span class="hljs-built_in">size</span>;
                 opts.offset = off;
                 opts.quiet      = quiet;
                 ret = nand_read_opts(nand, &amp;opts);
-            } <span class="keyword">else</span> {
-                <span class="comment">/* write */</span>
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-comment">/* write */</span>
                 ......
             }
         }
         ......
 
-        <span class="built_in">printf</span>(<span class="string">" %d bytes %s: %s\n"</span>, <span class="built_in">size</span>,
-               <span class="built_in">read</span> ? <span class="string">"read"</span> : <span class="string">"written"</span>, ret ? <span class="string">"ERROR"</span> : <span class="string">"OK"</span>);
+        <span class="hljs-built_in">printf</span>(<span class="hljs-string">" %d bytes %s: %s\n"</span>, <span class="hljs-built_in">size</span>,
+               <span class="hljs-built_in">read</span> ? <span class="hljs-string">"read"</span> : <span class="hljs-string">"written"</span>, ret ? <span class="hljs-string">"ERROR"</span> : <span class="hljs-string">"OK"</span>);
 
-        <span class="keyword">return</span> ret == <span class="number">0</span> ? <span class="number">0</span> : <span class="number">1</span>;
+        <span class="hljs-keyword">return</span> ret == <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;
     }
 usage:
-    <span class="built_in">printf</span>(<span class="string">"Usage:\n%s\n"</span>, cmdtp-&gt;usage);
-    <span class="keyword">return</span> <span class="number">1</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Usage:\n%s\n"</span>, cmdtp-&gt;usage);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
 }
 </code></pre>
 <p>最后是调用的<code>nand_read_opts</code>读出的内核</p>
 <h3 id="bootm命令"><a class="markdownIt-Anchor" href="#bootm命令"></a> bootm命令</h3>
 <p>Flash上储存的是uImage=头部+zImage，其中头部为：</p>
-<pre class="highlight"><code class="c"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">image_header</span> {</span>
-	<span class="keyword">uint32_t</span>	ih_magic;	<span class="comment">/* Image Header Magic Number	*/</span>
-	<span class="keyword">uint32_t</span>	ih_hcrc;	<span class="comment">/* Image Header CRC Checksum	*/</span>
-	<span class="keyword">uint32_t</span>	ih_time;	<span class="comment">/* Image Creation Timestamp	*/</span>
-	<span class="keyword">uint32_t</span>	ih_size;	<span class="comment">/* Image Data Size		*/</span>
-	<span class="keyword">uint32_t</span>	ih_load;	<span class="comment">/* Data	 Load  Address		*/</span>
-	<span class="keyword">uint32_t</span>	ih_ep;		<span class="comment">/* Entry Point Address		*/</span>
-	<span class="keyword">uint32_t</span>	ih_dcrc;	<span class="comment">/* Image Data CRC Checksum	*/</span>
-	<span class="keyword">uint8_t</span>		ih_os;		<span class="comment">/* Operating System		*/</span>
-	<span class="keyword">uint8_t</span>		ih_arch;	<span class="comment">/* CPU architecture		*/</span>
-	<span class="keyword">uint8_t</span>		ih_type;	<span class="comment">/* Image Type			*/</span>
-	<span class="keyword">uint8_t</span>		ih_comp;	<span class="comment">/* Compression Type		*/</span>
-	<span class="keyword">uint8_t</span>		ih_name[IH_NMLEN];	<span class="comment">/* Image Name		*/</span>
-} <span class="keyword">image_header_t</span>;
+<pre class="highlight"><code class="c"><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">image_header</span> {</span>
+	<span class="hljs-keyword">uint32_t</span>	ih_magic;	<span class="hljs-comment">/* Image Header Magic Number	*/</span>
+	<span class="hljs-keyword">uint32_t</span>	ih_hcrc;	<span class="hljs-comment">/* Image Header CRC Checksum	*/</span>
+	<span class="hljs-keyword">uint32_t</span>	ih_time;	<span class="hljs-comment">/* Image Creation Timestamp	*/</span>
+	<span class="hljs-keyword">uint32_t</span>	ih_size;	<span class="hljs-comment">/* Image Data Size		*/</span>
+	<span class="hljs-keyword">uint32_t</span>	ih_load;	<span class="hljs-comment">/* Data	 Load  Address		*/</span>
+	<span class="hljs-keyword">uint32_t</span>	ih_ep;		<span class="hljs-comment">/* Entry Point Address		*/</span>
+	<span class="hljs-keyword">uint32_t</span>	ih_dcrc;	<span class="hljs-comment">/* Image Data CRC Checksum	*/</span>
+	<span class="hljs-keyword">uint8_t</span>		ih_os;		<span class="hljs-comment">/* Operating System		*/</span>
+	<span class="hljs-keyword">uint8_t</span>		ih_arch;	<span class="hljs-comment">/* CPU architecture		*/</span>
+	<span class="hljs-keyword">uint8_t</span>		ih_type;	<span class="hljs-comment">/* Image Type			*/</span>
+	<span class="hljs-keyword">uint8_t</span>		ih_comp;	<span class="hljs-comment">/* Compression Type		*/</span>
+	<span class="hljs-keyword">uint8_t</span>		ih_name[IH_NMLEN];	<span class="hljs-comment">/* Image Name		*/</span>
+} <span class="hljs-keyword">image_header_t</span>;
 </code></pre>
 <p>这里有以下两个成员值得关注：</p>
 <ul>

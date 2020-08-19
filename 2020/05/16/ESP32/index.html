@@ -54,7 +54,7 @@ if (autoChangeMode === '1') {
   else if (t === 'light') activateLightMode()
 }</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
   root: '/',
-  hexoversion: '4.2.1',
+  hexoversion: '5.0.2',
   algolia: undefined,
   localSearch: undefined,
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
@@ -98,7 +98,7 @@ if (autoChangeMode === '1') {
 .justified-gallery img {
   opacity: 1
 }
-</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">53</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">62</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-硬件配置"><span class="toc-text"> 一、硬件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-软件配置"><span class="toc-text"> 二、软件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-搭建开发环境windows10"><span class="toc-text"> 三、搭建开发环境（Windows10）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#31-准备工作"><span class="toc-text"> 3.1 准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32-创建工程"><span class="toc-text"> 3.2 创建工程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-搭建开发环境ubuntu1804"><span class="toc-text"> 四、搭建开发环境（ubuntu18.04）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#41-idf框架"><span class="toc-text"> 4.1 IDF框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#42-adf框架"><span class="toc-text"> 4.2 ADF框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#43-监视器使用"><span class="toc-text"> 4.3 监视器使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-一般注意事项"><span class="toc-text"> 五、一般注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#51-应用程序启动流程"><span class="toc-text"> 5.1 应用程序启动流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#52-应用程序内存布局方案"><span class="toc-text"> 5.2 应用程序内存布局方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dma能力要求"><span class="toc-text"> DMA能力要求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六-构建系统cmake"><span class="toc-text"> 六、构建系统（CMake）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#61-基本概念"><span class="toc-text"> 6.1 基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#62-idfpy使用"><span class="toc-text"> 6.2 idf.py使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#63-cmakelists文件"><span class="toc-text"> 6.3 CMakeLists文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#631-项目cmakelists"><span class="toc-text"> 6.3.1 项目CMakeLists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#632-组件cmakelists"><span class="toc-text"> 6.3.2 组件CMakeLists</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#预设变量"><span class="toc-text"> 预设变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#可选变量"><span class="toc-text"> 可选变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#编译控制"><span class="toc-text"> 编译控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#64-组件依赖"><span class="toc-text"> 6.4 组件依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#641-编写组件"><span class="toc-text"> 6.4.1 编写组件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#642-创建项目"><span class="toc-text"> 6.4.2 创建项目</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#643-其他细节"><span class="toc-text"> 6.4.3 其他细节</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#65-组件cmakelists示例"><span class="toc-text"> 6.5 组件CmakeLists示例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#651-条件配置"><span class="toc-text"> 6.5.1 条件配置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#添加"><span class="toc-text"> 添加</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#选择或删除"><span class="toc-text"> 选择或删除</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#由硬件目标决定"><span class="toc-text"> 由硬件目标决定</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">spaceman</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">ESP32</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-16T02:30:54.000Z" title="发表于 2020-05-16 10:30:54">2020-05-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-07-21T17:13:10.869Z" title="更新于 2020-07-22 01:13:10">2020-07-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MCU/">MCU</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>28分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h3 id="一-硬件配置"><a class="markdownIt-Anchor" href="#一-硬件配置"></a> 一、硬件配置</h3>
+</style></noscript><meta name="generator" content="Hexo 5.0.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">54</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">62</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-%E7%A1%AC%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text"> 一、硬件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text"> 二、软件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89-%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83windows10"><span class="toc-text"> 三、搭建开发环境（Windows10）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#31-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text"> 3.1 准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#32-%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="toc-text"> 3.2 创建工程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B-%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83ubuntu1804"><span class="toc-text"> 四、搭建开发环境（ubuntu18.04）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#41-idf%E6%A1%86%E6%9E%B6"><span class="toc-text"> 4.1 IDF框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#42-adf%E6%A1%86%E6%9E%B6"><span class="toc-text"> 4.2 ADF框架</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#43-%E7%9B%91%E8%A7%86%E5%99%A8%E4%BD%BF%E7%94%A8"><span class="toc-text"> 4.3 监视器使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94-%E4%B8%80%E8%88%AC%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text"> 五、一般注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#51-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="toc-text"> 5.1 应用程序启动流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#52-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88"><span class="toc-text"> 5.2 应用程序内存布局方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dma%E8%83%BD%E5%8A%9B%E8%A6%81%E6%B1%82"><span class="toc-text"> DMA能力要求</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD-%E6%9E%84%E5%BB%BA%E7%B3%BB%E7%BB%9Fcmake"><span class="toc-text"> 六、构建系统（CMake）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#61-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text"> 6.1 基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#62-idfpy%E4%BD%BF%E7%94%A8"><span class="toc-text"> 6.2 idf.py使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#63-cmakelists%E6%96%87%E4%BB%B6"><span class="toc-text"> 6.3 CMakeLists文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#631-%E9%A1%B9%E7%9B%AEcmakelists"><span class="toc-text"> 6.3.1 项目CMakeLists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#632-%E7%BB%84%E4%BB%B6cmakelists"><span class="toc-text"> 6.3.2 组件CMakeLists</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%A2%84%E8%AE%BE%E5%8F%98%E9%87%8F"><span class="toc-text"> 预设变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E5%8F%98%E9%87%8F"><span class="toc-text"> 可选变量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%8E%A7%E5%88%B6"><span class="toc-text"> 编译控制</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#64-%E7%BB%84%E4%BB%B6%E4%BE%9D%E8%B5%96"><span class="toc-text"> 6.4 组件依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#641-%E7%BC%96%E5%86%99%E7%BB%84%E4%BB%B6"><span class="toc-text"> 6.4.1 编写组件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#642-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text"> 6.4.2 创建项目</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#643-%E5%85%B6%E4%BB%96%E7%BB%86%E8%8A%82"><span class="toc-text"> 6.4.3 其他细节</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#65-%E7%BB%84%E4%BB%B6cmakelists%E7%A4%BA%E4%BE%8B"><span class="toc-text"> 6.5 组件CmakeLists示例</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#651-%E6%9D%A1%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text"> 6.5.1 条件配置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0"><span class="toc-text"> 添加</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%88%96%E5%88%A0%E9%99%A4"><span class="toc-text"> 选择或删除</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%94%B1%E7%A1%AC%E4%BB%B6%E7%9B%AE%E6%A0%87%E5%86%B3%E5%AE%9A"><span class="toc-text"> 由硬件目标决定</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">spaceman</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">ESP32</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-05-16T02:30:54.000Z" title="发表于 2020-05-16 10:30:54">2020-05-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-07-21T17:13:10.869Z" title="更新于 2020-07-22 01:13:10">2020-07-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MCU/">MCU</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>29分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h3 id="一-硬件配置"><a class="markdownIt-Anchor" href="#一-硬件配置"></a> 一、硬件配置</h3>
 <p>ESP32-CAM：</p>
 <ul>
 <li>
@@ -131,7 +131,7 @@ if (autoChangeMode === '1') {
 <p>供电：4.75-5.25V</p>
 </li>
 <li>
-<p><a href="https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-22712549685.72.3dfb56099J9SHD&amp;id=615999358728" target="_blank" rel="noopener">购买链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-22712549685.72.3dfb56099J9SHD&amp;id=615999358728">购买链接</a></p>
 </li>
 <li>
 <p>引脚定义：</p>
@@ -146,12 +146,12 @@ if (autoChangeMode === '1') {
 <li>字节地址 0x0、 0x1、 0x2、 0x3 访问的字节分别是 0x0 访问的 32-bit字中的最低、次低、次高、最高字节</li>
 </ul>
 </li>
-<li><a href="https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-22712549685.15.3dfb56099J9SHD&amp;id=547082402418" target="_blank" rel="noopener">购买链接</a></li>
+<li><a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=a1z10.5-c-s.w4002-22712549685.15.3dfb56099J9SHD&amp;id=547082402418">购买链接</a></li>
 </ul>
-<p>ESP32-Audio-kit（<a href="https://github.com/Ai-Thinker-Open/ESP32-A1S-AudioKit" target="_blank" rel="noopener">安信可官方SDK</a>）：</p>
+<p>ESP32-Audio-kit（<a target="_blank" rel="noopener" href="https://github.com/Ai-Thinker-Open/ESP32-A1S-AudioKit">安信可官方SDK</a>）：</p>
 <ul>
 <li>
-<p><a href="http://wiki.ai-thinker.com/esp32-a1s" target="_blank" rel="noopener">ESP32-A1S</a>模组</p>
+<p><a target="_blank" rel="noopener" href="http://wiki.ai-thinker.com/esp32-a1s">ESP32-A1S</a>模组</p>
 </li>
 <li>
 <p>音频芯片：AC101</p>
@@ -182,10 +182,10 @@ if (autoChangeMode === '1') {
 <h3 id="二-软件配置"><a class="markdownIt-Anchor" href="#二-软件配置"></a> 二、软件配置</h3>
 <ul>
 <li>[IDF(IoT Development Framework)编程指南]((IoT Development Framework))</li>
-<li>ESP-CAM：<a href="https://github.com/donny681/ESP32_CAMERA_QR" target="_blank" rel="noopener">ESP32_CAMERA_QR项目</a>，<a href="https://github.com/donny681/ESP32_CAMERA_QR/wiki" target="_blank" rel="noopener">该项目wiki文档</a></li>
+<li>ESP-CAM：<a target="_blank" rel="noopener" href="https://github.com/donny681/ESP32_CAMERA_QR">ESP32_CAMERA_QR项目</a>，<a target="_blank" rel="noopener" href="https://github.com/donny681/ESP32_CAMERA_QR/wiki">该项目wiki文档</a></li>
 </ul>
 <h3 id="三-搭建开发环境windows10"><a class="markdownIt-Anchor" href="#三-搭建开发环境windows10"></a> 三、搭建开发环境（Windows10）</h3>
-<p><a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/get-started/windows-setup-scratch.html" target="_blank" rel="noopener">官方参考链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/get-started/windows-setup-scratch.html">官方参考链接</a></p>
 <h4 id="31-准备工作"><a class="markdownIt-Anchor" href="#31-准备工作"></a> 3.1 准备工作</h4>
 <p>目前，ESP-IDF 仅适用于 <strong>Python 2.7</strong></p>
 <p>附件：</p>
@@ -199,25 +199,25 @@ if (autoChangeMode === '1') {
 <p>步骤：</p>
 <ol>
 <li>
-<p>下载安装<a href="https://cmake.org/download/" target="_blank" rel="noopener">Cmake</a>（安装时注意选上<code>Add CMake to the system PATH for all users</code>）</p>
+<p>下载安装<a target="_blank" rel="noopener" href="https://cmake.org/download/">Cmake</a>（安装时注意选上<code>Add CMake to the system PATH for all users</code>）</p>
 </li>
 <li>
-<p>下载安装<a href="https://github.com/ninja-build/ninja/releases" target="_blank" rel="noopener">ninja</a>（手动加到系统环境变量，只支持64位windows，如需其他版本需自己编译）</p>
+<p>下载安装<a target="_blank" rel="noopener" href="https://github.com/ninja-build/ninja/releases">ninja</a>（手动加到系统环境变量，只支持64位windows，如需其他版本需自己编译）</p>
 </li>
 <li>
 <p>下载安装<code>python2.7</code>并通过<code>pip install --user pyserial</code>安装<code>pyserial</code>包（可以通过Anaconda新建环境安装）</p>
 </li>
 <li>
-<p>从 <a href="https://github.com/espressif/kconfig-frontends/releases/" target="_blank" rel="noopener">这里</a>下载配置工具<code>mconf-idf</code>（需要手动加到系统环境变量）</p>
+<p>从 <a target="_blank" rel="noopener" href="https://github.com/espressif/kconfig-frontends/releases/">这里</a>下载配置工具<code>mconf-idf</code>（需要手动加到系统环境变量）</p>
 </li>
 <li>
-<p>下载<a href="https://dl.espressif.com/dl/xtensa-esp32-elf-gcc8_2_0-esp-2019r2-win32.zip" target="_blank" rel="noopener">交叉编译工具链</a>，解压之后需要添加到系统环境变量，如<code>C:\Program Files\xtensa-esp32-elf\bin</code></p>
+<p>下载<a target="_blank" rel="noopener" href="https://dl.espressif.com/dl/xtensa-esp32-elf-gcc8_2_0-esp-2019r2-win32.zip">交叉编译工具链</a>，解压之后需要添加到系统环境变量，如<code>C:\Program Files\xtensa-esp32-elf\bin</code></p>
 </li>
 <li>
-<p>下载安装<a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git</a></p>
+<p>下载安装<a target="_blank" rel="noopener" href="https://gitforwindows.org/">Git</a></p>
 </li>
 <li>
-<p>下载<a href="https://github.com/espressif/esp-idf/releases" target="_blank" rel="noopener">ESP-IDF</a>（3.3.2为长期支持版，最新稳定版为4.0）</p>
+<p>下载<a target="_blank" rel="noopener" href="https://github.com/espressif/esp-idf/releases">ESP-IDF</a>（3.3.2为长期支持版，最新稳定版为4.0）</p>
 </li>
 <li>
 <p>设置环境变量：</p>
@@ -230,11 +230,11 @@ if (autoChangeMode === '1') {
 <p>根据<code>IDF_PATH/requirements.txt</code>文件安装Python软件包：</p>
  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注意查询所使用的Python版本（运行命令python --version），并根据查询结果将python替换为python2或python2.7等</span></span><br><span class="line">python -m pip install --user -r $IDF_PATH/requirements.txt <span class="comment"># 使用pip安装</span></span><br><span class="line"><span class="comment"># 也可以使用anaconda安装</span></span><br></pre></td></tr></table></figure>
 <p>安装内容：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">click&gt;&#x3D;5.0</span><br><span class="line">pyserial&gt;&#x3D;3.0</span><br><span class="line">future&gt;&#x3D;0.15.2</span><br><span class="line">cryptography&gt;&#x3D;2.1.4</span><br><span class="line">pyparsing&gt;&#x3D;2.0.3,&lt;2.4.0</span><br><span class="line">pyelftools&gt;&#x3D;0.22</span><br></pre></td></tr></table></figure>
+ <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">click&gt;=5.0</span><br><span class="line">pyserial&gt;=3.0</span><br><span class="line">future&gt;=0.15.2</span><br><span class="line">cryptography&gt;=2.1.4</span><br><span class="line">pyparsing&gt;=2.0.3,&lt;2.4.0</span><br><span class="line">pyelftools&gt;=0.22</span><br></pre></td></tr></table></figure>
 <ul>
-<li>其中<code>pyelftools</code>软件包在anaconda中没有，需要手动从<a href="https://pypi.org/project/pyelftools/#files" target="_blank" rel="noopener">这里</a>下载<code>.whl</code>文件，在<code>Anaconda Prompt</code>中通过命令<code>pip install E:\xxx\xxx.whl</code>安装
+<li>其中<code>pyelftools</code>软件包在anaconda中没有，需要手动从<a target="_blank" rel="noopener" href="https://pypi.org/project/pyelftools/#files">这里</a>下载<code>.whl</code>文件，在<code>Anaconda Prompt</code>中通过命令<code>pip install E:\xxx\xxx.whl</code>安装
 <ul>
-<li>也可以在conda官网<a href="https://anaconda.org/" target="_blank" rel="noopener">https://anaconda.org/</a>中搜索<code>pyelftools</code>软件包，并通过软件包对应命令进行安装（推荐）</li>
+<li>也可以在conda官网<a target="_blank" rel="noopener" href="https://anaconda.org/">https://anaconda.org/</a>中搜索<code>pyelftools</code>软件包，并通过软件包对应命令进行安装（推荐）</li>
 </ul>
 </li>
 </ul>
@@ -245,7 +245,7 @@ if (autoChangeMode === '1') {
 <p><strong>注意</strong>：ESP-IDF 编译系统不支持<strong>带有空格</strong>的路径</p>
 <h3 id="四-搭建开发环境ubuntu1804"><a class="markdownIt-Anchor" href="#四-搭建开发环境ubuntu1804"></a> 四、搭建开发环境（ubuntu18.04）</h3>
 <h4 id="41-idf框架"><a class="markdownIt-Anchor" href="#41-idf框架"></a> 4.1 IDF框架</h4>
-<p>详见官方<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/get-started/linux-setup.html" target="_blank" rel="noopener">安装准备链接</a>、<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/get-started/index.html#get-started-get-prerequisites" target="_blank" rel="noopener">快速入门</a></p>
+<p>详见官方<a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/get-started/linux-setup.html">安装准备链接</a>、<a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/get-started/index.html#get-started-get-prerequisites">快速入门</a></p>
 <ol>
 <li>
 <p>安装必备软件：</p>
@@ -287,7 +287,7 @@ if (autoChangeMode === '1') {
 <ol>
 <li>
 <p>方法一：添加串口设备访问规则</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/udev/rules.d/70-ttyusb.rules</span><br><span class="line">KERNEL==<span class="string">"ttyUSB[0-9]*"</span>,MODE=<span class="string">"0666"</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/udev/rules.d/70-ttyusb.rules</span><br><span class="line">KERNEL==<span class="string">&quot;ttyUSB[0-9]*&quot;</span>,MODE=<span class="string">&quot;0666&quot;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>方法二：将目标用户添加至dialout用户组</p>
@@ -314,7 +314,7 @@ if (autoChangeMode === '1') {
 <ul>
 <li><code>-p</code>：串口对应的端口</li>
 <li><code>-b</code>：烧录波特率，默认460800</li>
-<li><code>flash</code>：自动编译并烧录（<a href="http://xn--idf-l01ek48emyebtk104d1w1a.py" target="_blank" rel="noopener">无需再次执行idf.py</a> build）</li>
+<li><code>flash</code>：自动编译并烧录（<a target="_blank" rel="noopener" href="http://xn--idf-l01ek48emyebtk104d1w1a.py">无需再次执行idf.py</a> build）</li>
 </ul>
 </li>
 <li>
@@ -323,14 +323,14 @@ if (autoChangeMode === '1') {
 <ul>
 <li><code>-p</code>：串口对应的端口</li>
 <li>快捷键 <code>Ctrl+]</code>：退出 IDF 监视器</li>
-<li>更多用法详见<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/tools/idf-monitor.html" target="_blank" rel="noopener">官方文档</a></li>
+<li>更多用法详见<a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/tools/idf-monitor.html">官方文档</a></li>
 </ul>
 </li>
 </ol>
 <p>如遇到特殊情况需要擦除flash：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">idf.py erase_flash</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">esptool.py erase_flash</span><br></pre></td></tr></table></figure>
 <h4 id="42-adf框架"><a class="markdownIt-Anchor" href="#42-adf框架"></a> 4.2 ADF框架</h4>
-<p>详见官方<a href="https://docs.espressif.com/projects/esp-adf/zh_CN/latest/get-started/index.html" target="_blank" rel="noopener">安装准备</a></p>
+<p>详见官方<a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-adf/zh_CN/latest/get-started/index.html">安装准备</a></p>
 <ol>
 <li>
 <p>安装好IDF框架</p>
@@ -381,7 +381,7 @@ if (autoChangeMode === '1') {
 </li>
 </ol>
 <h4 id="43-监视器使用"><a class="markdownIt-Anchor" href="#43-监视器使用"></a> 4.3 监视器使用</h4>
-<p>具体详见<a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/tools/idf-monitor.html" target="_blank" rel="noopener">官方文档</a></p>
+<p>具体详见<a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/tools/idf-monitor.html">官方文档</a></p>
 <table>
 <thead>
 <tr>
@@ -590,7 +590,7 @@ if (autoChangeMode === '1') {
 </li>
 <li>
 <p>RTC快速内存</p>
-<p>从深度睡眠模式唤醒后必须要运行的代码要放在 RTC 内存中，更多信息请查阅官方文档 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/deep-sleep-stub.html" target="_blank" rel="noopener">深度睡眠</a></p>
+<p>从深度睡眠模式唤醒后必须要运行的代码要放在 RTC 内存中，更多信息请查阅官方文档 <a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/deep-sleep-stub.html">深度睡眠</a></p>
 </li>
 <li>
 <p>DRAM（数据RAM）</p>
@@ -603,7 +603,7 @@ if (autoChangeMode === '1') {
 </li>
 <li>
 <p>RTC慢速内存</p>
-<p>从 RTC 内存运行的代码（例如深度睡眠模块的代码）使用的全局和静态变量必须要放在 RTC 慢速内存中。更多详细说明请查看官方文档 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/deep-sleep-stub.html" target="_blank" rel="noopener">深度睡眠</a> 。</p>
+<p>从 RTC 内存运行的代码（例如深度睡眠模块的代码）使用的全局和静态变量必须要放在 RTC 慢速内存中。更多详细说明请查看官方文档 <a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/deep-sleep-stub.html">深度睡眠</a> 。</p>
 <p>宏 <code>RTC_NOINIT_ATTR</code> 用来声明将数据放入 RTC 慢速内存中，该数据在深度睡眠唤醒后将保持不变。</p>
 </li>
 </ul>
@@ -621,9 +621,9 @@ if (autoChangeMode === '1') {
 <h4 id="62-idfpy使用"><a class="markdownIt-Anchor" href="#62-idfpy使用"></a> 6.2 idf.py使用</h4>
 <p><code>idf.py</code> 命令行工具提供了一个前端，可以帮助您轻松管理项目的构建过程，它管理了以下工具：</p>
 <ul>
-<li><a href="https://cmake.org/" target="_blank" rel="noopener">CMake</a>，配置待构建的系统</li>
-<li>命令行构建工具（<a href="https://ninja-build.org/" target="_blank" rel="noopener">Ninja</a> 或 GNU Make）</li>
-<li><a href="https://github.com/espressif/esptool/#readme" target="_blank" rel="noopener">esptool.py</a>，烧录 ESP32</li>
+<li><a target="_blank" rel="noopener" href="https://cmake.org/">CMake</a>，配置待构建的系统</li>
+<li>命令行构建工具（<a target="_blank" rel="noopener" href="https://ninja-build.org/">Ninja</a> 或 GNU Make）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/espressif/esptool/#readme">esptool.py</a>，烧录 ESP32</li>
 </ul>
 <p><code>idf.py</code> 应运行在 ESP-IDF 的 <code>项目</code> 目录下，即包含 <code>CMakeLists.txt</code> 文件的目录</p>
 <hr>
@@ -636,8 +636,8 @@ if (autoChangeMode === '1') {
 <p><code>idf.py build</code>：<strong>构建</strong>在当前目录下的项目，包括：</p>
 <ul>
 <li>根据需要创建 <code>build</code> 构建目录，用于保存输出文件，可以使用 <code>-B</code> 选项修改默认的构建目录</li>
-<li>根据需要运行 <a href="https://cmake.org/" target="_blank" rel="noopener">CMake</a> 配置命令，为主构建工具生成构建文件</li>
-<li>运行主构建工具（<a href="https://ninja-build.org/" target="_blank" rel="noopener">Ninja</a> 或 GNU Make）。默认情况下，构建工具会被自动检测，可以使用 <code>-G</code> 选项显式地指定构建工具</li>
+<li>根据需要运行 <a target="_blank" rel="noopener" href="https://cmake.org/">CMake</a> 配置命令，为主构建工具生成构建文件</li>
+<li>运行主构建工具（<a target="_blank" rel="noopener" href="https://ninja-build.org/">Ninja</a> 或 GNU Make）。默认情况下，构建工具会被自动检测，可以使用 <code>-G</code> 选项显式地指定构建工具</li>
 </ul>
 <p>如果自上次构建以来源文件或项目配置没有发生改变，则不会执行任何操作</p>
 </li>
@@ -651,7 +651,7 @@ if (autoChangeMode === '1') {
 <p><code>idf.py flash</code> 会在必要时<strong>自动构建</strong>项目，并将生成的二进制程序<strong>烧录</strong>进ESP32中。<code>-p</code> 和 <code>-b</code> 选项可分别设置串口的设备名和烧录时的波特率</p>
 </li>
 <li>
-<p><code>idf.py monitor</code> 用于显示 ESP32 设备的串口输出。<code>-p</code> 选项可用于设置主机端串口的设备名，按下 <code>Ctrl-]</code> 可退出监视器。更多有关监视器的详情，请参阅官方 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/tools/idf-monitor.html" target="_blank" rel="noopener">IDF 监视器</a></p>
+<p><code>idf.py monitor</code> 用于显示 ESP32 设备的串口输出。<code>-p</code> 选项可用于设置主机端串口的设备名，按下 <code>Ctrl-]</code> 可退出监视器。更多有关监视器的详情，请参阅官方 <a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/tools/idf-monitor.html">IDF 监视器</a></p>
 </li>
 </ul>
 <p>多个 <code>idf.py</code> 命令可合并成一个</p>
@@ -663,7 +663,7 @@ if (autoChangeMode === '1') {
 <ul>
 <li><code>idf.py app</code>，<code>idf.py bootloader</code>，<code>idf.py partition_table</code>：从项目中构建应用程序、引导程序或分区表</li>
 <li><code>idf.py app-flash</code> 等匹配命令：将特定部分烧录至 ESP32</li>
-<li><code>idf.py -p PORT erase_flash</code>：使用 <a href="http://esptool.py" target="_blank" rel="noopener">esptool.py</a> 擦除整个 Flash</li>
+<li><code>idf.py -p PORT erase_flash</code>：使用 <a target="_blank" rel="noopener" href="http://esptool.py">esptool.py</a> 擦除整个 Flash</li>
 <li><code>idf.py size</code>：打印应用程序相关的大小信息，<code>idf.py size-components</code> 和 <code>idf.py size-files</code> 这两个命令分别用于打印每个组件或源文件的详细信息</li>
 <li><code>idf.py reconfigure</code>：重新运行CMake（即便无需重新运行）。正常使用时，并不需要运行此命令，但当源码树中添加/删除文件后或更改 CMake cache 变量时，此命令会非常有用，例如，<code>idf.py -DNAME='VALUE' reconfigure</code> 会将 CMake cache 中的变量 <code>NAME</code> 的值设置为 <code>VALUE</code></li>
 </ul>
@@ -674,19 +674,19 @@ if (autoChangeMode === '1') {
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.5</span>)</span><br><span class="line"><span class="keyword">include</span>($ENV&#123;IDF_PATH&#125;/tools/cmake/<span class="keyword">project</span>.cmake)</span><br><span class="line"><span class="keyword">project</span>(myProject)</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>cmake_minimum_required(VERSION 3.5)</code> 必须放在 CMakeLists.txt 文件的第一行，告诉 CMake 构建该项目所需要的最小版本号</li>
-<li><code>include($ENV{IDF_PATH}/tools/cmake/project.cmake)</code> 导入 CMake 的其余功能来完成配置项目、检索组件等任务</li>
+<li><code>include($ENV&#123;IDF_PATH&#125;/tools/cmake/project.cmake)</code> 导入 CMake 的其余功能来完成配置项目、检索组件等任务</li>
 <li><code>project(myProject)</code> 创建项目本身，并指定项目名称。该名称会作为最终输出的二进制文件的名字，即 <code>myProject.elf</code> 和 <code>myProject.bin</code>。每个 CMakeLists 文件只能定义一个项目</li>
 </ul>
 <hr>
-<p>默认变量（用户可以覆盖这些变量值以自定义构建行为（更多实现细节，请参阅 <a href="https://github.com/espressif/esp-idf/blob/v4.0.1//tools/cmake/project.cmake" target="_blank" rel="noopener">/tools/cmake/project.cmake</a> 文件））：</p>
+<p>默认变量（用户可以覆盖这些变量值以自定义构建行为（更多实现细节，请参阅 <a target="_blank" rel="noopener" href="https://github.com/espressif/esp-idf/blob/v4.0.1//tools/cmake/project.cmake">/tools/cmake/project.cmake</a> 文件））：</p>
 <ul>
-<li><code>COMPONENT_DIRS</code>：组件的搜索目录，默认为 <code>${IDF_PATH}/components</code>、<code>${PROJECT_PATH}/components</code> 和 <code>EXTRA_COMPONENT_DIRS</code></li>
+<li><code>COMPONENT_DIRS</code>：组件的搜索目录，默认为 <code>$&#123;IDF_PATH&#125;/components</code>、<code>$&#123;PROJECT_PATH&#125;/components</code> 和 <code>EXTRA_COMPONENT_DIRS</code></li>
 <li><code>EXTRA_COMPONENT_DIRS</code>：搜索组件的其它可选目录列表</li>
 <li><code>COMPONENTS</code>：要构建进项目中的组件名称列表，默认为 <code>COMPONENT_DIRS</code> 目录下检索到的所有组件。使用此变量可以“精简”项目以缩短构建时间。请注意，如果一个组件通过 <code>COMPONENT_REQUIRES</code> 指定了它依赖的另一个组件，则会自动将其添加到 <code>COMPONENTS</code> 中，所以 <code>COMPONENTS</code> 列表可能会非常短。</li>
 <li><code>COMPONENT_REQUIRES_COMMON</code>：每个组件都需要的通用组件列表，这些通用组件会自动添加到每个组件的 <code>COMPONENT_PRIV_REQUIRES</code> 列表中以及项目的 <code>COMPONENTS</code> 列表中。默认情况下，此变量设置为 ESP-IDF 项目所需的最小核心“系统”组件集。通常您无需在项目中更改此变量</li>
 </ul>
 <p>以上变量中的路径可以是绝对路径，或者是相对于项目目录的相对路径</p>
-<p>请使用 <a href="https://cmake.org/cmake/help/v3.5/command/set.html" target="_blank" rel="noopener">cmake 中的 set 命令</a> 来设置这些变量，即 <code>set(VARIABLE &quot;VALUE&quot;)</code>。请注意，<code>set()</code> 命令需放在 <code>include(...)</code> 之前，<code>cmake_minimum(...)</code> 之后</p>
+<p>请使用 <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.5/command/set.html">cmake 中的 set 命令</a> 来设置这些变量，即 <code>set(VARIABLE &quot;VALUE&quot;)</code>。请注意，<code>set()</code> 命令需放在 <code>include(...)</code> 之前，<code>cmake_minimum(...)</code> 之后</p>
 <h5 id="632-组件cmakelists"><a class="markdownIt-Anchor" href="#632-组件cmakelists"></a> 6.3.2 组件CMakeLists</h5>
 <p>每个组件目录都包含一个 <code>CMakeLists.txt</code> 文件，里面会定义一些变量以控制该组件的构建过程，以及其与整个项目的集成</p>
 <p>每个组件还可以包含一个 <code>Kconfig</code> 文件，它用于定义 <code>menuconfig</code> 时展示的 组件配置 选项。某些组件可能还会包含 <code>Kconfig.projbuild</code> 和 <code>project_include.cmake</code> 特殊文件，它们用于 覆盖项目的部分设置</p>
@@ -694,10 +694,10 @@ if (autoChangeMode === '1') {
 <p>ESP-IDF 搜索待构建组件顺序（由<code>COMPONENT_DIRS</code> 指定）：</p>
 <ol>
 <li>
-<p><code>${IDF_PATH}/components</code></p>
+<p><code>$&#123;IDF_PATH&#125;/components</code></p>
 </li>
 <li>
-<p><code>${PROJECT_PATH}/components</code></p>
+<p><code>$&#123;PROJECT_PATH&#125;/components</code></p>
 </li>
 <li>
 <p><code>EXTRA_COMPONENT_DIRS</code></p>
@@ -705,11 +705,11 @@ if (autoChangeMode === '1') {
 </li>
 </ol>
 <p>最小组件 <code>CMakeLists.txt</code> 文件：</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(COMPONENT_SRCS <span class="string">"foo.c"</span>)</span><br><span class="line"><span class="keyword">set</span>(COMPONENT_ADD_INCLUDEDIRS <span class="string">"include"</span>)</span><br><span class="line">register_component()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(COMPONENT_SRCS <span class="string">&quot;foo.c&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(COMPONENT_ADD_INCLUDEDIRS <span class="string">&quot;include&quot;</span>)</span><br><span class="line">register_component()</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>COMPONENT_SRCS</code>：用空格分隔的源文件列表（<code>*.c</code>，<code>*.cpp</code>，<code>*.cc</code>，<code>*.S</code>），里面所有的源文件都将会编译进组件库中</li>
 <li><code>COMPONENT_ADD_INCLUDEDIRS</code>：用空格分隔的目录列表，里面的路径会被添加到所有需要该组件的组件（包括 main 组件）全局 include 搜索路径中。</li>
-<li><code>register_component()</code>：使用上述设置的变量将组件添加到构建系统中，构建生成与组件同名的库，并最终被链接到应用程序中。如果因为使用了 <a href="https://cmake.org/cmake/help/v3.5/command/if.html" target="_blank" rel="noopener">CMake 中的 if 命令</a> 或类似命令而跳过了这一步，那么该组件将不会被添加到构建系统中</li>
+<li><code>register_component()</code>：使用上述设置的变量将组件添加到构建系统中，构建生成与组件同名的库，并最终被链接到应用程序中。如果因为使用了 <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.5/command/if.html">CMake 中的 if 命令</a> 或类似命令而跳过了这一步，那么该组件将不会被添加到构建系统中</li>
 </ul>
 <p>有关更完整的 <code>CMakeLists.txt</code> 示例，请参阅<code>组件 CMakeLists 示例</code>章节</p>
 <h6 id="预设变量"><a class="markdownIt-Anchor" href="#预设变量"></a> 预设变量</h6>
@@ -723,7 +723,7 @@ if (autoChangeMode === '1') {
 <li><code>PROJECT_NAME</code>：项目名，在项目 CMakeLists.txt 文件中设置</li>
 <li><code>PROJECT_PATH</code>：项目目录（包含项目 CMakeLists 文件）的绝对路径，与 <code>CMAKE_SOURCE_DIR</code> 变量相同</li>
 <li><code>COMPONENTS</code>：此次构建中包含的所有组件的名称，具体格式为用分号隔开的 CMake 列表</li>
-<li><code>CONFIG_*</code>：项目配置中的每个值在 cmake 中都对应一个以 <code>CONFIG_</code> 开头的变量。更多详细信息请参阅 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-reference/kconfig.html" target="_blank" rel="noopener">Kconfig</a></li>
+<li><code>CONFIG_*</code>：项目配置中的每个值在 cmake 中都对应一个以 <code>CONFIG_</code> 开头的变量。更多详细信息请参阅 <a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-reference/kconfig.html">Kconfig</a></li>
 <li><code>IDF_TARGET</code>：项目的硬件目标名称</li>
 </ul>
 <p>如果修改以上变量，并不会影响其他组件的构建，但可能会使该组件变得<strong>难以构建或调试</strong></p>
@@ -742,11 +742,11 @@ if (autoChangeMode === '1') {
 <h6 id="可选变量"><a class="markdownIt-Anchor" href="#可选变量"></a> 可选变量</h6>
 <ul>
 <li><code>COMPONENT_PRIV_INCLUDEDIRS</code>：相对于组件目录的相对路径，仅会被添加到该组件的 include 搜索路径中</li>
-<li><code>COMPONENT_PRIV_REQUIRES</code>：以空格分隔的组件列表，用于编译或链接当前组件的源文件。这些组件的头文件路径不会传递给其余需要它的组件，仅用于编译当前组件的源代码。更多详细信息请参阅 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/build-system.html#component-dependency" target="_blank" rel="noopener">组件依赖</a></li>
+<li><code>COMPONENT_PRIV_REQUIRES</code>：以空格分隔的组件列表，用于编译或链接当前组件的源文件。这些组件的头文件路径不会传递给其余需要它的组件，仅用于编译当前组件的源代码。更多详细信息请参阅 <a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/build-system.html#component-dependency">组件依赖</a></li>
 <li><code>COMPONENT_SRCS</code>：要编译进当前组件的源文件的路径，推荐使用此方法向构建系统中添加源文件</li>
 <li><code>COMPONENT_SRCDIRS</code>：相对于组件目录的源文件目录路径，用于搜索源文件（<code>*.cpp</code>，<code>*.c</code>，<code>*.S</code>）。匹配成功的源文件会替代 <code>COMPONENT_SRCS</code> 中指定的源文件，进而被编译进组件。即设置 <code>COMPONENT_SRCDIRS</code> 会导致 <code>COMPONENT_SRCS</code> 会被忽略。此方法可以很容易地将源文件整体导入到组件中，但并不推荐使用（使用该方法会导致增量更新编译变得更加麻烦）</li>
 <li><code>COMPONENT_SRCEXCLUDE</code>：需要从组件中剔除的源文件路径。当某个目录中有大量的源文件需要被导入组件中，但同时又有个别文件不需要导入时，可以配合 <code>COMPONENT_SRCDIRS</code> 变量一起设置。路径可以是相对于组件目录的相对路径，也可以是绝对路径。</li>
-<li><code>COMPONENT_ADD_LDFRAGMENTS</code>：组件使用的链接片段文件的路径，用于自动生成链接器脚本文件。详细信息请参阅 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/linker-script-generation.html" target="_blank" rel="noopener">链接脚本生成机制</a></li>
+<li><code>COMPONENT_ADD_LDFRAGMENTS</code>：组件使用的链接片段文件的路径，用于自动生成链接器脚本文件。详细信息请参阅 <a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/linker-script-generation.html">链接脚本生成机制</a></li>
 </ul>
 <blockquote>
 <p>如果没有设置 <code>COMPONENT_SRCDIRS</code> 或 <code>COMPONENT_SRCS</code>，组件不会被编译成库文件，但仍可以被添加到 include 路径中，以便在编译其他组件时使用</p>
@@ -755,9 +755,9 @@ if (autoChangeMode === '1') {
 <p>在编译特定组件的源文件时，可以使用 <code>target_compile_options</code> 命令来传递编译器选项：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">target_compile_options</span>(<span class="variable">$&#123;COMPONENT_LIB&#125;</span> PRIVATE -Wno-unused-variable)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>实际上为 CMake 的 <a href="https://cmake.org/cmake/help/v3.5/command/target_compile_options.html" target="_blank" rel="noopener">target_compile_options</a> 命令</li>
+<li>实际上为 CMake 的 <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.5/command/target_compile_options.html">target_compile_options</a> 命令</li>
 </ul>
-<p>如果给单个源文件指定编译器标志，可以使用 CMake 的 <a href="https://cmake.org/cmake/help/v3.5/command/set_source_files_properties.html" target="_blank" rel="noopener">set_source_files_properties</a> 命令：</p>
+<p>如果给单个源文件指定编译器标志，可以使用 CMake 的 <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.5/command/set_source_files_properties.html">set_source_files_properties</a> 命令：</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set_source_files_properties</span>(mysrc.c</span><br><span class="line">    PROPERTIES COMPILE_FLAGS</span><br><span class="line">    -Wno-unused-variable</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>**注意：**上述两条命令只能在组件 CMakeLists 文件的 <code>register_component()</code> 命令之后调用</p>
 <h4 id="64-组件依赖"><a class="markdownIt-Anchor" href="#64-组件依赖"></a> 6.4 组件依赖</h4>
@@ -798,7 +798,7 @@ if (autoChangeMode === '1') {
 </ul>
 <p><code>BUILD_COMPONENTS</code> 变量中组件的顺序决定了构建过程中的其它顺序：</p>
 <ul>
-<li>项目导入 <a href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/build-system.html#project-include-cmake" target="_blank" rel="noopener">project_include.cmake</a> 文件的顺序</li>
+<li>项目导入 <a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/stable/api-guides/build-system.html#project-include-cmake">project_include.cmake</a> 文件的顺序</li>
 <li>生成用于编译（通过 <code>-I</code> 参数）的头文件路径列表的顺序。请注意，对于给定组件的源文件，仅需将该组件的依赖组件的头文件路径告知编译器</li>
 </ul>
 <h4 id="65-组件cmakelists示例"><a class="markdownIt-Anchor" href="#65-组件cmakelists示例"></a> 6.5 组件CmakeLists示例</h4>
@@ -808,18 +808,18 @@ if (autoChangeMode === '1') {
 <p><code>Kconfig</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">config FOO_ENABLE_BAR</span><br><span class="line">    bool &quot;Enable the BAR feature.&quot;</span><br><span class="line">    help</span><br><span class="line">        This enables the BAR feature of the FOO component.</span><br></pre></td></tr></table></figure>
 <p><code>CMakeLists.txt</code>:</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(COMPONENT_SRCS <span class="string">"foo.c"</span> <span class="string">"more_foo.c"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(CONFIG_FOO_ENABLE_BAR)</span><br><span class="line">    <span class="keyword">list</span>(APPEND COMPONENT_SRCS <span class="string">"bar.c"</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
-<p>上述示例使用了 CMake 的 <a href="https://cmake.org/cmake/help/v3.5/command/if.html" target="_blank" rel="noopener">if</a> 函数和 <a href="https://cmake.org/cmake/help/v3.5/command/list.html" target="_blank" rel="noopener">list APPEND</a> 函数。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(COMPONENT_SRCS <span class="string">&quot;foo.c&quot;</span> <span class="string">&quot;more_foo.c&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(CONFIG_FOO_ENABLE_BAR)</span><br><span class="line">    <span class="keyword">list</span>(APPEND COMPONENT_SRCS <span class="string">&quot;bar.c&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
+<p>上述示例使用了 CMake 的 <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.5/command/if.html">if</a> 函数和 <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/v3.5/command/list.html">list APPEND</a> 函数。</p>
 <h6 id="选择或删除"><a class="markdownIt-Anchor" href="#选择或删除"></a> 选择或删除</h6>
 <p><code>Kconfig</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">config ENABLE_LCD_OUTPUT</span><br><span class="line">    bool &quot;Enable LCD output.&quot;</span><br><span class="line">    help</span><br><span class="line">        Select this if your board has a LCD.</span><br><span class="line"></span><br><span class="line">config ENABLE_LCD_CONSOLE</span><br><span class="line">    bool &quot;Output console text to LCD&quot;</span><br><span class="line">    depends on ENABLE_LCD_OUTPUT</span><br><span class="line">    help</span><br><span class="line">        Select this to output debugging output to the lcd</span><br><span class="line"></span><br><span class="line">config ENABLE_LCD_PLOT</span><br><span class="line">    bool &quot;Output temperature plots to LCD&quot;</span><br><span class="line">    depends on ENABLE_LCD_OUTPUT</span><br><span class="line">    help</span><br><span class="line">        Select this to output temperature plots</span><br></pre></td></tr></table></figure>
 <p><code>CMakeLists.txt</code>:</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(CONFIG_ENABLE_LCD_OUTPUT)</span><br><span class="line">    <span class="keyword">set</span>(COMPONENT_SRCS lcd-real.c lcd-spi.c)</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">set</span>(COMPONENT_SRCS lcd-dummy.c)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果启用了控制台或绘图功能，则需要加入字体</span></span><br><span class="line"><span class="keyword">if</span>(CONFIG_ENABLE_LCD_CONSOLE <span class="keyword">OR</span> CONFIG_ENABLE_LCD_PLOT)</span><br><span class="line">    <span class="keyword">list</span>(APPEND COMPONENT_SRCS <span class="string">"font.c"</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(CONFIG_ENABLE_LCD_OUTPUT)</span><br><span class="line">    <span class="keyword">set</span>(COMPONENT_SRCS lcd-real.c lcd-spi.c)</span><br><span class="line"><span class="keyword">else</span>()</span><br><span class="line">    <span class="keyword">set</span>(COMPONENT_SRCS lcd-dummy.c)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果启用了控制台或绘图功能，则需要加入字体</span></span><br><span class="line"><span class="keyword">if</span>(CONFIG_ENABLE_LCD_CONSOLE <span class="keyword">OR</span> CONFIG_ENABLE_LCD_PLOT)</span><br><span class="line">    <span class="keyword">list</span>(APPEND COMPONENT_SRCS <span class="string">&quot;font.c&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
 <h6 id="由硬件目标决定"><a class="markdownIt-Anchor" href="#由硬件目标决定"></a> 由硬件目标决定</h6>
 <p>CMake 文件可以使用 <code>IDF_TARGET</code> 变量来获取当前的硬件目标。</p>
 <p>此外，如果当前的硬件目标是 <code>xyz</code>（即 <code>IDF_TARGET=xyz</code>），那么 Kconfig 变量 <code>CONFIG_IDF_TARGET_XYZ</code> 同样也会被设置。</p>
 <p>请注意，组件可以依赖 <code>IDF_TARGET</code> 变量，但不能依赖这个 Kconfig 变量。同样也不可在 CMake 文件的 <code>include</code> 语句中使用 Kconfig 变量，在这种上下文中可以使用 <code>IDF_TARGET</code>。</p>
-</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2020/05/16/ESP32/">http://nu-ll.github.io/2020/05/16/ESP32/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ESP32/">ESP32</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/06/05/SVM/"><img class="prev-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SVM数学推导</div></div></a></div><div class="next-post pull-right"><a href="/2020/05/09/C%E5%92%8CGO%E7%9A%84%E8%AF%AD%E6%B3%95%E5%AF%B9%E6%AF%94/"><img class="next-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C和GO的语法对比</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/07/06/ESP32上移植Rt-thread/" title="ESP32上移植Rt-thread"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fas fa-history fa-fw"></i> 2020-07-14</div><div class="relatedPosts_title">ESP32上移植Rt-thread</div></div></a></div><div class="relatedPosts_item"><a href="/2020/07/06/Xtensa基础/" title="Xtensa基础"><img class="relatedPosts_cover" data-lazy-src="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fas fa-history fa-fw"></i> 2020-07-06</div><div class="relatedPosts_title">Xtensa基础</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By spaceman</div><div class="framework-info"><span>框架 </span><a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var endLoading = function () {
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2020/05/16/ESP32/">http://nu-ll.github.io/2020/05/16/ESP32/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ESP32/">ESP32</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/06/05/SVM/"><img class="prev-cover" data-lazy-src="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SVM数学推导</div></div></a></div><div class="next-post pull-right"><a href="/2020/05/09/C%E5%92%8CGO%E7%9A%84%E8%AF%AD%E6%B3%95%E5%AF%B9%E6%AF%94/"><img class="next-cover" data-lazy-src="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C和GO的语法对比</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/07/06/Xtensa基础/" title="Xtensa基础"><img class="relatedPosts_cover" data-lazy-src="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fas fa-history fa-fw"></i> 2020-07-06</div><div class="relatedPosts_title">Xtensa基础</div></div></a></div><div class="relatedPosts_item"><a href="/2020/07/06/ESP32上移植Rt-thread/" title="ESP32上移植Rt-thread"><img class="relatedPosts_cover" data-lazy-src="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fas fa-history fa-fw"></i> 2020-07-14</div><div class="relatedPosts_title">ESP32上移植Rt-thread</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2020 By spaceman</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var endLoading = function () {
   document.body.style.overflow = 'auto';
   document.getElementById('loading-box').classList.add("loaded")
 }

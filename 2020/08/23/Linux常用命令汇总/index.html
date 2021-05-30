@@ -1,0 +1,844 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux常用命令汇总 | spaceman</title><meta name="keywords" content="常用命令"><meta name="author" content="spaceman"><meta name="copyright" content="spaceman"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="用户管理  创建用户  useradd 只是创建一个用户名，命令如下： 1sudo useradd username 它并没有在&#x2F;home目录下创建同名文件夹，也没有创建密码，因此利用这个用户登录系统，是登录不了的，为了避免这样的情况出现，可以添加-m参数创建： 1sudo useradd username -m 它会在&#x2F;home目录下创建同名文件夹，然后利用sudo passwd userna">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令汇总">
+<meta property="og:url" content="http://nu-ll.github.io/2020/08/23/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/index.html">
+<meta property="og:site_name" content="spaceman">
+<meta property="og:description" content="用户管理  创建用户  useradd 只是创建一个用户名，命令如下： 1sudo useradd username 它并没有在&#x2F;home目录下创建同名文件夹，也没有创建密码，因此利用这个用户登录系统，是登录不了的，为了避免这样的情况出现，可以添加-m参数创建： 1sudo useradd username -m 它会在&#x2F;home目录下创建同名文件夹，然后利用sudo passwd userna">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg">
+<meta property="article:published_time" content="2020-08-23T14:38:51.000Z">
+<meta property="article:modified_time" content="2021-05-16T14:02:28.166Z">
+<meta property="article:author" content="spaceman">
+<meta property="article:tag" content="常用命令">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="http://nu-ll.github.io/2020/08/23/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-16 22:02:28'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">85</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">spaceman</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux常用命令汇总</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-23T14:38:51.000Z" title="发表于 2020-08-23 22:38:51">2020-08-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-16T14:02:28.166Z" title="更新于 2021-05-16 22:02:28">2021-05-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">9.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>35分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="用户管理"><a class="markdownIt-Anchor" href="#用户管理"></a> 用户管理</h2>
+<h3 id="创建用户"><a class="markdownIt-Anchor" href="#创建用户"></a> 创建用户</h3>
+<h4 id="useradd"><a class="markdownIt-Anchor" href="#useradd"></a> useradd</h4>
+<p>只是创建一个用户名，命令如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd username</span><br></pre></td></tr></table></figure>
+<p>它<strong>并没有</strong>在/home目录下创建同名文件夹，也没有创建密码，因此利用这个用户登录系统，是登录不了的，为了避免这样的情况出现，可以添加<code>-m</code>参数创建：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd username -m</span><br></pre></td></tr></table></figure>
+<p>它会在/home目录下创建同名文件夹，然后利用<code>sudo passwd username</code>为指定的用户名设置密码。</p>
+<h4 id="adduser"><a class="markdownIt-Anchor" href="#adduser"></a> adduser</h4>
+<p>这个命令实际是一个perl脚本，是useradd等类似底层命令的更友好的前端，它会用交互性的方式建立新用户，使用它可以指定新用户的家目录，登录密码，是否加密主目录等等，它会：</p>
+<ol>
+<li>建立一个新目录作为家目录</li>
+<li>建立同名新组</li>
+<li>把用户的主要组设为该组(除非命令选项覆盖以上默认动作，比如–disall-homdirecry之类)</li>
+<li>从/etc/SKEL目录下拷贝文件到家目录，完成初始化</li>
+<li>建立新用户的密码</li>
+<li>如果其存在的话，还会执行一个脚本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser username</span><br></pre></td></tr></table></figure>
+<h3 id="删除用户"><a class="markdownIt-Anchor" href="#删除用户"></a> 删除用户</h3>
+<p>通过<code>userdel</code>命令即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo userdel -r username</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-r</code>：删除<code>/home/</code>路径下的用户文件夹</li>
+</ul>
+<h3 id="添加root权限"><a class="markdownIt-Anchor" href="#添加root权限"></a> 添加root权限</h3>
+<h4 id="etcsudoers"><a class="markdownIt-Anchor" href="#etcsudoers"></a> /etc/sudoers</h4>
+<p>该文件只能由root用户处理，其中包含了root权限的具体信息，具体可以参见<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011641885/article/details/47722699">linux /etc/sudoers 文件说明</a>，其中信息有：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># User privilege specification</span></span><br><span class="line">root	    ALL=(ALL:ALL) ALL</span><br><span class="line"><span class="comment"># Members of the admin group may gain root privileges</span></span><br><span class="line">%admin ALL=(ALL) ALL</span><br><span class="line"><span class="comment"># Allow members of group sudo to execute any command</span></span><br><span class="line">%sudo	ALL=(ALL:ALL) ALL</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>root用户具有root权限</p>
+<ul>
+<li>
+<p>root用户可以在任何可能出现的主机名的系统中，在任何用户任何组中执行任何命令</p>
+</li>
+<li>
+<p>文件格式</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># useralias （用户名） hostalias （可以从哪些机器登陆） = （用户：用户组）&quot;以什么用户，什么组&quot; cmndalias &quot;执行什么命令&quot;</span></span><br><span class="line">useralias hostalias = (username:group) cmndalias </span><br><span class="line">%FOO ALL = （ALL） NOPASSWD:ALL，!/usr/sbin/</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>NOPASSWD:ALL</code>：不用输入密码执行任何命令</li>
+<li><code>%</code>：表示用户组</li>
+<li><code>!</code>：表示禁止执行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>admin组和sudo组中的用户均具有root权限</p>
+<ul>
+<li>
+<p>查看当前用户组：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id username</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加到root权限组：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># usermod -a  -G group -s /bin/bash username</span></span><br><span class="line">usermod -a  -G sudo -s /bin/bash username</span><br><span class="line">usermod -a  -G admin -s /bin/bash username</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>从指定组中移除用户：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -d username group</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="etcsudoersd"><a class="markdownIt-Anchor" href="#etcsudoersd"></a> /etc/sudoers.d/*</h4>
+<p>该文件夹下的内容和<code>/etc/sudoers</code>中的类似，通过如下方式可以添加root用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;username    ALL=(ALL) ALL&quot;</span> &gt;&gt; /etc/sudoers.d/username</span><br></pre></td></tr></table></figure>
+<h2 id="压缩解压类"><a class="markdownIt-Anchor" href="#压缩解压类"></a> 压缩解压类</h2>
+<p>.tar<br>
+解包：tar xvf FileName.tar<br>
+打包：tar cvf FileName.tar DirName</p>
+<p>.zip<br>
+解压：unzip FileName.zip<br>
+压缩：zip FileName.zip DirName</p>
+<p>.rar<br>
+解压：rar x FileName.rar<br>
+压缩：rar a FileName.rar DirName</p>
+<p>.gz<br>
+解压1：gunzip FileName.gz<br>
+解压2：gzip -d FileName.gz<br>
+压缩：gzip FileName</p>
+<p>.tar.gz 和 .tgz<br>
+解压：tar zxvf FileName.tar.gz<br>
+压缩：tar zcvf FileName.tar.gz DirName</p>
+<p>.bz2<br>
+解压1：bzip2 -d FileName.bz2<br>
+解压2：bunzip2 FileName.bz2<br>
+压缩： bzip2 -z FileName</p>
+<p>.tar.bz2<br>
+解压：tar jxvf FileName.tar.bz2<br>
+压缩：tar jcvf FileName.tar.bz2 DirName</p>
+<p>.bz<br>
+解压1：bzip2 -d <a target="_blank" rel="noopener" href="http://FileName.bz">FileName.bz</a><br>
+解压2：bunzip2 <a target="_blank" rel="noopener" href="http://FileName.bz">FileName.bz</a><br>
+压缩：未知</p>
+<p>.tar.bz<br>
+解压：tar jxvf <a target="_blank" rel="noopener" href="http://FileName.tar.bz">FileName.tar.bz</a><br>
+压缩：未知</p>
+<p>.Z<br>
+解压：uncompress FileName.Z<br>
+压缩：compress FileName</p>
+<p>.tar.Z<br>
+解压：tar Zxvf FileName.tar.Z<br>
+压缩：tar Zcvf FileName.tar.Z DirName</p>
+<p>.lha<br>
+解压：lha -e FileName.lha<br>
+压缩：lha -a FileName.lha FileName</p>
+<p>.rpm<br>
+解包：rpm2cpio FileName.rpm | cpio -div</p>
+<p>.deb<br>
+解包：ar p FileName.deb data.tar.gz | tar zxf -</p>
+<p>gzip 命令</p>
+<p>语法：gzip [选项] 压缩（解压缩）的文件名</p>
+<ul>
+<li>-c 将输出写到标准输出上，并保留原有文件</li>
+<li>-d 将压缩文件解压</li>
+<li>-l 对每个压缩文件，显示下列字段
+<ul>
+<li>压缩文件的大小</li>
+<li>未压缩文件的大小</li>
+<li>压缩比</li>
+<li>未压缩文件的名字</li>
+</ul>
+</li>
+<li>-r 递归式地查找指定目录并压缩其中的所有文件或者是解压缩</li>
+<li>-t 测试，检查压缩文件是否完整</li>
+<li>-v 对每一个压缩和解压的文件，显示文件名和压缩比</li>
+<li>-num 用指定的数字 num 调整压缩的速度，-1 或 --fast 表示最快压缩方法（低压缩比），-9 或–best表示最慢压缩方法（高压缩比）。系统缺省值为 6</li>
+</ul>
+<h2 id="硬件信息查询"><a class="markdownIt-Anchor" href="#硬件信息查询"></a> 硬件信息查询</h2>
+<h3 id="内核和版本"><a class="markdownIt-Anchor" href="#内核和版本"></a> 内核和版本</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br><span class="line">cat /etc/issue</span><br><span class="line">cat /etc/redhat-release(针对redhat系列）</span><br></pre></td></tr></table></figure>
+<h3 id="位数"><a class="markdownIt-Anchor" href="#位数"></a> 位数</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过字节长度区分</span></span><br><span class="line">getconf LONG_BIT</span><br><span class="line">getconf WORD_BIT</span><br><span class="line"><span class="comment"># 如果有x86_64就是64位的，没有就是32位的</span></span><br><span class="line">uname -a</span><br><span class="line"><span class="comment"># 32-bit即是32位的 linux, 如是64位的, 显示的是 64-bit</span></span><br><span class="line">file /sbin/init</span><br></pre></td></tr></table></figure>
+<ul>
+<li>32位的系统中int类型和long类型一般都是4字节，64位的系统中int类型还是4字节的，但是long已变成了8字节</li>
+<li>linux系统中可用&quot;<code>getconf WORD_BIT</code>“和”<code>getconf LONG_BIT</code>&quot;获得word和long的位数。64位系统中应该分别得到32和64</li>
+</ul>
+<h3 id="硬件信息"><a class="markdownIt-Anchor" href="#硬件信息"></a> 硬件信息</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全部信息</span></span><br><span class="line">dmidecode | more</span><br><span class="line"><span class="comment"># 型号</span></span><br><span class="line">dmidecode | grep <span class="string">&quot;Product Name&quot;</span></span><br><span class="line"><span class="comment"># 网卡型号</span></span><br><span class="line">lspci | grep Ethernet</span><br><span class="line"><span class="comment"># CPU信息</span></span><br><span class="line">grep name /proc/cpuinfo</span><br><span class="line">lscpu</span><br><span class="line"><span class="comment"># 内存信息</span></span><br><span class="line">grep -P <span class="string">&quot;MemTotal|SwapTotal&quot;</span> /proc/meminfo</span><br><span class="line">grep -E <span class="string">&quot;MemTotal|SwapTotal&quot;</span> /proc/meminfo</span><br><span class="line">free -h</span><br><span class="line">top</span><br><span class="line"><span class="comment"># 硬盘信息</span></span><br><span class="line">df -h</span><br><span class="line">fdisk -l</span><br><span class="line">du -d 1 -h <span class="comment"># -d：深度</span></span><br></pre></td></tr></table></figure>
+<h3 id="logo"><a class="markdownIt-Anchor" href="#logo"></a> logo</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要提前安装</span></span><br><span class="line">sudo apt install screenfetch</span><br><span class="line">screenfetch</span><br></pre></td></tr></table></figure>
+<h2 id="后台运行"><a class="markdownIt-Anchor" href="#后台运行"></a> 后台运行</h2>
+<blockquote>
+<p>参考资料：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/02/linux-daemon.html">Linux 守护进程的启动方法</a></p>
+</blockquote>
+<h3 id="后台执行"><a class="markdownIt-Anchor" href="#后台执行"></a> 后台执行</h3>
+<p>一般运行linux上的程序执行 .sh 文件（./sh文件）时都会影响当前CMD窗口的操作，如果需要后台运行则需要借助 <code>nohup</code> 和 <code>&amp;</code> 命令来实现。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -server -Xms128M -Xmx512M -XX:MetaspaceSize=128M -jar test.jar <span class="variable">$1</span> <span class="variable">$2</span> <span class="variable">$3</span> &amp;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>nohup</code> ：加在一个命令的最前面，表示不挂断的运行命令</li>
+<li><code>&amp;</code>：加在一个命令的最后面，表示这个命令放在后台执行</li>
+</ul>
+<blockquote>
+<p><code>nohub</code>做了以下：</p>
+<ul>
+<li>阻止<code>SIGHUP</code>信号发到这个进程。</li>
+<li>关闭标准输入。该进程不再能够接收任何输入，即使运行在前台。</li>
+<li>重定向标准输出和标准错误到文件<code>nohup.out</code>。</li>
+</ul>
+<p>注意，<code>nohup</code>命令不会自动把进程变为&quot;后台任务&quot;，所以必要时需要加上<code>&amp;</code>符号</p>
+</blockquote>
+<h3 id="查看后台"><a class="markdownIt-Anchor" href="#查看后台"></a> 查看后台</h3>
+<p><code>ps</code> 和 <code>jobs</code>都可以用于查看后台程序：</p>
+<ul>
+<li><code>jobs</code>：只能查看当前终端后台执行的任务，换了终端就看不见了</li>
+<li><code>ps</code>：适用于查看瞬时进程的动态，可以看到别的终端的任务</li>
+</ul>
+<p><strong>jobs：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># jobs</span></span><br><span class="line">[1]- 运行中        nohup java -Dfile.encoding=UTF-8 -Dname=Runtime-Name -server -Xms128M -Xmx512M -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -jar test.jar <span class="variable">$1</span> <span class="variable">$2</span> <span class="variable">$3</span> &amp;(工作目录：/home/ams/ams-server/<span class="built_in">test</span>)</span><br><span class="line">[2]+ 运行中        nohup java -Dfile.encoding=UTF-8 -Dname=Container-Name -server -Xms128M -Xmx512M -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -jar test1.jar <span class="variable">$1</span> <span class="variable">$2</span> <span class="variable">$3</span> &amp;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>“+”：最近的一个任务（当前任务）</li>
+<li>“-”：之前的任务</li>
+</ul>
+<blockquote>
+<p>只有在<strong>当前命令行</strong>中使用<code>nohup</code>和<code>&amp;</code> 时，<code>jobs</code>命令才能将它显示出来。如果将他们写到 .sh 脚本中，然后执行脚本，是显示不出来的</p>
+</blockquote>
+<p><strong>ps：</strong></p>
+<p>这个是查看进程常用的命令，不多说了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost <span class="built_in">test</span>]<span class="comment"># ps -aux|grep java</span></span><br><span class="line">root   21219 0.3 3.9 6258172 148900 pts/0 Sl  10:08  0:02 java -Dfile.encoding=UTF-8 -Dname=Runtime-Name -server -Xms128M -Xmx512M -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -jar test.jar</span><br><span class="line">root   21662 0.2 3.0 5041008 116648 pts/0 Sl  10:10  0:01 java -Dfile.encoding=UTF-8 -Dname=Container-Name -server -Xms128M -Xmx512M -XX:MetaspaceSize=128M -XX:MaxMetaspaceSize=256M -XX:+HeapDumpOnOutOfMemoryError -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -jar test1.jar</span><br><span class="line">root   23761 0.0 0.0 112664  972 pts/0  S+  10:19  0:00 grep --color=auto java</span><br></pre></td></tr></table></figure>
+<ul>
+<li>a：显示所有程序</li>
+<li>u：以用户为主的格式来显示</li>
+<li>x：显示所有程序，不以终端机来区分</li>
+</ul>
+<h3 id="关闭后台程序"><a class="markdownIt-Anchor" href="#关闭后台程序"></a> 关闭后台程序</h3>
+<p>kill 命令：</p>
+<ul>
+<li>通过<code>jobs</code>命令查看jobnum，然后执行<code>kill %jobnum</code></li>
+<li>通过<code>ps</code>命令查看进程号PID，然后执行kill %PID</li>
+</ul>
+<p>如果是前台进程的话，直接执行<code>Ctrl+C</code>就可以终止了</p>
+<h3 id="前后台切换"><a class="markdownIt-Anchor" href="#前后台切换"></a> 前后台切换</h3>
+<ul>
+<li>
+<p><code>fg</code>命令：将后台中的命令调至前台继续运行。如果后台中有多个命令，可以先用jobs查看jobnun，然后用<code>fg %jobnum</code>将选中的命令调出。</p>
+</li>
+<li>
+<p><code>Ctrl + Z</code>命令：将一个正在前台执行的命令放到后台，并且处于暂停状态</p>
+</li>
+<li>
+<p><code>bg</code>命令：将一个在后台暂停的命令，变成在后台继续执行</p>
+<blockquote>
+<p>如果后台中有多个命令，可以先用jobs查看jobnum，然后用 bg %jobnum 将选中的命令调出继续执行。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="端口相关"><a class="markdownIt-Anchor" href="#端口相关"></a> 端口相关</h2>
+<h3 id="查看端口"><a class="markdownIt-Anchor" href="#查看端口"></a> 查看端口</h3>
+<h4 id="lsof"><a class="markdownIt-Anchor" href="#lsof"></a> lsof</h4>
+<p>lsof命令（lists openfiles）用于查看进程开打的文件，打开文件的进程，进程打开的端口(TCP、UDP)。找回/恢复删除的文件。</p>
+<p>在linux下，任何事物都以文件的形式存在，这其中包括各种网络连接和硬件。所以如传输控制协议 (TCP) 和用户数据报协议 (UDP) 套接字等，系统在后台都为该应用程序分配了一个文件描述符，无论这个文件的本质如何，该文件描述符为应用程序与基础操作系统之间的交互提供了通用接口。因为应用程序打开文件的描述符列表提供了大量关于这个应用程序本身的信息，因此通过lsof工具能够查看这个列表对系统监测以及排错将是很有帮助的。</p>
+<p>选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-a：列出打开文件存在的进程；</span><br><span class="line">-c&lt;进程名&gt;：列出指定进程所打开的文件；</span><br><span class="line">-g：列出GID号进程详情；</span><br><span class="line">-d&lt;文件号&gt;：列出占用该文件号的进程；</span><br><span class="line">+d&lt;目录&gt;：列出目录下被打开的文件；</span><br><span class="line">+D&lt;目录&gt;：递归列出目录下被打开的文件；</span><br><span class="line">-n&lt;目录&gt;：列出使用NFS的文件；</span><br><span class="line">-i&lt;条件&gt;：列出符合条件的进程。（4、6、协议、:端口、 @ip ）</span><br><span class="line">-p&lt;进程号&gt;：列出指定进程号所打开的文件；</span><br><span class="line">-u：列出UID号进程详情；</span><br><span class="line">-h：显示帮助信息；</span><br><span class="line">-v：显示版本信息。</span><br></pre></td></tr></table></figure>
+<p>查看端口号：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:端口号</span><br></pre></td></tr></table></figure>
+<h4 id="netstat"><a class="markdownIt-Anchor" href="#netstat"></a> netstat</h4>
+<p>netstat命令用来打印Linux中网络系统的状态信息，可以得知整个Linux系统的网络情况</p>
+<p>选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">-a或--all：显示所有连线中的Socket；</span><br><span class="line">-A&lt;网络类型&gt;或--&lt;网络类型&gt;：列出该网络类型连线中的相关地址；</span><br><span class="line">-c或--continuous：持续列出网络状态；</span><br><span class="line">-C或--cache：显示路由器配置的快取信息；</span><br><span class="line">-e或--extend：显示网络其他相关信息；</span><br><span class="line">-F或--fib：显示FIB；</span><br><span class="line">-g或--groups：显示多重广播功能群组组员名单；</span><br><span class="line">-h或--<span class="built_in">help</span>：在线帮助；</span><br><span class="line">-i或--interfaces：显示网络界面信息表单；</span><br><span class="line">-l或--listening：显示监控中的服务器的Socket；</span><br><span class="line">-M或--masquerade：显示伪装的网络连线；</span><br><span class="line">-n或--numeric：直接使用ip地址，而不通过域名服务器；</span><br><span class="line">-N或--netlink或--symbolic：显示网络硬件外围设备的符号连接名称；</span><br><span class="line">-o或--timers：显示计时器；</span><br><span class="line">-p或--programs：显示正在使用Socket的程序识别码和程序名称；</span><br><span class="line">-r或--route：显示Routing Table；</span><br><span class="line">-s或--statistice：显示网络工作信息统计表；</span><br><span class="line">-t或--tcp：显示TCP传输协议的连线状况；</span><br><span class="line">-u或--udp：显示UDP传输协议的连线状况；</span><br><span class="line">-v或--verbose：显示指令执行过程；</span><br><span class="line">-V或--version：显示版本信息；</span><br><span class="line">-w或--raw：显示RAW传输协议的连线状况；</span><br><span class="line">-x或--unix：此参数的效果和指定<span class="string">&quot;-A unix&quot;</span>参数相同；</span><br><span class="line">--ip或--inet：此参数的效果和指定<span class="string">&quot;-A inet&quot;</span>参数相同。</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -a     <span class="comment">#列出所有端口</span></span><br><span class="line">netstat -at    <span class="comment">#列出所有tcp端口</span></span><br><span class="line">netstat -au    <span class="comment">#列出所有udp端口</span></span><br><span class="line">netstat -aptn  <span class="comment">#列出所有tcp端口以及程序名称和ip地址</span></span><br></pre></td></tr></table></figure>
+<h3 id="检测远程端口"><a class="markdownIt-Anchor" href="#检测远程端口"></a> 检测远程端口</h3>
+<h4 id="telnet"><a class="markdownIt-Anchor" href="#telnet"></a> telnet</h4>
+<p>telnet命令用于登录远程主机，对远程主机进行管理。</p>
+<p>参数：</p>
+<ul>
+<li>远程主机：指定要登录进行管理的远程主机；</li>
+<li>端口：指定TELNET协议使用的端口号。</li>
+</ul>
+<p>选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-8：允许使用8位字符资料，包括输入与输出；</span><br><span class="line">-a：尝试自动登入远端系统；</span><br><span class="line">-b&lt;主机别名&gt;：使用别名指定远端主机名称；</span><br><span class="line">-c：不读取用户专属目录里的.telnetrc文件；</span><br><span class="line">-d：启动排错模式；</span><br><span class="line">-e&lt;脱离字符&gt;：设置脱离字符；</span><br><span class="line">-E：滤除脱离字符；</span><br><span class="line">-f：此参数的效果和指定<span class="string">&quot;-F&quot;</span>参数相同；</span><br><span class="line">-F：使用Kerberos V5认证时，加上此参数可把本地主机的认证数据上传到远端主机；</span><br><span class="line">-k&lt;域名&gt;：使用Kerberos认证时，加上此参数让远端主机采用指定的领域名，而非该主机的域名；</span><br><span class="line">-K：不自动登入远端主机；</span><br><span class="line">-l&lt;用户名称&gt;：指定要登入远端主机的用户名称；</span><br><span class="line">-L：允许输出8位字符资料；</span><br><span class="line">-n&lt;记录文件&gt;：指定文件记录相关信息；</span><br><span class="line">-r：使用类似rlogin指令的用户界面；</span><br><span class="line">-S&lt;服务类型&gt;：设置telnet连线所需的ip TOS信息；</span><br><span class="line">-x：假设主机有支持数据加密的功能，就使用它；</span><br><span class="line">-X&lt;认证形态&gt;：关闭指定的认证形态。</span><br></pre></td></tr></table></figure>
+<p>能够通过该命令间接访问某个端口是否开放：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet ip地址 端口号</span><br></pre></td></tr></table></figure>
+<h4 id="nmap"><a class="markdownIt-Anchor" href="#nmap"></a> nmap</h4>
+<p>nmap命令是一款开放源代码的网络探测和安全审核工具，它的设计目标是快速地扫描大型网络（包括端口号、状态以及对应的服务）。</p>
+<p>参数：</p>
+<ul>
+<li>ip地址：指定待扫描报文中的TCP地址。</li>
+</ul>
+<p>选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">-O：激活操作探测；</span><br><span class="line">-P0：值进行扫描，不ping主机；</span><br><span class="line">-PT：是同TCP的ping；</span><br><span class="line">-sV：探测服务版本信息；</span><br><span class="line">-sP：ping扫描，仅发现目标主机是否存活；</span><br><span class="line">-ps：发送同步（SYN）报文；</span><br><span class="line">-PU：发送udp ping；</span><br><span class="line">-PE：强制执行直接的ICMPping；</span><br><span class="line">-PB：默认模式，可以使用ICMPping和TCPping；</span><br><span class="line">-6：使用IPv6地址；</span><br><span class="line">-v：得到更多选项信息；</span><br><span class="line">-d：增加调试信息地输出；</span><br><span class="line">-oN：以人们可阅读的格式输出；</span><br><span class="line">-oX：以xml格式向指定文件输出信息；</span><br><span class="line">-oM：以机器可阅读的格式输出；</span><br><span class="line">-A：使用所有高级扫描选项；</span><br><span class="line">--resume：继续上次执行完的扫描；</span><br><span class="line">-P：指定要扫描的端口，可以是一个单独的端口，用逗号隔开多个端口，使用“-”表示端口范围；</span><br><span class="line">-e：在多网络接口Linux系统中，指定扫描使用的网络接口；</span><br><span class="line">-g：将指定的端口作为源端口进行扫描；</span><br><span class="line">--ttl：指定发送的扫描报文的生存期；</span><br><span class="line">--packet-trace：显示扫描过程中收发报文统计；</span><br><span class="line">--scanflags：设置在扫描报文中的TCP标志。</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.1.102 <span class="comment"># 扫描对应ip的端口号开放情况以及对应的服务</span></span><br><span class="line">nmap www.baidu.com -p 80 <span class="comment"># 扫描指定端口</span></span><br></pre></td></tr></table></figure>
+<h4 id="nc"><a class="markdownIt-Anchor" href="#nc"></a> nc</h4>
+<p>nc命令是netcat命令的简称，都是用来设置路由器。</p>
+<p>参数：</p>
+<ul>
+<li>主机：指定主机的IP地址或主机名称；</li>
+<li>端口号：可以是单个整数或者是一个范围。</li>
+</ul>
+<p>选项：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-g&lt;网关&gt;：设置路由器跃程通信网关，最多设置8个；</span><br><span class="line">-G&lt;指向器数目&gt;：设置来源路由指向器，其数值为4的倍数；</span><br><span class="line">-h：在线帮助；</span><br><span class="line">-i&lt;延迟秒数&gt;：设置时间间隔，以便传送信息及扫描通信端口；</span><br><span class="line">-l：使用监听模式，监控传入的资料；</span><br><span class="line">-n：直接使用ip地址，而不通过域名服务器；</span><br><span class="line">-o&lt;输出文件&gt;：指定文件名称，把往来传输的数据以16进制字码倾倒成该文件保存；</span><br><span class="line">-p&lt;通信端口&gt;：设置本地主机使用的通信端口；</span><br><span class="line">-r：指定源端口和目的端口都进行随机的选择；</span><br><span class="line">-s&lt;来源位址&gt;：设置本地主机送出数据包的IP地址；</span><br><span class="line">-u：使用UDP传输协议；</span><br><span class="line">-v：显示指令执行过程；</span><br><span class="line">-w&lt;超时秒数&gt;：设置等待连线的时间；</span><br><span class="line">-z：使用0输入/输出模式，只在扫描通信端口时使用。</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nc -w 5  211.100.98.99 80 &amp;&amp; <span class="built_in">echo</span> ok ||<span class="built_in">echo</span> no <span class="comment">#判断对应端口是否开放</span></span><br><span class="line">nc -v -w 1 192.168.228.222 -z 1-1000 <span class="comment"># 扫描对应端口</span></span><br><span class="line">nc -lp 1234 <span class="comment"># 监听端口1234，监控传入的资料</span></span><br></pre></td></tr></table></figure>
+<h3 id="开放指定端口"><a class="markdownIt-Anchor" href="#开放指定端口"></a> 开放指定端口</h3>
+<p>Ubuntu下，首先检测防火墙状态，如果打开需要开放指定端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status <span class="comment"># 查询状态</span></span><br><span class="line">sudo ufw allow 80 <span class="comment"># 防火墙使能80端口</span></span><br></pre></td></tr></table></figure>
+<p>配置<code>iptables</code>，开放对应端口：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT <span class="comment"># 开放输入tcp的80端口</span></span><br><span class="line">sudo iptables -L <span class="comment"># 查看列表</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>iptables规则设置后是即时生效的，在机器重启后<code>iptables</code>中的配置信息会被清空</li>
+</ul>
+<h2 id="文本处理"><a class="markdownIt-Anchor" href="#文本处理"></a> 文本处理</h2>
+<p>Linux 操作文本的三大利器分别是 grep、sed 、awk，简称三剑客。</p>
+<p>大师兄 awk：最擅长取列；二师兄 sed：最擅长取行；三师兄 grep：最擅长过滤。</p>
+<h3 id="awk"><a class="markdownIt-Anchor" href="#awk"></a> awk</h3>
+<p>参考链接：<a target="_blank" rel="noopener" href="http://www.gnu.org/software/gawk/manual/gawk.html">AWK 官方手册</a>、<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-awk.html">Linux awk 命令</a>、<a target="_blank" rel="noopener" href="https://www.iteye.com/blog/suo-1319525">awk实例一：简单入门</a>、<a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9070.html">AWK 简明教程</a></p>
+<p>AWK 是一种处理文本文件的语言，是一个强大的文本分析工具。</p>
+<p>之所以叫 AWK 是因为其取了三位创始人 Alfred Aho，Peter Weinberger, 和 Brian Kernighan 的 Family Name 的首字符。</p>
+<p>Awk通常被用来进行格式扫描和处理。通过扫描一个或多个文件中的行，查看是否匹配指定的正则表达式，并执行相关的操作。主要由以下特点：</p>
+<ol>
+<li>Awk以记录和字段的方式来查看文本文件</li>
+<li>和其他编程语言一样，Awk 包含变量、条件和循环</li>
+<li>Awk能够进行运算和字符串操作</li>
+<li>Awk能够生成格式化的报表数据</li>
+</ol>
+<p>Awk从一个<strong>文件</strong>或者<strong>标准输入</strong>中读取数据，并输出结果到<strong>标准输出</strong>中</p>
+<p>语法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">awk [选项参数] <span class="string">&#x27;script&#x27;</span> var=value file(s)</span><br><span class="line">或</span><br><span class="line">awk [选项参数] -f scriptfile var=value file(s)</span><br></pre></td></tr></table></figure>
+<h4 id="工作方式"><a class="markdownIt-Anchor" href="#工作方式"></a> 工作方式</h4>
+<ol>
+<li>Awk 一次读取文件中的一行</li>
+<li>对于一行，按照给定的正则表达式的顺序进行匹配，如果匹配则执行对应的 Action</li>
+<li>如果没有匹配上则不执行任何动作</li>
+<li>在上诉的语法中， Search Pattern 和 Action 是可选的，但是必须提供其中一个</li>
+<li>如果 Search Pattern 未提供，则对所有的输入行执行 Action 操作</li>
+<li>如果 Action 未提供，则默认打印出该行的数据</li>
+<li>{} 这种 Action 不做任何事情，和未提供的 Action 的工作方式不一样</li>
+<li>Action 中的语句应该使用分号分隔</li>
+</ol>
+<h4 id="运算符"><a class="markdownIt-Anchor" href="#运算符"></a> 运算符</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算符</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">= += -= *= /= %= ^= **=</td>
+<td style="text-align:center">赋值</td>
+</tr>
+<tr>
+<td style="text-align:center">?:</td>
+<td style="text-align:center">C条件表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">||</td>
+<td style="text-align:center">逻辑或</td>
+</tr>
+<tr>
+<td style="text-align:center">&amp;&amp;</td>
+<td style="text-align:center">逻辑与</td>
+</tr>
+<tr>
+<td style="text-align:center">~ 和 !~</td>
+<td style="text-align:center">匹配正则表达式和不匹配正则表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">&lt; &lt;= &gt; &gt;= != ==</td>
+<td style="text-align:center">关系运算符</td>
+</tr>
+<tr>
+<td style="text-align:center">空格</td>
+<td style="text-align:center">连接</td>
+</tr>
+<tr>
+<td style="text-align:center">+ -</td>
+<td style="text-align:center">加，减</td>
+</tr>
+<tr>
+<td style="text-align:center">* / %</td>
+<td style="text-align:center">乘，除与求余</td>
+</tr>
+<tr>
+<td style="text-align:center">+ - !</td>
+<td style="text-align:center">一元加，减和逻辑非</td>
+</tr>
+<tr>
+<td style="text-align:center">^ ***</td>
+<td style="text-align:center">求幂</td>
+</tr>
+<tr>
+<td style="text-align:center">++ –</td>
+<td style="text-align:center">增加或减少，作为前缀或后缀</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:center">字段引用</td>
+</tr>
+<tr>
+<td style="text-align:center">in</td>
+<td style="text-align:center">数组成员</td>
+</tr>
+</tbody>
+</table>
+<h4 id="内建变量"><a class="markdownIt-Anchor" href="#内建变量"></a> 内建变量</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">变量</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$n</td>
+<td style="text-align:center">当前记录的第n个字段，字段间由FS分隔</td>
+</tr>
+<tr>
+<td style="text-align:center">$0</td>
+<td style="text-align:center">完整的输入记录</td>
+</tr>
+<tr>
+<td style="text-align:center">ARGC</td>
+<td style="text-align:center">命令行参数的数目</td>
+</tr>
+<tr>
+<td style="text-align:center">ARGIND</td>
+<td style="text-align:center">命令行中当前文件的位置(从0开始算)</td>
+</tr>
+<tr>
+<td style="text-align:center">ARGV</td>
+<td style="text-align:center">包含命令行参数的数组</td>
+</tr>
+<tr>
+<td style="text-align:center">CONVFMT</td>
+<td style="text-align:center">数字转换格式(默认值为%.6g)ENVIRON环境变量关联数组</td>
+</tr>
+<tr>
+<td style="text-align:center">ERRNO</td>
+<td style="text-align:center">最后一个系统错误的描述</td>
+</tr>
+<tr>
+<td style="text-align:center">FIELDWIDTHS</td>
+<td style="text-align:center">字段宽度列表(用空格键分隔)</td>
+</tr>
+<tr>
+<td style="text-align:center">FILENAME</td>
+<td style="text-align:center">当前文件名</td>
+</tr>
+<tr>
+<td style="text-align:center">FNR</td>
+<td style="text-align:center">各文件分别计数的行号</td>
+</tr>
+<tr>
+<td style="text-align:center">FS</td>
+<td style="text-align:center">字段分隔符(默认是任何空格)</td>
+</tr>
+<tr>
+<td style="text-align:center">IGNORECASE</td>
+<td style="text-align:center">如果为真，则进行忽略大小写的匹配</td>
+</tr>
+<tr>
+<td style="text-align:center">NF</td>
+<td style="text-align:center">一条记录的字段的数目</td>
+</tr>
+<tr>
+<td style="text-align:center">NR</td>
+<td style="text-align:center">已经读出的记录数，就是行号，从1开始</td>
+</tr>
+<tr>
+<td style="text-align:center">OFMT</td>
+<td style="text-align:center">数字的输出格式(默认值是%.6g)</td>
+</tr>
+<tr>
+<td style="text-align:center">OFS</td>
+<td style="text-align:center">输出记录分隔符（输出换行符），输出时用指定的符号代替换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">ORS</td>
+<td style="text-align:center">输出记录分隔符(默认值是一个换行符)</td>
+</tr>
+<tr>
+<td style="text-align:center">RLENGTH</td>
+<td style="text-align:center">由match函数所匹配的字符串的长度</td>
+</tr>
+<tr>
+<td style="text-align:center">RS</td>
+<td style="text-align:center">记录分隔符(默认是一个换行符)</td>
+</tr>
+<tr>
+<td style="text-align:center">RSTART</td>
+<td style="text-align:center">由match函数所匹配的字符串的第一个位置</td>
+</tr>
+<tr>
+<td style="text-align:center">SUBSEP</td>
+<td style="text-align:center">数组下标分隔符(默认值是/034)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="用法"><a class="markdownIt-Anchor" href="#用法"></a> 用法</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">&#x27;/search pattern1/ &#123;Actions&#125;</span></span><br><span class="line"><span class="string">     /search pattern2/ &#123;Actions&#125;&#x27;</span> file</span><br></pre></td></tr></table></figure>
+<ul>
+<li>search pattern是正则表达式</li>
+<li>Actions 输出的语法</li>
+<li>在Awk 中可以存在多个正则表达式和多个输出定义</li>
+<li>file 输入文件名</li>
+<li>单引号的作用是包裹起来防止shell 截断</li>
+</ul>
+<p>关键字 BEGIN 和 END：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BEGIN &#123; Actions&#125;</span><br><span class="line">&#123;ACTION&#125; <span class="comment"># Action for everyline in a file  Awk中的注释</span></span><br><span class="line">END &#123; Actions &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在BEGIN 节中的 Actions 会在读取文件中的行之前被执行</li>
+<li>而END 节中的 Actions 会在读取并处理文件中的所有行后被执行</li>
+</ul>
+<h4 id="例子"><a class="markdownIt-Anchor" href="#例子"></a> 例子</h4>
+<p>创建一个包含下面内容的文本文件employee.txt</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cat</span> employee.txt</span><br><span class="line">100  Thomas  Manager    Sales       <span class="variable">$5</span>,000</span><br><span class="line">200  Jason   Developer  Technology  <span class="variable">$5</span>,500</span><br><span class="line">300  Sanjay  Sysadmin   Technology  <span class="variable">$7</span>,000</span><br><span class="line">400  Nisha   Manager    Marketing   <span class="variable">$9</span>,500</span><br><span class="line">500  Randy   DBA        Technology  <span class="variable">$6</span>,000</span><br></pre></td></tr></table></figure>
+<ol>
+<li>
+<p>默认的时候awk 打印文件中的每一行</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;&#123;print;&#125;&#x27;</span> employee.txt</span><br><span class="line">100  Thomas  Manager    Sales       <span class="variable">$5</span>,000</span><br><span class="line">200  Jason   Developer  Technology  <span class="variable">$5</span>,500</span><br><span class="line">300  Sanjay  Sysadmin   Technology  <span class="variable">$7</span>,000</span><br><span class="line">400  Nisha   Manager    Marketing   <span class="variable">$9</span>,500</span><br><span class="line">500  Randy   DBA      Technology  <span class="variable">$6</span>,000</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打印匹配的行</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;/Thomas/</span></span><br><span class="line"><span class="string">&gt; /Nisha/&#x27;</span> employee.txt</span><br><span class="line">100  Thomas  Manager    Sales       <span class="variable">$5</span>,000</span><br><span class="line">400  Nisha   Manager    Marketing   <span class="variable">$9</span>,500</span><br></pre></td></tr></table></figure>
+<ul>
+<li>每个组合 ( 正则表达式和对应的 Action) 必须用新行来分隔</li>
+</ul>
+</li>
+<li>
+<p>仅打印指定的域</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;&#123;print $2,$5;&#125;&#x27;</span> employee.txt</span><br><span class="line">Thomas <span class="variable">$5</span>,000</span><br><span class="line">Jason <span class="variable">$5</span>,500</span><br><span class="line">Sanjay <span class="variable">$7</span>,000</span><br><span class="line">Nisha <span class="variable">$9</span>,500</span><br><span class="line">Randy <span class="variable">$6</span>,000</span><br><span class="line">$ awk <span class="string">&#x27;&#123;print $2,$NF;&#125;&#x27;</span> employee.txt</span><br><span class="line">Thomas <span class="variable">$5</span>,000</span><br><span class="line">Jason <span class="variable">$5</span>,500</span><br><span class="line">Sanjay <span class="variable">$7</span>,000</span><br><span class="line">Nisha <span class="variable">$9</span>,500</span><br><span class="line">Randy <span class="variable">$6</span>,000</span><br></pre></td></tr></table></figure>
+<ul>
+<li>$2 和 $5 分别代表名字和薪水</li>
+</ul>
+</li>
+<li>
+<p>开始和最后的动作</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;BEGIN &#123;print &quot;Name/tDesignation/tDepartment/tSalary&quot;;&#125;</span></span><br><span class="line"><span class="string">&gt; &#123;print $2,&quot;/t&quot;,$3,&quot;/t&quot;,$4,&quot;/t&quot;,$NF;&#125;</span></span><br><span class="line"><span class="string">&gt; END&#123;print &quot;Report Generated/n--------------&quot;;</span></span><br><span class="line"><span class="string">&gt; &#125;&#x27;</span> employee.txt</span><br><span class="line">Name Designation Department Salary</span><br><span class="line">Thomas   Manager   Sales           <span class="variable">$5</span>,000</span><br><span class="line">Jason   Developer   Technology   <span class="variable">$5</span>,500</span><br><span class="line">Sanjay   Sysadmin   Technology   <span class="variable">$7</span>,000</span><br><span class="line">Nisha   Manager   Marketing   <span class="variable">$9</span>,500</span><br><span class="line">Randy   DBA     Technology   <span class="variable">$6</span>,000</span><br><span class="line">Report Generated</span><br><span class="line">--------------</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>找出员工 ID 大于 200 的员工</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;$1 &gt;200&#x27;</span> employee.txt</span><br><span class="line">300  Sanjay  Sysadmin   Technology  <span class="variable">$7</span>,000</span><br><span class="line">400  Nisha   Manager    Marketing   <span class="variable">$9</span>,500</span><br><span class="line">500  Randy   DBA        Technology  <span class="variable">$6</span>,000</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打印技术部员工</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;$4 ~/Technology/&#x27;</span> employee.txt</span><br><span class="line">200  Jason   Developer  Technology  <span class="variable">$5</span>,500</span><br><span class="line">300  Sanjay  Sysadmin   Technology  <span class="variable">$7</span>,000</span><br><span class="line">500  Randy   DBA      Technology  <span class="variable">$6</span>,000</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>打印技术部门的员工数</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">&#x27;BEGIN &#123; count=0;&#125;</span></span><br><span class="line"><span class="string">$4 ~ /Technology/ &#123; count++; &#125;</span></span><br><span class="line"><span class="string">END &#123; print &quot;Number of employees in Technology Dept =&quot;,count;&#125;&#x27;</span> employee.txt</span><br><span class="line">Number of employees <span class="keyword">in</span> Tehcnology Dept = 3</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="sed"><a class="markdownIt-Anchor" href="#sed"></a> sed</h3>
+<p>参考链接：<a target="_blank" rel="noopener" href="http://www.gnu.org/software/sed/manual/sed.html">sed官方手册</a>、、<a target="_blank" rel="noopener" href="https://man.linuxde.net/sed">Linux sed命令</a>、<a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9104.html">sed 简明教程</a></p>
+<p>sed全名叫stream editor，流编辑器，用程序的方式来编辑文本，基本上就是玩正则模式匹配。</p>
+<h4 id="工作方式-2"><a class="markdownIt-Anchor" href="#工作方式-2"></a> 工作方式</h4>
+<p>sed在处理时会把当前处理的行存储在临时缓冲区中，称为“模式空间”（pattern space），接着用sed命令处理缓冲区中的内容，处理完成后，把缓冲区的内容送往屏幕。接着处理下一行，这样不断重复，直到文件末尾。文件内容<strong>并没有改变</strong>，除非你使用重定向存储输出。其伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">foreach line in file &#123;</span><br><span class="line">    &#x2F;&#x2F;放入把行Pattern_Space</span><br><span class="line">    Pattern_Space &lt;&#x3D; line;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 对每个pattern space执行sed命令</span><br><span class="line">    Pattern_Space &lt;&#x3D; EXEC(sed_cmd, Pattern_Space);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 如果没有指定 -n 则输出处理后的Pattern_Space</span><br><span class="line">    if (sed option hasn&#39;t &quot;-n&quot;)  &#123;</span><br><span class="line">       print Pattern_Space</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意<code>-n</code>参数</li>
+</ul>
+<h4 id="命令格式"><a class="markdownIt-Anchor" href="#命令格式"></a> 命令格式</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed [options] <span class="string">&#x27;command&#x27;</span> file(s)</span><br><span class="line">sed [options] -f scriptfile file(s)</span><br></pre></td></tr></table></figure>
+<p><code>options</code>选项如下：</p>
+<ul>
+<li><code>-e&lt;script&gt;</code>或<code>--expression=&lt;script&gt;</code>：以选项中的指定的script（即后面的command）来处理输入的文本文件；</li>
+<li><code>-f&lt;script文件&gt;</code>或<code>--file=&lt;script文件&gt;</code>：以选项中指定的script文件来处理输入的文本文件；</li>
+<li><code>-h</code>或<code>--help</code>：显示帮助；</li>
+<li><code>-n</code>或<code>--quiet</code>或<code>——silent</code>：仅显示script处理后的结果；</li>
+<li><code>-V</code>或<code>--version</code>：显示版本信息。</li>
+<li><code>-i</code>：直接修改文件内容</li>
+</ul>
+<p>其中，<code>command</code>为处理对应文件的命令，几乎所有的命令都是这样的：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[address[,address]][!]&#123;cmd&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><code>address</code>：可以是一个数字，也可以是一个模式，你可以通过逗号要分隔两个address 表示一个区间</p>
+</li>
+<li>
+<p><code>!</code>：匹配成功后是否执行命令</p>
+</li>
+<li>
+<p><code>cmd</code>：对应的命令，可以用正则表达式</p>
+<ul>
+<li>
+<p>cmd可以是多个，可以用<strong>分号</strong>分开，也可以用大括号括起来作为嵌套命令</p>
+</li>
+<li>
+<p>cmd中可以使用正则表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">^ 匹配行开始，如：&#x2F;^sed&#x2F;匹配所有以sed开头的行。</span><br><span class="line">$ 匹配行结束，如：&#x2F;sed$&#x2F;匹配所有以sed结尾的行。</span><br><span class="line">. 匹配一个非换行符的任意字符，如：&#x2F;s.d&#x2F;匹配s后接一个任意字符，最后是d。</span><br><span class="line">* 匹配0个或多个字符，如：&#x2F;*sed&#x2F;匹配所有模板是一个或多个空格后紧跟sed的行。</span><br><span class="line">[] 匹配一个指定范围内的字符，如&#x2F;[ss]ed&#x2F;匹配sed和Sed。  </span><br><span class="line">[^] 匹配一个不在指定范围内的字符，如：&#x2F;[^A-RT-Z]ed&#x2F;匹配不包含A-R和T-Z的一个字母开头，紧跟ed的行。</span><br><span class="line">\(..\) 匹配子串，保存匹配的字符，如s&#x2F;\(love\)able&#x2F;\1rs，loveable被替换成lovers。</span><br><span class="line">&amp; 保存搜索字符用来替换其他字符，如s&#x2F;love&#x2F;**&amp;**&#x2F;，love这成**love**。</span><br><span class="line">\&lt; 匹配单词的开始，如:&#x2F;\&lt;love&#x2F;匹配包含以love开头的单词的行。</span><br><span class="line">\&gt; 匹配单词的结束，如&#x2F;love\&gt;&#x2F;匹配包含以love结尾的单词的行。</span><br><span class="line">x\&#123;m\&#125; 重复字符x，m次，如：&#x2F;0\&#123;5\&#125;&#x2F;匹配包含5个0的行。</span><br><span class="line">x\&#123;m,\&#125; 重复字符x，至少m次，如：&#x2F;0\&#123;5,\&#125;&#x2F;匹配至少有5个0的行。</span><br><span class="line">x\&#123;m,n\&#125; 重复字符x，至少m次，不多于n次，如：&#x2F;0\&#123;5,10\&#125;&#x2F;匹配5~10个0的行。</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>基本cmd如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">a\ 在当前行下面插入文本。</span><br><span class="line">i\ 在当前行上面插入文本。</span><br><span class="line">c\ 把选定的行改为新的文本。</span><br><span class="line">d 删除，删除选择的行。</span><br><span class="line">D 删除模板块的第一行。</span><br><span class="line">s 替换指定字符</span><br><span class="line">h 拷贝模板块的内容到内存中的缓冲区。</span><br><span class="line">H 追加模板块的内容到内存中的缓冲区。</span><br><span class="line">g 获得内存缓冲区的内容，并替代当前模板块中的文本。</span><br><span class="line">G 获得内存缓冲区的内容，并追加到当前模板块文本的后面。</span><br><span class="line">l 列表不能打印字符的清单。</span><br><span class="line">n 读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。</span><br><span class="line">N 追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。</span><br><span class="line">p 打印模板块的行。</span><br><span class="line">P(大写) 打印模板块的第一行。</span><br><span class="line">q 退出Sed。</span><br><span class="line">b lable 分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。</span><br><span class="line">r file 从file中读行。</span><br><span class="line">t label if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。</span><br><span class="line">T label 错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。</span><br><span class="line">w file 写并追加模板块到file末尾。  </span><br><span class="line">W file 写并追加模板块的第一行到file末尾。  </span><br><span class="line">! 表示后面的命令对所有没有被选定的行发生作用。  </span><br><span class="line">&#x3D; 打印当前行号码。  </span><br><span class="line"># 把注释扩展到下一个换行符以前。  </span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>g、G、h、H、x命令牵扯到Hold Space，详见<a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9104.html">sed 简明教程</a>Hold Space章节</p>
+</li>
+<li>
+<p>注意，当在要替换的情况下（如上述<strong>s命令</strong>），可以使用如下标记：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">g 表示行内全面替换。  </span><br><span class="line">p 表示打印行。  </span><br><span class="line">w 表示把行写入一个文件。  </span><br><span class="line">x 表示互换模板块中的文本和缓冲区中的文本。  </span><br><span class="line">y 表示把一个字符翻译为另外的字符（但是不用于正则表达式）</span><br><span class="line">\1 子串匹配标记</span><br><span class="line">&amp; 已匹配字符串标记</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>command</code>对应的伪代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">bool bexec &#x3D; false</span><br><span class="line">foreach line in file &#123;</span><br><span class="line">    if ( match(address1) )&#123;</span><br><span class="line">        bexec &#x3D; true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if ( bexec &#x3D;&#x3D; true) &#123;</span><br><span class="line">        EXEC(sed_cmd);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if ( match (address2) ) &#123;</span><br><span class="line">        bexec &#x3D; false;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="例子-2"><a class="markdownIt-Anchor" href="#例子-2"></a> 例子</h4>
+<p>原始文本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ cat pets.txt</span><br><span class="line">This is my cat</span><br><span class="line">  my cat<span class="string">&#x27;s name is betty</span></span><br><span class="line"><span class="string">This is my dog</span></span><br><span class="line"><span class="string">  my dog&#x27;</span>s name is frank</span><br><span class="line">This is my fish</span><br><span class="line">  my fish<span class="string">&#x27;s name is george</span></span><br><span class="line"><span class="string">This is my goat</span></span><br><span class="line"><span class="string">  my goat&#x27;</span>s name is adam</span><br></pre></td></tr></table></figure>
+<p>sed命令用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对3行到第6行，执行命令/This/d</span></span><br><span class="line">$ sed <span class="string">&#x27;3,6 &#123;/This/d&#125;&#x27;</span> pets.txt</span><br><span class="line">This is my cat</span><br><span class="line">  my cat<span class="string">&#x27;s name is betty</span></span><br><span class="line"><span class="string">  my dog&#x27;</span>s name is frank</span><br><span class="line">  my fish<span class="string">&#x27;s name is george</span></span><br><span class="line"><span class="string">This is my goat</span></span><br><span class="line"><span class="string">  my goat&#x27;</span>s name is adam</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对3行到第6行，匹配/This/成功后，再匹配/fish/，成功后执行d命令</span></span><br><span class="line">$ sed <span class="string">&#x27;3,6 &#123;/This/&#123;/fish/d&#125;&#125;&#x27;</span> pets.txt</span><br><span class="line">This is my cat</span><br><span class="line">  my cat<span class="string">&#x27;s name is betty</span></span><br><span class="line"><span class="string">This is my dog</span></span><br><span class="line"><span class="string">  my dog&#x27;</span>s name is frank</span><br><span class="line">  my fish<span class="string">&#x27;s name is george</span></span><br><span class="line"><span class="string">This is my goat</span></span><br><span class="line"><span class="string">  my goat&#x27;</span>s name is adam</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从第一行到最后一行，如果匹配到This，则删除之；如果前面有空格，则去除空格（注意是多cmd情况）</span></span><br><span class="line">$ sed <span class="string">&#x27;1,$&#123;/This/d;s/^ *//g&#125;&#x27;</span> pets.txt</span><br><span class="line">my cat<span class="string">&#x27;s name is betty</span></span><br><span class="line"><span class="string">my dog&#x27;</span>s name is frank</span><br><span class="line">my fish<span class="string">&#x27;s name is george</span></span><br><span class="line"><span class="string">my goat&#x27;</span>s name is adam</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用&amp;当做被匹配的变量，在其左右加点东西</span></span><br><span class="line">$ sed <span class="string">&#x27;s/my/[&amp;]/g&#x27;</span> my.txt</span><br><span class="line">This is [my] cat</span><br><span class="line">  [my] cat<span class="string">&#x27;s name is betty</span></span><br><span class="line"><span class="string">This is [my] dog</span></span><br><span class="line"><span class="string">  [my] dog&#x27;</span>s name is frank</span><br><span class="line">This is [my] fish</span><br><span class="line">  [my] fish<span class="string">&#x27;s name is george</span></span><br><span class="line"><span class="string">This is [my] goat</span></span><br><span class="line"><span class="string">  [my] goat&#x27;</span>s name is adam</span><br></pre></td></tr></table></figure>
+<h3 id="grep"><a class="markdownIt-Anchor" href="#grep"></a> grep</h3>
+<p>参考链接：<a target="_blank" rel="noopener" href="http://www.gnu.org/software/grep/manual/html_node/index.html">grep官方手册</a>、<a target="_blank" rel="noopener" href="https://man.linuxde.net/grep">grep命令</a>、<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-grep.html">Linux grep 命令</a></p>
+<p>grep是“global search regular expression and print out the line”的简称，意思是全面搜索正则表达式，并将其打印出来。</p>
+<p>grep命令的选项用于对搜索过程的补充，而其命令的模式十分灵活，可以是变量、字符串、正则表达式。</p>
+<blockquote>
+<p>注意：当模式中包含了空格，务必要用<strong>双引号</strong>将其引起来。</p>
+</blockquote>
+<p>linux系统支持三种形式的grep命令：</p>
+<ul>
+<li><code>grep</code>：即标准grep</li>
+<li><code>egrep</code>：简称扩展grep命令，与<code>grep -E</code>等价，支持基本和扩展的<strong>正则表达式</strong></li>
+<li><code>fgrep</code>：简称<strong>快速</strong>grep命令，与<code>grep -F</code>等价，不支持正则表达式，按照字符串表面意思进行匹配</li>
+</ul>
+<h4 id="命令格式-2"><a class="markdownIt-Anchor" href="#命令格式-2"></a> 命令格式</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep [-abcEFGhHilLnqrsvVwxy][-A&lt;显示行数&gt;][-B&lt;显示列数&gt;][-C&lt;显示列数&gt;][-d&lt;进行动作&gt;][-e&lt;范本样式&gt;][-f&lt;范本文件&gt;][--<span class="built_in">help</span>][范本样式][文件或目录...]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-r 或 --recursive：以递归的方式查找符合条件的文件，并打印出符合条件的行</li>
+<li>-v 或 --invert-match：反向查找，打印出<strong>不符合</strong>条件行的内容</li>
+<li>-i 或 --ignore-case : 忽略字符大小写的差别</li>
+<li>-n 或 --line-number : 标出匹配行的行号</li>
+<li>-c 或 --count : 计算匹配的个数</li>
+</ul>
+<h4 id="常见形式"><a class="markdownIt-Anchor" href="#常见形式"></a> 常见形式</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在当前目录中，查找后缀为 file 的文件中包含 test 的文件，并打印出符合条件的行</span></span><br><span class="line">grep <span class="built_in">test</span> *file</span><br><span class="line"><span class="comment"># 以递归的方式查找符合条件的文件，并打印出符合条件的行</span></span><br><span class="line">grep -r update /etc/acpi</span><br><span class="line"><span class="comment"># 从根目录开始查找所有扩展名为 .log 的文本文件，并找出包含 &quot;ERROR&quot; 的行：</span></span><br><span class="line">find / -<span class="built_in">type</span> f -name <span class="string">&quot;*.log&quot;</span> | xargs grep <span class="string">&quot;ERROR&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h2>
+<h3 id="ssh"><a class="markdownIt-Anchor" href="#ssh"></a> ssh</h3>
+<p>远程登录命令，基本命令如下：</p>
+<ul>
+<li><code>-l</code>：指定用户名，或者用<code>@</code>表示，如果没有默认当前登录用户名</li>
+<li><code>-p</code>：指定端口号</li>
+<li><code>-C</code>：ssh传输数据时会进行数据压缩</li>
+<li><code>-q</code>：安静模式</li>
+<li><code>-T</code>：禁止远程分配终端</li>
+<li><code>-n</code>：关闭标准输入</li>
+<li><code>-N</code>：不执行远程命令</li>
+<li><code>-f</code>：把 ssh 放到后台运行</li>
+<li><code>-v</code>：打开调试模式</li>
+<li><code>-b</code>：绑定发起ssh连接的ip地址（针对多网卡用户）</li>
+<li>直接跟命令：仅仅远程执行一条命令</li>
+<li>-L：正向代理</li>
+<li>-R：反向代理</li>
+<li>-D：socks5代理</li>
+</ul>
+<h4 id="正向代理本地端口转发"><a class="markdownIt-Anchor" href="#正向代理本地端口转发"></a> 正向代理（本地端口转发）</h4>
+<p>在本地运行，在<strong>本地</strong>启动端口，把本地端口数据转发到远端</p>
+<p>用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -L 本地地址:本地端口:目的地址:目的端口 跳转机地址</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>目的地址</code>与<code>目的端口</code>需要<code>跳转机</code>能够访问，此ip和端口可以在<code>跳转机</code>自己上（localhost）或其他机器上（跳转机能够访问）</li>
+<li><code>本地地址</code>和<code>本地端口</code>是<code>本机</code>（即执行该命令的机器）上的</li>
+<li>主要用于<code>本机</code>访问<code>跳板机</code>能够访问的端口</li>
+<li>可以加上<code>-CqTnN</code> 参数</li>
+</ul>
+<h4 id="反向代理远程端口转发"><a class="markdownIt-Anchor" href="#反向代理远程端口转发"></a> 反向代理（远程端口转发）</h4>
+<p>在远端运行，让<strong>远端</strong>启动端口，把远端端口数据转发到本地（下面的目标机器）。</p>
+<p>用法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -R 源地址:源端口:目的地址:目的端口 本地机器地址</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>目的地址</code>与<code>目的端口</code>需要<code>远端机器</code>（即执行该命令的机器）能够访问，同样此ip和端口可以在<code>远端机器</code>自己上（localhost）或其他机器上（本机能够访问）</li>
+<li><code>源地址</code>和<code>源端口</code>指<code>本地机器</code>上的ip和端口</li>
+<li>主要用于在内网的<code>远端机器</code>把自己可以访问的端口暴露给了外网<code>本地机器</code></li>
+<li>可以加上<code>-CqTnN</code> 参数</li>
+</ul>
+<blockquote>
+<p>注意：这里可能需要修改<code>本地机器</code>的ssh配置文件<code>/etc/ssh/sshd_config</code>，添加：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GatewayPorts yes</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="socks5代理"><a class="markdownIt-Anchor" href="#socks5代理"></a> socks5代理</h4>
+<p>用法：</p>
+<p>在 HostA 的本地 1080 端口启动一个 socks5 服务，通过本地 socks5 代理的数据会通过 ssh 链接先发送给 HostB，再从 HostB 转发送给远程主机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HostA$ ssh -D localhost:1080  HostB</span><br></pre></td></tr></table></figure>
+<p>那么在 HostA 上面，浏览器配置 socks5 代理为 127.0.0.1:1080，看网页时就能把数据通过 HostB 代理出去，类似 ss/ssr 版本，只不过用 ssh 来实现。</p>
+<h3 id="xargs"><a class="markdownIt-Anchor" href="#xargs"></a> xargs</h3>
+<p>参考链接：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/08/xargs-tutorial.html">xargs 命令教程- 阮一峰的网络日志</a></p>
+<h3 id="systemd"><a class="markdownIt-Anchor" href="#systemd"></a> systemd</h3>
+<blockquote>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html">Systemd 入门教程：命令篇</a>、<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html">Systemd 入门教程：实战篇</a></p>
+</blockquote>
+<p>Systemd 默认从目录<code>/etc/systemd/system/</code>读取配置文件。但是，里面存放的大部分文件都是符号链接，指向目录<code>/lib/systemd/system/</code>，真正的配置文件存放在这个目录中。</p>
+<hr>
+<p><code>systemctl enable</code>命令用于在上面两个目录之间，建立符号链接关系。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="built_in">enable</span> clamd@scan.service</span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">$ sudo ln -s <span class="string">&#x27;/lib/systemd/system/clamd@scan.service&#x27;</span> <span class="string">&#x27;/etc/systemd/system/multi-user.target.wants/clamd@scan.service&#x27;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果配置文件里面设置了开机启动，<code>systemctl enable</code>命令相当于激活开机启动。</li>
+</ul>
+<p>与之对应的，<code>systemctl disable</code>命令用于在两个目录之间，撤销符号链接关系，相当于撤销开机启动。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl <span class="built_in">disable</span> clamd@scan.service</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置文件的后缀名，就是该 Unit 的种类，比如<code>sshd.socket</code>。如果省略，Systemd 默认后缀名为<code>.service</code>，所以<code>sshd</code>会被理解成<code>sshd.service</code>。</li>
+</ul>
+<hr>
+<p>这里给出一个常用的脚本样例（以sshd.service为例）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=OpenSSH server daemon  <span class="comment"># 当前服务的简单描述</span></span><br><span class="line">Documentation=man:sshd(8) man:sshd_config(5)  <span class="comment"># 文档位置</span></span><br><span class="line">After=network.target sshd-keygen.service  <span class="comment"># 如果network.target或sshd-keygen.service需要启动，那么sshd.service应该在它们之后启动</span></span><br><span class="line">Wants=sshd-keygen.service  <span class="comment"># &quot;弱依赖&quot;关系，即如果&quot;sshd-keygen.service&quot;启动失败或停止运行，不影响sshd.service继续执行。</span></span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">EnvironmentFile=/etc/sysconfig/sshd  <span class="comment"># 指定当前服务的环境参数文件</span></span><br><span class="line">ExecStart=/usr/sbin/sshd -D <span class="variable">$OPTIONS</span>  <span class="comment"># 定义启动进程时执行的命令</span></span><br><span class="line">ExecReload=/bin/<span class="built_in">kill</span> -HUP <span class="variable">$MAINPID</span>  <span class="comment"># 重启服务时执行的命令</span></span><br><span class="line">Type=simple  <span class="comment"># 启动类型</span></span><br><span class="line">KillMode=process  <span class="comment"># 定义 Systemd 如何停止 sshd 服务</span></span><br><span class="line">Restart=on-failure  <span class="comment"># 定义 sshd 退出后，Systemd 的重启方式</span></span><br><span class="line">RestartSec=42s  <span class="comment"># 表示 Systemd 重启服务之前，需要等待的秒数</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target  <span class="comment"># 该服务所在的 Target</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>注意，在修改配置文件后需要重新载入配置文件并重启相关服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新加载配置文件</span></span><br><span class="line">$ sudo systemctl daemon-reload</span><br><span class="line"><span class="comment"># 重启相关服务</span></span><br><span class="line">$ sudo systemctl restart xxxx</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令"></a> 常用命令</h4>
+<p>状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示系统状态</span></span><br><span class="line">$ systemctl status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示单个 Unit 的状态</span></span><br><span class="line">$ sysystemctl status bluetooth.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示远程主机的某个 Unit 的状态</span></span><br><span class="line">$ systemctl -H root@rhel7.example.com status httpd.service</span><br></pre></td></tr></table></figure>
+<p>管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使能一个服务</span></span><br><span class="line">$ sudo systemctl <span class="built_in">enable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 失能一个服务</span></span><br><span class="line">$ sudo systemctl <span class="built_in">disable</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即启动一个服务</span></span><br><span class="line">$ sudo systemctl start apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 立即停止一个服务</span></span><br><span class="line">$ sudo systemctl stop apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启一个服务</span></span><br><span class="line">$ sudo systemctl restart apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 杀死一个服务的所有子进程</span></span><br><span class="line">$ sudo systemctl <span class="built_in">kill</span> apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载一个服务的配置文件</span></span><br><span class="line">$ sudo systemctl reload apache.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重载所有修改过的配置文件</span></span><br><span class="line">$ sudo systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看配置文件的内容</span></span><br><span class="line">$ systemctl cat sshd.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某个 Unit 的所有底层参数</span></span><br><span class="line">$ systemctl show httpd.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示某个 Unit 的指定属性的值</span></span><br><span class="line">$ systemctl show -p CPUShares httpd.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置某个 Unit 的指定属性</span></span><br><span class="line">$ sudo systemctl set-property httpd.service CPUShares=500</span><br></pre></td></tr></table></figure>
+<h4 id="开机自启demo"><a class="markdownIt-Anchor" href="#开机自启demo"></a> 开机自启demo</h4>
+<p>首先编写配置文件<code>ipchange.service</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Automatic notification service of IP change</span><br><span class="line">After=network.target sshd.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/home/jz/anaconda3/bin/python /home/jz/Code/Python/IPChange/main.py</span><br><span class="line">ExecReload=/bin/<span class="built_in">kill</span> -HUP <span class="variable">$MAINPID</span></span><br><span class="line">Type=simple</span><br><span class="line">KillMode=control-group</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=10s</span><br><span class="line">Environment=</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"><span class="comment"># Alias=sshd.service</span></span><br></pre></td></tr></table></figure>
+<p>并放在目录<code>/lib/systemd/system/</code>下，之后通过以下命令设置开机自启：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> ipchange.service</span><br></pre></td></tr></table></figure>
+<p>之后启动服务即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">sudo systemctl start ipchange.service</span><br><span class="line"><span class="comment"># 查看一下服务状态</span></span><br><span class="line">sudo systemctl status ipchange.service</span><br><span class="line"><span class="comment"># 停止服务</span></span><br><span class="line">sudo systemctl stop ipchange.service</span><br></pre></td></tr></table></figure>
+<p>如果修改配置文件以后，则需要重新加载配置文件，然后重新启动相关服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重新加载配置文件</span></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line"><span class="comment"># 重启相关服务</span></span><br><span class="line">sudo systemctl restart ipchange.service</span><br></pre></td></tr></table></figure>
+<p>如果程序崩溃可以通过如下命令来查看日志：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看所有日志（默认情况下 ，只保存本次启动的日志）</span></span><br><span class="line">$ sudo journalctl</span><br><span class="line"><span class="comment"># 显示尾部指定行数的日志</span></span><br><span class="line">$ sudo journalctl -n 20</span><br><span class="line"><span class="comment"># 实时滚动显示最新日志</span></span><br><span class="line">$ sudo journalctl -f</span><br><span class="line"><span class="comment"># 查看指定服务的日志</span></span><br><span class="line">$ sudo journalctl /usr/lib/systemd/systemd</span><br><span class="line"><span class="comment"># 查看指定进程的日志</span></span><br><span class="line">$ sudo journalctl _PID=1</span><br><span class="line"><span class="comment"># 查看某个 Unit 的日志</span></span><br><span class="line">$ sudo journalctl -u ipchange.service</span><br><span class="line">$ sudo journalctl -u ipchange.service --since today</span><br><span class="line"><span class="comment"># 实时滚动显示某个 Unit 的最新日志</span></span><br><span class="line">$ sudo journalctl -u ipchange.service -f</span><br></pre></td></tr></table></figure>
+<h3 id="find"><a class="markdownIt-Anchor" href="#find"></a> find</h3>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2020/08/23/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/">http://nu-ll.github.io/2020/08/23/Linux常用命令汇总/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/25/%E5%BC%82%E5%B8%B8%E5%92%8C%E4%B8%AD%E6%96%AD/"><img class="prev-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">异常和中断</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/20/JetsonNano%E6%8C%87%E5%8D%97/"><img class="next-cover" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JetsonNano指南</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/img/spaceman.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">spaceman</div><div class="author-info__description">CtrlC CtrlV大师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">79</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">85</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/NU-LL"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">白嫖一时爽，一直白嫖一直爽</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text"> 用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-text"> 创建用户</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#useradd"><span class="toc-text"> useradd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#adduser"><span class="toc-text"> adduser</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7"><span class="toc-text"> 删除用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0root%E6%9D%83%E9%99%90"><span class="toc-text"> 添加root权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#etcsudoers"><span class="toc-text"> &#x2F;etc&#x2F;sudoers</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#etcsudoersd"><span class="toc-text"> &#x2F;etc&#x2F;sudoers.d&#x2F;*</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%B1%BB"><span class="toc-text"> 压缩解压类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2"><span class="toc-text"> 硬件信息查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E5%92%8C%E7%89%88%E6%9C%AC"><span class="toc-text"> 内核和版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E6%95%B0"><span class="toc-text"> 位数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-text"> 硬件信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#logo"><span class="toc-text"> logo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="toc-text"> 后台运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E6%89%A7%E8%A1%8C"><span class="toc-text"> 后台执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%90%8E%E5%8F%B0"><span class="toc-text"> 查看后台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F"><span class="toc-text"> 关闭后台程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E5%90%8E%E5%8F%B0%E5%88%87%E6%8D%A2"><span class="toc-text"> 前后台切换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E7%9B%B8%E5%85%B3"><span class="toc-text"> 端口相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3"><span class="toc-text"> 查看端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lsof"><span class="toc-text"> lsof</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#netstat"><span class="toc-text"> netstat</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E8%BF%9C%E7%A8%8B%E7%AB%AF%E5%8F%A3"><span class="toc-text"> 检测远程端口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#telnet"><span class="toc-text"> telnet</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nmap"><span class="toc-text"> nmap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nc"><span class="toc-text"> nc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3"><span class="toc-text"> 开放指定端口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86"><span class="toc-text"> 文本处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#awk"><span class="toc-text"> awk</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-text"> 工作方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text"> 运算符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%BB%BA%E5%8F%98%E9%87%8F"><span class="toc-text"> 内建变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%B3%95"><span class="toc-text"> 用法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text"> 例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-text"> sed</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F-2"><span class="toc-text"> 工作方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text"> 命令格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-text"> 例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-text"> grep</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F-2"><span class="toc-text"> 命令格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%BD%A2%E5%BC%8F"><span class="toc-text"> 常见形式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text"> 其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh"><span class="toc-text"> ssh</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%AC%E5%9C%B0%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-text"> 正向代理（本地端口转发）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%BF%9C%E7%A8%8B%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-text"> 反向代理（远程端口转发）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#socks5%E4%BB%A3%E7%90%86"><span class="toc-text"> socks5代理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xargs"><span class="toc-text"> xargs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#systemd"><span class="toc-text"> systemd</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text"> 常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AFdemo"><span class="toc-text"> 开机自启demo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-text"> find</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/11/%E8%9E%8D%E5%90%88%E6%80%BB%E7%BB%93/" title="融合总结">融合总结</a><time datetime="2021-05-11T05:58:15.000Z" title="发表于 2021-05-11 13:58:15">2021-05-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/04/12/conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="conda常用命令">conda常用命令</a><time datetime="2021-04-12T08:47:06.096Z" title="发表于 2021-04-12 16:47:06">2021-04-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/04/02/lidar%E6%91%84%E5%83%8F%E5%A4%B4%E8%9E%8D%E5%90%88/" title="lidar摄像头融合">lidar摄像头融合</a><time datetime="2021-04-02T02:50:34.000Z" title="发表于 2021-04-02 10:50:34">2021-04-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/04/01/C++%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="C++设计模式">C++设计模式</a><time datetime="2021-04-01T13:36:25.000Z" title="发表于 2021-04-01 21:36:25">2021-04-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/03/31/%E4%B9%90%E8%A7%86%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" title="乐视深度相机使用指南">乐视深度相机使用指南</a><time datetime="2021-03-31T04:19:14.000Z" title="发表于 2021-03-31 12:19:14">2021-03-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By spaceman</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><script type="text/javascript" src="https://api.uixsj.cn/hitokoto/w.php?code=js"></script><div id="xsjhitokoto"><script>xsjhitokoto()</script></div> <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tx&color=eee" frameborder="0" allowtransparency="false" align="middle" height="20"></iframe></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

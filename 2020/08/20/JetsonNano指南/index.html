@@ -5,13 +5,13 @@
 <meta property="og:site_name" content="spaceman">
 <meta property="og:description" content="JetsonNano指南  注意，本指南原本只针对4GB版本使用，后期因为使用2GB版本而新增加了一部分内容，有区别的均已经标注  具体资源请参照JetsonNano开发者套件（2GB版本：Jetson Nano 2GB Developer Kit）、Jetson Linux开发手册、Jetson Zoo（各种开源框架及其安装说明） 一、入门 1.准备  SD卡：大于16G，最好64G，class">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
 <meta property="article:published_time" content="2020-08-20T12:02:54.000Z">
-<meta property="article:modified_time" content="2021-11-05T07:52:15.802Z">
+<meta property="article:modified_time" content="2021-12-03T09:11:37.243Z">
 <meta property="article:author" content="spaceman">
 <meta property="article:tag" content="JetsonNano">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="http://nu-ll.github.io/2020/08/20/JetsonNano%E6%8C%87%E5%8D%97/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="http://nu-ll.github.io/2020/08/20/JetsonNano%E6%8C%87%E5%8D%97/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-11-05 15:52:15'
+  postUpdate: '2021-12-03 17:11:37'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -144,7 +144,7 @@
           document.documentElement.classList.remove('hide-aside')
         }
       }
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">89</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">spaceman</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JetsonNano指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-20T12:02:54.000Z" title="发表于 2020-08-20 20:02:54">2020-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-05T07:52:15.802Z" title="更新于 2021-11-05 15:52:15">2021-11-05</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>28分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JetsonNano指南"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>JetsonNano指南</h1>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">91</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">spaceman</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JetsonNano指南</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-08-20T12:02:54.000Z" title="发表于 2020-08-20 20:02:54">2020-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-03T09:11:37.243Z" title="更新于 2021-12-03 17:11:37">2021-12-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">12.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>53分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JetsonNano指南"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>JetsonNano指南</h1>
 <blockquote>
 <p>注意，本指南原本只针对4GB版本使用，后期因为使用2GB版本而新增加了一部分内容，有区别的均已经标注</p>
 </blockquote>
@@ -642,7 +642,800 @@
 </ul>
 <h5 id="1-2-3语义分割（SegNet）">1.2.3语义分割（SegNet）</h5>
 <h4 id="1-3训练">1.3训练</h4>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2020/08/20/JetsonNano%E6%8C%87%E5%8D%97/">http://nu-ll.github.io/2020/08/20/JetsonNano指南/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JetsonNano/">JetsonNano</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/23/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/"><img class="prev-cover" src="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux常用命令汇总</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/19/%E5%A4%A7%E7%96%86%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%8B%9B%E8%81%98%E6%84%9F%E6%82%9F/"><img class="next-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">大疆嵌入式招聘感悟</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/spaceman.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">spaceman</div><div class="author-info__description">CtrlC CtrlV大师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">84</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">89</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/NU-LL"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">白嫖一时爽，一直白嫖一直爽</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">JetsonNano指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%A5%E9%97%A8"><span class="toc-text">一、入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87"><span class="toc-text">1.准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%80%E5%A7%8B"><span class="toc-text">2.开始</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">二、基本环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-text">1.更换国内源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85CUDA"><span class="toc-text">2.安装CUDA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AEpython"><span class="toc-text">3.配置python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85Code-OSS"><span class="toc-text">4.安装Code OSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AE%89%E8%A3%85OPENCV"><span class="toc-text">5.安装OPENCV</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1python%E7%8E%AF%E5%A2%83"><span class="toc-text">5.1python环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E6%91%84%E5%83%8F%E5%A4%B4%E8%AF%BB%E5%8F%96"><span class="toc-text">5.2摄像头读取</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CSI%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-text">CSI摄像头</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#USB%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-text">USB摄像头</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1"><span class="toc-text">6.安装VNC服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%EF%BC%9A%E6%B0%B4%E6%B5%81%E6%A3%80%E6%B5%8B%E4%BB%A3%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">实验：水流检测代码环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91%E5%B9%B6%E5%AE%89%E8%A3%85opencv"><span class="toc-text">手动编译并安装opencv</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E5%88%B0python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-text">链接到python虚拟环境</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pytorch%E5%AE%89%E8%A3%85"><span class="toc-text">pytorch安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-2"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-text">验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#torchvision%E5%AE%89%E8%A3%85"><span class="toc-text">torchvision安装</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85FCOS%E7%8E%AF%E5%A2%83"><span class="toc-text">安装FCOS环境</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-text">三、深度学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-jetson-inference%E9%A1%B9%E7%9B%AE"><span class="toc-text">1.jetson-inference项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">1.1环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#docker%E6%96%B9%E5%BC%8F"><span class="toc-text">docker方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-text">源码方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%E6%8E%A8%E7%90%86"><span class="toc-text">1.2推理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1%E5%88%86%E7%B1%BB%EF%BC%88ImageNet%EF%BC%89"><span class="toc-text">1.2.1分类（ImageNet）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2%E6%A3%80%E6%B5%8B%EF%BC%88DetectNet%EF%BC%89"><span class="toc-text">1.2.2检测（DetectNet）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-3%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%EF%BC%88SegNet%EF%BC%89"><span class="toc-text">1.2.3语义分割（SegNet）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%E8%AE%AD%E7%BB%83"><span class="toc-text">1.3训练</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/04/Arduino%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%BF%E5%8D%A1/" title="Arduino中添加自定义板卡">Arduino中添加自定义板卡</a><time datetime="2021-11-04T10:37:40.000Z" title="发表于 2021-11-04 18:37:40">2021-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/10/06/ESP32%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="ESP32环境配置">ESP32环境配置</a><time datetime="2021-10-06T06:54:51.000Z" title="发表于 2021-10-06 14:54:51">2021-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/08/03/%E5%85%A8%E5%BF%97F1C200S/" title="全志F1C200S">全志F1C200S</a><time datetime="2021-08-03T09:45:35.000Z" title="发表于 2021-08-03 17:45:35">2021-08-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/31/%E7%8E%B0%E4%BB%A3%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BB%93/" title="现代操作系统总结">现代操作系统总结</a><time datetime="2021-05-31T12:29:35.000Z" title="发表于 2021-05-31 20:29:35">2021-05-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/05/31/Linux%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F/" title="Linux条件变量">Linux条件变量</a><time datetime="2021-05-31T07:44:24.000Z" title="发表于 2021-05-31 15:44:24">2021-05-31</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By spaceman</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><script type="text/javascript" src="https://api.uixsj.cn/hitokoto/w.php?code=js"></script><div id="xsjhitokoto"><script>xsjhitokoto()</script></div> <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tx&color=eee" frameborder="0" allowtransparency="false" align="middle" height="20"></iframe></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+<h3 id="2-tensorRT-yolov5">2.tensorRT+yolov5</h3>
+<blockquote>
+<p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/jkjung-avt/tensorrt_demos">jkjung-avt/tensorrt_demos: TensorRT MODNet, YOLOv4, YOLOv3, SSD, MTCNN, and GoogLeNet</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/tensorrt/index.html">NVIDIA Deep Learning TensorRT Documentation</a></li>
+</ul>
+</blockquote>
+<h4 id="2-1-PyCUDA安装">2.1 PyCUDA安装</h4>
+<p>为了使用TensorRT Python API，需要安装pycuda，版本为2019.1.2，从<a target="_blank" rel="noopener" href="https://pypi.org/project/pycuda/#history">PyPI</a>处下载对应的版本即可</p>
+<blockquote>
+<p>通过pip仓库安装的方式会出问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量 使用系统自带的nvcc</span></span><br><span class="line"><span class="built_in">export</span> CUDA_HOME=/usr/<span class="built_in">local</span>/cuda  <span class="comment"># 实际链接到了/usr/local/cuda-10.2</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$CUDA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBARY_PATH=<span class="variable">$CUDA_HOME</span>/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pip install --global-option=build_ext --global-option=<span class="string">&quot;-I/usr/local/cuda/include&quot;</span> --global-option=<span class="string">&quot;-L/usr/local/cuda/lib64&quot;</span> pycuda --user -v</span><br></pre></td></tr></table></figure>
+<p>通过以下方式安装没有问题：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量 使用系统自带的nvcc</span></span><br><span class="line"><span class="built_in">export</span> CUDA_HOME=/usr/<span class="built_in">local</span>/cuda  <span class="comment"># 实际链接到了/usr/local/cuda-10.2</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$CUDA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBARY_PATH=<span class="variable">$CUDA_HOME</span>/lib64:<span class="variable">$LD_LIBRARY_PATH</span></span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pip install <span class="string">&#x27;pycuda&lt;2021.1&#x27;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>手动编译并安装pycuda（参考<a target="_blank" rel="noopener" href="https://github.com/jkjung-avt/tensorrt_demos">jkjung-avt/tensorrt_demos</a>项目中的<code>tensorrt_demos/ssd/install_pycuda.sh</code>）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置环境变量 使用系统自带的nvcc</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/cuda-10.2/bin</span><br><span class="line"><span class="comment"># 安装相关依赖</span></span><br><span class="line">sudo apt-get install build-essential python3-dev</span><br><span class="line">sudo apt-get install libboost-python-dev libboost-thread-dev</span><br><span class="line">pip install setuptools</span><br><span class="line"><span class="comment"># 从 https://pypi.org/project/pycuda/#files 处下载pycuda的源码包</span></span><br><span class="line">tar xzvf pycuda-2019.1.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> pycuda-2019.1.2</span><br><span class="line"><span class="comment"># 配置</span></span><br><span class="line">boost_pylib=$(basename /usr/lib/aarch64-linux-gnu/libboost_python*-py3?.so)  <span class="comment"># libboost_python3-py36.so</span></span><br><span class="line">boost_pylibname=<span class="variable">$&#123;boost_pylib%.so&#125;</span>  <span class="comment"># libboost_python3-py36</span></span><br><span class="line">boost_pyname=<span class="variable">$&#123;boost_pylibname/lib/&#125;</span>  <span class="comment"># boost_python3-py36</span></span><br><span class="line">python ./configure.py --python-exe=/home/jetson/mambaforge/envs/yolov5/bin/python --cuda-root=/usr/<span class="built_in">local</span>/cuda --cudadrv-lib-dir=/usr/lib/aarch64-linux-gnu --boost-inc-dir=/usr/include --boost-lib-dir=/usr/lib/aarch64-linux-gnu --boost-python-libname=<span class="variable">$&#123;boost_pyname&#125;</span> --boost-thread-libname=boost_thread --no-use-shipped-boost</span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">make -j4</span><br><span class="line">python setup.py build</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意更换python路径</li>
+<li>可执行程序的路径可以通过<code>where</code>命令获取</li>
+</ul>
+<h4 id="2-2-cuDNN安装">2.2 cuDNN安装</h4>
+<p>NVIDIA CUDA 深度神经网络库 (cuDNN) 是经 GPU 加速的深度神经网络基元库。cuDNN 可大幅优化标准例程（例如用于前向传播和反向传播的卷积层、池化层、归一化层和激活层）的实施。</p>
+<blockquote>
+<p>注意：jetson中默认已经安装cuDNN 8，无需再次安装</p>
+</blockquote>
+<p>根据后面tensorRT的要求，需要安装cuDNN8.1.1，根据<a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/archives/cudnn-811/install-guide/index.html">官方安装手册</a>，先去<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cudnn">NVIDIA cuDNN home page</a>下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf cudnn-x.x-linux-x64-v8.x.x.x.tgz</span><br><span class="line"><span class="comment"># 将以下文件复制到 CUDA Toolkit 目录中</span></span><br><span class="line">sudo cp cuda/include/cudnn*.h /usr/<span class="built_in">local</span>/cuda/include </span><br><span class="line">sudo cp -P cuda/lib64/libcudnn* /usr/<span class="built_in">local</span>/cuda/lib64 </span><br><span class="line">sudo chmod a+r /usr/<span class="built_in">local</span>/cuda/include/cudnn*.h /usr/<span class="built_in">local</span>/cuda/lib64/libcudnn*</span><br></pre></td></tr></table></figure>
+<p>另一种直接通过apt安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install libcudnn8</span><br><span class="line">sudo apt install libcudnn8-dev</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-tensorRT安装">2.3 tensorRT安装</h4>
+<p>NVIDIA TensorRT 是用于高性能深度学习推理的 SDK。此 SDK 包含深度学习推理优化器和运行时环境，可为深度学习推理应用提供低延迟和高吞吐量。</p>
+<blockquote>
+<p>注意：jetson中已经自带有tensorRT，通过<code>dpkg -l | grep TensorRT</code>命令可以查看， 但是在conda的虚拟环境中不能使用，通过以下两种方式可以在conda中使用：</p>
+<ol>
+<li>
+<p>设置环境变量<code>PYTHONPATH</code>后，在激活conda环境即可载入原始python环境中自带的tensorRT</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYTHONPATH=/usr/lib/python3.6/dist-packages:<span class="variable">$PYTHONPATH</span></span><br><span class="line">conda activate yolov5</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>从原始环境中拷贝</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /usr/lib/python3.6/dist-packages/tensorrt* /home/jetson/mambaforge/envs/yolov5/lib/python3.6/site-packages</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p>需要条件：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA 10.2</a>, <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">11.0 update 1</a>, <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">11.1 update 1</a>, or <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">11.2 update 1</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/release-notes/rel_8.html#rel-811">cuDNN 8.1.1</a></li>
+<li>TensorFlow 1.15.3以上</li>
+<li>Pytorch 1.5.0测试通过</li>
+<li>ONNX 1.6.0测试通过</li>
+<li>python3（可选）</li>
+<li>PyCUDA &gt;= 2019.1.1（可选）</li>
+</ul>
+<p>去<a target="_blank" rel="noopener" href="https://developer.nvidia.com/tensorrt">官网</a>下载tar方式的安装包，注意版本选择为TensorRT 7.2.3（后缀EA为Early Access），根据官方教程<a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/tensorrt/archives/tensorrt-723/install-guide/index.html">TensorRT 7.2.3 安装指南</a>安装，选取tar的安装方式</p>
+<blockquote>
+<p>各种包的对比：</p>
+<p>deb、rpm包：</p>
+<ul>
+<li>自动安装依赖</li>
+<li>需要sudo</li>
+<li>对于TensorRT安装在哪个位置没有灵活性</li>
+<li>需要使用 Debian 或 RPM 软件包安装 CUDA Toolkit 和 cuDNN。</li>
+<li>不允许同时安装一个以上的 TensorRT 次要版本</li>
+</ul>
+<p>tar包：提供了更多的灵活性，例如同时安装多个版本的 TensorRT。但是需要确保已经安装了必要的依赖项，并且必须自己管理 LD_LIBRARY_PATH</p>
+<p>zip包：是当前用于 Windows 的唯一选项。它不支持除 Windows 之外的任何其他平台。确保您已经安装了必要的依赖项</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar xzvf TensorRT-7.2.3.4.Ubuntu-18.04.x86_64-gnu.cuda-10.2.cudnn8.1.tar.gz</span><br><span class="line"><span class="comment"># 将 TensorRT 中的 lib 目录的绝对路径添加到环境变量 LD_LIBRARY_PATH 中：</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/home/jetson/TensorRT-7.2.3.4/lib</span><br><span class="line"><span class="comment"># 安装 Python TensorRT</span></span><br><span class="line"><span class="built_in">cd</span> TensorRT-7.2.3.4/python</span><br><span class="line">pip install tensorrt-7.2.3.4-cp36-none-linux_x86_64.whl</span><br><span class="line"><span class="comment"># 安装 Python UFF 轮文件。仅当您计划将 TensorRT 与 TensorFlow 结合使用时才需要这样做</span></span><br><span class="line"><span class="built_in">cd</span> TensorRT-7.2.3.4/uff</span><br><span class="line">pip install uff-0.6.9-py2.py3-none-any.whl</span><br><span class="line"><span class="built_in">which</span> convert-to-uff <span class="comment"># 检查</span></span><br><span class="line"><span class="comment"># 安装 Python graphsurgeon</span></span><br><span class="line"><span class="built_in">cd</span> TensorRT-7.2.3.4/graphsurgeon</span><br><span class="line">pip install graphsurgeon-0.4.5-py2.py3-none-any.whl</span><br><span class="line"><span class="comment"># 安装 Python onnx-graphsurgeon</span></span><br><span class="line"><span class="built_in">cd</span> TensorRT-7.2.3.4/onnx_graphsurgeon</span><br><span class="line">pip install onnx_graphsurgeon-0.2.6-py2.py3-none-any.whl</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意TensorRT的版本号与python的版本号</li>
+<li>整个安装过程在conda中，所以无需区分pip2、pip3，同时无需使用sudo</li>
+</ul>
+<h4 id="2-4-模型转换">2.4 模型转换</h4>
+<h5 id="2-4-1-方案一（暂未通过）">2.4.1 方案一（暂未通过）</h5>
+<blockquote>
+<p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5/issues/251">TFLite, ONNX, CoreML Export · Issue #251 · ultralytics/yolov5</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jkjung-avt/tensorrt_demos#yolov4">jkjung-avt/tensorrt_demos: TensorRT MODNet, YOLOv4, YOLOv3, SSD, MTCNN, and GoogLeNet</a></li>
+</ul>
+</blockquote>
+<p>安装onnx：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mamba install onnx</span><br></pre></td></tr></table></figure>
+<p>编译<code>libyolo_layer.so</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;HOME&#125;</span>/project/tensorrt_demos/plugins</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+<p>模型转换 *.pt --&gt; *.onnx --&gt; tensorrt：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 去yolov5仓库 将pt转成onnx</span></span><br><span class="line"><span class="built_in">cd</span> yolov5-master</span><br><span class="line">python export.py --weights ../yolov5n_person.pt --include onnx --dynamic</span><br><span class="line"><span class="comment"># 回tensorrt_demos仓库 将onnx转成tensorrt</span></span><br><span class="line"><span class="built_in">cd</span> -</span><br><span class="line">python onnx_to_tensorrt.py -m ../../yolov5n_person.onnx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>如果上述步骤中出现错误：ImportError: /usr/lib/aarch64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.26’ not found ，则需要降低scipy版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mamba install scipy==1.3.1</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>实测上述问题不能在jetson nano上解决，需要通过设置<code>LD_LIBRARY_PATH</code>环境变量修改链接库到conda内部：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$LD_LIBRARY_PATH</span>:/home/jetson/mambaforge/envs/yolov5/lib/</span><br><span class="line"><span class="comment"># 检查对应的库中是否存需要的符号：</span></span><br><span class="line">strings /home/jetson/mambaforge/envs/yolov5/lib/libstdc++.so.6 | grep GLIBCXX</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-4-2-方案二">2.4.2 方案二</h5>
+<blockquote>
+<p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/wang-xinyu/pytorchx">wang-xinyu/pytorchx: Implement popular deep learning networks in pytorch, used by tensorrtx.</a></li>
+</ul>
+</blockquote>
+<p>参考上述链接中的<a target="_blank" rel="noopener" href="https://github.com/wang-xinyu/tensorrtx/tree/5f1b048a29e2fcd9eb85b780c89b90a4f052a3b7/yolov5">tensorrtx/yolov5/README.md</a>即可</p>
+<p>采用<a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5/releases">YOLOv5s</a>，推理时间在71ms左右，相比原来未经过tensorRT加速的网络快30ms左右</p>
+<h4 id="2-5-DeepStream">2.5 DeepStream</h4>
+<blockquote>
+<p>参考链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/index.html">NVIDIA DeepStream SDK Developer Guide — DeepStream 6.0 Release documentation</a></li>
+</ul>
+</blockquote>
+<p>DeepStream 是一个流分析工具包，用于构建 AI 驱动的应用程序。它将流数据作为输入——来自 USB/CSI 摄像头、来自文件的视频或通过 RTSP 的流，并使用人工智能和计算机视觉从像素中生成洞察力，以便更好地了解环境。 DeepStream SDK 可以成为许多视频分析解决方案的基础层，例如了解智慧城市中的交通和行人、医院中的健康和安全监控、零售中的自助结账和分析、制造工厂中的组件缺陷检测等。</p>
+<p>DeepStream需要librdkafka 库，该库是 Apache Kafka 协议的 C 库实现，提供生产者、消费者和管理客户端。它的设计考虑了消息传递的可靠性和高性能，目前的数据是生产者每秒超过 100 万条消息，消费者每秒超过 300 万条消息。</p>
+<p>根据上述DeepStream SDK的开发手册中的<a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_Quickstart.html#jetson-setup">Quickstart Guide — DeepStream 6.0 Release documentation</a>，安装jetson上的DeepStream 即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">sudo apt install libssl1.0.0 libgstreamer1.0-0 gstreamer1.0-tools gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav libgstrtspserver-1.0-0 libjansson4=2.11-1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装librdkafka</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/edenhill/librdkafka.git</span><br><span class="line"><span class="comment"># 配置、编译librdkafka</span></span><br><span class="line"><span class="built_in">cd</span> librdkafka</span><br><span class="line">git reset --hard 7101c2310341ab3f4675fc565f64f0967e135a6a</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br><span class="line"><span class="comment"># 将生成的库复制到 deepstream 目录：</span></span><br><span class="line">sudo mkdir -p /opt/nvidia/deepstream/deepstream-6.0/lib</span><br><span class="line">sudo cp /usr/<span class="built_in">local</span>/lib/librdkafka* /opt/nvidia/deepstream/deepstream-6.0/lib</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装最新的 NVIDIA BSP</span></span><br><span class="line">sudo vi /etc/apt/sources.list.d/nvidia-l4t-apt-source.list</span><br><span class="line"><span class="comment"># 在如下所示的 deb 命令中更改存储库名称和下载 URL：</span></span><br><span class="line">deb https://repo.download.nvidia.com/jetson/common r32.6 main</span><br><span class="line">deb https://repo.download.nvidia.com/jetson/t210 r32.6 main  <span class="comment"># t210为Jetson Nano</span></span><br><span class="line"><span class="comment"># 更新</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install --reinstall nvidia-l4t-gstreamer</span><br><span class="line"><span class="comment"># 使用以下命令安装最新的 L4T MM 和 L4T Core 软件包：</span></span><br><span class="line">sudo apt install --reinstall nvidia-l4t-multimedia</span><br><span class="line">sudo apt install --reinstall nvidia-l4t-core</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 DeepStream SDK</span></span><br><span class="line"><span class="comment"># 方法一：使用SDK Manager（详见官方手册）</span></span><br><span class="line"><span class="comment"># 方法二：使用tar包</span></span><br><span class="line"><span class="comment"># 从https://developer.nvidia.com/deepstream_sdk_v6.0.0_jetsontbz2处下载tar包</span></span><br><span class="line"><span class="comment"># 输入以下命令以提取并安装 DeepStream SDK：</span></span><br><span class="line">sudo tar -xvf deepstream_sdk_v6.0.0_jetson.tbz2 -C /</span><br><span class="line"><span class="built_in">cd</span> /opt/nvidia/deepstream/deepstream-6.0</span><br><span class="line">sudo ./install.sh</span><br><span class="line">sudo ldconfig</span><br><span class="line"><span class="comment"># 方法三：使用deb包</span></span><br><span class="line"><span class="comment"># 从https://developer.nvidia.com/deepstream-6.0_6.0.0-1_arm64deb处下载deb包</span></span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">sudo apt install libgstrtspserver-1.0-0 libgstreamer-plugins-base1.0-dev</span><br><span class="line">sudo dpkg -i ./deepstream-6.0_6.0.0-1_arm64.deb</span><br></pre></td></tr></table></figure>
+<p>使用官方用例测试：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/nvidia/deepstream/deepstream-6.0/samples/configs/deepstream-app/</span><br><span class="line">deepstream-app -c source8_1080p_dec_infer-resnet_tracker_tiled_display_fp16_nano.txt</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>如果发生<a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/failed-to-create-element-src-bin-muxer/65285">Failed to create element ‘src_bin_muxer’</a>错误，根据上述帖子中的内容，删除缓存即可：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm <span class="variable">$&#123;HOME&#125;</span>/.cache/gstreamer-1.0/registry.aarch64.bin</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-5-1-deepstream-app-配置">2.5.1 deepstream-app 配置</h5>
+<p>汇总表：</p>
+<table>
+<thead>
+<tr>
+<th>组名</th>
+<th>配置组</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#application-group">Application Group</a></td>
+<td>与特定组件无关的应用程序配置</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#tiled-display-group">Tiled-display Group</a></td>
+<td>应用程序中的平铺显示</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#source-group">Source Group</a></td>
+<td>源属性。可以有多个来源。这些组必须命名为：[source0], [source1] …</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#streammux-group">Streammux Group</a></td>
+<td>指定流复用组件（streammux）的属性和修改其行为</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#preprocess-group">Preprocess Group</a></td>
+<td>指定预处理组件的属性和修改行为</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#primary-gie-and-secondary-gie-group">Primary GIE and Secondary GIE Group</a></td>
+<td>指定主 GIE 的属性并修改其行为。指定辅助 GIE 的属性并修改其行为。这些组必须命名为：[secondary-gie0], [secondary-gie1] …</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#tracker-group">Tracker Group</a></td>
+<td>指定对象跟踪器的属性并修改其行为</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#message-converter-group">Message Converter Group</a></td>
+<td>指定消息转换器组件的属性和修改其行为</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#message-consumer-group">Message Consumer Group</a></td>
+<td>指定属性并修改消息使用者组件的行为。管道可以包含多个消息使用者组件。组必须命名为 [message-consumer0], [message-consumer1] …</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#osd-group">OSD Group</a></td>
+<td>指定属性并修改在每一帧上覆盖文本和矩形的屏幕显示 (on-screen display，OSD) 组件</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#sink-group">Sink Group</a></td>
+<td>指定表示输出（例如用于渲染、编码和文件保存的显示和文件）的接收器组件（sink components）的属性并修改其行为。管道可以包含多个接收器。组必须命名为：[sink0], [sink1] …</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#tests-group">Tests Group</a></td>
+<td>诊断和调试。这组是实验性的</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html#nvds-analytics-group">NvDs-analytics Group</a></td>
+<td>指定 nvdsanalytics 插件配置文件，并在应用程序中添加插件</td>
+</tr>
+</tbody>
+</table>
+<h6 id="Application-Group">Application Group</h6>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+<th>Type and Value</th>
+<th>Example</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable-perf-measurement</td>
+<td>指示是否启用应用程序性能测量</td>
+<td>Boolean</td>
+<td>enable-perf-measurement=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>perf-measurement-interval-sec</td>
+<td>采样和打印性能指标的时间间隔（以秒为单位）</td>
+<td>Integer, &gt;0</td>
+<td>perf-measurement-interval-sec=10</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>gie-kitti-output-dir</td>
+<td>应用程序以 KITTI 格式存储的主检测器输出的路径名</td>
+<td>String</td>
+<td>gie-kitti-output-dir=­/home/­ubuntu/­kitti_data/</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>kitti-track-output-dir</td>
+<td>应用程序以 KITTI 格式存储的跟踪器输出的路径名</td>
+<td>String</td>
+<td>kitti-track-output-dir=­/home/­ubuntu/­kitti_data_tracker/</td>
+<td>dGPU, Jetson</td>
+</tr>
+</tbody>
+</table>
+<h6 id="Tiled-display-Group">Tiled-display Group</h6>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+<th>Type and Value</th>
+<th>Example</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>表示是否启用平铺显示。当用户设置enable=2时，第一个键值为link-to-emux=1的[sink]组应被链接到demuxer的src_[source_id]垫，其中source_id是在相应的[sink]组中设置的键值</td>
+<td>Integer, <br>0 = disabled<br>1 = tiler-enabled <br>2 = tiler-and-parallel-demux-to-sink-enabled</td>
+<td>enable=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>rows</td>
+<td>平铺二维数组中的行数</td>
+<td>Integer, &gt;0</td>
+<td>rows=5</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>columns</td>
+<td>平铺二维数组中的列数</td>
+<td>Integer, &gt;0</td>
+<td>columns=6</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>width</td>
+<td>平铺二维阵列的宽度，以像素为单位</td>
+<td>Integer, &gt;0</td>
+<td>width=1280</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>height</td>
+<td>平铺二维阵列的高度，以像素为单位</td>
+<td>Integer, &gt;0</td>
+<td>height=720</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>gpu-id</td>
+<td>在多个 GPU 的情况下，组件将使用 GPU</td>
+<td>Integer, ≥0</td>
+<td>gpu-id=0</td>
+<td>dGPU</td>
+</tr>
+<tr>
+<td>nvbuf-memory-type</td>
+<td>组件为输出缓冲区分配的内存类型。<br>0 (nvbuf-mem-default)：特定于平台的默认类型<br>1 (nvbuf-mem-cuda-pinned): pinned/host CUDA 内存<br>2（nvbuf-mem-cuda-device）：设备CUDA内存<br>3（nvbuf-mem-cuda-unified）：统一CUDA内存<br>对于 dGPU：所有值均有效。<br>对于 Jetson：只有 0（零）有效。</td>
+<td>Integer, 0, 1, 2, or 3</td>
+<td>nvbuf-memory-type=3</td>
+<td>dGPU, Jetson</td>
+</tr>
+</tbody>
+</table>
+<h6 id="Source-Group">Source Group</h6>
+<p>DeepStream 应用程序支持多个同步源。对于每个源，必须在配置文件中添加一个单独的组，组名为 source%d 形式</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+<th>Type and Value</th>
+<th>Example</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>启用或禁用源</td>
+<td>Boolean</td>
+<td>enable=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>type</td>
+<td>输入源类型；输入源的其他属性取决于此类型。<br>1：相机（V4L2）<br>2：URI<br>3：多个URI<br>4：RTSP<br>5：相机（CSI）（仅限Jetson）</td>
+<td>Integer, 1, 2, 3, 4, or 5</td>
+<td>type=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>uri</td>
+<td>编码流的 URI。 URI 可以是文件、HTTP URI 或 RTSP 实时源。当 type=2 或 3 时有效。对于 MultiURI，%d 格式说明符也可用于指定多个源。应用程序从 0 迭代到 num-sources 以生成实际的 URI</td>
+<td>String</td>
+<td>uri=file:///home/ubuntu/source.mp4 uri=http://127.0.0.1/source.mp4 uri=rtsp://127.0.0.1/source1 uri=file:///home/ubuntu/source_%d.mp4</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>num-sources</td>
+<td>输入源数量。仅当 type=3 时有效</td>
+<td>Integer, ≥0</td>
+<td>num-sources=2</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>intra-decode-enable</td>
+<td>启用或禁用仅内部解码（intra-only decode）</td>
+<td>Boolean</td>
+<td>intra-decode-enable=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>num-extra-surfaces</td>
+<td>除解码器给出的最小解码曲面外的曲面数。可用于管理管道中解码器输出缓冲区的数量</td>
+<td>Integer, ≥0 and ≤24</td>
+<td>num-extra-surfaces=5</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>gpu-id</td>
+<td>在多个 GPU 的情况下，组件使用的 GPU</td>
+<td>Integer, ≥0</td>
+<td>gpu-id=1</td>
+<td>dGPU</td>
+</tr>
+<tr>
+<td>camera-id</td>
+<td>要添加到元数据的输入源的唯一 ID（可选）</td>
+<td>Integer, ≥0</td>
+<td>camera-id=2</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>camera-width</td>
+<td>从相机请求的帧宽度，以像素为单位。当type=1或5时有效</td>
+<td>Integer, &gt;0</td>
+<td>camera-width=1920</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>camera-height</td>
+<td>从相机请求的帧高度，以像素为单位。当type=1或5时有效</td>
+<td>Integer, &gt;0</td>
+<td>camera-height=1080</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>camera-fps-n</td>
+<td>指定相机请求的帧速率分数的分子部分，以帧/秒为单位。当 type=1 或 5 时有效</td>
+<td>Integer, &gt;0</td>
+<td>camera-fps-n=30</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>camera-fps-d</td>
+<td>指定相机请求的帧速率分数的分母部分，以帧/秒为单位。当 type = 1 或 5 时有效</td>
+<td>Integer, &gt;0</td>
+<td>camera-fps-d=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>camera-v4l2-dev-node</td>
+<td>V4L2设备节点编号。例如，/dev/video<num> 为打开 V4L2 相机路径。当类型设置（源类型）为 1 时有效</num></td>
+<td>Integer, &gt;0</td>
+<td>camera-v4l2-dev-node=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>latency</td>
+<td>以毫秒为单位的抖动缓冲区大小；仅适用于 RTSP 流</td>
+<td>Integer, ≥0</td>
+<td>latency=200</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>camera-csi-sensor-id</td>
+<td>摄像头模块的传感器 ID。当类型（源类型）为 5 时有效</td>
+<td>Integer, ≥0</td>
+<td>camera-csi-sensor-id=1</td>
+<td>Jetson</td>
+</tr>
+<tr>
+<td>drop-frame-interval</td>
+<td>丢帧间隔。例如，5 表示解码器每五帧输出一次； 0 表示不丢帧。</td>
+<td>Integer,</td>
+<td>drop-frame-interval=5</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>cudadec-memtype</td>
+<td>用于为类型 2,3 或 4 的源分配输出缓冲区的 CUDA 内存元素类型。不适用于 CSI 或 USB 相机源<br>0 (memtype_device)：使用 cudaMalloc() 分配的设备内存。<br>1 (memtype_pinned)：使用 cudaMallocHost() 分配的主机/固定内存。<br>2 (memtype_unified)：使用 cudaMallocManaged() 分配的统一内存。</td>
+<td>Integer, 0, 1, or 2</td>
+<td>cudadec-memtype=1</td>
+<td>dGPU</td>
+</tr>
+<tr>
+<td>nvbuf-memory-type</td>
+<td>元素为 nvvideoconvert 的输出缓冲区分配的 CUDA 内存类型，对于类型 1 的源有用。<br>0（nvbuf-mem-default，特定于平台的默认值<br>1 (nvbuf-mem-cuda-pinned)：固定/主机 CUDA 内存。<br>2 (nvbuf-mem-cuda-device)：设备 CUDA 内存。<br>3 (nvbuf-mem-cuda-unified)：统一CUDA内存。<br>对于 dGPU：所有值均有效。<br>对于 Jetson：只有 0（零）有效。</td>
+<td>Integer, 0, 1, 2, or 3</td>
+<td>nvbuf-memory-type=3</td>
+<td>dGPU,Jetson</td>
+</tr>
+<tr>
+<td>select-rtp-protocol</td>
+<td>用于 RTP 的传输协议。当 type（源类型）为 4 时有效<br>0：UDP + UDP 组播 + TCP<br>4：仅 TCP</td>
+<td>Integer, 0 or 4</td>
+<td>select-rtp-protocol=4</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>rtsp-reconnect-interval-sec</td>
+<td>在强制重新连接之前从 RTSP 源接收到最后一个数据后等待的超时时间（以秒为单位）。将其设置为 0 将禁用重新连接。当 type（源类型）为 4 时有效</td>
+<td>Integer, ≥0</td>
+<td>rtsp-reconnect-interval-sec=60</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>rtsp-reconnect-attempts</td>
+<td>尝试重新连接的最大次数。将其设置为 -1 意味着将无限尝试重新连接。当源类型为 4 且 rtsp-reconnect-interval-sec 为非零正值时有效。</td>
+<td>Integer, ≥-1</td>
+<td>rtsp-reconnect-attempts=2</td>
+<td></td>
+</tr>
+<tr>
+<td>smart-record</td>
+<td>触发智能记录的方法。<br>0：禁用<br>1：只能通过云消息<br>2：云消息+本地事件</td>
+<td>Integer, 0, 1 or 2</td>
+<td>smart-record=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-dir-path</td>
+<td>保存录制文件的目录路径。默认使用当前目录</td>
+<td>String</td>
+<td>smart-rec-dir-path=/home/nvidia/</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-file-prefix</td>
+<td>录制视频的文件名前缀。默认情况下，Smart_Record 是前缀。对于唯一的文件名，必须为每个源提供唯一的前缀</td>
+<td>String</td>
+<td>smart-rec-file-prefix=Cam1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-cache</td>
+<td>以秒为单位的智能记录缓存大小</td>
+<td>Integer, ≥0</td>
+<td>smart-rec-cache=20</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-container</td>
+<td>录制视频的容器格式。支持 MP4 和 MKV 容器</td>
+<td>Integer, 0 or 1</td>
+<td>smart-rec-container=0</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-start-time</td>
+<td>从现在开始记录的提前秒数。例如。如果 t0 是当前时间，N 是开始时间（以秒为单位），这意味着录制将从 t0 – N 开始。显然要使其工作，视频缓存大小必须大于 N</td>
+<td>Integer, ≥0</td>
+<td>smart-rec-start-time=5</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-default-duration</td>
+<td>如果未生成停止事件。此参数将确保在预定义的默认持续时间后停止录制</td>
+<td>Integer, ≥0</td>
+<td>smart-rec-default-duration=20</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-duration</td>
+<td>以秒为单位的记录持续时间</td>
+<td>Integer, ≥0</td>
+<td>smart-rec-duration=15</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>smart-rec-interval</td>
+<td>这是 SR 启动/停止事件生成的时间间隔（以秒为单位）</td>
+<td>Integer, ≥0</td>
+<td>smart-rec-interval=10</td>
+<td>dGPU, Jetson</td>
+</tr>
+</tbody>
+</table>
+<h6 id="Streammux-Group">Streammux Group</h6>
+<p>[streammux] 组指定和修改 Gst-nvstreammux 插件的属性</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+<th>Type and Value</th>
+<th>Example</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>gpu-id</td>
+<td>GPU element is to use in case of multiple GPUs.</td>
+<td>Integer, ≥0</td>
+<td>gpu-id=1</td>
+<td>dGPU</td>
+</tr>
+<tr>
+<td>live-source</td>
+<td>通知多路复用器（muxer），输入源是实时的</td>
+<td>Boolean</td>
+<td>live-source=0</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>buffer-pool-size</td>
+<td>Muxer 输出缓冲池中的缓冲区数</td>
+<td>Integer, &gt;0</td>
+<td>buffer-pool-size=4</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>batch-size</td>
+<td>Muxer batch size.</td>
+<td>Integer, &gt;0</td>
+<td>batch-size=4</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>batched-push-timeout</td>
+<td>在第一个缓冲区可用后，推送批次（batch）后的超时时间（以微秒为单位），即使没有形成完整的批次（batch）</td>
+<td>Integer, ≥−1</td>
+<td>batched-push-timeout=40000</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>width</td>
+<td>多路复用器（Muxer）输出宽度（以像素为单位）</td>
+<td>Integer, &gt;0</td>
+<td>width=1280</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>height</td>
+<td>多路复用器（Muxer）输出高度（以像素为单位）</td>
+<td>Integer, &gt;0</td>
+<td>height=720</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>enable-padding</td>
+<td>在通过添加黑带（black bands）进行缩放时是否保持源纵横比</td>
+<td>Boolean</td>
+<td>enable-padding=0</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>nvbuf-memory-type</td>
+<td>组件为输出缓冲区分配的 CUDA 内存类型。<br>0（nvbuf-mem-default，特定于平台的默认值<br>1 (nvbuf-mem-cuda-pinned)：固定/主机 CUDA 内存。<br>2 (nvbuf-mem-cuda-device)：设备 CUDA 内存。<br>3 (nvbuf-mem-cuda-unified)：统一CUDA内存。<br>对于 dGPU：所有值均有效。<br>对于 Jetson：只有 0（零）有效。</td>
+<td>Integer, 0, 1, 2, or 3</td>
+<td>nvbuf-memory-type=3</td>
+<td>dGPU</td>
+</tr>
+<tr>
+<td>attach-sys-ts-as-ntp</td>
+<td>对于实时源，当流式传输 RTSP 时，混合缓冲区（muxed buffer）应将关联的 NvDsFrameMeta-&gt;ntp_timestamp 设置为系统时间或服务器的 NTP 时间。<br>如果设置为 1，系统时间戳将作为 ntp 时间戳附加。<br>如果设置为 0，则将附加来自 rtspsrc 的 ntp 时间戳（如果可用）。</td>
+<td>Boolean</td>
+<td>attach-sys-ts-as-ntp=0</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>config-file-path</td>
+<td>此key仅对新streammux有效。请参阅插件手册“New Gst nvstreammux”部分了解更多信息。mux配置文件的绝对或相对（DS配置文件位置）路径</td>
+<td>String</td>
+<td>config-file-path=config_mux_source30.txt</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>sync-inputs</td>
+<td>在批处理之前对输入帧进行时间同步</td>
+<td>Boolean</td>
+<td>sync-inputs=0 (default)</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>max-latency</td>
+<td>实时模式下的额外延迟，以允许上游花费更长的时间来为当前位置（以纳秒为单位）生成缓冲区</td>
+<td>Integer, ≥0</td>
+<td>max-latency=0 (default)</td>
+<td>dGPU, Jetson</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvstreammux2.html">Gst-nvstreammux New (Beta) — DeepStream 6.0 Release documentation (nvidia.com)</a></li>
+</ul>
+<h6 id="Preprocess-Group">Preprocess Group</h6>
+<p>[pre-process] 组用于在管道中添加 nvdspreprocess 插件。仅支持主 GIE 的预处理</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+<th>Type and Value</th>
+<th>Example</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>Enables or disables the plugin.</td>
+<td>Boolean</td>
+<td>enable=1</td>
+<td>dGPU, Jetson</td>
+</tr>
+<tr>
+<td>config-file</td>
+<td>Configuration file path for nvdspreprocess plugin</td>
+<td>String</td>
+<td>config-file=config_preprocess.txt</td>
+<td>dGPU, Jetson</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvdspreprocess.html">Gst-nvdspreprocess (Alpha) — DeepStream 6.0 Release documentation (nvidia.com)</a></li>
+</ul>
+<h6 id="Primary-GIE-and-Secondary-GIE-Group">Primary GIE and Secondary GIE Group</h6>
+<p>DeepStream应用程序支持多个二级GIE（GPU Inference Engines）。对于每个次要GIE，必须将名为 secondary-gie%d 的单独组添加到配置文件中</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Meaning</th>
+<th>Type and Value</th>
+<th>Example</th>
+<th>Platforms/ GIEs*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enable</td>
+<td>是否必须启用主 GIE</td>
+<td>Boolean</td>
+<td>enable=1</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>gie-unique-id</td>
+<td>要分配给 nvinfer 实例的唯一组件 ID。用于标识实例生成的元数据</td>
+<td>Integer, &gt;0</td>
+<td>gie-unique-id=2</td>
+<td>Both</td>
+</tr>
+<tr>
+<td>gpu-id</td>
+<td>在多个 GPU 的情况下，组件将使用的 GPU</td>
+<td>Integer, ≥0</td>
+<td>gpu-id=1</td>
+<td>dGPU, Both GIEs</td>
+</tr>
+<tr>
+<td>model-engine-file</td>
+<td>模型预生成序列化引擎文件的绝对路径名</td>
+<td>String</td>
+<td>model-engine-file=­…/…/ models/­Primary_Detector/­resnet10. caffemodel_b4_int8.engine</td>
+<td>Both GIEs</td>
+</tr>
+<tr>
+<td>nvbuf-memory-type</td>
+<td>CUDA 内存元素的类型是分配给输出缓冲区。<br>0 (nvbuf-mem-default)：特定于平台的默认值<br>1 (nvbuf-mem-cuda-pinned): pinned/host CUDA 内存<br>2（nvbuf-mem-cuda-device）：设备CUDA内存<br>3（nvbuf-mem-cuda-unified）：统一CUDA内存<br>对于 dGPU：所有值均有效。<br>对于 Jetson：只有 0（零）有效。</td>
+<td>Integer, 0, 1, 2, or 3</td>
+<td>nvbuf-memory-type=3</td>
+<td>dGPU, Jetson Primary GIE</td>
+</tr>
+<tr>
+<td>config-file</td>
+<td>指定 Gst-nvinfer 插件属性的配置文件的路径名。它可能包含此表中描述的任何属性，但配置文件本身除外。属性必须在名为 [property] 的组中定义。有关参数的更多详细信息，请参阅 DeepStream 4.0 插件手册中的“Gst-nvinfer 文件配置规范”。</td>
+<td>String</td>
+<td>config-file=¬/home/-ubuntu/-config_infer_resnet.txt For complete examples, see the sample file samples/¬configs/-deepstream-app/-config_infer_resnet.txt or the deepstream-test2 sample application.</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>batch-size</td>
+<td>在一个批次中要一起推断的帧（P.GIE）/对象（S.GIE）的数量</td>
+<td>Integer, &gt;0 Integer, &gt;0</td>
+<td>batch-size=2</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>interval</td>
+<td>跳过推理的连续批次数</td>
+<td>Integer, &gt;0 Integer, &gt;0</td>
+<td>interval=2</td>
+<td>dGPU, Jetson Primary GIE</td>
+</tr>
+<tr>
+<td>bbox-border-color</td>
+<td>特定类 ID 的对象的边框颜色，以 RGBA 格式指定。key的格式必须为 bbox-border-color<class-id>。可以为多个类 ID 多次标识此属性。如果未为类 ID 标识此属性，则不会为该类 ID 的对象绘制边框。</class-id></td>
+<td>R:G:B:A Float, 0≤R,G,B,A≤1</td>
+<td>bbox-border-color2= 1;0;0;1 (Red for class-id 2)</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>bbox-bg-color</td>
+<td>特定类 ID 的对象上绘制的框的颜色，采用 RGBA 格式。key的格式必须为 bbox-bg-color<class-id>。此属性可以多次用于多个类 ID。如果它不用于类 ID，则不会为该类 ID 的对象绘制框。</class-id></td>
+<td>R:G:B:A Float, 0≤R,G,B,A≤1</td>
+<td>bbox-bg-color3=-0;1;0;0.3 (Semi-transparent green for class-id 3)</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>operate-on-gie-id</td>
+<td>GIE 的唯一 ID，此 GIE 将在其元数据 (NvDsFrameMeta) 上运行</td>
+<td>Integer, &gt;0</td>
+<td>operate-on-gie-id=1</td>
+<td>dGPU, Jetson Secondary GIE</td>
+</tr>
+<tr>
+<td>operate-on-class-ids</td>
+<td>此 GIE 必须在其上运行的父 GIE 的类 ID。使用 operation-on-gie-id 指定父 GIE。</td>
+<td>Semicolon separated integer array</td>
+<td>operate-on-class-ids=1;2 (operate on objects with class IDs 1, 2 generated by parent GIE)</td>
+<td>dGPU, Jetson Secondary GIE</td>
+</tr>
+<tr>
+<td>infer-raw-output-dir</td>
+<td>Pathname of an existing directory in which to dump the raw inference buffer contents in a file.</td>
+<td>String</td>
+<td>infer-raw-output-dir=­/home/­ubuntu/­infer_raw_out</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>labelfile-path</td>
+<td>Pathname of the labelfile.</td>
+<td>String</td>
+<td>labelfile-path=…/…/models/Primary_Detector/labels.txt</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>plugin-type</td>
+<td>Plugin to use for inference. 0: nvinfer (TensorRT) 1: nvinferserver (Triton inference server)</td>
+<td>Integer, 0 or 1</td>
+<td>plugin-type=1</td>
+<td>dGPU, Jetson Both GIEs</td>
+</tr>
+<tr>
+<td>input-tensor-meta</td>
+<td>Use preprocessed input tensors attached as metadata by nvdspreprocess plugin instead of preprocessing inside the nvinfer.</td>
+<td>Integer, 0 or 1</td>
+<td>input-tensor-meta=1</td>
+<td>dGPU, Jetson, Primary GIE</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_plugin_gst-nvinfer.html">Gst-nvinfer — DeepStream 6.0 Release documentation (nvidia.com)</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">spaceman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://nu-ll.github.io/2020/08/20/JetsonNano%E6%8C%87%E5%8D%97/">http://nu-ll.github.io/2020/08/20/JetsonNano指南/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://NU-LL.github.io" target="_blank">spaceman</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JetsonNano/">JetsonNano</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/08/23/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB/"><img class="prev-cover" src="https://gitee.com/NU-LL/image-host/raw/master/139-150515124111.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux常用命令汇总</div></div></a></div><div class="next-post pull-right"><a href="/2020/08/19/%E5%A4%A7%E7%96%86%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%8B%9B%E8%81%98%E6%84%9F%E6%82%9F/"><img class="next-cover" src="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">大疆嵌入式招聘感悟</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/spaceman.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">spaceman</div><div class="author-info__description">CtrlC CtrlV大师</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">91</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/NU-LL"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">白嫖一时爽，一直白嫖一直爽</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">JetsonNano指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%A5%E9%97%A8"><span class="toc-text">一、入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87"><span class="toc-text">1.准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%80%E5%A7%8B"><span class="toc-text">2.开始</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">二、基本环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9B%B4%E6%8D%A2%E5%9B%BD%E5%86%85%E6%BA%90"><span class="toc-text">1.更换国内源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85CUDA"><span class="toc-text">2.安装CUDA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AEpython"><span class="toc-text">3.配置python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85Code-OSS"><span class="toc-text">4.安装Code OSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AE%89%E8%A3%85OPENCV"><span class="toc-text">5.安装OPENCV</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1python%E7%8E%AF%E5%A2%83"><span class="toc-text">5.1python环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2%E6%91%84%E5%83%8F%E5%A4%B4%E8%AF%BB%E5%8F%96"><span class="toc-text">5.2摄像头读取</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CSI%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-text">CSI摄像头</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#USB%E6%91%84%E5%83%8F%E5%A4%B4"><span class="toc-text">USB摄像头</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%AE%89%E8%A3%85VNC%E6%9C%8D%E5%8A%A1"><span class="toc-text">6.安装VNC服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%EF%BC%9A%E6%B0%B4%E6%B5%81%E6%A3%80%E6%B5%8B%E4%BB%A3%E7%A0%81%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">实验：水流检测代码环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91%E5%B9%B6%E5%AE%89%E8%A3%85opencv"><span class="toc-text">手动编译并安装opencv</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E5%88%B0python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-text">链接到python虚拟环境</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pytorch%E5%AE%89%E8%A3%85"><span class="toc-text">pytorch安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-2"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-text">验证</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#torchvision%E5%AE%89%E8%A3%85"><span class="toc-text">torchvision安装</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85FCOS%E7%8E%AF%E5%A2%83"><span class="toc-text">安装FCOS环境</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-text">三、深度学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-jetson-inference%E9%A1%B9%E7%9B%AE"><span class="toc-text">1.jetson-inference项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-text">1.1环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#docker%E6%96%B9%E5%BC%8F"><span class="toc-text">docker方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="toc-text">源码方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2%E6%8E%A8%E7%90%86"><span class="toc-text">1.2推理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1%E5%88%86%E7%B1%BB%EF%BC%88ImageNet%EF%BC%89"><span class="toc-text">1.2.1分类（ImageNet）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2%E6%A3%80%E6%B5%8B%EF%BC%88DetectNet%EF%BC%89"><span class="toc-text">1.2.2检测（DetectNet）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-3%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2%EF%BC%88SegNet%EF%BC%89"><span class="toc-text">1.2.3语义分割（SegNet）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3%E8%AE%AD%E7%BB%83"><span class="toc-text">1.3训练</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-tensorRT-yolov5"><span class="toc-text">2.tensorRT+yolov5</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-PyCUDA%E5%AE%89%E8%A3%85"><span class="toc-text">2.1 PyCUDA安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-cuDNN%E5%AE%89%E8%A3%85"><span class="toc-text">2.2 cuDNN安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-tensorRT%E5%AE%89%E8%A3%85"><span class="toc-text">2.3 tensorRT安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E6%A8%A1%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">2.4 模型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-1-%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%88%E6%9A%82%E6%9C%AA%E9%80%9A%E8%BF%87%EF%BC%89"><span class="toc-text">2.4.1 方案一（暂未通过）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-4-2-%E6%96%B9%E6%A1%88%E4%BA%8C"><span class="toc-text">2.4.2 方案二</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-DeepStream"><span class="toc-text">2.5 DeepStream</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-5-1-deepstream-app-%E9%85%8D%E7%BD%AE"><span class="toc-text">2.5.1 deepstream-app 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Application-Group"><span class="toc-text">Application Group</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Tiled-display-Group"><span class="toc-text">Tiled-display Group</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Source-Group"><span class="toc-text">Source Group</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Streammux-Group"><span class="toc-text">Streammux Group</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Preprocess-Group"><span class="toc-text">Preprocess Group</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Primary-GIE-and-Secondary-GIE-Group"><span class="toc-text">Primary GIE and Secondary GIE Group</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/12/13/python%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%8E%E7%94%9F%E6%88%90%E5%99%A8/" title="python迭代器与生成器">python迭代器与生成器</a><time datetime="2021-12-13T06:28:34.000Z" title="发表于 2021-12-13 14:28:34">2021-12-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/22/Arch%20Linux%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/" title="Arch Linux安装指南">Arch Linux安装指南</a><time datetime="2021-11-22T04:43:24.000Z" title="发表于 2021-11-22 12:43:24">2021-11-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/11/04/Arduino%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9D%BF%E5%8D%A1/" title="Arduino中添加自定义板卡">Arduino中添加自定义板卡</a><time datetime="2021-11-04T10:37:40.000Z" title="发表于 2021-11-04 18:37:40">2021-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/10/06/ESP32%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" title="ESP32环境配置">ESP32环境配置</a><time datetime="2021-10-06T06:54:51.000Z" title="发表于 2021-10-06 14:54:51">2021-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2021/08/03/%E5%85%A8%E5%BF%97F1C200S/" title="全志F1C200S">全志F1C200S</a><time datetime="2021-08-03T09:45:35.000Z" title="发表于 2021-08-03 17:45:35">2021-08-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By spaceman</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><script type="text/javascript" src="https://api.uixsj.cn/hitokoto/w.php?code=js"></script><div id="xsjhitokoto"><script>xsjhitokoto()</script></div> <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tx&color=eee" frameborder="0" allowtransparency="false" align="middle" height="20"></iframe></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")

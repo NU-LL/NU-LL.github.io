@@ -9,8 +9,8 @@ tags:</li>
 </ul>
 <hr>
 <h1>u-boot分析与使用</h1>
-<h2 id="一、Makefile结构分析">一、Makefile结构分析</h2>
-<h3 id="1、make-100ask24x0-config配置芯片类型">1、make 100ask24x0_config配置芯片类型</h3>
+<h2 id="一、Makefile结构分析-3">一、Makefile结构分析</h2>
+<h3 id="1、make-100ask24x0-config配置芯片类型-2">1、make 100ask24x0_config配置芯片类型</h3>
 <p>打开u-boot-1.1.6/Makefile文件，发现：</p>
 <pre><code class="language-makefile">SRCTREE    := $(CURDIR) *CURDIR是make的内嵌变量， 为当前目录
 ......
@@ -25,7 +25,7 @@ MKCONFIG    := $(SRCTREE)/mkconfig
 <pre><code class="language-makefile">mkconfig 100ask24x0 arm arm920t 100ask24x0 NULL s3c24x0
   $0         $1     $2    $3        $4      $5     $6 
 </code></pre>
-<h4 id="mkconfig脚本分析">mkconfig脚本分析</h4>
+<h4 id="mkconfig脚本分析-2">mkconfig脚本分析</h4>
 <p>显然这里是调用的mkconfig，打开当前目录u-boot-1.1.6下的该文件(用的linux_shell语法，可以参考《精通linux_shell编程教程pdf完整版》以及Linux应用开发手册第264页U-Boot配置过程)，在第6行中给出了mkconfig的用法：</p>
 <pre><code class="language-makefile"># Parameters: Target Architecture CPU Board [VENDOR] [SOC]
 </code></pre>
@@ -108,7 +108,7 @@ exit 0
 <pre><code class="language-c">/* Automatically generated - do not edit */
 #include &lt;configs/100ask24x0.h&gt;
 </code></pre>
-<h4 id="mkconfig脚本总结">mkconfig脚本总结</h4>
+<h4 id="mkconfig脚本总结-2">mkconfig脚本总结</h4>
 <ol>
 <li>
 <p>创建相关的头文件链接：</p>
@@ -132,7 +132,7 @@ ln -s proc-armv asm-arm/proc
 </code></pre>
 </li>
 </ol>
-<h3 id="2、make-编译u-boot">2、make 编译u-boot</h3>
+<h3 id="2、make-编译u-boot-2">2、make 编译u-boot</h3>
 <p>u-boot-1.1.6/Makefile文件:</p>
 <pre><code class="language-makefile">include $(OBJTREE)/include/config.mk//调用config.mk这个文件
 ...
@@ -181,7 +181,7 @@ $(obj)u-boot:   depend version $(SUBDIRS) $(OBJS) $(LIBS) $(LDSCRIPT)//生成elf
 <p>开发板有64M的SDRAM，SDRAM从0x3000 0000开始，0x33F80000到SDRAM的结束地址刚好为512k</p>
 </blockquote>
 <p>同时，第一个链接的文件为cpu/arm920t/start.o，若链接脚本中没有明确指定那个文件在代码段（text段）的开头，该文件就是第一个被执行的文件</p>
-<h4 id="链接脚本分析">链接脚本分析</h4>
+<h4 id="链接脚本分析-2">链接脚本分析</h4>
 <pre><code>OUTPUT_ARCH(arm)//设置输出文件的体系架构。
 ENTRY(_start)//将_start这个全局符号设置成入口地址,进行复位初始化
 SECTIONS//输出文件的内容布局
@@ -217,7 +217,7 @@ SECTIONS//输出文件的内容布局
 }
 </code></pre>
 <p>发现第一个文件是<code>cpu/arm920t/start.S</code></p>
-<h2 id="二、start-S——硬件初始化">二、start.S——硬件初始化</h2>
+<h2 id="二、start-S——硬件初始化-2">二、start.S——硬件初始化</h2>
 <ol>
 <li>
 <p>跳到reset处，执行复位函数</p>
@@ -309,7 +309,7 @@ _start_armboot:	.word start_armboot
 </blockquote>
 <p>重定位后的跳转到SDRAM代码应该用<strong>位置有关码</strong>（LDR）来写，以确保可以跳到外部SDRAM中的运行地址去运行</p>
 </blockquote>
-<h2 id="三、start-armboot">三、start_armboot</h2>
+<h2 id="三、start-armboot-2">三、start_armboot</h2>
 <p>该函数会：</p>
 <ol>
 <li>
@@ -333,8 +333,8 @@ for (;;) {
 <p>而main_loop函数的核心在于<code>getenv</code>函数和<code>run_command</code>函数，前者负责从uboot中的环境变量中取出对应的数据，后者负责执行相关的命令</p>
 </li>
 </ol>
-<h2 id="四、u-boot命令实现">四、u-boot命令实现</h2>
-<h3 id="核心机制">核心机制</h3>
+<h2 id="四、u-boot命令实现-2">四、u-boot命令实现</h2>
+<h3 id="核心机制-2">核心机制</h3>
 <ol>
 <li>
 <p>所有命令通过一个结构体进行封装（cmd_tb1_t）</p>
@@ -383,7 +383,7 @@ __u_boot_cmd_end = .;// *u_boot_cmd段结束位置<br>
 );
 </code></pre>
 </blockquote>
-<h2 id="五、启动内核">五、启动内核</h2>
+<h2 id="五、启动内核-2">五、启动内核</h2>
 <p>uboot启动内核是依赖以下两条命令：</p>
 <pre><code class="language-c">s = getenv (&quot;bootcmd&quot;);
 </code></pre>
@@ -403,7 +403,7 @@ bootm 0x30007EC0//从0x30007EC0位置启动内核
 <pre><code>nand read.jffs2 0x30007EC0 0x00060000 0x00200000;//从0x00060000读出0x00200000大小数据放到0x30007EC0位置
 bootm 0x30007EC0//从0x30007EC0位置启动内核
 </code></pre>
-<h3 id="nand命令">nand命令</h3>
+<h3 id="nand命令-2">nand命令</h3>
 <p>通过全局搜索<code>nand</code>可以搜索到其命令函数在<code>common/cmd_nand.c</code>下的do_nand函数，简化后：</p>
 <pre><code class="language-c">int do_nand(cmd_tbl_t * cmdtp, int flag, int argc, char *argv[])
 {
@@ -468,7 +468,7 @@ usage:
 }
 </code></pre>
 <p>最后是调用的<code>nand_read_opts</code>读出的内核</p>
-<h3 id="bootm命令">bootm命令</h3>
+<h3 id="bootm命令-2">bootm命令</h3>
 <p>Flash上储存的是uImage=头部+zImage，其中头部为：</p>
 <pre><code class="language-c">typedef struct image_header {
 	uint32_t	ih_magic;	/* Image Header Magic Number	*/

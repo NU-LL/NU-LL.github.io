@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>基于VSCode搭建ESP-IDF开发环境 | spaceman</title><meta name="keywords" content="IDF"><meta name="author" content="spaceman"><meta name="copyright" content="spaceman"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基于VSCode搭建ESP-IDF开发环境  转载于基于VSCode搭建ESP-IDF开发环境 - 远处有泽细细说 (yuanze.wang)  乐鑫官方提供的VSCode插件Espressif IDF实在是称不上好用。实际上，基于VSCode手动搭建的ESP-IDF的开发环境可以获得与插件几乎相同的使用体验。  安装前的准备工作  ESP-IDF在Windows中仅仅依赖Git与Python3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于VSCode搭建ESP-IDF开发环境">
+<meta property="og:url" content="http://nu-ll.github.io/2022/06/06/%E5%9F%BA%E4%BA%8EVSCode%E6%90%AD%E5%BB%BAESP-IDF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="spaceman">
+<meta property="og:description" content="基于VSCode搭建ESP-IDF开发环境  转载于基于VSCode搭建ESP-IDF开发环境 - 远处有泽细细说 (yuanze.wang)  乐鑫官方提供的VSCode插件Espressif IDF实在是称不上好用。实际上，基于VSCode手动搭建的ESP-IDF的开发环境可以获得与插件几乎相同的使用体验。  安装前的准备工作  ESP-IDF在Windows中仅仅依赖Git与Python3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/NU-LL/image-host/raw/master/12.jpg">
+<meta property="article:published_time" content="2022-06-06T06:27:54.000Z">
+<meta property="article:modified_time" content="2022-06-06T08:37:06.267Z">
+<meta property="article:author" content="spaceman">
+<meta property="article:tag" content="IDF">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/NU-LL/image-host/raw/master/12.jpg"><link rel="shortcut icon" href="/img/favicon.jpg"><link rel="canonical" href="http://nu-ll.github.io/2022/06/06/%E5%9F%BA%E4%BA%8EVSCode%E6%90%AD%E5%BB%BAESP-IDF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '基于VSCode搭建ESP-IDF开发环境',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-06 16:37:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/spaceman.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">97</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/NU-LL/image-host/raw/master/12.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">spaceman</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/todo/"><i class="fa-fw fas fa-list"></i><span> 清单</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">基于VSCode搭建ESP-IDF开发环境</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-06T06:27:54.000Z" title="发表于 2022-06-06 14:27:54">2022-06-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-06-06T08:37:06.267Z" title="更新于 2022-06-06 16:37:06">2022-06-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MCU/">MCU</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="基于VSCode搭建ESP-IDF开发环境"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="基于vscode搭建esp-idf开发环境"><a class="markdownIt-Anchor" href="#基于vscode搭建esp-idf开发环境"></a> 基于VSCode搭建ESP-IDF开发环境</h1>
+<blockquote>
+<p>转载于<a target="_blank" rel="noopener" href="https://yuanze.wang/posts/esp-idf-vscode-tutorial/">基于VSCode搭建ESP-IDF开发环境 - 远处有泽细细说 (yuanze.wang)</a></p>
+</blockquote>
+<p>乐鑫官方提供的VSCode插件<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension">Espressif IDF</a>实在是称不上好用。实际上，基于VSCode手动搭建的ESP-IDF的开发环境可以获得与插件几乎相同的使用体验。</p>
+<h2 id="安装前的准备工作"><a class="markdownIt-Anchor" href="#安装前的准备工作"></a> 安装前的准备工作</h2>
+<ul>
+<li><code>ESP-IDF</code>在Windows中仅仅依赖<code>Git</code>与<code>Python3</code>，其他如工具链、<code>Cmake</code>等工具，<code>ESP-IDF</code>均会自行安装并使用自己的版本。因此，在开始一切之前，请先下载<a target="_blank" rel="noopener" href="https://git-scm.com/download">Git</a>与<a target="_blank" rel="noopener" href="https://www.python.org/downloads/">Python3</a>，直接选择最新版本即可。</li>
+<li>若您未安装<code>Visual Studio Code</code>，请前往<a target="_blank" rel="noopener" href="https://code.visualstudio.com/">微软官网进行下载</a>并安装。同时，请在VSCode中安装<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++插件</a>。</li>
+<li>在开始之前，强烈建议您同时安装<a target="_blank" rel="noopener" href="https://github.com/microsoft/terminal">Windows Terminal</a>以提升使用<code>PowerShell</code>终端的体验。</li>
+</ul>
+<h2 id="获取esp-idf"><a class="markdownIt-Anchor" href="#获取esp-idf"></a> 获取ESP-IDF</h2>
+<h3 id="使用git在线获取"><a class="markdownIt-Anchor" href="#使用git在线获取"></a> 使用Git在线获取</h3>
+<p><code>ESP-IDF</code>可以在乐鑫官方的<a target="_blank" rel="noopener" href="https://github.com/espressif/esp-idf">GitHub仓库</a>中获取。对于非尝鲜的场景，强烈建议切换到一个<code>release</code>分支，而不是使用尚未稳定的<code>master</code>分支。在本文中，假定ESP-IDF的安装路径为<code>D:\Programs\esp-idf</code>，版本为<code>v4.3</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive -b release/v4.3 https://github.com/espressif/esp-idf.git </span><br></pre></td></tr></table></figure>
+<h3 id="使用离线安装包安装"><a class="markdownIt-Anchor" href="#使用离线安装包安装"></a> 使用离线安装包安装</h3>
+<p>除了使用<code>Git</code>获取<code>ESP-IDF</code>之外，还可以使用官方提供的离线安装包来安装，方法请参照<a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/zh_CN/v4.4/esp32/get-started/windows-setup.html#esp-idf">官方教程</a>，此处不再赘述。若非特殊情况，仍建议使用<code>Git</code>获取，可以免去许多麻烦。</p>
+<h2 id="配置esp-idf"><a class="markdownIt-Anchor" href="#配置esp-idf"></a> 配置ESP-IDF</h2>
+<h3 id="更改工具安装路径"><a class="markdownIt-Anchor" href="#更改工具安装路径"></a> 更改工具安装路径</h3>
+<p>除了ESP-IDF源码本身之外，为了配置及编译工程，还需要安装工具链等工具，安装这些工具的脚本已经包含在了ESP-IDF仓库中。这些工具默认将安装在用户文件夹（<code>C:\Users\%USERNAME%\</code>）下的<code>.espressif</code>目录中，需要占用超过<code>2GB</code>的空间。</p>
+<p>若不希望在系统盘存放它们，可以在运行安装脚本之前，设置环境变量<code>IDF_TOOLS_PATH</code>为存放工具的目录。</p>
+<blockquote>
+<p><strong>设置环境变量</strong>：</p>
+<p>在系统设置中设置环境变量的操作请自行搜索，在此不再赘述。</p>
+<p>除此之外，也可以通过修改PowerShell的<code>profile.ps1</code>文件来达到仅在PowerShell内对环境变量进行修改的效果。该文件的作用类似于Linux下的<code>.bashrc</code>文件，其中的命令将在每次PowerShell启动时被执行。</p>
+<p><code>profile.ps1</code>文件在用户文件夹的<code>文档\WindowsPowerShell</code>目录中，完整路径为<code>C:\Users\%USERNAME%\Documents\WindowsPowerShell\profile.ps1</code>。若<code>WindowsPowerShell</code>目录以及<code>profile.ps1</code>不存在，请手动创建它们。</p>
+<p><code>powershell</code>中设置环境变量的命令为<code>$env:NAME=VALUE</code>。例如，若要将存放ESP-IDF工具的目录设置为<code>D:\Programs\esp-tools</code>，可以向<code>profile.ps1</code>中加入此命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:IDF_TOOLS_PATH</span>=<span class="string">&quot;D:\Programs\esp-tools&quot;</span> </span><br></pre></td></tr></table></figure>
+<p><strong>更改ccache缓存路径</strong>：</p>
+<p>除此之外，<code>ESP-IDF</code>还会使用<code>ccache</code>来进行编译缓存以提升重新编译的速度。<code>ccache</code>缓存的默认路径同样在系统盘中，若希望将缓存路径更改外其他目录，可以在上述环境变量的基础上，新增<code>CCACHE_DIR</code>环境变量，指向新的<code>ccache</code>缓存路径。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:CCACHE_DIR</span>=<span class="string">&quot;D:\Programs\ccache&quot;</span> </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="安装工具"><a class="markdownIt-Anchor" href="#安装工具"></a> 安装工具</h3>
+<p>在配置好环境变量后，进入存放ESP-IDF的路径，打开PowerShell并执行<code>install.ps1</code>即可进行工具的下载与安装。</p>
+<blockquote>
+<p><strong>可能遇到的问题</strong></p>
+<ul>
+<li>若执行<code>install.ps1</code>时只有<code>Installing ESP-IDF tools</code>的提示而没有安装动作，请检查<code>Git</code>与<code>Python3</code>的安装。</li>
+<li>若执行<code>install.ps1</code>时提示“在此系统上禁止运行脚本”，则需要在设置-更新和安全-开发者选项中允许脚本执行。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://img.yuanze.wang/posts/esp-idf-vscode-tutorial/allow-powershell-scripts.png"><img src="/2022/06/06/%E5%9F%BA%E4%BA%8EVSCode%E6%90%AD%E5%BB%BAESP-IDF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/allow-powershell-scripts.png" alt="允许脚本执行"></a></p>
+</blockquote>
+<h3 id="配置环境并编译例程"><a class="markdownIt-Anchor" href="#配置环境并编译例程"></a> 配置环境并编译例程</h3>
+<p>安装完毕后，还需要设置编译工程的环境，ESP-IDF同样使用脚本来完成这一操作。在PowerShell中执行ESP-IDF目录下的<code>export.ps1</code>即可自动配置编译环境。</p>
+<p><a target="_blank" rel="noopener" href="https://img.yuanze.wang/posts/esp-idf-vscode-tutorial/export-success.jpg"><img src="/2022/06/06/%E5%9F%BA%E4%BA%8EVSCode%E6%90%AD%E5%BB%BAESP-IDF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/export-success.jpg" alt="环境配置成功"></a></p>
+<p>配置完成后，在这个终端窗口内就可以编译ESP-IDF的工程了。尝试一下编译<code>hello_world</code>例程，是不是可以编译成功呢？</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd examples\get-started\hello_world</span><br><span class="line">idf.py build </span><br></pre></td></tr></table></figure>
+<h3 id="快速配置环境"><a class="markdownIt-Anchor" href="#快速配置环境"></a> 快速配置环境</h3>
+<p>在编译时，每次重新打开PowerShell都需要进入<code>ESP-IDF</code>的安装路径执行<code>export.ps1</code>来配置编译环境。为了简化操作，可以将执行脚本的命令的别名添加到前述的<code>profile.ps1</code>中，快速执行<code>profile.ps1</code>来配置环境变量并使用此变量来配置编译环境。</p>
+<p>下面提供了一个示例，在<code>profile.ps1</code>中添加下述指令后，对于新打开的PowerShell窗口，只需执行<code>idf32</code>即可快速配置好环境。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-Alias</span> <span class="literal">-Name</span> idf32 <span class="literal">-Value</span> D:\Programs\esp<span class="literal">-idf</span>\export.ps1 </span><br></pre></td></tr></table></figure>
+<h2 id="在vscode中开发"><a class="markdownIt-Anchor" href="#在vscode中开发"></a> 在VSCode中开发</h2>
+<p>上述操作完毕后，<code>ESP-IDF</code>就已经安装完毕了。接下来，在VSCode中打开项目文件夹，此处仍以<code>esp-idf\examples\get-started\hello_world</code>工程为例。</p>
+<h3 id="在vscode内打开powershell"><a class="markdownIt-Anchor" href="#在vscode内打开powershell"></a> 在VSCode内打开Powershell</h3>
+<p>按Ctrl+<code>打开VSCode中的终端，此时终端会切换到当前项目的目录中。请检查终端是否为</code>Powershell`，若不是，请在右上角切换。</p>
+<h3 id="编译工程"><a class="markdownIt-Anchor" href="#编译工程"></a> 编译工程</h3>
+<p>在配置之前，首先需要对工程进行一次编译。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">idf32</span><br><span class="line">idf.py build</span><br></pre></td></tr></table></figure>
+<p>编译完毕后，编译器会自动在<code>build</code>路径下生成编译指令文件，该文件中包含了工程所有的头文件信息，C/C++插件可以使用这个文件中的信息来配置代码高亮及跳转功能。</p>
+<blockquote>
+<p><strong>技巧</strong>：</p>
+<p>此文件在<code>CMake</code>配置阶段生成，只要工程的<code>CMakeLists.txt</code>无误便可以完成配置。即使工程编译失败，该文件也可以被正确的创建。</p>
+</blockquote>
+<h3 id="配置c语言插件自动补全"><a class="markdownIt-Anchor" href="#配置c语言插件自动补全"></a> 配置C语言插件自动补全</h3>
+<p>编译指令文件生成之后，打开任意一个C语言文件，稍等一会右下角便会弹出</p>
+<blockquote>
+<p>是否要使用compile_commands.json文件为此文件夹自动配置IntelliSense？</p>
+</blockquote>
+<p>的提示，选是即可。之后，VSCode会弹出选项，询问要使用哪一个<code>compile_commands.json</code>文件来配置包含路径，请选择<code>build/compile_commands.json</code>，该文件为用户app的编译指令文件，另一个则为<code>bootloader</code>的编译指令文件。</p>
+<p><a target="_blank" rel="noopener" href="https://img.yuanze.wang/posts/esp-idf-vscode-tutorial/configure-compile-commands.jpg"><img src="/2022/06/06/%E5%9F%BA%E4%BA%8EVSCode%E6%90%AD%E5%BB%BAESP-IDF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/configure-compile-commands.jpg" alt="使用编译指令文件自动配置包含路径"></a></p>
+<p>配置完成编译指令文件后，可以发现还有一些代码出现了红色波浪线。这是因为除了IDF的包含路径之外，一些C语言的标准库，例如<code>printf</code>函数等，是随着编译器同时分发的，还需要配置编译器的路径才能让C/C++插件找到这些标准库的头文件。</p>
+<p>点击VSCode右下角的<code>C/C++配置</code>按钮（默认状态显示的是Win32），选择编辑配置（UI），进入<code>IntelliSense配置</code>菜单。在编译器菜单中，输入编译器可执行文件的路径即可。</p>
+<p>需要注意的是，编译器的路径需要根据所使用的芯片型号对应的编译器路径进行更改。对于<code>ESP32</code>来说，其编译器可执行文件为ESP-IDF工具路径下的<code>tools\xtensa-esp32-elf\esp-2021r2-8.4.0\xtensa-esp32-elf\bin\xtensa-esp32-elf-gcc.exe</code>。将该路径中的反斜杠<code>\</code>全部更改为正斜杠<code>/</code>或双反斜杠<code>\\</code>后，复制到VSCode设置项的输入框即可。</p>
+<p>对于ESP32其他系列的芯片如ESP32-C3，请将编译器路径更改为对应芯片的编译器的路径。</p>
+<h3 id="快速配置新的工程"><a class="markdownIt-Anchor" href="#快速配置新的工程"></a> 快速配置新的工程</h3>
+<p>对于ESP32其他系列的芯片如ESP32-C3，请将编译器路径更改为对应芯片的编译器的路径。</p>
+<p>配置完成后，在不更改编译器的安装路径的前提下，只需要复制工程路径下<code>.vscode\c_cpp_properties.json</code>文件到新的工程根目录中的对应位置，便可以自动完成上述配置。</p>
+<p>下面提供一个已经配置完毕的<code>c_cpp_properties.json</code>文件，只需要更改编译器路径<code>compilerPath</code>并放置到<code>.vscode\</code>下即可直接被VSCode读取，免去前述的配置步骤。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ESP32&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c11&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;D:/Programs/esp-tools/tools/xtensa-esp32-elf/esp-2021r2-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc.exe&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;compileCommands&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$&#123;workspaceFolder&#125;/build/compile_commands.json&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="实用操作"><a class="markdownIt-Anchor" href="#实用操作"></a> 实用操作</h2>
+<p>完全配置完毕后，便得到了一个可以开发ESP32项目的VSCode环境。只要使用VSCode打开项目文件夹，便可以使用代码高亮以及代码补全功能，并且在嵌入式终端中可以使用完整的<code>idf.py</code>工具。</p>
+<h3 id="idfpy工具使用技巧"><a class="markdownIt-Anchor" href="#idfpy工具使用技巧"></a> idf.py工具使用技巧</h3>
+<p><code>idf.py</code>工具的指令支持同时输入多个，若输入多个指令，<code>idf.py</code>将会按照正确的顺序执行它们。对于一个新打开的工程，可以使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idf.py -b 921600 flash monitor </span><br></pre></td></tr></table></figure>
+<p>来启动<code>idf.py</code>工具，此时该工具将会编译并使用<code>921600</code>波特率烧录，在烧录完毕后会自动启动串口监视器。按下<code>Ctrl+]</code>可以退出监视器。</p>
+<p>在终端中监视器保持打开的时候，若对代码做出了编辑，可以保存代码后，在终端窗口中按下<code>Ctrl+T</code>激活菜单后，再按<code>Ctrl+A</code>一键重新编译、重新烧录app并继续进行串口监视，也可以按下<code>Ctrl+R</code>来复位芯片。</p>
+<p><a target="_blank" rel="noopener" href="https://img.yuanze.wang/posts/esp-idf-vscode-tutorial/develop-esp32-in-vsode.jpg"><img src="/2022/06/06/%E5%9F%BA%E4%BA%8EVSCode%E6%90%AD%E5%BB%BAESP-IDF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/develop-esp32-in-vsode.jpg" alt="在VSCode中进行ESP32开发"></a></p>
+<blockquote>
+<p><strong>在VSCode内置终端中运行menuconfig</strong></p>
+<p>若需要在VSCode内置终端中运行menuconfig，则需要注意由于VSCode默认的按键映射的问题，方向键在menuconfig中是失效的，只能使用<code>vim</code>风格的<code>H/J/K/L</code>键来进行<code>←/↓/↑/→</code>的导航操作。</p>
+</blockquote>
+<h3 id="更新esp-idf"><a class="markdownIt-Anchor" href="#更新esp-idf"></a> 更新ESP-IDF</h3>
+<p>若想更新<code>ESP-IDF</code>，进入安装路径，打开<code>Git Bash</code>，执行下述操作即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br><span class="line">git submodule update --recursive</span><br></pre></td></tr></table></figure>
+<p>更新完成后，在编译工程前，请先完整清理工程。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idf.py fullclean build</span><br></pre></td></tr></table></figure>
+<h2 id="进阶添加esp-adf支持"><a class="markdownIt-Anchor" href="#进阶添加esp-adf支持"></a> 进阶：添加ESP-ADF支持</h2>
+<p>ESP-ADF是作为ESP-IDF的扩充包发行的。按照前文配置好ESP-IDF并获取ESP-ADF后，只需要将<code>ADF_PATH</code>加入环境变量中即可使用ESP-ADF提供的扩充功能。</p>
+<p>此处使用PowerShell的profile文件来添加环境变量，完整配置后的<code>profile.ps1</code>文件内容如下。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:IDF_TOOLS_PATH</span>=<span class="string">&quot;D:\Programs\esp-tools&quot;</span></span><br><span class="line"><span class="variable">$env:ADF_PATH</span>=<span class="string">&quot;D:\Programs\esp-adf&quot;</span></span><br><span class="line">D:\Programs\esp<span class="literal">-idf</span>\export.ps1 </span><br></pre></td></tr></table></figure>
+<h2 id="附录网络访问问题"><a class="markdownIt-Anchor" href="#附录网络访问问题"></a> 附录：网络访问问题</h2>
+<p>由于众所周知的原因，在中国大陆地区访问<code>Github</code>以及下载工具会比较困难。若您在本地已经设置好了网络代理工具，可以在<code>Powershell</code>终端中执行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$env:HTTPS_PROXY</span>=<span class="string">&quot;http://127.0.0.1:7890&quot;</span> </span><br></pre></td></tr></table></figure>
+<p>来应用它。此处的端口号<code>7890</code>请根据您的代理工具的实际端口进行更改</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/IDF/">IDF</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/NU-LL/image-host/raw/master/12.jpg" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/06/05/JetsonXavierNX%E6%91%84%E5%83%8F%E5%A4%B4%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/"><img class="next-cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JetsonXavierNX摄像头驱动开发指南</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/spaceman.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">spaceman</div><div class="author-info__description">CtrlC CtrlV大师</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">94</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">97</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/NU-LL"><i class="fab fa-github"></i><span>Github</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">白嫖一时爽，一直白嫖一直爽</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8Evscode%E6%90%AD%E5%BB%BAesp-idf%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text"> 基于VSCode搭建ESP-IDF开发环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text"> 安装前的准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96esp-idf"><span class="toc-text"> 获取ESP-IDF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8git%E5%9C%A8%E7%BA%BF%E8%8E%B7%E5%8F%96"><span class="toc-text"> 使用Git在线获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85%E5%AE%89%E8%A3%85"><span class="toc-text"> 使用离线安装包安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEesp-idf"><span class="toc-text"> 配置ESP-IDF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84"><span class="toc-text"> 更改工具安装路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7"><span class="toc-text"> 安装工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%B9%B6%E7%BC%96%E8%AF%91%E4%BE%8B%E7%A8%8B"><span class="toc-text"> 配置环境并编译例程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83"><span class="toc-text"> 快速配置环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8vscode%E4%B8%AD%E5%BC%80%E5%8F%91"><span class="toc-text"> 在VSCode中开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8vscode%E5%86%85%E6%89%93%E5%BC%80powershell"><span class="toc-text"> 在VSCode内打开Powershell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%B7%A5%E7%A8%8B"><span class="toc-text"> 编译工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEc%E8%AF%AD%E8%A8%80%E6%8F%92%E4%BB%B6%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-text"> 配置C语言插件自动补全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E9%85%8D%E7%BD%AE%E6%96%B0%E7%9A%84%E5%B7%A5%E7%A8%8B"><span class="toc-text"> 快速配置新的工程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-text"> 实用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#idfpy%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-text"> idf.py工具使用技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0esp-idf"><span class="toc-text"> 更新ESP-IDF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E6%B7%BB%E5%8A%A0esp-adf%E6%94%AF%E6%8C%81"><span class="toc-text"> 进阶：添加ESP-ADF支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98"><span class="toc-text"> 附录：网络访问问题</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/06/06/%E5%9F%BA%E4%BA%8EVSCode%E6%90%AD%E5%BB%BAESP-IDF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" title="基于VSCode搭建ESP-IDF开发环境">基于VSCode搭建ESP-IDF开发环境</a><time datetime="2022-06-06T06:27:54.000Z" title="发表于 2022-06-06 14:27:54">2022-06-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/06/05/JetsonXavierNX%E6%91%84%E5%83%8F%E5%A4%B4%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/" title="JetsonXavierNX摄像头驱动开发指南">JetsonXavierNX摄像头驱动开发指南</a><time datetime="2022-06-05T11:50:25.000Z" title="发表于 2022-06-05 19:50:25">2022-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/06/05/ESP32%E5%BC%95%E8%84%9A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="ESP32引脚使用注意事项">ESP32引脚使用注意事项</a><time datetime="2022-06-05T03:29:55.000Z" title="发表于 2022-06-05 11:29:55">2022-06-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/06/04/ESP8266%E5%BC%95%E8%84%9A%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="ESP8266引脚使用注意事项">ESP8266引脚使用注意事项</a><time datetime="2022-06-04T15:41:25.000Z" title="发表于 2022-06-04 23:41:25">2022-06-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/05/12/JetsonNano%20Multimedia%20API%E5%B7%A5%E7%A8%8B%E6%90%AD%E5%BB%BA%E5%8F%8A%E7%BC%96%E8%AF%91/" title="JetsonNano Multimedia API工程搭建及编译">JetsonNano Multimedia API工程搭建及编译</a><time datetime="2022-05-12T12:46:23.000Z" title="发表于 2022-05-12 20:46:23">2022-05-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By spaceman</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><script type="text/javascript" src="https://api.uixsj.cn/hitokoto/w.php?code=js"></script><div id="xsjhitokoto"><script>xsjhitokoto()</script></div> <iframe scrolling="no" src="https://tianqiapi.com/api.php?style=tx&color=eee" frameborder="0" allowtransparency="false" align="middle" height="20"></iframe></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法治,爱国,敬业,诚信,友善" data-fontsize="15px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
